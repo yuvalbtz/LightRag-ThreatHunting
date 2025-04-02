@@ -11,6 +11,7 @@ PROMPTS["DEFAULT_RECORD_DELIMITER"] = "##"
 PROMPTS["DEFAULT_COMPLETION_DELIMITER"] = "<|COMPLETE|>"
 
 PROMPTS["DEFAULT_ENTITY_TYPES"] = ["organization", "person", "geo", "event", "category"]
+# PROMPTS["DEFAULT_ENTITY_TYPES"] = ["Web_service", "Category", "Label", "Protocol", "Flow ID"]
 
 PROMPTS["entity_extraction"] = """---Goal---
 Given a text document that is potentially relevant to this activity and a list of entity types, identify all entities of those types from the text and all relationships among the identified entities.
