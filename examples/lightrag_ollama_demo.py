@@ -36,89 +36,68 @@ async def csv_to_json_list(file_path: str) -> List[Dict[str, Any]]:
 
 
 
-async def convert_to_custom_kg(flows: List[Dict[str, Any]]) -> Dict[str, Any]:
-    """
-    Converts a list of network flow data into a structured custom knowledge graph, preparing it for embedding and use in a retrieval-augmented generation (RAG) system.
-    """
-    custom_kg = {"entities": [], "relationships": [], "chunks": []}
-    entities_dict = {}
+async def convert_to_custom_kg(flows: List[Dict[str, Any]], rag: LightRAG) -> Dict[str, Any]:
+    custom_kg = {"entities": [], "relationships": []}
 
-    for index, flow in enumerate(flows):
+    # Sets to track unique entities and relationships by their identifiers (to prevent duplicates)
+    existing_entities = set()
+    existing_relationships = set()
+
+    for flow in flows:
         flow_id = flow["Flow ID"]
-        timestamp = flow["Timestamp"]
         source_id = f"flow-{flow_id}"
-        
-        # Extract essential flow details
-        src_ip, dst_ip = flow["Src IP"], flow["Dst IP"]
-        src_port, dst_port = flow["Src Port"], flow["Dst Port"]
-        protocol = flow["Protocol"]
-        flow_duration = flow["Flow Duration"]
-        label = flow.get("Label", "Unknown")
-        category = flow.get("Category", "N/A")
-        app_protocol = flow.get("App_protocol", "N/A")
-        web_service = flow.get("Web_service", "Unknown")
 
-        # Create content chunk for the flow summary
-        content = (
-            f"Flow ID: {flow_id} from {src_ip}:{src_port} to {dst_ip}:{dst_port} "
-            f"using protocol {protocol} at {timestamp}. Duration: {flow_duration} ms."
-        )
-        custom_kg["chunks"].append({
-            "content": content, 
-            "source_id": source_id, 
-            "source_chunk_index": index
-        })
+        src_ip = flow["Src IP"]
+        dst_ip = flow["Dst IP"]
+        src_port = str(flow["Src Port"])
+        dst_port = str(flow["Dst Port"])
+        protocol = str(flow["Protocol"])
+        flow_name = f"{src_ip} to {dst_ip}"
 
-        # Function to create or get an existing entity
-        def get_or_create_entity(ip: str, entity_type: str, description: str) -> Dict[str, Any]:
-            if ip not in entities_dict:
-                entities_dict[ip] = {
-                    "entity_name": ip,
-                    "entity_type": entity_type,
-                    "description": description,
-                    "source_id": source_id,
-                }
-                custom_kg["entities"].append(entities_dict[ip])
-            return entities_dict[ip]
+        # === ENTITIES ===
+        entities = [
+            (src_ip, {"entity_type": "IP", "description": "Source IP address", "source_id": source_id}),
+            (dst_ip, {"entity_type": "IP", "description": "Destination IP address", "source_id": source_id}),
+            (src_port, {"entity_type": "Port", "description": "Source Port", "source_id": source_id}),
+            (dst_port, {"entity_type": "Port", "description": "Destination Port", "source_id": source_id}),
+            (f"Protocol {protocol}", {"entity_type": "Protocol", "description": "TCP" if protocol == "6" else "UDP", "source_id": source_id}),
+            (flow_name, {"entity_type": "Flow", "description": "Represents a communication flow", "source_id": source_id}),
+        ]
 
-        # Create entities for source and destination IPs
-        src_entity = get_or_create_entity(src_ip, "IP Address", f"{src_ip} is the source of the data flow.")
-        dst_entity = get_or_create_entity(dst_ip, "IP Address", f"{dst_ip} is the destination of the data flow.")
+        for name, data in entities:
+            try:
+                # Skip if the entity already exists (based on name)
+                if name not in existing_entities:
+                    # Await the get_entity_info method
+                    if await rag.get_entity_info(name):  # Await the coroutine
+                        rag.create_entity(name, data)  # Await the coroutine
+                        print(f"[Success] entity '{name}' was created.")
+                        custom_kg["entities"].append({"entity_name": name, **data})
+                        existing_entities.add(name)  # Add to the set to track it
+            except Exception as e:
+                print(f"[Warning] Failed to create entity '{name}': {e}")
 
-        # Convert keywords list to a structured string
-        keywords_str = f"flow-{flow_id}, src-{src_ip}, dst-{dst_ip}, protocol-{protocol}, app-{app_protocol}, service-{web_service}"
+        # === RELATIONSHIPS ===
+        relationships = [
+            (src_ip, dst_ip, {"description": f"{src_ip} communicates with {dst_ip}", "keywords": "network, communication", "weight": 1.0, "source_id": source_id}),
+            (src_ip, src_port, {"description": f"{src_ip} uses port {src_port}", "keywords": "source, port", "weight": 0.9, "source_id": source_id}),
+            (dst_ip, dst_port, {"description": f"{dst_ip} uses port {dst_port}", "keywords": "destination, port", "weight": 0.9, "source_id": source_id}),
+            (flow_name, f"Protocol {protocol}", {"description": f"Flow uses protocol {protocol}", "keywords": "protocol", "weight": 1.0, "source_id": source_id}),
+        ]
 
-        # Create relationship between source and destination IPs
-        relationship = {
-            "relationship_id": f"{src_ip}->{dst_ip}-{flow_id}",
-            "src_id": src_ip,
-            "tgt_id": dst_ip,
-            "src_entity": src_entity,
-            "tgt_entity": dst_entity,
-            "description": (
-                f"Data flow from {src_ip}:{src_port} to {dst_ip}:{dst_port} "
-                f"using protocol {protocol} at {timestamp}."
-            ),
-            "keywords": keywords_str,
-            "weight": 1.0,
-            "source_id": source_id,
-        }
+        for src, tgt, data in relationships:
+            try:
+                # Skip if the relationship already exists (based on source and target)
+                if (src, tgt) not in existing_relationships:
+                    # Await the get_relation_info method
+                    if await rag.get_relation_info(src, tgt):  # Await the coroutine
+                        rag.create_relation(src, tgt, data)  # Await the coroutine
+                        print(f"[Success] relation '{src} -> {tgt}' was created.")
+                        custom_kg["relationships"].append({"src_id": src, "tgt_id": tgt, **data})
+                        existing_relationships.add((src, tgt))  # Add to the set to track it
+            except Exception as e:
+                print(f"[Warning] Failed to create relation '{src} -> {tgt}': {e}")
 
-        # Add relationship to custom_kg
-        custom_kg["relationships"].append(relationship)
-
-        # Create additional structured chunks for the relationship (as text for future retrieval)
-        relationship_content = (
-            f"Relationship: Data flow from {src_ip}:{src_port} to {dst_ip}:{dst_port} "
-            f"using protocol {protocol} at {timestamp}. Keywords: {keywords_str}."
-        )
-        custom_kg["chunks"].append({
-            "content": relationship_content,
-            "source_id": source_id,
-            "source_chunk_index": index
-        })
-
-    # Optional: Return the custom knowledge graph in the structure needed for retrieval-augmented generation (RAG)
     return custom_kg
 
 
@@ -418,99 +397,99 @@ async def read_json_file(file_path: str) -> List[Dict[str, Any]]:
 # }
 
 
-custom_kg = {
-    "entities": [
-        {
-            "entity_name": "CompanyA",
-            "entity_type": "Organization",
-            "description": "A major technology company",
-            "source_id": "Source1",
-        },
-        {
-            "entity_name": "ProductX",
-            "entity_type": "Product",
-            "description": "A popular product developed by CompanyA",
-            "source_id": "Source1",
-        },
-        {
-            "entity_name": "PersonA",
-            "entity_type": "Person",
-            "description": "A renowned researcher in AI",
-            "source_id": "Source2",
-        },
-        {
-            "entity_name": "UniversityB",
-            "entity_type": "Organization",
-            "description": "A leading university specializing in technology and sciences",
-            "source_id": "Source2",
-        },
-        {
-            "entity_name": "CityC",
-            "entity_type": "Location",
-            "description": "A large metropolitan city known for its culture and economy",
-            "source_id": "Source3",
-        },
-        {
-            "entity_name": "EventY",
-            "entity_type": "Event",
-            "description": "An annual technology conference held in CityC",
-            "source_id": "Source3",
-        },
-    ],
-    "relationships": [
-        {
-            "src_id": "CompanyA",
-            "tgt_id": "ProductX",
-            "description": "CompanyA develops ProductX",
-            "keywords": "develop, produce",
-            "weight": 1.0,
-            "source_id": "Source1",
-        },
-        {
-            "src_id": "PersonA",
-            "tgt_id": "UniversityB",
-            "description": "PersonA works at UniversityB",
-            "keywords": "employment, affiliation",
-            "weight": 0.9,
-            "source_id": "Source2",
-        },
-        {
-            "src_id": "CityC",
-            "tgt_id": "EventY",
-            "description": "EventY is hosted in CityC",
-            "keywords": "host, location",
-            "weight": 0.8,
-            "source_id": "Source3",
-        },
-    ],
-    "chunks": [
-        {
-            "content": "ProductX, developed by CompanyA, has revolutionized the market with its cutting-edge features.",
-            "source_id": "Source1",
-            "source_chunk_index": 0,
-        },
-        {
-            "content": "One outstanding feature of ProductX is its advanced AI capabilities.",
-            "source_id": "Source1",
-            "chunk_order_index": 1,
-        },
-        {
-            "content": "PersonA is a prominent researcher at UniversityB, focusing on artificial intelligence and machine learning.",
-            "source_id": "Source2",
-            "source_chunk_index": 0,
-        },
-        {
-            "content": "EventY, held in CityC, attracts technology enthusiasts and companies from around the globe.",
-            "source_id": "Source3",
-            "source_chunk_index": 0,
-        },
-        {
-            "content": "None",
-            "source_id": "UNKNOWN",
-            "source_chunk_index": 0,
-        },
-    ],
-}
+# custom_kg = {
+#     "entities": [
+#         {
+#             "entity_name": "CompanyA",
+#             "entity_type": "Organization",
+#             "description": "A major technology company",
+#             "source_id": "Source1",
+#         },
+#         {
+#             "entity_name": "ProductX",
+#             "entity_type": "Product",
+#             "description": "A popular product developed by CompanyA",
+#             "source_id": "Source1",
+#         },
+#         {
+#             "entity_name": "PersonA",
+#             "entity_type": "Person",
+#             "description": "A renowned researcher in AI",
+#             "source_id": "Source2",
+#         },
+#         {
+#             "entity_name": "UniversityB",
+#             "entity_type": "Organization",
+#             "description": "A leading university specializing in technology and sciences",
+#             "source_id": "Source2",
+#         },
+#         {
+#             "entity_name": "CityC",
+#             "entity_type": "Location",
+#             "description": "A large metropolitan city known for its culture and economy",
+#             "source_id": "Source3",
+#         },
+#         {
+#             "entity_name": "EventY",
+#             "entity_type": "Event",
+#             "description": "An annual technology conference held in CityC",
+#             "source_id": "Source3",
+#         },
+#     ],
+#     "relationships": [
+#         {
+#             "src_id": "CompanyA",
+#             "tgt_id": "ProductX",
+#             "description": "CompanyA develops ProductX",
+#             "keywords": "develop, produce",
+#             "weight": 1.0,
+#             "source_id": "Source1",
+#         },
+#         {
+#             "src_id": "PersonA",
+#             "tgt_id": "UniversityB",
+#             "description": "PersonA works at UniversityB",
+#             "keywords": "employment, affiliation",
+#             "weight": 0.9,
+#             "source_id": "Source2",
+#         },
+#         {
+#             "src_id": "CityC",
+#             "tgt_id": "EventY",
+#             "description": "EventY is hosted in CityC",
+#             "keywords": "host, location",
+#             "weight": 0.8,
+#             "source_id": "Source3",
+#         },
+#     ],
+#     "chunks": [
+#         {
+#             "content": "ProductX, developed by CompanyA, has revolutionized the market with its cutting-edge features.",
+#             "source_id": "Source1",
+#             "source_chunk_index": 0,
+#         },
+#         {
+#             "content": "One outstanding feature of ProductX is its advanced AI capabilities.",
+#             "source_id": "Source1",
+#             "chunk_order_index": 1,
+#         },
+#         {
+#             "content": "PersonA is a prominent researcher at UniversityB, focusing on artificial intelligence and machine learning.",
+#             "source_id": "Source2",
+#             "source_chunk_index": 0,
+#         },
+#         {
+#             "content": "EventY, held in CityC, attracts technology enthusiasts and companies from around the globe.",
+#             "source_id": "Source3",
+#             "source_chunk_index": 0,
+#         },
+#         {
+#             "content": "None",
+#             "source_id": "UNKNOWN",
+#             "source_chunk_index": 0,
+#         },
+#     ],
+# }
 
 
 
@@ -552,18 +531,14 @@ async def print_stream(stream):
     async for chunk in stream:
         print(chunk, end="", flush=True)
 
-
-
-
 def main():
     # Initialize RAG instance
     rag = asyncio.run(initialize_rag())
-    
     # flows = asyncio.run(read_json_file('dataset.json'))
     if is_folder_missing_or_empty(WORKING_DIR):
-        # flows = asyncio.run(csv_to_json_list('Skype.csv'))
-        # custom_kg = asyncio.run(convert_to_custom_kg(flows))
-        rag.insert_custom_kg(custom_kg)
+        flows = asyncio.run(csv_to_json_list('Skype.csv'))
+        asyncio.run(convert_to_custom_kg(flows, rag))
+        # rag.insert_custom_kg(custom_kg)
     # print(len(flows))
     # flows = asyncio.run(read_csv("Skype.csv"))
     # insert_into_lightrag(rag, custom_kg)
@@ -583,9 +558,21 @@ def main():
     print("\nLocal Search:")
     print(
         rag.query(
-            "What is productX ?", param=QueryParam(mode="local")
+            "what the graph represent ?", param=QueryParam(mode="local")
         )
     )
+    # print(
+    #     rag.query(
+    #         "what ip address uses port 1968 ?", param=QueryParam(mode="local")
+    #     )
+    # )
+    print(
+        rag.query(
+            "do you see any suspicius network activity in the graph ?", param=QueryParam(mode="local")
+        )
+    )
+
+    
     # print(
     #     rag.query(
     #         "can you tell me how many ip address are in the graph ?", param=QueryParam(mode="local")
