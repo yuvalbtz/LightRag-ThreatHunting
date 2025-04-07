@@ -30,10 +30,10 @@ async def read_json_file(file_path: str) -> List[Dict[str, Any]]:
     
 
 class Colors(Enum):
-    SUCCESS = '\033[1;32m'  # Bold green text
-    WARNING = '\033[1;43m'  # Bold text with yellow background
-    ERROR = '\033[1;41m'    # Bold text with red background
-    RESET = '\033[0m'       # Reset all formatting
+    SUCCESS = '\033[32m'  # Green text
+    WARNING = '\033[33m'  # Yellow text
+    ERROR = '\033[31m'    # Red text
+    RESET = '\033[0m'     # Reset to default
     
 def printTextColor(color: Colors, text: str):
     print(f"{color.value}[{color.name}] {text}{Colors.RESET.value}")

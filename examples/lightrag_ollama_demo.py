@@ -35,9 +35,7 @@ async def csv_to_json_list(file_path: str) -> List[Dict[str, Any]]:
 
 
 
-async def convert_to_custom_kg(flows: List[Dict[str, Any]], rag: LightRAG) -> Dict[str, Any]:
-    custom_kg = {"entities": [], "relationships": []}
-
+async def build_kg(flows: List[Dict[str, Any]], rag: LightRAG) -> None:
     # Sets to track unique entities and relationships by their identifiers (to prevent duplicates)
     existing_entities = set()
     existing_relationships = set()
@@ -63,16 +61,15 @@ async def convert_to_custom_kg(flows: List[Dict[str, Any]], rag: LightRAG) -> Di
             (flow_name, {"entity_type": "Flow", "description": "Represents a communication flow", "source_id": source_id}),
         ]
 
-        for name, data in entities:
+        for entity, data in entities:
             try:
-                # Skip if the entity already exists (based on name)
-                if name not in existing_entities:
-                    rag.create_entity(name, data)  # Await the coroutine
-                    printTextColor(Colors.SUCCESS, f"entity '{name}' was created.")
-                    custom_kg["entities"].append({"entity_name": name, **data})
-                    existing_entities.add(name)  # Add to the set to track it
+                # Skip if the entity already exists 
+                if entity not in existing_entities:
+                    await rag.acreate_entity(entity, data)  # Await the coroutine
+                    printTextColor(Colors.SUCCESS, f"entity '{entity}' was created.")
+                    existing_entities.add(entity)  # Add to the set to track it
             except Exception as e:
-                printTextColor(Colors.WARNING, f"Failed to create entity '{name}': {e}")
+                printTextColor(Colors.WARNING, f"Failed to create entity '{entity}': {e}")
 
         # === RELATIONSHIPS ===
         relationships = [
@@ -84,17 +81,14 @@ async def convert_to_custom_kg(flows: List[Dict[str, Any]], rag: LightRAG) -> Di
 
         for src, tgt, data in relationships:
             try:
-                # Skip if the relationship already exists (based on source and target)
+                # Skip if the relationship already exists
                 if (src, tgt) not in existing_relationships:
-                    rag.create_relation(src, tgt, data)  # Await the coroutine
+                    await rag.acreate_relation(src, tgt, data)  # Await the coroutine
                     printTextColor(Colors.SUCCESS, f"relation '{src} -> {tgt}' was created.")
-
-                    custom_kg["relationships"].append({"src_id": src, "tgt_id": tgt, **data})
                     existing_relationships.add((src, tgt))  # Add to the set to track it
             except Exception as e:
                 printTextColor(Colors.WARNING, f"Failed to create relation '{src} -> {tgt}': {e}")
 
-    return custom_kg
 
 WORKING_DIR = "./dickens_ollama"
 
@@ -137,10 +131,9 @@ async def print_stream(stream):
 def main():
     # Initialize RAG instance
     rag = asyncio.run(initialize_rag())
-    # flows = asyncio.run(read_json_file('dataset.json'))
     if is_folder_missing_or_empty(WORKING_DIR):
         flows = asyncio.run(csv_to_json_list('Skype.csv'))
-        asyncio.run(convert_to_custom_kg(flows, rag))
+        asyncio.run(build_kg(flows, rag))
 
     print("\nLocal Search:")
     print(
