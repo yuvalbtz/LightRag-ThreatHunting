@@ -1,0 +1,272 @@
+{
+  "chunk-5c5d3b220c365ef9ff715dace4253afd": {
+    "content": "This knowledge graph visualizes network traffic flows between IP addresses. Each entity represents an IP, and relationships indicate flows with protocol, ports, throughput, and timestamp.",
+    "source_id": "overview",
+    "tokens": 32,
+    "chunk_order_index": 0,
+    "full_doc_id": "overview",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-b77b85494104cd15b8d85b4a8b29d8e5": {
+    "content": "A skype_audio session was recorded from 23.45.42.52:80 to 131.202.240.150:50457 over protocol 6. Duration: 681718 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-23.45.42.52-131.202.240.150-80-50457-6",
+    "tokens": 52,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-23.45.42.52-131.202.240.150-80-50457-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-8a87647ae95bbc3eed92dfa5f622052c": {
+    "content": "A unknown session was recorded from 131.202.240.150:48078 to 184.73.220.127:80 over protocol 6. Duration: 14582312 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-184.73.220.127-48078-80-6",
+    "tokens": 52,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-184.73.220.127-48078-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-f8065b56c4d4b23d8c578af79fbe29e8": {
+    "content": "A unknown session was recorded from 131.202.240.150:48078 to 184.73.220.127:80 over protocol 6. Duration: 429549 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-184.73.220.127-48078-80-6",
+    "tokens": 51,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-184.73.220.127-48078-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-666d48a7c7ef4c4a6b14591a17f4bb70": {
+    "content": "A unknown session was recorded from 131.202.240.150:44615 to 23.67.250.97:80 over protocol 6. Duration: 16758883 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-23.67.250.97-44615-80-6",
+    "tokens": 52,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-23.67.250.97-44615-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-546b6c86291ff2409f503f187d43c7b9": {
+    "content": "A unknown session was recorded from 131.202.240.150:36527 to 54.210.92.215:80 over protocol 6. Duration: 14343729 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-54.210.92.215-36527-80-6",
+    "tokens": 52,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-54.210.92.215-36527-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-bc50b93937395de903b9da536ce0c2ed": {
+    "content": "A unknown session was recorded from 131.202.240.150:36527 to 54.210.92.215:80 over protocol 6. Duration: 109653 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-54.210.92.215-36527-80-6",
+    "tokens": 51,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-54.210.92.215-36527-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-f6e97bab4ed9f41d66aca999a4d64253": {
+    "content": "A unknown session was recorded from 131.202.240.150:44615 to 23.67.250.97:80 over protocol 6. Duration: 4669784 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-23.67.250.97-44615-80-6",
+    "tokens": 52,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-23.67.250.97-44615-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-7587bd93b908ae3dd218483d3527eac1": {
+    "content": "A skype_audio session was recorded from 131.202.240.150:36933 to 54.225.95.177:443 over protocol 6. Duration: 19105846 µs, Throughput: 1.6225400330349151 Bps.",
+    "source_id": "flow-131.202.240.150-54.225.95.177-36933-443-6",
+    "tokens": 58,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-54.225.95.177-36933-443-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-41b56f0152b52e4157383bb952d11b11": {
+    "content": "A skype_audio session was recorded from 131.202.240.150:57264 to 107.21.98.35:443 over protocol 6. Duration: 19188191 µs, Throughput: 1.6155769973313274 Bps.",
+    "source_id": "flow-131.202.240.150-107.21.98.35-57264-443-6",
+    "tokens": 58,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-107.21.98.35-57264-443-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-895b03d3ec2c6d1eafe49039b4d609ab": {
+    "content": "A unknown session was recorded from 131.202.240.150:57264 to 107.21.98.35:443 over protocol 6. Duration: 63001 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-107.21.98.35-57264-443-6",
+    "tokens": 51,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-107.21.98.35-57264-443-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-04a18630d7168a444fa88e6a48bd7c88": {
+    "content": "A unknown session was recorded from 131.202.240.150:36933 to 54.225.95.177:443 over protocol 6. Duration: 435254 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-54.225.95.177-36933-443-6",
+    "tokens": 51,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-54.225.95.177-36933-443-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-4d577d119a95edc9d9824ccc3e69aeb4": {
+    "content": "A unknown session was recorded from 131.202.240.150:50459 to 23.45.42.52:80 over protocol 6. Duration: 87417420 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-23.45.42.52-50459-80-6",
+    "tokens": 52,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-23.45.42.52-50459-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-b74ee52ec20b47429b490cad391ee8d9": {
+    "content": "A unknown session was recorded from 131.202.240.150:50459 to 23.45.42.52:80 over protocol 6. Duration: 2690346 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-23.45.42.52-50459-80-6",
+    "tokens": 52,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-23.45.42.52-50459-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-463efb5f195964584805721550f582b6": {
+    "content": "A skype_audio session was recorded from 131.202.240.150:33267 to 216.58.219.206:443 over protocol 6. Duration: 59728960 µs, Throughput: 1.054764723845853 Bps.",
+    "source_id": "flow-131.202.240.150-216.58.219.206-33267-443-6",
+    "tokens": 57,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-216.58.219.206-33267-443-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-edf2a4d4533f75fe7ca8bd427d4dab80": {
+    "content": "A unknown session was recorded from 131.202.240.150:56399 to 176.32.103.135:443 over protocol 6. Duration: 74740575 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-176.32.103.135-56399-443-6",
+    "tokens": 52,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-176.32.103.135-56399-443-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-410d495a8156d347e365a35350d021e4": {
+    "content": "A unknown session was recorded from 131.202.240.150:58995 to 72.21.194.87:80 over protocol 6. Duration: 79431148 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-72.21.194.87-58995-80-6",
+    "tokens": 52,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-72.21.194.87-58995-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-fecd717e00e708d6d5a4e41df8c76e50": {
+    "content": "A unknown session was recorded from 131.202.240.150:58966 to 72.21.194.87:80 over protocol 6. Duration: 78399257 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-72.21.194.87-58966-80-6",
+    "tokens": 52,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-72.21.194.87-58966-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-24f982acb302f25aa302c6c85dd7a581": {
+    "content": "A unknown session was recorded from 131.202.240.150:56401 to 176.32.103.135:443 over protocol 6. Duration: 84485540 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-176.32.103.135-56401-443-6",
+    "tokens": 52,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-176.32.103.135-56401-443-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-e893ce15d127bbffeff25b6c5f19f701": {
+    "content": "A unknown session was recorded from 131.202.240.150:56400 to 176.32.103.135:443 over protocol 6. Duration: 84485961 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-176.32.103.135-56400-443-6",
+    "tokens": 52,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-176.32.103.135-56400-443-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-92936a119b54060fcac2509afafff99d": {
+    "content": "A skype_audio session was recorded from 131.202.240.86:49624 to 131.202.240.150:40273 over protocol 17. Duration: 119990388 µs, Throughput: 9379.576304061955 Bps.",
+    "source_id": "flow-131.202.240.86-131.202.240.150-49624-40273-17",
+    "tokens": 58,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.86-131.202.240.150-49624-40273-17",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-1bb2e4ace6d679074c9ced0b5e503ed1": {
+    "content": "A skype_audio session was recorded from 131.202.240.150:38688 to 23.45.35.126:443 over protocol 6. Duration: 90266125 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-23.45.35.126-38688-443-6",
+    "tokens": 53,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-23.45.35.126-38688-443-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-9a9c89ccee6775e7a4a5cf570f442cea": {
+    "content": "A skype_audio session was recorded from 131.202.240.150:50458 to 23.45.42.52:80 over protocol 6. Duration: 90174074 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-23.45.42.52-50458-80-6",
+    "tokens": 53,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-23.45.42.52-50458-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-cc3a69823e8189fc64b38149ebe8a172": {
+    "content": "A skype_audio session was recorded from 131.202.240.150:35387 to 209.148.205.40:80 over protocol 6. Duration: 90135180 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-209.148.205.40-35387-80-6",
+    "tokens": 53,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-209.148.205.40-35387-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-0e504a7262f2a3db317c59c28736f169": {
+    "content": "A skype_audio session was recorded from 131.202.240.150:50456 to 23.45.42.52:80 over protocol 6. Duration: 90169678 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-23.45.42.52-50456-80-6",
+    "tokens": 53,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-23.45.42.52-50456-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-c4551928194dea69a57f4e0019881456": {
+    "content": "A skype_audio session was recorded from 131.202.240.150:50460 to 23.45.42.52:80 over protocol 6. Duration: 90171286 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-23.45.42.52-50460-80-6",
+    "tokens": 53,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-23.45.42.52-50460-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-e4db26a41148af716ab1518b0fa080a9": {
+    "content": "A skype_audio session was recorded from 131.202.240.150:56911 to 208.71.121.194:80 over protocol 6. Duration: 90172642 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-208.71.121.194-56911-80-6",
+    "tokens": 53,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-208.71.121.194-56911-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-9f1411b5047c4d39430544093425d8dd": {
+    "content": "A skype_audio session was recorded from 131.202.240.150:46942 to 208.71.122.72:80 over protocol 6. Duration: 90171570 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-208.71.122.72-46942-80-6",
+    "tokens": 53,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-208.71.122.72-46942-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-e62c5ad46ff34019841c4f486b696c49": {
+    "content": "A skype_audio session was recorded from 131.202.240.150:44341 to 50.31.164.175:80 over protocol 6. Duration: 90153613 µs, Throughput: 0.0 Bps.",
+    "source_id": "flow-131.202.240.150-50.31.164.175-44341-80-6",
+    "tokens": 53,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.150-50.31.164.175-44341-80-6",
+    "file_path": "custom_kg",
+    "status": "processed"
+  },
+  "chunk-b8fe678eaf0e03ee5762dcd4a07a5d46": {
+    "content": "A skype_chat session was recorded from 131.202.240.185:50630 to 224.0.0.252:5355 over protocol 17. Duration: 410811 µs, Throughput: 107.10521383312522 Bps.",
+    "source_id": "flow-131.202.240.185-224.0.0.252-50630-5355-17",
+    "tokens": 57,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-131.202.240.185-224.0.0.252-50630-5355-17",
+    "file_path": "custom_kg",
+    "status": "processed"
+  }
+}

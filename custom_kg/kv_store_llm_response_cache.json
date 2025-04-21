@@ -1,0 +1,22 @@
+{
+  "global": {
+    "671b0d0cf9899c14c0dce4ef3db7fa5d": {
+      "return": "{\"high_level_keywords\": [\"kg graph\", \"representation\", \"data visualisation\"], \"low_level_keywords\": [\"Graph\", \"Data\", \"Visualization\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "What does this kg graph represent ?"
+    },
+    "1e187975b027f07e79786e63d66d8205": {
+      "return": "Unfortunately, I don't see the actual graph provided. Could you please share the kg graph with me? That way, I can provide a more accurate answer about what it represents.",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "What does this kg graph represent ?"
+    }
+  }
+}

@@ -1,0 +1,313 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d7" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="d6" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="d5" for="edge" attr.name="description" attr.type="string" />
+  <key id="d4" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d3" for="node" attr.name="source_id" attr.type="string" />
+  <key id="d2" for="node" attr.name="description" attr.type="string" />
+  <key id="d1" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="d0" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="23.45.42.52">
+      <data key="d0">23.45.42.52</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the source IP address involved in a skype_audio session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-b77b85494104cd15b8d85b4a8b29d8e5</data>
+    </node>
+    <node id="131.202.240.150">
+      <data key="d0">131.202.240.150</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a skype_audio session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-b77b85494104cd15b8d85b4a8b29d8e5</data>
+    </node>
+    <node id="184.73.220.127">
+      <data key="d0">184.73.220.127</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a unknown session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-f8065b56c4d4b23d8c578af79fbe29e8</data>
+    </node>
+    <node id="23.67.250.97">
+      <data key="d0">23.67.250.97</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a unknown session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-f6e97bab4ed9f41d66aca999a4d64253</data>
+    </node>
+    <node id="54.210.92.215">
+      <data key="d0">54.210.92.215</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a unknown session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-bc50b93937395de903b9da536ce0c2ed</data>
+    </node>
+    <node id="54.225.95.177">
+      <data key="d0">54.225.95.177</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a skype_audio session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-04a18630d7168a444fa88e6a48bd7c88</data>
+    </node>
+    <node id="107.21.98.35">
+      <data key="d0">107.21.98.35</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a skype_audio session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-895b03d3ec2c6d1eafe49039b4d609ab</data>
+    </node>
+    <node id="216.58.219.206">
+      <data key="d0">216.58.219.206</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a skype_audio session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-463efb5f195964584805721550f582b6</data>
+    </node>
+    <node id="176.32.103.135">
+      <data key="d0">176.32.103.135</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a unknown session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-edf2a4d4533f75fe7ca8bd427d4dab80</data>
+    </node>
+    <node id="72.21.194.87">
+      <data key="d0">72.21.194.87</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a unknown session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-410d495a8156d347e365a35350d021e4</data>
+    </node>
+    <node id="131.202.240.86">
+      <data key="d0">131.202.240.86</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the source IP address involved in a skype_audio session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-92936a119b54060fcac2509afafff99d</data>
+    </node>
+    <node id="23.45.35.126">
+      <data key="d0">23.45.35.126</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a skype_audio session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-1bb2e4ace6d679074c9ced0b5e503ed1</data>
+    </node>
+    <node id="209.148.205.40">
+      <data key="d0">209.148.205.40</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a skype_audio session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-cc3a69823e8189fc64b38149ebe8a172</data>
+    </node>
+    <node id="208.71.121.194">
+      <data key="d0">208.71.121.194</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a skype_audio session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-e4db26a41148af716ab1518b0fa080a9</data>
+    </node>
+    <node id="208.71.122.72">
+      <data key="d0">208.71.122.72</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a skype_audio session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-9f1411b5047c4d39430544093425d8dd</data>
+    </node>
+    <node id="50.31.164.175">
+      <data key="d0">50.31.164.175</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a skype_audio session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-e62c5ad46ff34019841c4f486b696c49</data>
+    </node>
+    <node id="131.202.240.185">
+      <data key="d0">131.202.240.185</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the source IP address involved in a skype_chat session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-b8fe678eaf0e03ee5762dcd4a07a5d46</data>
+    </node>
+    <node id="224.0.0.252">
+      <data key="d0">224.0.0.252</data>
+      <data key="d1">IP</data>
+      <data key="d2">This is the destination IP address involved in a skype_chat session. It plays a key role in the flow of data between devices.</data>
+      <data key="d3">chunk-b8fe678eaf0e03ee5762dcd4a07a5d46</data>
+    </node>
+    <edge source="23.45.42.52" target="131.202.240.150">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a skype_audio flow from source IP 131.202.240.150 to destination IP 23.45.42.52.
+- Flow ID: 131.202.240.150-23.45.42.52-50460-80-6
+- Ports: 50460 → 80
+- Protocol: TCP
+- Timestamp: 31/03/2015 11:06:46 AM
+- Duration: 90171286 µs
+- Throughput: 0.0 Bps</data>
+      <data key="d6">flow, traffic, port:50460-80, protocol:6, label:skype_audio</data>
+      <data key="d7">chunk-c4551928194dea69a57f4e0019881456</data>
+    </edge>
+    <edge source="131.202.240.150" target="184.73.220.127">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a unknown flow from source IP 131.202.240.150 to destination IP 184.73.220.127.
+- Flow ID: 131.202.240.150-184.73.220.127-48078-80-6
+- Ports: 48078 → 80
+- Protocol: TCP
+- Timestamp: 31/03/2015 11:07:16 AM
+- Duration: 429549 µs
+- Throughput: 0.0 Bps</data>
+      <data key="d6">flow, traffic, port:48078-80, protocol:6, label:unknown</data>
+      <data key="d7">chunk-f8065b56c4d4b23d8c578af79fbe29e8</data>
+    </edge>
+    <edge source="131.202.240.150" target="23.67.250.97">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a unknown flow from source IP 131.202.240.150 to destination IP 23.67.250.97.
+- Flow ID: 131.202.240.150-23.67.250.97-44615-80-6
+- Ports: 44615 → 80
+- Protocol: TCP
+- Timestamp: 31/03/2015 11:07:21 AM
+- Duration: 4669784 µs
+- Throughput: 0.0 Bps</data>
+      <data key="d6">flow, traffic, port:44615-80, protocol:6, label:unknown</data>
+      <data key="d7">chunk-f6e97bab4ed9f41d66aca999a4d64253</data>
+    </edge>
+    <edge source="131.202.240.150" target="54.210.92.215">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a unknown flow from source IP 131.202.240.150 to destination IP 54.210.92.215.
+- Flow ID: 131.202.240.150-54.210.92.215-36527-80-6
+- Ports: 36527 → 80
+- Protocol: TCP
+- Timestamp: 31/03/2015 11:07:26 AM
+- Duration: 109653 µs
+- Throughput: 0.0 Bps</data>
+      <data key="d6">flow, traffic, port:36527-80, protocol:6, label:unknown</data>
+      <data key="d7">chunk-bc50b93937395de903b9da536ce0c2ed</data>
+    </edge>
+    <edge source="131.202.240.150" target="54.225.95.177">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a unknown flow from source IP 131.202.240.150 to destination IP 54.225.95.177.
+- Flow ID: 131.202.240.150-54.225.95.177-36933-443-6
+- Ports: 36933 → 443
+- Protocol: TCP
+- Timestamp: 31/03/2015 11:07:31 AM
+- Duration: 435254 µs
+- Throughput: 0.0 Bps</data>
+      <data key="d6">flow, traffic, port:36933-443, protocol:6, label:unknown</data>
+      <data key="d7">chunk-04a18630d7168a444fa88e6a48bd7c88</data>
+    </edge>
+    <edge source="131.202.240.150" target="107.21.98.35">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a unknown flow from source IP 131.202.240.150 to destination IP 107.21.98.35.
+- Flow ID: 131.202.240.150-107.21.98.35-57264-443-6
+- Ports: 57264 → 443
+- Protocol: TCP
+- Timestamp: 31/03/2015 11:07:31 AM
+- Duration: 63001 µs
+- Throughput: 0.0 Bps</data>
+      <data key="d6">flow, traffic, port:57264-443, protocol:6, label:unknown</data>
+      <data key="d7">chunk-895b03d3ec2c6d1eafe49039b4d609ab</data>
+    </edge>
+    <edge source="131.202.240.150" target="216.58.219.206">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a skype_audio flow from source IP 131.202.240.150 to destination IP 216.58.219.206.
+- Flow ID: 131.202.240.150-216.58.219.206-33267-443-6
+- Ports: 33267 → 443
+- Protocol: TCP
+- Timestamp: 31/03/2015 11:07:16 AM
+- Duration: 59728960 µs
+- Throughput: 1.054764723845853 Bps</data>
+      <data key="d6">flow, traffic, port:33267-443, protocol:6, label:skype_audio</data>
+      <data key="d7">chunk-463efb5f195964584805721550f582b6</data>
+    </edge>
+    <edge source="131.202.240.150" target="176.32.103.135">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a unknown flow from source IP 131.202.240.150 to destination IP 176.32.103.135.
+- Flow ID: 131.202.240.150-176.32.103.135-56400-443-6
+- Ports: 56400 → 443
+- Protocol: TCP
+- Timestamp: 31/03/2015 11:07:07 AM
+- Duration: 84485961 µs
+- Throughput: 0.0 Bps</data>
+      <data key="d6">flow, traffic, port:56400-443, protocol:6, label:unknown</data>
+      <data key="d7">chunk-e893ce15d127bbffeff25b6c5f19f701</data>
+    </edge>
+    <edge source="131.202.240.150" target="72.21.194.87">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a unknown flow from source IP 131.202.240.150 to destination IP 72.21.194.87.
+- Flow ID: 131.202.240.150-72.21.194.87-58966-80-6
+- Ports: 58966 → 80
+- Protocol: TCP
+- Timestamp: 31/03/2015 11:07:08 AM
+- Duration: 78399257 µs
+- Throughput: 0.0 Bps</data>
+      <data key="d6">flow, traffic, port:58966-80, protocol:6, label:unknown</data>
+      <data key="d7">chunk-fecd717e00e708d6d5a4e41df8c76e50</data>
+    </edge>
+    <edge source="131.202.240.150" target="131.202.240.86">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a skype_audio flow from source IP 131.202.240.86 to destination IP 131.202.240.150.
+- Flow ID: 131.202.240.86-131.202.240.150-49624-40273-17
+- Ports: 49624 → 40273
+- Protocol: UDP
+- Timestamp: 31/03/2015 11:06:50 AM
+- Duration: 119990388 µs
+- Throughput: 9379.576304061955 Bps</data>
+      <data key="d6">flow, traffic, port:49624-40273, protocol:17, label:skype_audio</data>
+      <data key="d7">chunk-92936a119b54060fcac2509afafff99d</data>
+    </edge>
+    <edge source="131.202.240.150" target="23.45.35.126">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a skype_audio flow from source IP 131.202.240.150 to destination IP 23.45.35.126.
+- Flow ID: 131.202.240.150-23.45.35.126-38688-443-6
+- Ports: 38688 → 443
+- Protocol: TCP
+- Timestamp: 31/03/2015 11:06:45 AM
+- Duration: 90266125 µs
+- Throughput: 0.0 Bps</data>
+      <data key="d6">flow, traffic, port:38688-443, protocol:6, label:skype_audio</data>
+      <data key="d7">chunk-1bb2e4ace6d679074c9ced0b5e503ed1</data>
+    </edge>
+    <edge source="131.202.240.150" target="209.148.205.40">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a skype_audio flow from source IP 131.202.240.150 to destination IP 209.148.205.40.
+- Flow ID: 131.202.240.150-209.148.205.40-35387-80-6
+- Ports: 35387 → 80
+- Protocol: TCP
+- Timestamp: 31/03/2015 11:06:46 AM
+- Duration: 90135180 µs
+- Throughput: 0.0 Bps</data>
+      <data key="d6">flow, traffic, port:35387-80, protocol:6, label:skype_audio</data>
+      <data key="d7">chunk-cc3a69823e8189fc64b38149ebe8a172</data>
+    </edge>
+    <edge source="131.202.240.150" target="208.71.121.194">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a skype_audio flow from source IP 131.202.240.150 to destination IP 208.71.121.194.
+- Flow ID: 131.202.240.150-208.71.121.194-56911-80-6
+- Ports: 56911 → 80
+- Protocol: TCP
+- Timestamp: 31/03/2015 11:06:46 AM
+- Duration: 90172642 µs
+- Throughput: 0.0 Bps</data>
+      <data key="d6">flow, traffic, port:56911-80, protocol:6, label:skype_audio</data>
+      <data key="d7">chunk-e4db26a41148af716ab1518b0fa080a9</data>
+    </edge>
+    <edge source="131.202.240.150" target="208.71.122.72">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a skype_audio flow from source IP 131.202.240.150 to destination IP 208.71.122.72.
+- Flow ID: 131.202.240.150-208.71.122.72-46942-80-6
+- Ports: 46942 → 80
+- Protocol: TCP
+- Timestamp: 31/03/2015 11:06:46 AM
+- Duration: 90171570 µs
+- Throughput: 0.0 Bps</data>
+      <data key="d6">flow, traffic, port:46942-80, protocol:6, label:skype_audio</data>
+      <data key="d7">chunk-9f1411b5047c4d39430544093425d8dd</data>
+    </edge>
+    <edge source="131.202.240.150" target="50.31.164.175">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a skype_audio flow from source IP 131.202.240.150 to destination IP 50.31.164.175.
+- Flow ID: 131.202.240.150-50.31.164.175-44341-80-6
+- Ports: 44341 → 80
+- Protocol: TCP
+- Timestamp: 31/03/2015 11:06:47 AM
+- Duration: 90153613 µs
+- Throughput: 0.0 Bps</data>
+      <data key="d6">flow, traffic, port:44341-80, protocol:6, label:skype_audio</data>
+      <data key="d7">chunk-e62c5ad46ff34019841c4f486b696c49</data>
+    </edge>
+    <edge source="131.202.240.185" target="224.0.0.252">
+      <data key="d4">1.0</data>
+      <data key="d5">This relationship represents a skype_chat flow from source IP 131.202.240.185 to destination IP 224.0.0.252.
+- Flow ID: 131.202.240.185-224.0.0.252-50630-5355-17
+- Ports: 50630 → 5355
+- Protocol: UDP
+- Timestamp: 25/05/2015 10:19:57 AM
+- Duration: 410811 µs
+- Throughput: 107.10521383312522 Bps</data>
+      <data key="d6">flow, traffic, port:50630-5355, protocol:17, label:skype_chat</data>
+      <data key="d7">chunk-b8fe678eaf0e03ee5762dcd4a07a5d46</data>
+    </edge>
+  </graph>
+</graphml>
