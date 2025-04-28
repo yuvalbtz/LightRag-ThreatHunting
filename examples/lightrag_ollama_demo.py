@@ -10,89 +10,99 @@ from lightrag import LightRAG, QueryParam
 from lightrag.llm.ollama import ollama_model_complete, ollama_embed
 from lightrag.utils import EmbeddingFunc
 from lightrag.kg.shared_storage import initialize_pipeline_status
-
+import pandas as pd
+import json
 
 def is_folder_missing_or_empty(folder_path: str) -> bool:
     return not os.path.exists(folder_path) or not os.listdir(folder_path)
 
 async def csv_to_json_list(file_path: str) -> List[Dict[str, Any]]:
-    """
-    Asynchronously converts a CSV file to a list of dictionaries.
-
-    :param file_path: Path to the CSV file.
-    :return: A list of dictionaries where each row is a dictionary with proper key-value pairs.
-    """
     loop = asyncio.get_running_loop()
-
-    # Read CSV asynchronously
     with open(file_path, mode='r', encoding='utf-8') as csv_file:
         reader = await loop.run_in_executor(None, lambda: list(csv.DictReader(csv_file)))
-
-    # Convert all values to strings with double quotes
     json_data = [{str(k): str(v) for k, v in row.items()} for row in reader]
-
-    return json_data  # List[Dict[str, Any]]
-
-
+    return json_data
 
 async def convert_to_custom_kg(flows: List[Dict[str, Any]], rag: LightRAG) -> Dict[str, Any]:
     custom_kg = {"entities": [], "relationships": []}
-
-    # Sets to track unique entities and relationships by their identifiers (to prevent duplicates)
     existing_entities = set()
     existing_relationships = set()
 
-    for flow in flows:
-        flow_id = flow["Flow ID"]
-        source_id = f"flow-{flow_id}"
+    for i, flow in enumerate(flows):
+        entity_id = f"Flow-{i}"
 
-        src_ip = flow["Src IP"]
-        dst_ip = flow["Dst IP"]
-        src_port = str(flow["Src Port"])
-        dst_port = str(flow["Dst Port"])
-        protocol = str(flow["Protocol"])
-        flow_name = f"{src_ip} to {dst_ip}"
+        if entity_id not in existing_entities:
+            rag.create_entity(entity_id, {
+                "entity_type": "Flow Entity",
+                "description": f"Network flow number {i}",
+                "source_id": entity_id
+            })
+            custom_kg["entities"].append({
+                "entity_name": entity_id,
+                "entity_type": "Flow Entity",
+                "description": f"Network flow number {i}",
+                "source_id": entity_id
+            })
+            existing_entities.add(entity_id)
 
-        # === ENTITIES ===
-        entities = [
-            (src_ip, {"entity_type": "Src IP", "description": "Source IP address", "source_id": source_id}),
-            (dst_ip, {"entity_type": "Dst IP", "description": "Destination IP address", "source_id": source_id}),
-            (src_port, {"entity_type": "Src Port", "description": "Source Port", "source_id": source_id}),
-            (dst_port, {"entity_type": "Dst Port", "description": "Destination Port", "source_id": source_id}),
-            (f"Protocol {protocol}", {"entity_type": "Protocol", "description": "TCP" if protocol == "6" else "UDP", "source_id": source_id}),
-            (flow_name, {"entity_type": "Flow", "description": "Represents a communication flow", "source_id": source_id}),
-        ]
+        for key, value in flow.items():
+            relation_target = f"{key}: {value}"
+            relation_id = (entity_id, relation_target)
 
-        for name, data in entities:
+            description = f"{key} = {value}"
+            tags = []
+
+            # Semantic Enrichment
             try:
-                # Skip if the entity already exists (based on name)
-                if name not in existing_entities:
-                    rag.create_entity(name, data)  # Await the coroutine
-                    printTextColor(Colors.SUCCESS, f"entity '{name}' was created.")
-                    custom_kg["entities"].append({"entity_name": name, **data})
-                    existing_entities.add(name)  # Add to the set to track it
-            except Exception as e:
-                printTextColor(Colors.WARNING, f"Failed to create entity '{name}': {e}")
+                numeric_value = float(value)
+            except:
+                numeric_value = None
 
-        # === RELATIONSHIPS ===
-        relationships = [
-            (src_ip, dst_ip, {"description": f"{src_ip} communicates with {dst_ip}", "keywords": "network, communication", "weight": 1.0, "source_id": source_id}),
-            (src_ip, src_port, {"description": f"{src_ip} uses port {src_port}", "keywords": "source, port", "weight": 0.9, "source_id": source_id}),
-            (dst_ip, dst_port, {"description": f"{dst_ip} uses port {dst_port}", "keywords": "destination, port", "weight": 0.9, "source_id": source_id}),
-            (flow_name, f"Protocol {protocol}", {"description": f"Flow uses protocol {protocol}", "keywords": "protocol", "weight": 1.0, "source_id": source_id}),
-        ]
+            if key == "Fwd Pkt Len Mean" and numeric_value == 0:
+                description = "Zero-length forward packets (possible scan or error)"
+                tags = ["anomaly", "zero_packet"]
+            elif key == "Pkt Len Std" and numeric_value is not None and numeric_value > 300:
+                description = "High packet length standard deviation (possible tunneling)"
+                tags = ["anomaly", "tunneling"]
+            elif key == "Flow Duration" and numeric_value is not None and numeric_value > 1000000:
+                description = "Long flow duration (possible beaconing behavior)"
+                tags = ["anomaly", "long_duration"]
+            elif key == "Protocol" and value == "17":
+                description = "UDP protocol flow (could indicate special tunneling)"
+                tags = ["udp", "protocol_check"]
 
-        for src, tgt, data in relationships:
-            try:
-                # Skip if the relationship already exists (based on source and target)
-                if (src, tgt) not in existing_relationships:
-                    rag.create_relation(src, tgt, data)  # Await the coroutine
-                    printTextColor(Colors.SUCCESS, f"relation '{src} -> {tgt}' was created.")
+            if relation_target not in existing_entities:
+                rag.create_entity(relation_target, {
+                    "entity_type": "FeatureValue",
+                    "description": description,
+                    "tags": tags,
+                    "source_id": entity_id
+                })
+                custom_kg["entities"].append({
+                    "entity_name": relation_target,
+                    "entity_type": "FeatureValue",
+                    "description": description,
+                    "tags": tags,
+                    "source_id": entity_id
+                })
+                existing_entities.add(relation_target)
 
-                    custom_kg["relationships"].append({"src_id": src, "tgt_id": tgt, **data})
-                    existing_relationships.add((src, tgt))  # Add to the set to track it
-            except Exception as e:
-                printTextColor(Colors.WARNING, f"Failed to create relation '{src} -> {tgt}': {e}")
+            if relation_id not in existing_relationships:
+                rag.create_relation(entity_id, relation_target, {
+                    "description": description,
+                    "keywords": ", ".join(tags) if tags else "flow, feature",
+                    "weight": 1.0,
+                    "source_id": entity_id
+                })
+                custom_kg["relationships"].append({
+                    "src_id": entity_id,
+                    "tgt_id": relation_target,
+                    "description": description,
+                    "keywords": ", ".join(tags) if tags else "flow, feature",
+                    "weight": 1.0,
+                    "source_id": entity_id
+                })
+                existing_relationships.add(relation_id)
 
     return custom_kg
 
@@ -103,7 +113,6 @@ logging.basicConfig(format="%(levelname)s:%(message)s", level=logging.INFO)
 if not os.path.exists(WORKING_DIR):
     os.mkdir(WORKING_DIR)
 
-
 async def initialize_rag():
     rag = LightRAG(
         working_dir=WORKING_DIR,
@@ -113,7 +122,7 @@ async def initialize_rag():
         llm_model_max_token_size=32768,
         llm_model_kwargs={
             "host": "http://localhost:11434",
-            "options": {"num_ctx": 3200}, # "num_ctx": 32768
+            "options": {"num_ctx": 3200},
         },
         embedding_func=EmbeddingFunc(
             embedding_dim=768,
@@ -129,48 +138,35 @@ async def initialize_rag():
 
     return rag
 
-
 async def print_stream(stream):
     async for chunk in stream:
         print(chunk, end="", flush=True)
 
 def main():
-    # Initialize RAG instance
     rag = asyncio.run(initialize_rag())
-    # flows = asyncio.run(read_json_file('dataset.json'))
+
     if is_folder_missing_or_empty(WORKING_DIR):
-        flows = asyncio.run(csv_to_json_list('Skype.csv'))
+        flows = asyncio.run(csv_to_json_list('VPN_First10.csv'))
         asyncio.run(convert_to_custom_kg(flows, rag))
+        printTextColor(Colors.SUCCESS, "✅ Custom KG created successfully.")
 
-    print("\nLocal Search:")
-    print(
-        rag.query(
-            "what the graph represent ?", param=QueryParam(mode="local")
-        )
-    )
-    # print(
-    #     rag.query(
-    #         "what ip address uses port 1968 ?", param=QueryParam(mode="local")
-    #     )
-    # )
-    print(
-        rag.query(
-            "do you see any suspicius network activity in the graph ?", param=QueryParam(mode="local")
-        )
-    )
+    print("\n📊 Global Graph Search Results:\n")
 
+    # Run 2-3 smart queries
+    print(rag.query(
+        "List all flows connected to feature Fwd Pkt Len Mean: 0",
+        param=QueryParam(mode="global")
+    ))
 
-    # stream response
-    # resp = rag.query(
-    #     "What are the top themes in this story?",
-    #     param=QueryParam(mode="hybrid", stream=True),
-    # )
+    print(rag.query(
+        "List all flows where Flow Duration is greater than 1,000,000 microseconds",
+        param=QueryParam(mode="global")
+    ))
 
-    # if inspect.isasyncgen(resp):
-    #     asyncio.run(print_stream(resp))
-    # else:
-    #     print(resp)
-
+    print(rag.query(
+        "Find flows with Pkt Len Std greater than 300",
+        param=QueryParam(mode="global")
+    ))
 
 if __name__ == "__main__":
     main()
