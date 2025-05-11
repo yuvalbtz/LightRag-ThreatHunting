@@ -247,18 +247,18 @@ async def initialize_rag():
     rag = LightRAG(
         working_dir=WORKING_DIR,
         llm_model_func=ollama_model_complete,
-        llm_model_name="llama3.2",
+        llm_model_name="qwen2.5:0.5b",
         llm_model_max_token_size=32768,
         llm_model_kwargs={
             "host": "http://localhost:11434",
-            "options": {"num_ctx": 3200},  # "num_ctx": 32768
+            "options": {"num_ctx": 32768},  # "num_ctx": 32768
         },
         embedding_func=EmbeddingFunc(
-            embedding_dim=1024,
+            embedding_dim=768,
             max_token_size=8192,
             func=lambda texts: ollama_embed(
                 texts,
-                embed_model="qllama/bge-large-en-v1.5",
+                embed_model="nomic-embed-text",
                 host="http://localhost:11434",
             ),
         ),
@@ -268,6 +268,21 @@ async def initialize_rag():
     await initialize_pipeline_status()
 
     return rag
+
+async def interactive_chat(rag: LightRAG):
+    print("\n🔁 Enter 'exit' or 'quit' to end the chat.")
+    while True:
+        query = input("🧠 You: ")
+        if query.lower() in {"exit", "quit"}:
+            print("👋 Chat ended.")
+            break
+        try:
+            response = await rag.aquery(query, param=QueryParam(mode="global"))
+            print(f"🤖 LLM: {response}")
+        except Exception as e:
+            print(f"❌ Error: {e}")
+
+
 
 
 def main():
@@ -283,11 +298,13 @@ def main():
     print("Entities, relationships, and chunks have been added to the knowledge graph.")
 
     # Example query
-    query = "What does this kg graph represent ?"
-    response = rag.query(query, param=QueryParam(mode="global"))
-    print(f"Query: {query}")
-    print(f"Response: {response}")
+    # query = "What does this kg graph represent ?"
+    # response = rag.query(query, param=QueryParam(mode="global"))
+    # print(f"Query: {query}")
+    # print(f"Response: {response}")
 
+    # Start interactive chat
+    asyncio.run(interactive_chat(rag))
 
 if __name__ == "__main__":
     main()
