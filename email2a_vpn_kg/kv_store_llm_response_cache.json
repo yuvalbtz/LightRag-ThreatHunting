@@ -1,0 +1,22 @@
+{
+  "global": {
+    "2aedd2fd7af0db794f185a998ee76726": {
+      "return": "{\"high_level_keywords\": [\"Graph\", \"Transportation method\"], \"low_level_keywords\": [\"Network topology\", \"Data transmission\", \"Protocol\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what is the graph represent a non-vpn or a vpn transport ?"
+    },
+    "d4e08bb8865aa724fb8cb3ba6942a024": {
+      "return": "The graph represents both non-VPN and VPN traffic. Non-VPN traffic includes connections that do not use any form of encryption, such as unencrypted HTTP or FTP traffic. These types of connections are typically used for simple file transfers or basic web browsing without the need for secure communication.\n\nOn the other hand, VPN (Virtual Private Network) traffic involves encrypted connections through a third-party network service provider. This type of connection is designed to provide security and privacy by encrypting data as it travels over public networks like the internet. Examples include HTTPS/SSL for web browsing, SSH for remote access, or L2TP/IPSec for secure file transfers.\n\nIn the context provided, we see several packets that represent both types of traffic:\n\n1. **Non-VPN Traffic (NTP Protocol):**\n   - Packet sent from 199.233.217.27 to 10.8.8.110 at time 0.267490s using protocol NTP.\n   - This is an example of non-encrypted traffic, as it uses the Network Time Protocol (NTP) without encryption.\n\n2. **Non-VPN Traffic (TCP/UDP):**\n   - Packet sent from 64.233.184.16 to 10.8.8.110 at time 273.691321s using protocol TCP.\n   - This is another example of non-encrypted traffic, as it uses the Transmission Control Protocol (TCP) without encryption.\n\n3. **Non-VPN Traffic (DNS):**\n   - Packet sent from 198.7.63.141 to 10.8.8.110 at time 304.698084s using protocol DNS.\n   - This is an example of non-encrypted traffic, as it uses the Domain Name System (DNS) without encryption.\n\n4. **VPN Traffic (TCP/UDP):**\n   - Packet sent from 10.8.8.110 to 63.245.217.114 at time 305.113700s using protocol TCP.\n   - This is an example of encrypted traffic, as it uses the Transmission Control Protocol (TCP) with encryption.\n\n5. **VPN Traffic (TCP/UDP):**\n   - Packet sent from 63.245.216.132 to 10.8.8.110 at time 304.449196s using protocol TCP.\n   - This is another example of encrypted traffic, as it uses the Transmission Control Protocol (TCP) with encryption.\n\nIn summary, the graph shows both non-encrypted and encrypted traffic, including both non-VPN and VPN connections. Non-VPN traffic includes unencrypted protocols like HTTP/FTP, while VPN traffic involves encrypted protocols such as HTTPS/SSL for web browsing and SSH for secure remote access.",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what is the graph represent a non-vpn or a vpn transport ?"
+    }
+  }
+}

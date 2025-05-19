@@ -46,85 +46,80 @@ async def build_kg(flows: List[Dict[str, Any]], rag: LightRAG) -> None:
     """
     Build and insert a custom knowledge graph into LightRAG from flow records.
 
-    :param flows: List of flow dictionaries.
-    :param rag: LightRAG instance with `insert_custom_kg(custom_kg)` method.
+    :param flows: List of flow dictionaries parsed from CSV.
+    :param rag: LightRAG instance with `ainsert_custom_kg(custom_kg)` method.
     """
     entity_map = {}
     relationships = []
     chunks = []
 
-    chunks.insert(
-        0,
+    # Overview chunk
+    chunks.append(
         {
             "content": (
-                "This knowledge graph visualizes network traffic flows between IP addresses. "
-                "Each entity represents an IP, and relationships indicate flows with protocol, ports, throughput, and timestamp."
+                "This knowledge graph visualizes network traffic flow characteristics extracted from packet captures. "
+                "Each entity represents a session label (e.g., VPN or Non-VPN), and relationships capture statistics "
+                "such as duration, throughput, and timing metrics."
             ),
             "source_id": "overview",
             "source_chunk_index": 0,
-        },
+        }
     )
 
     for index, flow in enumerate(flows):
-        flow_id = flow.get("Flow ID", str(uuid.uuid4()))
-        src_ip = flow.get("Src IP")
-        dst_ip = flow.get("Dst IP")
-        src_port = str(flow.get("Src Port"))
-        dst_port = str(flow.get("Dst Port"))
-        protocol = str(flow.get("Protocol"))
-        timestamp = flow.get("Timestamp", "Unknown Timestamp")
-        flow_duration = flow.get("Flow Duration", "N/A")
-        flow_bytes_per_second = flow.get("Flow Byts/s", "N/A")
-        label = flow.get("Label", "Unknown")
-        source_id = f"flow-{flow_id}"
+        session_id = str(uuid.uuid4())
+        label = flow.get("class1", "Unknown")
+        source_id = f"session-{session_id}"
 
-        # Entities
-        for ip, role in [(src_ip, "Source"), (dst_ip, "Destination")]:
-            if ip and ip not in entity_map:
-                entity_map[ip] = {
-                    "entity_name": ip,
-                    "entity_type": "IP",
-                    "description": (
-                        f"This is the {role.lower()} IP address involved in a {label} session. "
-                        f"It plays a key role in the flow of data between devices."
-                    ),
-                    "source_id": source_id,
-                }
+        # Create one entity per traffic class label
+        if label not in entity_map:
+            entity_map[label] = {
+                "entity_name": label,
+                "entity_type": "Traffic Class",
+                "description": f"{label} traffic sessions with flow-level statistical features.",
+                "source_id": f"entity-{label}",
+            }
 
-        # Relationship
-        if src_ip and dst_ip:
-            relationships.append(
-                {
-                    "src_id": src_ip,
-                    "tgt_id": dst_ip,
-                    "description": (
-                        f"This relationship represents a {label} flow from source IP {src_ip} to destination IP {dst_ip}.\n"
-                        f"- Flow ID: {flow_id}\n"
-                        f"- Ports: {src_port} → {dst_port}\n"
-                        f"- Protocol: {'TCP' if protocol == '6' else 'UDP'}\n"
-                        f"- Timestamp: {timestamp}\n"
-                        f"- Duration: {flow_duration} µs\n"
-                        f"- Throughput: {flow_bytes_per_second} Bps"
-                    ),
-                    "keywords": f"flow, traffic, port:{src_port}-{dst_port}, protocol:{protocol}, label:{label}",
-                    "weight": 1.0,
-                    "source_id": source_id,
-                }
-            )
+        # Build relationship details
+        relationship_desc = (
+            f"This is a {label} session with the following characteristics:\n"
+            f"- Duration: {flow.get('duration', 'N/A')} µs\n"
+            f"- Total Forward Bytes (fiat): {flow.get('total_fiat', 'N/A')}\n"
+            f"- Total Backward Bytes (biat): {flow.get('total_biat', 'N/A')}\n"
+            f"- Mean Forward IAT: {flow.get('mean_fiat', 'N/A')}\n"
+            f"- Mean Backward IAT: {flow.get('mean_biat', 'N/A')}\n"
+            f"- Flow Packets/sec: {flow.get('flowPktsPerSecond', 'N/A')}\n"
+            f"- Flow Bytes/sec: {flow.get('flowBytesPerSecond', 'N/A')}\n"
+            f"- Std Dev of Idle Time: {flow.get('std_idle', 'N/A')}"
+        )
 
-        # Chunk
-        chunks.append(
+        relationships.append(
             {
-                "content": (
-                    f"A {label} session was recorded from {src_ip}:{src_port} to {dst_ip}:{dst_port} "
-                    f"over protocol {protocol}. Duration: {flow_duration} µs, Throughput: {flow_bytes_per_second} Bps."
-                ),
+                "src_id": label,
+                "tgt_id": session_id,
+                "description": relationship_desc,
+                "keywords": f"flow, {label}, statistics, traffic, performance",
+                "weight": 1.0,
                 "source_id": source_id,
-                "source_chunk_index": index,
             }
         )
 
-    # Combine into the correct format
+        # Chunk for retrieval
+        chunks.append(
+            {
+                "content": (
+                    f"A network flow labeled as {label} was observed. "
+                    f"Duration: {flow.get('duration', 'N/A')} µs, "
+                    f"total fiat: {flow.get('total_fiat', 'N/A')}, "
+                    f"biat: {flow.get('total_biat', 'N/A')}, "
+                    f"throughput: {flow.get('flowBytesPerSecond', 'N/A')} Bps."
+                ),
+                "source_id": source_id,
+                "source_chunk_index": index + 1,
+            }
+        )
+
+    # Final KG
     custom_kg = {
         "entities": list(entity_map.values()),
         "relationships": relationships,
@@ -137,7 +132,91 @@ async def build_kg(flows: List[Dict[str, Any]], rag: LightRAG) -> None:
         print(f"Error inserting custom KG: {e}")
 
 
-WORKING_DIR = "./custom_kg"
+async def build_kg_email2a(flows: List[Dict[str, Any]], rag: LightRAG) -> None:
+    """
+    Build and insert a custom knowledge graph into LightRAG from packet-level flow records.
+
+    :param flows: List of packet dictionaries parsed from CSV.
+    :param rag: LightRAG instance with `ainsert_custom_kg(custom_kg)` method.
+    """
+    entity_map = {}
+    relationships = []
+    chunks = []
+
+    # Overview chunk
+    chunks.append(
+        {
+            "content": (
+                "This knowledge graph visualizes individual network packet flows. "
+                "Each entity represents an IP address participating in the network, and edges show communication "
+                "between source and destination IPs with associated protocol, timing, and packet metadata."
+            ),
+            "source_id": "overview",
+            "source_chunk_index": 0,
+        }
+    )
+
+    for index, packet in enumerate(flows):
+        source_ip = packet["Source"]
+        dest_ip = packet["Destination"]
+        protocol = packet["Protocol"]
+        info = packet["Info"]
+        time = packet["Time"]
+        length = packet["Length"]
+        session_id = str(uuid.uuid4())
+        source_id = f"packet-{session_id}"
+
+        # Add source and destination entities if not already added
+        for ip in (source_ip, dest_ip):
+            if ip not in entity_map:
+                entity_map[ip] = {
+                    "entity_name": ip,
+                    "entity_type": "IP Address",
+                    "description": f"IP address involved in network traffic.",
+                    "source_id": f"entity-{ip}",
+                }
+
+        # Add relationship (source → destination)
+        relationships.append(
+            {
+                "src_id": source_ip,
+                "tgt_id": dest_ip,
+                "description": (
+                    f"Packet sent from {source_ip} to {dest_ip} using {protocol} protocol at time {time}s. "
+                    f"Packet length: {length} bytes. Info: {info}"
+                ),
+                "keywords": f"{protocol}, packet, traffic, {source_ip}, {dest_ip}",
+                "weight": 1.0,
+                "source_id": source_id,
+            }
+        )
+
+        # Add chunk for this packet
+        chunks.append(
+            {
+                "content": (
+                    f"Packet from {source_ip} to {dest_ip} at time {time}s using protocol {protocol}. "
+                    f"Length: {length} bytes. Details: {info}."
+                ),
+                "source_id": source_id,
+                "source_chunk_index": index + 1,
+            }
+        )
+
+    # Final KG
+    custom_kg = {
+        "entities": list(entity_map.values()),
+        "relationships": relationships,
+        "chunks": chunks,
+    }
+
+    try:
+        await rag.ainsert_custom_kg(custom_kg)
+    except Exception as e:
+        print(f"Error inserting custom KG: {e}")
+
+
+WORKING_DIR = "./email2a_vpn_kg"
 
 if not os.path.exists(WORKING_DIR):
     os.mkdir(WORKING_DIR)
@@ -247,11 +326,14 @@ async def initialize_rag():
     rag = LightRAG(
         working_dir=WORKING_DIR,
         llm_model_func=ollama_model_complete,
-        llm_model_name="qwen2.5:0.5b",
+        llm_model_name="qwen2.5:1.5b",
         llm_model_max_token_size=32768,
         llm_model_kwargs={
             "host": "http://localhost:11434",
-            "options": {"num_ctx": 32768},  # "num_ctx": 32768
+            "options": {
+                "num_ctx": 32768,
+                "temperature": 0,
+            },  # "num_ctx": 32768
         },
         embedding_func=EmbeddingFunc(
             embedding_dim=768,
@@ -269,6 +351,7 @@ async def initialize_rag():
 
     return rag
 
+
 async def interactive_chat(rag: LightRAG):
     print("\n🔁 Enter 'exit' or 'quit' to end the chat.")
     while True:
@@ -283,15 +366,13 @@ async def interactive_chat(rag: LightRAG):
             print(f"❌ Error: {e}")
 
 
-
-
 def main():
 
     rag = asyncio.run(initialize_rag())
 
     if is_folder_missing_or_empty(WORKING_DIR):
-        flows = asyncio.run(csv_to_json_list("Skype.csv"))
-        asyncio.run(build_kg(flows, rag))
+        flows = asyncio.run(csv_to_json_list("email2a_vpn.csv"))
+        asyncio.run(build_kg_email2a(flows, rag))
 
     # Initialize RAG instance
     print("Custom knowledge graph inserted successfully.")
@@ -305,6 +386,7 @@ def main():
 
     # Start interactive chat
     asyncio.run(interactive_chat(rag))
+
 
 if __name__ == "__main__":
     main()

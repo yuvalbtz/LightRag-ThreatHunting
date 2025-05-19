@@ -1,40 +1,40 @@
 {
   "global": {
-    "e023a119b82c176b619cec6fc66409d6": {
-      "return": "{\"high_level_keywords\": \"graph\", \"low_level_keywords\": \"data structure, visualization\"}",
+    "3ac85756cd53c1ceaf222448550531bd": {
+      "return": "{\"high_level_keywords\": [\"Entities\", \"KG Graph\"], \"low_level_keywords\": [\"Entities\", \"Graph\"]}",
       "cache_type": "keywords",
       "embedding": null,
       "embedding_shape": null,
       "embedding_min": null,
       "embedding_max": null,
-      "original_prompt": "what can you tell me about the graph ?"
+      "original_prompt": "how many entities in the generated kg graph ?"
     },
-    "f91049d0c73cff4546af8452a9805d3a": {
-      "return": "The given knowledge base represents a collection of entities and relationships between them, each with timestamps indicating when knowledge has been acquired or modified. This data is typically used in various applications such as logging, tracking, and managing relationships between different systems. For example, if you were to look at this information about the \"skype_audio\" relationship, it indicates that 54.210.92.215 was connected to 184.73.220.127 via port 48078 with a protocol of TCP and a duration of 4669784 µs.",
+    "e328529f3b7798ae6138691caa9d9cb3": {
+      "return": "There are 30 entities listed in the Knowledge Graph (KG) section of the provided data. These entities represent different types and characteristics related to BROWSING traffic sessions, including flow-level statistical features such as duration, total forward bytes, total backward bytes, mean forward IAT, mean backword IAT, flow packets/sec, flow bytes/sec, and standard deviation of idle time.",
       "cache_type": "query",
       "embedding": null,
       "embedding_shape": null,
       "embedding_min": null,
       "embedding_max": null,
-      "original_prompt": "what can you tell me about the graph ?"
+      "original_prompt": "how many entities in the generated kg graph ?"
     },
-    "ef334c6c13d234ada88f08dca3142ba7": {
-      "return": "{\"high_level_keywords\": \"TCP Protocol\", \"low_level_keywords\": \"Connections\"}",
+    "1e7d6f3ae476a2859e90d4c517b7d79e": {
+      "return": "{\"high_level_keywords\": [\"Community groups\", \"Graph analysis\", \"Data visualization\"], \"low_level_keywords\": [\"Generateg KG graph\", \"Community detection algorithm\"]}",
       "cache_type": "keywords",
       "embedding": null,
       "embedding_shape": null,
       "embedding_min": null,
       "embedding_max": null,
-      "original_prompt": "how many connections using tcp protocol ?"
+      "original_prompt": "how many community groups in the generateg kg graph ?"
     },
-    "893ebf71305065f2ddf3a5f0f4914b7c": {
-      "return": "To determine how many TCP connections are active, we need to look at the total number of TCP connections and the specific connection that is causing interest.\n\nThe file path for this entity: [131.202.240.86/131.202.240.150-131.202.240.150-49624-40273-17]\nThe entity's description is: \"A Skype chat session from 131.202.240.86 to 131.202.240.150.\"\nThe file path for this connection is: [custom_kg/3/37097/131.202.240.86-131.202.240.150-49624-40273-17]\n\nThe entity has 17 connections using TCP protocol.\nThe connection from 131.202.240.86 to 131.202.240.150 is the one causing interest and it currently has 17 active connections.\n\nSo, the number of TCP connections in this entity is **17**.",
+    "7dd2c0702a7779ff9681914fc84c69c2": {
+      "return": "Based on the provided Knowledge Base, there are 30 entries for \"BROWSING\" sessions labeled as BROWSING traffic sessions with flow-level statistical features. These entries cover a wide range of characteristics and performance metrics associated with BROWSING sessions.\n\nTo summarize:\n- The number of community groups in the generateg kg graph is **30**.",
       "cache_type": "query",
       "embedding": null,
       "embedding_shape": null,
       "embedding_min": null,
       "embedding_max": null,
-      "original_prompt": "how many connections using tcp protocol ?"
+      "original_prompt": "how many community groups in the generateg kg graph ?"
     }
   }
 }
