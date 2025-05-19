@@ -1,139 +1,148 @@
 <?xml version='1.0' encoding='utf-8'?>
-<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
-  <key id="d7" for="edge" attr.name="source_id" attr.type="string" />
-  <key id="d6" for="edge" attr.name="keywords" attr.type="string" />
-  <key id="d5" for="edge" attr.name="description" attr.type="string" />
-  <key id="d4" for="edge" attr.name="weight" attr.type="double" />
-  <key id="d3" for="node" attr.name="source_id" attr.type="string" />
-  <key id="d2" for="node" attr.name="description" attr.type="string" />
-  <key id="d1" for="node" attr.name="entity_type" attr.type="string" />
-  <key id="d0" for="node" attr.name="entity_id" attr.type="string" />
-  <graph edgedefault="undirected">
-    <node id="10.8.8.110">
-      <data key="d0">10.8.8.110</data>
-      <data key="d1">IP Address</data>
-      <data key="d2">IP address involved in network traffic.</data>
-      <data key="d3">UNKNOWN</data>
-    </node>
-    <node id="199.233.217.27">
-      <data key="d0">199.233.217.27</data>
-      <data key="d1">IP Address</data>
-      <data key="d2">IP address involved in network traffic.</data>
-      <data key="d3">UNKNOWN</data>
-    </node>
-    <node id="216.58.208.46">
-      <data key="d0">216.58.208.46</data>
-      <data key="d1">IP Address</data>
-      <data key="d2">IP address involved in network traffic.</data>
-      <data key="d3">UNKNOWN</data>
-    </node>
-    <node id="198.7.63.141">
-      <data key="d0">198.7.63.141</data>
-      <data key="d1">IP Address</data>
-      <data key="d2">IP address involved in network traffic.</data>
-      <data key="d3">UNKNOWN</data>
-    </node>
-    <node id="78.46.223.24">
-      <data key="d0">78.46.223.24</data>
-      <data key="d1">IP Address</data>
-      <data key="d2">IP address involved in network traffic.</data>
-      <data key="d3">UNKNOWN</data>
-    </node>
-    <node id="64.233.184.16">
-      <data key="d0">64.233.184.16</data>
-      <data key="d1">IP Address</data>
-      <data key="d2">IP address involved in network traffic.</data>
-      <data key="d3">UNKNOWN</data>
-    </node>
-    <node id="63.245.216.134">
-      <data key="d0">63.245.216.134</data>
-      <data key="d1">IP Address</data>
-      <data key="d2">IP address involved in network traffic.</data>
-      <data key="d3">UNKNOWN</data>
-    </node>
-    <node id="93.184.220.29">
-      <data key="d0">93.184.220.29</data>
-      <data key="d1">IP Address</data>
-      <data key="d2">IP address involved in network traffic.</data>
-      <data key="d3">UNKNOWN</data>
-    </node>
-    <node id="63.245.217.162">
-      <data key="d0">63.245.217.162</data>
-      <data key="d1">IP Address</data>
-      <data key="d2">IP address involved in network traffic.</data>
-      <data key="d3">UNKNOWN</data>
-    </node>
-    <node id="63.245.216.132">
-      <data key="d0">63.245.216.132</data>
-      <data key="d1">IP Address</data>
-      <data key="d2">IP address involved in network traffic.</data>
-      <data key="d3">UNKNOWN</data>
-    </node>
-    <node id="63.245.217.114">
-      <data key="d0">63.245.217.114</data>
-      <data key="d1">IP Address</data>
-      <data key="d2">IP address involved in network traffic.</data>
-      <data key="d3">UNKNOWN</data>
-    </node>
-    <edge source="10.8.8.110" target="199.233.217.27">
-      <data key="d4">1.0</data>
-      <data key="d5">Packet sent from 199.233.217.27 to 10.8.8.110 using NTP protocol at time 0.267490s. Packet length: 76 bytes. Info: NTP Version 4, server</data>
-      <data key="d6">NTP, packet, traffic, 199.233.217.27, 10.8.8.110</data>
-      <data key="d7">chunk-ccf69e1223baa6c1897108fd5d0d3dc6</data>
-    </edge>
-    <edge source="10.8.8.110" target="216.58.208.46">
-      <data key="d4">1.0</data>
-      <data key="d5">Packet sent from 10.8.8.110 to 216.58.208.46 using TCP protocol at time 218.765728s. Packet length: 52 bytes. Info: 33072  &gt;  80 [ACK] Seq=437 Ack=781 Win=30848 Len=0 TSval=119053 TSecr=298859218</data>
-      <data key="d6">TCP, packet, traffic, 10.8.8.110, 216.58.208.46</data>
-      <data key="d7">chunk-fe6a61894c3f1e4034a55ad7c4e22593</data>
-    </edge>
-    <edge source="10.8.8.110" target="198.7.63.141">
-      <data key="d4">1.0</data>
-      <data key="d5">Packet sent from 198.7.63.141 to 10.8.8.110 using DNS protocol at time 304.698084s. Packet length: 307 bytes. Info: Standard query response 0xf036 A blocklist.addons.mozilla.org A 63.245.217.115 A 63.245.217.113 A 63.245.217.114 NS ns7-66.akam.net NS ns4-64.akam.net NS ns1-240.akam.net NS ns5-65.akam.net A 84.53.139.64 A 184.85.248.65 A 96.7.49.66 A 193.108.91.240 AAAA 2600:1401:2::f0</data>
-      <data key="d6">DNS, packet, traffic, 198.7.63.141, 10.8.8.110</data>
-      <data key="d7">chunk-f5165693657015ebe7280b16f4f42f2e</data>
-    </edge>
-    <edge source="10.8.8.110" target="78.46.223.24">
-      <data key="d4">1.0</data>
-      <data key="d5">Packet sent from 78.46.223.24 to 10.8.8.110 using DNS protocol at time 303.108599s. Packet length: 266 bytes. Info: Standard query response 0x712f A addons.mozilla.org CNAME addons.dynect.mozilla.net A 63.245.216.132 NS ns4.p27.dynect.net NS ns1.p27.dynect.net NS ns3.p27.dynect.net NS ns2.p27.dynect.net A 208.78.70.27 A 204.13.250.27 A 208.78.71.27 A 204.13.251.27</data>
-      <data key="d6">DNS, packet, traffic, 78.46.223.24, 10.8.8.110</data>
-      <data key="d7">chunk-6957818e1663e83107d42d5699d83c1c</data>
-    </edge>
-    <edge source="10.8.8.110" target="64.233.184.16">
-      <data key="d4">1.0</data>
-      <data key="d5">Packet sent from 64.233.184.16 to 10.8.8.110 using TCP protocol at time 273.691321s. Packet length: 40 bytes. Info: 465  &gt;  37397 [RST] Seq=885 Win=0 Len=0</data>
-      <data key="d6">TCP, packet, traffic, 64.233.184.16, 10.8.8.110</data>
-      <data key="d7">chunk-028635c04c936b1f8fdf30c2ce3703a5</data>
-    </edge>
-    <edge source="10.8.8.110" target="63.245.216.134">
-      <data key="d4">1.0</data>
-      <data key="d5">Packet sent from 10.8.8.110 to 63.245.216.134 using TCP protocol at time 189.905970s. Packet length: 40 bytes. Info: 46950  &gt;  443 [ACK] Seq=591 Ack=2788 Win=37504 Len=0</data>
-      <data key="d6">TCP, packet, traffic, 10.8.8.110, 63.245.216.134</data>
-      <data key="d7">chunk-34c5c6a9a80805e2d710e8e2f11c953a</data>
-    </edge>
-    <edge source="10.8.8.110" target="93.184.220.29">
-      <data key="d4">1.0</data>
-      <data key="d5">Packet sent from 10.8.8.110 to 93.184.220.29 using TCP protocol at time 304.981973s. Packet length: 52 bytes. Info: 39921  &gt;  80 [ACK] Seq=1312 Ack=2365 Win=34048 Len=0 TSval=140607 TSecr=4100209620</data>
-      <data key="d6">TCP, packet, traffic, 10.8.8.110, 93.184.220.29</data>
-      <data key="d7">chunk-aef598321c3aff79c424be22a87a08ad</data>
-    </edge>
-    <edge source="10.8.8.110" target="63.245.217.162">
-      <data key="d4">1.0</data>
-      <data key="d5">Packet sent from 63.245.217.162 to 10.8.8.110 using TCP protocol at time 197.676014s. Packet length: 40 bytes. Info: 443  &gt;  45062 [RST] Seq=3335 Win=0 Len=0</data>
-      <data key="d6">TCP, packet, traffic, 63.245.217.162, 10.8.8.110</data>
-      <data key="d7">chunk-3703a1ddd603c7182a6f7dade500e3dc</data>
-    </edge>
-    <edge source="10.8.8.110" target="63.245.216.132">
-      <data key="d4">1.0</data>
-      <data key="d5">Packet sent from 10.8.8.110 to 63.245.216.132 using TCP protocol at time 304.449196s. Packet length: 40 bytes. Info: 39035  &gt;  443 [ACK] Seq=1131 Ack=4458 Win=40448 Len=0</data>
-      <data key="d6">TCP, packet, traffic, 10.8.8.110, 63.245.216.132</data>
-      <data key="d7">chunk-ca10a9cf0e616c4243fb3406a080e679</data>
-    </edge>
-    <edge source="10.8.8.110" target="63.245.217.114">
-      <data key="d4">1.0</data>
-      <data key="d5">Packet sent from 10.8.8.110 to 63.245.217.114 using TCP protocol at time 305.113700s. Packet length: 52 bytes. Info: 54951  &gt;  443 [ACK] Seq=196 Ack=1309 Win=32128 Len=0 TSval=140640 TSecr=1921296223</data>
-      <data key="d6">TCP, packet, traffic, 10.8.8.110, 63.245.217.114</data>
-      <data key="d7">chunk-d93cb2d6d45f92d7f64b18ea76e1c8b4</data>
-    </edge>
-  </graph>
-</graphml>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="source_id" attr.type="string"/>
+<key id="d6" for="edge" attr.name="keywords" attr.type="string"/>
+<key id="d5" for="edge" attr.name="description" attr.type="string"/>
+<key id="d4" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d3" for="node" attr.name="source_id" attr.type="string"/>
+<key id="d2" for="node" attr.name="description" attr.type="string"/>
+<key id="d1" for="node" attr.name="entity_type" attr.type="string"/>
+<key id="d0" for="node" attr.name="entity_id" attr.type="string"/>
+<graph edgedefault="undirected"><node id="10.8.8.110">
+  <data key="d0">10.8.8.110</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP address involved in network traffic.</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="199.233.217.27">
+  <data key="d0">199.233.217.27</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP address involved in network traffic.</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="216.58.208.46">
+  <data key="d0">216.58.208.46</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP address involved in network traffic.</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="198.7.63.141">
+  <data key="d0">198.7.63.141</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP address involved in network traffic.</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="78.46.223.24">
+  <data key="d0">78.46.223.24</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP address involved in network traffic.</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="64.233.184.16">
+  <data key="d0">64.233.184.16</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP address involved in network traffic.</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="63.245.216.134">
+  <data key="d0">63.245.216.134</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP address involved in network traffic.</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="93.184.220.29">
+  <data key="d0">93.184.220.29</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP address involved in network traffic.</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="63.245.217.162">
+  <data key="d0">63.245.217.162</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP address involved in network traffic.</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="63.245.216.132">
+  <data key="d0">63.245.216.132</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP address involved in network traffic.</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="63.245.217.114">
+  <data key="d0">63.245.217.114</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP address involved in network traffic.</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="74.125.133.16">
+  <data key="d0">74.125.133.16</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP address involved in network traffic.</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<edge source="10.8.8.110" target="199.233.217.27">
+  <data key="d4">1.0</data>
+  <data key="d5">Packet sent from 199.233.217.27 to 10.8.8.110 using NTP protocol at time 1025.265519s. Packet length: 76 bytes. Info: NTP Version 4, server</data>
+  <data key="d6">NTP, packet, traffic, 199.233.217.27, 10.8.8.110</data>
+  <data key="d7">chunk-1fec5de331527c39a7d127f6e7cab940</data>
+</edge>
+<edge source="10.8.8.110" target="216.58.208.46">
+  <data key="d4">1.0</data>
+  <data key="d5">Packet sent from 10.8.8.110 to 216.58.208.46 using TCP protocol at time 218.765728s. Packet length: 52 bytes. Info: 33072  &gt;  80 [ACK] Seq=437 Ack=781 Win=30848 Len=0 TSval=119053 TSecr=298859218</data>
+  <data key="d6">TCP, packet, traffic, 10.8.8.110, 216.58.208.46</data>
+  <data key="d7">chunk-fe6a61894c3f1e4034a55ad7c4e22593</data>
+</edge>
+<edge source="10.8.8.110" target="198.7.63.141">
+  <data key="d4">1.0</data>
+  <data key="d5">Packet sent from 198.7.63.141 to 10.8.8.110 using DNS protocol at time 1272.282883s. Packet length: 254 bytes. Info: Standard query response 0xc226 A pop.googlemail.com CNAME googlemail-pop.l.google.com A 64.233.184.16 NS ns4.google.com NS ns3.google.com NS ns1.google.com NS ns2.google.com A 216.239.32.10 A 216.239.34.10 A 216.239.36.10 A 216.239.38.10</data>
+  <data key="d6">DNS, packet, traffic, 198.7.63.141, 10.8.8.110</data>
+  <data key="d7">chunk-b7ad3cc13beb32a0fb3307ed0b0bed18</data>
+</edge>
+<edge source="10.8.8.110" target="78.46.223.24">
+  <data key="d4">1.0</data>
+  <data key="d5">Packet sent from 10.8.8.110 to 78.46.223.24 using ICMP protocol at time 1272.283129s. Packet length: 282 bytes. Info: Destination unreachable (Port unreachable)</data>
+  <data key="d6">ICMP, packet, traffic, 10.8.8.110, 78.46.223.24</data>
+  <data key="d7">chunk-168fcac7511b7005116e4f81c6f7199e</data>
+</edge>
+<edge source="10.8.8.110" target="64.233.184.16">
+  <data key="d4">1.0</data>
+  <data key="d5">Packet sent from 64.233.184.16 to 10.8.8.110 using TCP protocol at time 1273.752237s. Packet length: 40 bytes. Info: 995  &gt;  51638 [RST] Seq=544 Win=0 Len=0</data>
+  <data key="d6">TCP, packet, traffic, 64.233.184.16, 10.8.8.110</data>
+  <data key="d7">chunk-4436a5a91da521394b446552282bd901</data>
+</edge>
+<edge source="10.8.8.110" target="63.245.216.134">
+  <data key="d4">1.0</data>
+  <data key="d5">Packet sent from 10.8.8.110 to 63.245.216.134 using TCP protocol at time 189.905970s. Packet length: 40 bytes. Info: 46950  &gt;  443 [ACK] Seq=591 Ack=2788 Win=37504 Len=0</data>
+  <data key="d6">TCP, packet, traffic, 10.8.8.110, 63.245.216.134</data>
+  <data key="d7">chunk-34c5c6a9a80805e2d710e8e2f11c953a</data>
+</edge>
+<edge source="10.8.8.110" target="93.184.220.29">
+  <data key="d4">1.0</data>
+  <data key="d5">Packet sent from 93.184.220.29 to 10.8.8.110 using TCP protocol at time 321.056443s. Packet length: 52 bytes. Info: 80  &gt;  39921 [ACK] Seq=2366 Ack=1313 Win=17920 Len=0 TSval=4100213639 TSecr=144595</data>
+  <data key="d6">TCP, packet, traffic, 93.184.220.29, 10.8.8.110</data>
+  <data key="d7">chunk-10459913cd12d3b4c2714d6255b04353</data>
+</edge>
+<edge source="10.8.8.110" target="63.245.217.162">
+  <data key="d4">1.0</data>
+  <data key="d5">Packet sent from 63.245.217.162 to 10.8.8.110 using TCP protocol at time 197.676014s. Packet length: 40 bytes. Info: 443  &gt;  45062 [RST] Seq=3335 Win=0 Len=0</data>
+  <data key="d6">TCP, packet, traffic, 63.245.217.162, 10.8.8.110</data>
+  <data key="d7">chunk-3703a1ddd603c7182a6f7dade500e3dc</data>
+</edge>
+<edge source="10.8.8.110" target="63.245.216.132">
+  <data key="d4">1.0</data>
+  <data key="d5">Packet sent from 10.8.8.110 to 63.245.216.132 using TCP protocol at time 309.642567s. Packet length: 40 bytes. Info: 39036  &gt;  443 [ACK] Seq=582 Ack=3813 Win=38016 Len=0</data>
+  <data key="d6">TCP, packet, traffic, 10.8.8.110, 63.245.216.132</data>
+  <data key="d7">chunk-d6c6aba5899e69551061fd4a336afc3e</data>
+</edge>
+<edge source="10.8.8.110" target="63.245.217.114">
+  <data key="d4">1.0</data>
+  <data key="d5">Packet sent from 63.245.217.114 to 10.8.8.110 using TCP protocol at time 316.995205s. Packet length: 40 bytes. Info: 443  &gt;  54950 [RST] Seq=22016 Win=0 Len=0</data>
+  <data key="d6">TCP, packet, traffic, 63.245.217.114, 10.8.8.110</data>
+  <data key="d7">chunk-1debd154b1a00fc7a07d0eb2701d0bf5</data>
+</edge>
+<edge source="10.8.8.110" target="74.125.133.16">
+  <data key="d4">1.0</data>
+  <data key="d5">Packet sent from 74.125.133.16 to 10.8.8.110 using TCP protocol at time 620.591346s. Packet length: 40 bytes. Info: 995  &gt;  57574 [RST] Seq=3969 Win=0 Len=0</data>
+  <data key="d6">TCP, packet, traffic, 74.125.133.16, 10.8.8.110</data>
+  <data key="d7">chunk-e949e97a22d5f58263bca6c492bedd46</data>
+</edge>
+</graph></graphml>

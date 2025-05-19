@@ -326,7 +326,7 @@ async def initialize_rag():
     rag = LightRAG(
         working_dir=WORKING_DIR,
         llm_model_func=ollama_model_complete,
-        llm_model_name="qwen2.5:1.5b",
+        llm_model_name="qwen2",
         llm_model_max_token_size=32768,
         llm_model_kwargs={
             "host": "http://localhost:11434",
@@ -371,7 +371,7 @@ def main():
     rag = asyncio.run(initialize_rag())
 
     if is_folder_missing_or_empty(WORKING_DIR):
-        flows = asyncio.run(csv_to_json_list("email2a_vpn.csv"))
+        flows = asyncio.run(csv_to_json_list("email2a_vpn_copy.csv"))
         asyncio.run(build_kg_email2a(flows, rag))
 
     # Initialize RAG instance
