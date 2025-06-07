@@ -24,9 +24,38 @@ DEEPSEEK_API_BASE = "https://openrouter.ai/api/v1/chat/completions"
 WORKING_DIR = "./email2a_vpn_kg"
 EMBED_MODEL = "nomic-embed-text"
 OLLAMA_HOST = "http://localhost:11434"
+OLLAMA_MODEL = "qwen2.5-coder:7b-instruct"  # Default Ollama model
 
 
-# === 🤖 LLM Integration ===
+# === 🤖 LLM Integration for Ollama ===
+async def ollama_model_complete(prompt: str, system_prompt: str = "", **kwargs) -> str:
+    import aiohttp
+
+    model = kwargs.get("model", OLLAMA_MODEL)  # Default to global or passed model
+    host = kwargs.get("host", OLLAMA_HOST)  # Default to local Ollama host
+
+    payload = {
+        "model": model,
+        "messages": [],
+        "stream": False,
+        "temperature": 0.0,
+        "num_ctx": 32768,
+    }
+
+    if system_prompt:
+        payload["messages"].append({"role": "system", "content": system_prompt})
+    payload["messages"].append({"role": "user", "content": prompt})
+
+    async with aiohttp.ClientSession() as session:
+        async with session.post(f"{host}/api/chat", json=payload) as resp:
+            data = await resp.json()
+            if "message" not in data:
+                print("❌ Ollama API error:", data)
+                return ""
+            return data["message"]["content"]
+
+
+# === 🤖 LLM Integration for DeepSeek ===
 async def deepseek_model_complete(
     prompt: str, system_prompt: str = "", **kwargs
 ) -> str:
@@ -86,7 +115,7 @@ def fetch_sample_links(year: str = "2013", max_samples: int = 5) -> list[str]:
     sample_links = [
         urljoin(base_url, a["href"])
         for a in header_links
-        if re.fullmatch(r"\d{2}/\d{2}/index\.html", a["href"])
+        if re.fullmatch(r"\d{2}/\d{2}/index\d*\.html", a["href"])
     ]
     return sample_links[:max_samples]
 
@@ -110,7 +139,6 @@ async def extract_playbook(url: str) -> dict:
 
     soup = BeautifulSoup(resp.text, "html.parser")
     content = soup.get_text(separator="\n", strip=True)
-
     system_prompt = """
 You are a cybersecurity analyst assistant. Given the raw text of a malware blog post, extract and return a structured JSON playbook with the following format:
 
@@ -128,7 +156,7 @@ Only return the JSON object. Do not include any text before or after the JSON. M
     user_prompt = f"Blog content:\n{content}\n\nNow extract the playbook as described."
 
     try:
-        response = await deepseek_model_complete(
+        response = await ollama_model_complete(
             prompt=user_prompt, system_prompt=system_prompt
         )
 
@@ -140,7 +168,7 @@ Only return the JSON object. Do not include any text before or after the JSON. M
         return parsed
 
     except json.JSONDecodeError as e:
-        print(f"❌ Failed to parse JSON from DeepSeek response: {e}")
+        print(f"❌ Failed to parse JSON LLM response: {e}")
         print(f"🧾 Raw response:\n{response}")
         return {}
     except Exception as e:
@@ -183,7 +211,7 @@ Example output format:
 
     try:
         # Call your LLM model's async completion method (adjust function name if needed)
-        response = await deepseek_model_complete(
+        response = await ollama_model_complete(
             system_prompt=system_prompt, prompt=user_prompt
         )
 
@@ -308,7 +336,4 @@ async def run_agent():
 
 # === 🧪 Entry Point ===
 if __name__ == "__main__":
-    # enriched = asyncio.run(generate_enriched_playbooks(year="2023", max_samples=3))
-    # You can optionally dump results or display them
-    # import json; print(json.dumps(enriched, indent=2))
-    asyncio.run(generate_enriched_playbooks(year="2023", max_samples=1))
+    asyncio.run(generate_enriched_playbooks(year="2016", max_samples=1))
