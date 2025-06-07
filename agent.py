@@ -27,6 +27,57 @@ OLLAMA_HOST = "http://localhost:11434"
 OLLAMA_MODEL = "qwen2.5-coder:7b-instruct"  # Default Ollama model
 
 
+async def initialize_rag_deepseek():
+    rag = LightRAG(
+        working_dir=WORKING_DIR,
+        llm_model_func=deepseek_model_complete,
+        llm_model_name=DEEPSEEK_MODEL,
+        llm_model_max_token_size=32768,
+        llm_model_kwargs={},
+        embedding_func=EmbeddingFunc(
+            embedding_dim=768,
+            max_token_size=8192,
+            func=lambda texts: ollama_embed(
+                texts, embed_model=EMBED_MODEL, host=OLLAMA_HOST
+            ),
+        ),
+    )
+    await rag.initialize_storages()
+    await initialize_pipeline_status()
+
+    return rag
+
+
+async def initialize_rag_ollama():
+    rag = LightRAG(
+        working_dir=WORKING_DIR,
+        llm_model_func=ollama_model_complete,
+        llm_model_name=OLLAMA_MODEL,
+        llm_model_max_token_size=32768,
+        llm_model_kwargs={
+            "host": "http://localhost:11434",
+            "options": {
+                "num_ctx": 32768,
+                "temperature": 0,
+            },  # "num_ctx": 32768
+        },
+        embedding_func=EmbeddingFunc(
+            embedding_dim=768,
+            max_token_size=8192,
+            func=lambda texts: ollama_embed(
+                texts,
+                embed_model="nomic-embed-text",
+                host="http://localhost:11434",
+            ),
+        ),
+    )
+
+    await rag.initialize_storages()
+    await initialize_pipeline_status()
+
+    return rag
+
+
 # === 🤖 LLM Integration for Ollama ===
 async def ollama_model_complete(prompt: str, system_prompt: str = "", **kwargs) -> str:
     import aiohttp
@@ -90,7 +141,7 @@ async def deepseek_model_complete(
 
 
 @tool
-def fetch_sample_links(year: str = "2013", max_samples: int = 5) -> list[str]:
+async def fetch_sample_links(year: str = "2013", max_samples: int = 5) -> list[str]:
     """
     Fetch sample malware analysis blog links from a specific year.
 
@@ -165,6 +216,8 @@ Only return the JSON object. Do not include any text before or after the JSON. M
 
         parsed = json.loads(response)
         parsed["sample_url"] = url
+        print(f"✅ Extracted playbook as json {parsed}")
+
         return parsed
 
     except json.JSONDecodeError as e:
@@ -231,35 +284,35 @@ Example output format:
         return {"error": str(e)}
 
 
-@tool
-async def initialize_rag_and_search_graph(query: str) -> str:
-    """
-    Initialize LightRAG and perform a query over the graph.
+# @tool
+# async def initialize_rag_and_search_graph(query: str) -> str:
+#     """
+#     Initialize LightRAG and perform a query over the graph.
 
-    Args:
-        query (str): The query string to search the knowledge graph.
+#     Args:
+#         query (str): The query string to search the knowledge graph.
 
-    Returns:
-        str: The result of the query.
-    """
-    rag = LightRAG(
-        working_dir=WORKING_DIR,
-        llm_model_func=deepseek_model_complete,
-        llm_model_name=DEEPSEEK_MODEL,
-        llm_model_max_token_size=32768,
-        llm_model_kwargs={},
-        embedding_func=EmbeddingFunc(
-            embedding_dim=768,
-            max_token_size=8192,
-            func=lambda texts: ollama_embed(
-                texts, embed_model=EMBED_MODEL, host=OLLAMA_HOST
-            ),
-        ),
-    )
+#     Returns:
+#         str: The result of the query.
+#     """
+#     rag = LightRAG(
+#         working_dir=WORKING_DIR,
+#         llm_model_func=deepseek_model_complete,
+#         llm_model_name=DEEPSEEK_MODEL,
+#         llm_model_max_token_size=32768,
+#         llm_model_kwargs={},
+#         embedding_func=EmbeddingFunc(
+#             embedding_dim=768,
+#             max_token_size=8192,
+#             func=lambda texts: ollama_embed(
+#                 texts, embed_model=EMBED_MODEL, host=OLLAMA_HOST
+#             ),
+#         ),
+#     )
 
-    await rag.initialize_storages()
-    await initialize_pipeline_status()
-    return await rag.aquery(query, param=QueryParam(mode="global"))
+#     await rag.initialize_storages()
+#     await initialize_pipeline_status()
+#     return await rag.aquery(query, param=QueryParam(mode="global"))
 
 
 @tool
@@ -276,24 +329,9 @@ async def generate_enriched_playbooks(
     Returns:
         list[dict]: A list of enriched playbook dictionaries.
     """
-    rag = LightRAG(
-        working_dir=WORKING_DIR,
-        llm_model_func=deepseek_model_complete,
-        llm_model_name=DEEPSEEK_MODEL,
-        llm_model_max_token_size=32768,
-        llm_model_kwargs={},
-        embedding_func=EmbeddingFunc(
-            embedding_dim=768,
-            max_token_size=8192,
-            func=lambda texts: ollama_embed(
-                texts, embed_model=EMBED_MODEL, host=OLLAMA_HOST
-            ),
-        ),
-    )
-    await rag.initialize_storages()
-    await initialize_pipeline_status()
+    rag = await initialize_rag_ollama()
 
-    links = fetch_sample_links(year, max_samples)
+    links = await fetch_sample_links(year, max_samples)
 
     for link in links:
         print(f"📥 Extracting from: {link}")
@@ -315,12 +353,7 @@ def main():
             api_base=DEEPSEEK_API_BASE,
             api_key=DEEPSEEK_API_KEY,
         ),
-        tools=[
-            fetch_sample_links,
-            extract_playbook,
-            initialize_rag_and_search_graph,
-            generate_enriched_playbooks,
-        ],
+        tools=[fetch_sample_links, extract_playbook, generate_enriched_playbooks],
     )
     return agent
 
