@@ -195,6 +195,7 @@ You are a cybersecurity analyst assistant. Given the raw text of a malware blog 
 
 {
   "sample_url": "<the blog URL>",
+  "malware_name": "<name of the malware>",
   "associated_files": ["list of file names (e.g., .zip, .exe, .doc)", ...],
   "snort_events": ["any Snort rules or alerts mentioned", ...],
   "infection_chain": ["step-by-step infection process", ...],
@@ -369,4 +370,4 @@ async def run_agent():
 
 # === 🧪 Entry Point ===
 if __name__ == "__main__":
-    asyncio.run(generate_enriched_playbooks(year="2016", max_samples=1))
+    asyncio.run(generate_enriched_playbooks(year="2025", max_samples=1))
