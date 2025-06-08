@@ -18,7 +18,9 @@ from lightrag.llm.ollama import ollama_embed
 load_dotenv()
 
 # === 🔧 Configuration ===
-DEEPSEEK_API_KEY = os.getenv("OPENROUTER_API_KEY")
+DEEPSEEK_API_KEY = os.getenv(
+    "OPENROUTER_API_KEY"
+)  # api key from https://openrouter.ai/
 DEEPSEEK_MODEL = "deepseek/deepseek-r1:free"
 DEEPSEEK_API_BASE = "https://openrouter.ai/api/v1/chat/completions"
 WORKING_DIR = "./email2a_vpn_kg"
@@ -32,7 +34,6 @@ async def initialize_rag_deepseek():
         working_dir=WORKING_DIR,
         llm_model_func=deepseek_model_complete,
         llm_model_name=DEEPSEEK_MODEL,
-        llm_model_max_token_size=32768,
         llm_model_kwargs={},
         embedding_func=EmbeddingFunc(
             embedding_dim=768,
@@ -59,7 +60,7 @@ async def initialize_rag_ollama():
             "options": {
                 "num_ctx": 32768,
                 "temperature": 0,
-            },  # "num_ctx": 32768
+            },
         },
         embedding_func=EmbeddingFunc(
             embedding_dim=768,
@@ -137,9 +138,16 @@ async def deepseek_model_complete(
             return data["choices"][0]["message"]["content"]
 
 
+# === 🛠️ Configure the current model completion and the current RAG initialization function  ===
+
+# Set the current model completion function
+current_model_complete = ollama_model_complete
+
+# Set the current RAG initialization function
+current_initialize_rag_model = initialize_rag_ollama
+
+
 # === 🛠️ Tools ===
-
-
 @tool
 async def fetch_sample_links(year: str = "2013", max_samples: int = 5) -> list[str]:
     """
@@ -208,7 +216,7 @@ Only return the JSON object. Do not include any text before or after the JSON. M
     user_prompt = f"Blog content:\n{content}\n\nNow extract the playbook as described."
 
     try:
-        response = await ollama_model_complete(
+        response = await current_model_complete(
             prompt=user_prompt, system_prompt=system_prompt
         )
 
@@ -265,7 +273,7 @@ Example output format:
 
     try:
         # Call your LLM model's async completion method (adjust function name if needed)
-        response = await ollama_model_complete(
+        response = await current_model_complete(
             system_prompt=system_prompt, prompt=user_prompt
         )
 
@@ -330,7 +338,7 @@ async def generate_enriched_playbooks(
     Returns:
         list[dict]: A list of enriched playbook dictionaries.
     """
-    rag = await initialize_rag_ollama()
+    rag = await current_initialize_rag_model()
 
     links = await fetch_sample_links(year, max_samples)
 
