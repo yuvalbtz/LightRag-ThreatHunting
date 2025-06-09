@@ -358,24 +358,27 @@ def main():
     """
     agent = CodeAgent(
         model=LiteLLMModel(
-            model_id="deepseek-chat",
-            api_base=DEEPSEEK_API_BASE,
-            api_key=DEEPSEEK_API_KEY,
+            model_id="ollama_chat/qwen2.5:1.5b",
+            api_base="http://127.0.0.1:11434",  # Default Ollama local server
+            num_ctx=32768,  # Set context size
         ),
-        tools=[fetch_sample_links, extract_playbook, generate_enriched_playbooks],
+        tools=[
+            fetch_sample_links,
+            extract_playbook,
+            playbook_to_graph_prompt,
+            generate_enriched_playbooks,
+        ],
+        additional_authorized_imports=[
+            "os",
+        ],
     )
     return agent
 
 
-async def run_agent():
-    """
-    Run the agent asynchronously.
-    """
-    agent = main()
-    response = await agent.run("hello")
-    return response
-
-
 # === 🧪 Entry Point ===
 if __name__ == "__main__":
-    asyncio.run(generate_enriched_playbooks(year="2025", max_samples=1))
+    # asyncio.run(generate_enriched_playbooks(year="2025", max_samples=1))
+    agent = main()
+    agent.run(
+        "create a folder named 'test_folder' and write 'Hello World!' to a file in it."
+    )
