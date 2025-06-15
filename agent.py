@@ -2,89 +2,144 @@ import os
 import re
 import requests
 import asyncio
+import logging
+import json
+import time
+from functools import lru_cache, wraps
+from typing import List, Dict, Any, Optional, Union
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from dotenv import load_dotenv
-import json
-from smolagents import CodeAgent, tool
-from smolagents.models import LiteLLMModel
 from lightrag.base import QueryParam
 from lightrag.kg.shared_storage import initialize_pipeline_status
 from lightrag.lightrag import LightRAG
 from lightrag.utils import EmbeddingFunc
 from lightrag.llm.ollama import ollama_embed
+import pipmaster as pm
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger(__name__)
 
 # 📦 Load environment
 load_dotenv()
 
 # === 🔧 Configuration ===
-DEEPSEEK_API_KEY = os.getenv(
-    "OPENROUTER_API_KEY"
-)  # api key from https://openrouter.ai/
+DEEPSEEK_API_KEY = os.getenv("OPENROUTER_API_KEY")
 DEEPSEEK_MODEL = "deepseek/deepseek-r1:free"
 DEEPSEEK_API_BASE = "https://openrouter.ai/api/v1/chat/completions"
 WORKING_DIR = "./email2a_vpn_kg"
 EMBED_MODEL = "nomic-embed-text"
 OLLAMA_HOST = "http://localhost:11434"
-OLLAMA_MODEL = "qwen2.5-coder:7b-instruct"  # Default Ollama model
+OLLAMA_MODEL = "qwen2.5:1.5b"
+
+# Cache configuration
+CACHE_TTL = 3600  # 1 hour in seconds
+MAX_RETRIES = 3
+RETRY_DELAY = 1  # seconds
+
+
+def retry_on_failure(max_retries: int = MAX_RETRIES, delay: int = RETRY_DELAY):
+    """Decorator for retrying functions on failure."""
+
+    def decorator(func):
+        @wraps(func)
+        async def wrapper(*args, **kwargs):
+            last_exception = None
+            for attempt in range(max_retries):
+                try:
+                    return await func(*args, **kwargs)
+                except Exception as e:
+                    last_exception = e
+                    logger.warning(
+                        f"Attempt {attempt + 1}/{max_retries} failed: {str(e)}"
+                    )
+                    if attempt < max_retries - 1:
+                        await asyncio.sleep(delay * (attempt + 1))
+            raise last_exception
+
+        return wrapper
+
+    return decorator
+
+
+@lru_cache(maxsize=128)
+def get_rag_instance(model_type: str = "ollama") -> LightRAG:
+    """Get or create a cached RAG instance."""
+    if model_type == "ollama":
+        return LightRAG(
+            working_dir=WORKING_DIR,
+            llm_model_func=ollama_model_complete,
+            llm_model_name=OLLAMA_MODEL,
+            llm_model_max_token_size=32768,
+            llm_model_kwargs={
+                "host": OLLAMA_HOST,
+                "options": {
+                    "num_ctx": 32768,
+                    "temperature": 0,
+                },
+            },
+            embedding_func=EmbeddingFunc(
+                embedding_dim=768,
+                max_token_size=8192,
+                func=lambda texts: ollama_embed(
+                    texts,
+                    embed_model=EMBED_MODEL,
+                    host=OLLAMA_HOST,
+                ),
+            ),
+        )
+    else:
+        return LightRAG(
+            working_dir=WORKING_DIR,
+            llm_model_func=deepseek_model_complete,
+            llm_model_name=DEEPSEEK_MODEL,
+            llm_model_kwargs={},
+            embedding_func=EmbeddingFunc(
+                embedding_dim=768,
+                max_token_size=8192,
+                func=lambda texts: ollama_embed(
+                    texts, embed_model=EMBED_MODEL, host=OLLAMA_HOST
+                ),
+            ),
+        )
 
 
 async def initialize_rag_deepseek():
-    rag = LightRAG(
-        working_dir=WORKING_DIR,
-        llm_model_func=deepseek_model_complete,
-        llm_model_name=DEEPSEEK_MODEL,
-        llm_model_kwargs={},
-        embedding_func=EmbeddingFunc(
-            embedding_dim=768,
-            max_token_size=8192,
-            func=lambda texts: ollama_embed(
-                texts, embed_model=EMBED_MODEL, host=OLLAMA_HOST
-            ),
-        ),
-    )
-    await rag.initialize_storages()
-    await initialize_pipeline_status()
-
-    return rag
+    """Initialize RAG with DeepSeek model."""
+    try:
+        rag = get_rag_instance("deepseek")
+        await rag.initialize_storages()
+        await initialize_pipeline_status()
+        logger.info("Successfully initialized RAG with DeepSeek model")
+        return rag
+    except Exception as e:
+        logger.error(f"Failed to initialize RAG with DeepSeek: {str(e)}")
+        raise
 
 
 async def initialize_rag_ollama():
-    rag = LightRAG(
-        working_dir=WORKING_DIR,
-        llm_model_func=ollama_model_complete,
-        llm_model_name=OLLAMA_MODEL,
-        llm_model_max_token_size=32768,
-        llm_model_kwargs={
-            "host": "http://localhost:11434",
-            "options": {
-                "num_ctx": 32768,
-                "temperature": 0,
-            },
-        },
-        embedding_func=EmbeddingFunc(
-            embedding_dim=768,
-            max_token_size=8192,
-            func=lambda texts: ollama_embed(
-                texts,
-                embed_model="nomic-embed-text",
-                host="http://localhost:11434",
-            ),
-        ),
-    )
-
-    await rag.initialize_storages()
-    await initialize_pipeline_status()
-
-    return rag
+    """Initialize RAG with Ollama model."""
+    try:
+        rag = get_rag_instance("ollama")
+        await rag.initialize_storages()
+        await initialize_pipeline_status()
+        logger.info("Successfully initialized RAG with Ollama model")
+        return rag
+    except Exception as e:
+        logger.error(f"Failed to initialize RAG with Ollama: {str(e)}")
+        raise
 
 
-# === 🤖 LLM Integration for Ollama ===
+@retry_on_failure()
 async def ollama_model_complete(prompt: str, system_prompt: str = "", **kwargs) -> str:
+    """Complete text using Ollama model with retry logic."""
     import aiohttp
 
-    model = kwargs.get("model", OLLAMA_MODEL)  # Default to global or passed model
-    host = kwargs.get("host", OLLAMA_HOST)  # Default to local Ollama host
+    model = kwargs.get("model", OLLAMA_MODEL)
+    host = kwargs.get("host", OLLAMA_HOST)
 
     payload = {
         "model": model,
@@ -100,17 +155,24 @@ async def ollama_model_complete(prompt: str, system_prompt: str = "", **kwargs) 
 
     async with aiohttp.ClientSession() as session:
         async with session.post(f"{host}/api/chat", json=payload) as resp:
+            if resp.status != 200:
+                error_text = await resp.text()
+                logger.error(f"Ollama API error: {error_text}")
+                raise Exception(f"Ollama API error: {error_text}")
+
             data = await resp.json()
             if "message" not in data:
-                print("❌ Ollama API error:", data)
-                return ""
+                logger.error(f"Invalid Ollama response: {data}")
+                raise Exception("Invalid Ollama response")
+
             return data["message"]["content"]
 
 
-# === 🤖 LLM Integration for DeepSeek ===
+@retry_on_failure()
 async def deepseek_model_complete(
     prompt: str, system_prompt: str = "", **kwargs
 ) -> str:
+    """Complete text using DeepSeek model with retry logic."""
     import aiohttp
 
     messages = []
@@ -131,42 +193,92 @@ async def deepseek_model_complete(
                 "temperature": 0.0,
             },
         ) as resp:
+            if resp.status != 200:
+                error_text = await resp.text()
+                logger.error(f"DeepSeek API error: {error_text}")
+                raise Exception(f"DeepSeek API error: {error_text}")
+
             data = await resp.json()
             if "choices" not in data:
-                print("❌ DeepSeek API error:", data)
-                return ""
+                logger.error(f"Invalid DeepSeek response: {data}")
+                raise Exception("Invalid DeepSeek response")
+
             return data["choices"][0]["message"]["content"]
 
 
-# === 🛠️ Configure the current model completion and the current RAG initialization function  ===
-
 # Set the current model completion function
-current_model_complete = ollama_model_complete
+current_model_complete = deepseek_model_complete
 
 # Set the current RAG initialization function
 current_initialize_rag_model = initialize_rag_ollama
 
 
-# === 🛠️ Tools ===
-@tool
-async def fetch_sample_links(year: str = "2013", max_samples: int = 5) -> list[str]:
-    """
-    Fetch sample malware analysis blog links from a specific year.
+async def generate_visual_graph(dir_path: str = "./custom_kg") -> Dict[str, Any]:
+    """Generate graph data compatible with vis-network."""
+    if not pm.is_installed("pyvis"):
+        pm.install("pyvis")
+    if not pm.is_installed("networkx"):
+        pm.install("networkx")
 
-    Args:
-        year (str): The year to fetch blog links from.
-        max_samples (int): The maximum number of sample links to return.
+    import networkx as nx
+    from pyvis.network import Network
+    import random
 
-    Returns:
-        list[str]: A list of sample blog URLs.
-    """
+    # Load the GraphML file
+    G = nx.read_graphml(f"{dir_path}/graph_chunk_entity_relation.graphml")
+
+    # Create a Pyvis network
+    net = Network(height="100vh", notebook=True)
+
+    # Convert NetworkX graph to Pyvis network
+    net.from_nx(G)
+
+    # Prepare nodes for vis-network
+    nodes = []
+    for node in net.nodes:
+        node_data = {
+            "id": node["id"],
+            "label": node.get("label", node["id"]),
+            "color": "#{:06x}".format(random.randint(0, 0xFFFFFF)),
+            "title": node.get("description", ""),
+            "group": node.get("group", "default"),
+        }
+        nodes.append(node_data)
+
+    # Prepare edges for vis-network
+    edges = []
+    for edge in net.edges:
+        edge_data = {
+            "from": edge["from"],
+            "to": edge["to"],
+            "label": edge.get("label", ""),
+            "title": edge.get("description", ""),
+            "arrows": "to",
+            "smooth": {"type": "continuous"},
+        }
+        edges.append(edge_data)
+
+    return {"nodes": nodes, "edges": edges}
+
+
+@retry_on_failure()
+async def fetch_sample_links(year: str = "2013", max_samples: int = 5) -> List[str]:
+    """Fetch sample malware analysis blog links with retry logic."""
     base_url = f"https://www.malware-traffic-analysis.net/{year}/"
     index_url = urljoin(base_url, "index.html")
-    headers = {"User-Agent": "Mozilla/5.0"}
+    headers = {
+        "User-Agent": "Mozilla/5.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Connection": "keep-alive",
+    }
 
-    resp = requests.get(index_url, headers=headers)
-    if resp.status_code != 200:
-        return []
+    try:
+        resp = requests.get(index_url, headers=headers, timeout=10)
+        resp.raise_for_status()
+    except requests.RequestException as e:
+        logger.error(f"Failed to fetch sample links: {str(e)}")
+        raise
 
     soup = BeautifulSoup(resp.text, "html.parser")
     header_links = soup.find_all("a", class_="list_header", href=True)
@@ -176,28 +288,30 @@ async def fetch_sample_links(year: str = "2013", max_samples: int = 5) -> list[s
         for a in header_links
         if re.fullmatch(r"\d{2}/\d{2}/index\d*\.html", a["href"])
     ]
+
+    logger.info(f"Found {len(sample_links)} sample links for year {year}")
     return sample_links[:max_samples]
 
 
-@tool
-async def extract_playbook(url: str) -> dict:
-    """
-    Extracts structured data from a malware blog post.
+async def fetch_playbook_content(url: str) -> Dict[str, Any]:
+    """Fetch and parse content from a single playbook URL."""
+    headers = {
+        "User-Agent": "Mozilla/5.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Connection": "keep-alive",
+    }
 
-    Args:
-        url (str): The URL of the malware blog post to extract information from.
-
-    Returns:
-        dict: A dictionary containing extracted playbook information.
-    """
-
-    headers = {"User-Agent": "Mozilla/5.0"}
-    resp = requests.get(url, headers=headers)
-    if resp.status_code != 200:
-        return {}
+    try:
+        resp = requests.get(url, headers=headers, timeout=10)
+        resp.raise_for_status()
+    except requests.RequestException as e:
+        logger.error(f"Failed to fetch blog post {url}: {str(e)}")
+        return None
 
     soup = BeautifulSoup(resp.text, "html.parser")
     content = soup.get_text(separator="\n", strip=True)
+
     system_prompt = """
 You are a cybersecurity analyst assistant. Given the raw text of a malware blog post, extract and return a structured JSON playbook with the following format:
 
@@ -210,50 +324,65 @@ You are a cybersecurity analyst assistant. Given the raw text of a malware blog 
   "associated_domains": ["any suspicious domains or IPs mentioned", ...]
 }
 
-Only return the JSON object. Do not include any text before or after the JSON. Make sure the JSON is valid.
+IMPORTANT: Return ONLY the JSON object. Do not include any text before or after the JSON. The response must be valid JSON.
 """
 
-    user_prompt = f"Blog content:\n{content}\n\nNow extract the playbook as described."
+    user_prompt = f"Blog content:\n{content}\n\nNow extract the playbook as described. Return ONLY the JSON object."
 
     try:
         response = await current_model_complete(
             prompt=user_prompt, system_prompt=system_prompt
         )
 
-        # Optionally: clean invalid JSON chars
-        response = response.replace("’", "'").replace("“", '"').replace("”", '"')
+        if not response or not response.strip():
+            logger.error(f"Empty response from model for {url}")
+            return None
 
-        parsed = json.loads(response)
-        parsed["sample_url"] = url
-        print(f"✅ Extracted playbook as json {parsed}")
+        # Clean and parse response
+        response = response.strip()
+        response = response.replace("'", "'").replace(""", '"').replace(""", '"')
 
-        return parsed
+        # Try to find JSON in the response if it's wrapped in other text
+        json_start = response.find("{")
+        json_end = response.rfind("}") + 1
+        if json_start >= 0 and json_end > json_start:
+            response = response[json_start:json_end]
 
-    except json.JSONDecodeError as e:
-        print(f"❌ Failed to parse JSON LLM response: {e}")
-        print(f"🧾 Raw response:\n{response}")
-        return {}
+        try:
+            parsed = json.loads(response)
+            parsed["sample_url"] = url
+            return parsed
+        except json.JSONDecodeError as e:
+            logger.error(f"Invalid JSON response for {url}: {str(e)}")
+            return None
+
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
-        return {}
+        logger.error(f"Error processing {url}: {str(e)}")
+        return None
 
 
-@tool
-async def playbook_to_graph_prompt(playbook: dict) -> dict:
-    """
-    Given a structured playbook dict, generate a JSON prompt object for
-    the RAG graph LLM to perform anomaly detection or search.
+async def fetch_all_playbooks(
+    year: str = "2013", max_samples: int = 5
+) -> List[Dict[str, Any]]:
+    """Fetch and process multiple playbooks in parallel."""
+    # Get all sample links
+    links = await fetch_sample_links(year, max_samples)
 
-    Args:
-        playbook (dict): Structured malware playbook information.
+    # Process all links concurrently
+    tasks = [fetch_playbook_content(link) for link in links]
+    playbooks = await asyncio.gather(*tasks)
 
-    Returns:
-        dict: JSON object containing the prompt for graph LLM.
-    """
+    # Filter out None results and return valid playbooks
+    return [p for p in playbooks if p is not None]
+
+
+@retry_on_failure()
+async def playbook_to_graph_prompt(playbook: Dict[str, Any]) -> Dict[str, str]:
+    """Convert playbook to graph prompt with retry logic."""
     if not playbook:
-        return {"error": "Empty playbook provided."}
+        logger.error("Empty playbook provided")
+        raise ValueError("Empty playbook provided")
 
-    # System prompt instructing the LLM how to convert playbook into a graph search prompt
     system_prompt = """
 You are an assistant that converts a malware playbook JSON object into
 a prompt for a graph-based LLM to search for related anomalies, threats,
@@ -268,117 +397,70 @@ Example output format:
 }
 """
 
-    # Pass the playbook JSON as the user prompt (stringify it for LLM input)
     user_prompt = f"Convert this playbook into a graph search prompt:\n{json.dumps(playbook, indent=2)}"
 
     try:
-        # Call your LLM model's async completion method (adjust function name if needed)
         response = await current_model_complete(
             system_prompt=system_prompt, prompt=user_prompt
         )
 
-        # Clean and parse response as JSON
-        response_clean = response.replace("’", "'").replace("“", '"').replace("”", '"')
+        # Clean and parse response
+        response_clean = response.replace("'", "'").replace(""", '"').replace(""", '"')
         prompt_obj = json.loads(response_clean)
 
+        logger.info("Successfully converted playbook to graph prompt")
         return prompt_obj
 
     except json.JSONDecodeError as e:
-        print(f"❌ JSON parsing error from LLM response: {e}")
-        print(f"Raw LLM response:\n{response}")
-        return {"error": "Failed to parse LLM JSON response"}
-
+        logger.error(f"Failed to parse JSON response: {str(e)}")
+        logger.debug(f"Raw response: {response}")
+        raise
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
-        return {"error": str(e)}
+        logger.error(f"Unexpected error in playbook_to_graph_prompt: {str(e)}")
+        raise
 
 
-# @tool
-# async def initialize_rag_and_search_graph(query: str) -> str:
-#     """
-#     Initialize LightRAG and perform a query over the graph.
-
-#     Args:
-#         query (str): The query string to search the knowledge graph.
-
-#     Returns:
-#         str: The result of the query.
-#     """
-#     rag = LightRAG(
-#         working_dir=WORKING_DIR,
-#         llm_model_func=deepseek_model_complete,
-#         llm_model_name=DEEPSEEK_MODEL,
-#         llm_model_max_token_size=32768,
-#         llm_model_kwargs={},
-#         embedding_func=EmbeddingFunc(
-#             embedding_dim=768,
-#             max_token_size=8192,
-#             func=lambda texts: ollama_embed(
-#                 texts, embed_model=EMBED_MODEL, host=OLLAMA_HOST
-#             ),
-#         ),
-#     )
-
-#     await rag.initialize_storages()
-#     await initialize_pipeline_status()
-#     return await rag.aquery(query, param=QueryParam(mode="global"))
-
-
-@tool
 async def generate_enriched_playbooks(
     year: str = "2013", max_samples: int = 3
-) -> list[dict]:
-    """
-    Scrape blogs, extract playbooks, and enrich with RAG.
+) -> List[Dict[str, Any]]:
+    """Generate enriched playbooks with improved error handling and logging."""
+    start_time = time.time()
 
-    Args:
-        year (str): The year to fetch blog links from.
-        max_samples (int): The maximum number of sample links to process.
+    try:
+        rag = await current_initialize_rag_model()
+        playbooks = await fetch_all_playbooks(year, max_samples)
 
-    Returns:
-        list[dict]: A list of enriched playbook dictionaries.
-    """
-    rag = await current_initialize_rag_model()
+        enriched_playbooks = []
+        for playbook in playbooks:
+            try:
+                playbook_prompt = await playbook_to_graph_prompt(playbook)
 
-    links = await fetch_sample_links(year, max_samples)
+                # Add enrichment data
+                playbook["enrichment"] = {
+                    "processing_time": time.time() - start_time,
+                    "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+                    "graph_prompt": playbook_prompt,
+                }
 
-    for link in links:
-        print(f"📥 Extracting from: {link}")
-        playbook = await extract_playbook(link)
-        playbook_prompt_for_llm = await playbook_to_graph_prompt.forward(playbook)
-        print(f"🔍 Generated prompt for LLM: {playbook_prompt_for_llm}")
-        # prompt_str = playbook_prompt_for_llm.get("prompt", "")
-        # insight = await rag.aquery(prompt_str)
-        # print(f"🔍 Insight: {insight}")
+                enriched_playbooks.append(playbook)
+                logger.info(f"Successfully processed {playbook['sample_url']}")
 
+            except Exception as e:
+                logger.error(
+                    f"Failed to process {playbook.get('sample_url', 'unknown')}: {str(e)}"
+                )
+                continue
 
-def main():
-    """
-    Main function to run the agent.
-    """
-    agent = CodeAgent(
-        model=LiteLLMModel(
-            model_id="ollama_chat/qwen2.5:1.5b",
-            api_base="http://127.0.0.1:11434",  # Default Ollama local server
-            num_ctx=32768,  # Set context size
-        ),
-        tools=[
-            fetch_sample_links,
-            extract_playbook,
-            playbook_to_graph_prompt,
-            generate_enriched_playbooks,
-        ],
-        additional_authorized_imports=[
-            "os",
-        ],
-    )
-    return agent
+        logger.info(
+            f"Generated {len(enriched_playbooks)} enriched playbooks in {time.time() - start_time:.2f} seconds"
+        )
+        return enriched_playbooks
+
+    except Exception as e:
+        logger.error(f"Failed to generate enriched playbooks: {str(e)}")
+        raise
 
 
-# === 🧪 Entry Point ===
 if __name__ == "__main__":
-    # asyncio.run(generate_enriched_playbooks(year="2025", max_samples=1))
-    agent = main()
-    agent.run(
-        "create a folder named 'test_folder' and write 'Hello World!' to a file in it."
-    )
+    enriched_playbooks = asyncio.run(fetch_all_playbooks(year="2014", max_samples=2))
+    print(enriched_playbooks)

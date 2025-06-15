@@ -30,5 +30,6 @@ for edge in net.edges:
     if "description" in edge:
         edge["title"] = edge["description"]
 
+
 # Save and display the network
 net.show("knowledge_graph.html")

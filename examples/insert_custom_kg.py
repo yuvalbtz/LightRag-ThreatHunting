@@ -9,6 +9,8 @@ from lightrag.llm.openai import gpt_4o_mini_complete
 from lightrag.utils import EmbeddingFunc
 import uuid
 from typing import List, Dict, Any
+import re
+from agent import initialize_rag_deepseek
 
 #########
 # Uncomment the below two lines if running in a jupyter notebook to handle the async nature of rag.insert()
@@ -42,24 +44,91 @@ def is_folder_missing_or_empty(folder_path: str) -> bool:
     return not os.path.exists(folder_path) or not os.listdir(folder_path)
 
 
-async def build_kg(flows: List[Dict[str, Any]], rag: LightRAG) -> None:
+async def determine_entity_type(
+    value: str, available_columns: List[str], flow: Dict[str, Any]
+) -> str:
+    """
+    Automatically determine the entity type based on the value and available data.
+
+    Args:
+        value: The entity value to analyze
+        available_columns: List of available columns in the data
+        flow: The current flow record containing the entity
+
+    Returns:
+        str: The determined entity type
+    """
+    # Check if it's an IP address
+    if re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", value):
+        return "IP Address"
+
+    # Check if it's a port number
+    if value.isdigit() and 0 <= int(value) <= 65535:
+        return "Port"
+
+    # Check if it's a protocol
+    if "Protocol" in flow and value == flow["Protocol"]:
+        return "Protocol"
+
+    # Check if it's a service
+    if "Service" in flow and value == flow["Service"]:
+        return "Service"
+
+    # Check if it's a hostname
+    if re.match(r"^[a-zA-Z0-9][a-zA-Z0-9-]*(\.[a-zA-Z0-9][a-zA-Z0-9-]*)*$", value):
+        return "Hostname"
+
+    # Check if it's a traffic class
+    if "class" in value.lower() or "type" in value.lower():
+        return "Traffic Class"
+
+    # Default to Network Entity if no specific type is determined
+    return "Network Entity"
+
+
+async def build_kg(
+    flows: List[Dict[str, Any]],
+    rag: LightRAG,
+    source_column: str = "Source",
+    target_column: str = "Destination",
+    relationship_columns: List[str] = None,
+) -> None:
     """
     Build and insert a custom knowledge graph into LightRAG from flow records.
+    Automatically extracts entities and their types from the data.
 
-    :param flows: List of flow dictionaries parsed from CSV.
-    :param rag: LightRAG instance with `ainsert_custom_kg(custom_kg)` method.
+    Args:
+        flows: List of flow dictionaries parsed from CSV/PCAP
+        rag: LightRAG instance
+        source_column: Column name for source entity
+        target_column: Column name for target entity
+        relationship_columns: List of column names to include in relationships
     """
     entity_map = {}
     relationships = []
     chunks = []
 
+    if not flows:
+        raise ValueError("No data provided")
+
+    # Get all available columns from the first record
+    available_columns = list(flows[0].keys())
+
+    # If relationship_columns not specified, use all columns except source and target
+    if relationship_columns is None:
+        relationship_columns = [
+            col
+            for col in available_columns
+            if col not in [source_column, target_column]
+        ]
+
     # Overview chunk
     chunks.append(
         {
             "content": (
-                "This knowledge graph visualizes network traffic flow characteristics extracted from packet captures. "
-                "Each entity represents a session label (e.g., VPN or Non-VPN), and relationships capture statistics "
-                "such as duration, throughput, and timing metrics."
+                "This knowledge graph visualizes network traffic flow characteristics. "
+                "Each entity represents a network endpoint or component, and relationships capture "
+                "various attributes and metrics from the traffic data."
             ),
             "source_id": "overview",
             "source_chunk_index": 0,
@@ -68,142 +137,90 @@ async def build_kg(flows: List[Dict[str, Any]], rag: LightRAG) -> None:
 
     for index, flow in enumerate(flows):
         session_id = str(uuid.uuid4())
-        label = flow.get("class1", "Unknown")
         source_id = f"session-{session_id}"
 
-        # Create one entity per traffic class label
-        if label not in entity_map:
-            entity_map[label] = {
-                "entity_name": label,
-                "entity_type": "Traffic Class",
-                "description": f"{label} traffic sessions with flow-level statistical features.",
-                "source_id": f"entity-{label}",
-            }
+        # Get source and target
+        source = flow.get(source_column, "Unknown")
+        target = flow.get(target_column, "Unknown")
 
-        # Build relationship details
-        relationship_desc = (
-            f"This is a {label} session with the following characteristics:\n"
-            f"- Duration: {flow.get('duration', 'N/A')} µs\n"
-            f"- Total Forward Bytes (fiat): {flow.get('total_fiat', 'N/A')}\n"
-            f"- Total Backward Bytes (biat): {flow.get('total_biat', 'N/A')}\n"
-            f"- Mean Forward IAT: {flow.get('mean_fiat', 'N/A')}\n"
-            f"- Mean Backward IAT: {flow.get('mean_biat', 'N/A')}\n"
-            f"- Flow Packets/sec: {flow.get('flowPktsPerSecond', 'N/A')}\n"
-            f"- Flow Bytes/sec: {flow.get('flowBytesPerSecond', 'N/A')}\n"
-            f"- Std Dev of Idle Time: {flow.get('std_idle', 'N/A')}"
-        )
+        # Create entities if they don't exist
+        for endpoint in (source, target):
+            if endpoint not in entity_map:
+                # Determine entity type automatically
+                entity_type = await determine_entity_type(
+                    endpoint, available_columns, flow
+                )
 
-        relationships.append(
-            {
-                "src_id": label,
-                "tgt_id": session_id,
-                "description": relationship_desc,
-                "keywords": f"flow, {label}, statistics, traffic, performance",
-                "weight": 1.0,
-                "source_id": source_id,
-            }
-        )
+                # Create entity description based on available data
+                entity_desc_parts = [f"{entity_type} involved in network traffic"]
+                for col in relationship_columns:
+                    if flow.get(col) is not None:
+                        entity_desc_parts.append(f"{col}: {flow[col]}")
 
-        # Chunk for retrieval
-        chunks.append(
-            {
-                "content": (
-                    f"A network flow labeled as {label} was observed. "
-                    f"Duration: {flow.get('duration', 'N/A')} µs, "
-                    f"total fiat: {flow.get('total_fiat', 'N/A')}, "
-                    f"biat: {flow.get('total_biat', 'N/A')}, "
-                    f"throughput: {flow.get('flowBytesPerSecond', 'N/A')} Bps."
-                ),
-                "source_id": source_id,
-                "source_chunk_index": index + 1,
-            }
-        )
-
-    # Final KG
-    custom_kg = {
-        "entities": list(entity_map.values()),
-        "relationships": relationships,
-        "chunks": chunks,
-    }
-
-    try:
-        await rag.ainsert_custom_kg(custom_kg)
-    except Exception as e:
-        print(f"Error inserting custom KG: {e}")
-
-
-async def build_kg_email2a(flows: List[Dict[str, Any]], rag: LightRAG) -> None:
-    """
-    Build and insert a custom knowledge graph into LightRAG from packet-level flow records.
-
-    :param flows: List of packet dictionaries parsed from CSV.
-    :param rag: LightRAG instance with `ainsert_custom_kg(custom_kg)` method.
-    """
-    entity_map = {}
-    relationships = []
-    chunks = []
-
-    # Overview chunk
-    chunks.append(
-        {
-            "content": (
-                "This knowledge graph visualizes individual network packet flows. "
-                "Each entity represents an IP address participating in the network, and edges show communication "
-                "between source and destination IPs with associated protocol, timing, and packet metadata."
-            ),
-            "source_id": "overview",
-            "source_chunk_index": 0,
-        }
-    )
-
-    for index, packet in enumerate(flows):
-        source_ip = packet["Source"]
-        dest_ip = packet["Destination"]
-        protocol = packet["Protocol"]
-        info = packet["Info"]
-        time = packet["Time"]
-        length = packet["Length"]
-        session_id = str(uuid.uuid4())
-        source_id = f"packet-{session_id}"
-
-        # Add source and destination entities if not already added
-        for ip in (source_ip, dest_ip):
-            if ip not in entity_map:
-                entity_map[ip] = {
-                    "entity_name": ip,
-                    "entity_type": "IP Address",
-                    "description": f"IP address involved in network traffic.",
-                    "source_id": f"entity-{ip}",
+                entity_attrs = {
+                    "entity_name": endpoint,
+                    "entity_type": entity_type,
+                    "description": " | ".join(entity_desc_parts),
+                    "source_id": f"entity-{endpoint}",
                 }
 
-        # Add relationship (source → destination)
-        relationships.append(
-            {
-                "src_id": source_ip,
-                "tgt_id": dest_ip,
-                "description": (
-                    f"Packet sent from {source_ip} to {dest_ip} using {protocol} protocol at time {time}s. "
-                    f"Packet length: {length} bytes. Info: {info}"
-                ),
-                "keywords": f"{protocol}, packet, traffic, {source_ip}, {dest_ip}",
-                "weight": 1.0,
-                "source_id": source_id,
-            }
-        )
+                # Add all available attributes to the entity
+                for col in available_columns:
+                    if (
+                        col not in [source_column, target_column]
+                        and flow.get(col) is not None
+                    ):
+                        entity_attrs[col] = flow[col]
 
-        # Add chunk for this packet
+                entity_map[endpoint] = entity_attrs
+
+        # Build relationship description from specified columns
+        relationship_desc = []
+        for col in relationship_columns:
+            if flow.get(col) is not None:
+                relationship_desc.append(f"{col}: {flow[col]}")
+
+        # Create relationship
+        relationship_attrs = {
+            "src_id": source,
+            "tgt_id": target,
+            "description": " | ".join(relationship_desc),
+            "keywords": ", ".join(
+                [
+                    str(flow.get(col, "")).lower()
+                    for col in relationship_columns
+                    if flow.get(col)
+                ]
+            ),
+            "weight": 1.0,
+            "source_id": source_id,
+        }
+
+        # Add all relationship columns as attributes
+        for col in relationship_columns:
+            if flow.get(col) is not None:
+                relationship_attrs[col] = flow[col]
+
+        relationships.append(relationship_attrs)
+
+        # Create chunk with all available information
+        chunk_content = []
+        if source != "Unknown" and target != "Unknown":
+            chunk_content.append(f"Traffic from {source} to {target}")
+
+        for col in relationship_columns:
+            if flow.get(col) is not None:
+                chunk_content.append(f"{col}: {flow[col]}")
+
         chunks.append(
             {
-                "content": (
-                    f"Packet from {source_ip} to {dest_ip} at time {time}s using protocol {protocol}. "
-                    f"Length: {length} bytes. Details: {info}."
-                ),
+                "content": " | ".join(chunk_content),
                 "source_id": source_id,
                 "source_chunk_index": index + 1,
             }
         )
 
-    # Final KG
+    # Create and insert the knowledge graph
     custom_kg = {
         "entities": list(entity_map.values()),
         "relationships": relationships,
@@ -212,6 +229,13 @@ async def build_kg_email2a(flows: List[Dict[str, Any]], rag: LightRAG) -> None:
 
     try:
         await rag.ainsert_custom_kg(custom_kg)
+        print(
+            f"Successfully inserted knowledge graph with {len(entity_map)} entities and {len(relationships)} relationships"
+        )
+        print(f"Used columns: {relationship_columns}")
+        print(
+            f"Entity types found: {set(entity['entity_type'] for entity in entity_map.values())}"
+        )
     except Exception as e:
         print(f"Error inserting custom KG: {e}")
 
@@ -367,22 +391,34 @@ async def interactive_chat(rag: LightRAG):
 
 
 def main():
-
-    rag = asyncio.run(initialize_rag())
+    rag = asyncio.run(initialize_rag_deepseek())
 
     if is_folder_missing_or_empty(WORKING_DIR):
-        flows = asyncio.run(csv_to_json_list("email2a_vpn.csv"))
-        asyncio.run(build_kg_email2a(flows, rag))
+        flows = asyncio.run(csv_to_json_list("Skype.csv"))
+        asyncio.run(
+            build_kg(
+                flows=flows,
+                rag=rag,
+                source_column="Src IP",
+                target_column="Dst IP",
+                relationship_columns=[
+                    "Protocol",
+                    "Length",
+                    "Time",
+                    "duration",
+                    "total_fiat",
+                    "total_biat",
+                    "mean_fiat",
+                    "mean_biat",
+                    "flowPktsPerSecond",
+                    "flowBytesPerSecond",
+                    "std_idle",
+                ],
+            )
+        )
 
-    # Initialize RAG instance
     print("Custom knowledge graph inserted successfully.")
     print("Entities, relationships, and chunks have been added to the knowledge graph.")
-
-    # Example query
-    # query = "What does this kg graph represent ?"
-    # response = rag.query(query, param=QueryParam(mode="global"))
-    # print(f"Query: {query}")
-    # print(f"Response: {response}")
 
     # Start interactive chat
     asyncio.run(interactive_chat(rag))
