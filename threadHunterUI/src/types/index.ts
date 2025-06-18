@@ -50,3 +50,7 @@ export interface GraphData {
   nodes: GraphNode[];
   edges: GraphEdge[];
 }
+
+export interface GraphFoldersNamesResponse {
+  folders: string[];
+}

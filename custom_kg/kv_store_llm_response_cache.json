@@ -1,40 +1,22 @@
 {
   "global": {
-    "3ac85756cd53c1ceaf222448550531bd": {
-      "return": "{\"high_level_keywords\": [\"Entities\", \"KG Graph\"], \"low_level_keywords\": [\"Entities\", \"Graph\"]}",
+    "e1fcf44502bb077092c8973b7d16369d": {
+      "return": "{\"high_level_keywords\": [\"IPs\", \"Graph data\", \"Network analysis\"], \"low_level_keywords\": [\"Internet Protocol\", \"Data representation\", \"Visualization technique\"]}",
       "cache_type": "keywords",
       "embedding": null,
       "embedding_shape": null,
       "embedding_min": null,
       "embedding_max": null,
-      "original_prompt": "how many entities in the generated kg graph ?"
+      "original_prompt": "how many ips  in the graph ?"
     },
-    "e328529f3b7798ae6138691caa9d9cb3": {
-      "return": "There are 30 entities listed in the Knowledge Graph (KG) section of the provided data. These entities represent different types and characteristics related to BROWSING traffic sessions, including flow-level statistical features such as duration, total forward bytes, total backward bytes, mean forward IAT, mean backword IAT, flow packets/sec, flow bytes/sec, and standard deviation of idle time.",
+    "14aba45a3be2b9489ddd54e0e079b405": {
+      "return": "In graph theory, an edge (also called a line) is a connection between two vertices. An edge can be one of several things:\n\n- A path connecting two vertices\n- The minimum set of edges that separates two vertices\n- An essential component of other subgraphs\n\nEdges are typically represented as being in a certain part or edge class, and these classes can vary depending on the context.\n\nTo get an exact count of how many \"ips\" (which likely stands for \"individuals,\" possibly referring to specific vertices) there are on a graph would require specifying what type of graph it is. There are several types:\n\n1. **Undirected Graph**: Each edge connects two vertices.\n2. **Directed Graph**: An edge can connect one vertex to another in both directions (i.e., an arrow shows the direction).\n3. **Multigraph**: A directed graph where multiple edges between the same pair of vertices is possible.\n4. **Pseudograph**: A multigraph with parallel edges.\n\nWithout knowing what type of graph you're referring to, I can't provide a specific number. If you could specify if it's an undirected or directed graph (or both), that would help narrow down the answer.",
       "cache_type": "query",
       "embedding": null,
       "embedding_shape": null,
       "embedding_min": null,
       "embedding_max": null,
-      "original_prompt": "how many entities in the generated kg graph ?"
-    },
-    "1e7d6f3ae476a2859e90d4c517b7d79e": {
-      "return": "{\"high_level_keywords\": [\"Community groups\", \"Graph analysis\", \"Data visualization\"], \"low_level_keywords\": [\"Generateg KG graph\", \"Community detection algorithm\"]}",
-      "cache_type": "keywords",
-      "embedding": null,
-      "embedding_shape": null,
-      "embedding_min": null,
-      "embedding_max": null,
-      "original_prompt": "how many community groups in the generateg kg graph ?"
-    },
-    "7dd2c0702a7779ff9681914fc84c69c2": {
-      "return": "Based on the provided Knowledge Base, there are 30 entries for \"BROWSING\" sessions labeled as BROWSING traffic sessions with flow-level statistical features. These entries cover a wide range of characteristics and performance metrics associated with BROWSING sessions.\n\nTo summarize:\n- The number of community groups in the generateg kg graph is **30**.",
-      "cache_type": "query",
-      "embedding": null,
-      "embedding_shape": null,
-      "embedding_min": null,
-      "embedding_max": null,
-      "original_prompt": "how many community groups in the generateg kg graph ?"
+      "original_prompt": "how many ips  in the graph ?"
     }
   }
 }

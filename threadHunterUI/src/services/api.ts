@@ -1,5 +1,6 @@
 import { createAssistantMessage } from '@/context/ChatContext';
-import { GraphData, Message, Playbook } from '../types';
+import { GraphData, GraphFoldersNamesResponse, Message, Playbook } from '../types';
+
 
 const API_BASE_URL = 'http://localhost:8000';
 
@@ -9,7 +10,9 @@ export const api = {
         build: async (file: File): Promise<{ entity_count: number; relationship_count: number }> => {
             const formData = new FormData();
             formData.append('file', file);
-
+            formData.append('source_column', 'Source');
+            formData.append('target_column', 'Destination');
+            formData.append('working_dir', './AppDbStore/' + file.name?.split('.')[0]);
             const response = await fetch(`${API_BASE_URL}/build-kg`, {
                 method: 'POST',
                 body: formData,
@@ -37,12 +40,19 @@ export const api = {
                 throw new Error('Failed to search graph');
             }
             return response.json();
+        },
+        getGraphFoldersNames: async (): Promise<GraphFoldersNamesResponse> => {
+            const response = await fetch(`${API_BASE_URL}/graph-folders-names`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch graph folders names');
+            }
+            return response.json();
         }
     },
 
     // Chat related API calls
     chat: {
-        sendMessage: async (message: string, setMessages: (updater: (prev: Message[]) => Message[]) => void): Promise<Message> => {
+        sendMessage: async (message: string, setMessages: (updater: (prev: Message[]) => Message[]) => void, dir_path: string): Promise<Message> => {
 
             const response = await fetch(`${API_BASE_URL}/query/stream`, {
                 method: 'POST',
@@ -51,6 +61,7 @@ export const api = {
                 },
                 body: JSON.stringify({
                     query: message,
+                    dir_path: './AppDbStore/' + dir_path,
                     conversation_history: []
                 }),
             });

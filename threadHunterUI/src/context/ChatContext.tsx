@@ -5,7 +5,7 @@ import { api } from '@/services/api';
 
 interface ChatContextType {
     messages: Message[];
-    sendMessage: (message: Message) => Promise<void>;
+    sendMessage: (message: Message, dir_path: string) => Promise<void>;
     isLoading: boolean;
 }
 
@@ -59,15 +59,15 @@ export const useSendMessage = () => {
 export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [messages, setMessages] = useState<Message[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-
-    const sendMessage = useCallback(async (message: Message) => {
+    const sendMessage = useCallback(async (message: Message, dir_path: string) => {
         setIsLoading(true);
+        console.log("dir_path", dir_path);
         try {
             if (message.content && message.role !== 'user') {
                 setMessages(prev => [...prev, message]);
             } else if (message.content && message.role === 'user') {
                 setMessages(prev => [...prev, message]);
-                await api.chat.sendMessage(message.content, setMessages);
+                await api.chat.sendMessage(message.content, setMessages, dir_path);
             }
         } catch (error) {
             console.error('Error:', error);

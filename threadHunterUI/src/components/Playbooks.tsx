@@ -263,7 +263,7 @@ export const Playbooks: React.FC<PlaybooksProps> = ({ onSelectPlaybook, isDarkMo
                         onChange={(e) => setSearchQuery(e.target.value)}
                         startContent={<SearchIcon className={`relative left-0 top-0  w-5 h-5 ${isDarkMode ? 'text-white' : 'text-gray-500'}`} />}
                         variant='underlined'
-                        className={`w-full pl-0`}
+                        className={`w-full pl-0 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
                     />
                 </div>
 

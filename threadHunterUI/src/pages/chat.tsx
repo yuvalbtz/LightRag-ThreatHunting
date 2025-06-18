@@ -1,8 +1,7 @@
-import { useState, useRef, useEffect } from "react";
-import { Card, CardBody as CardContent, CardFooter } from "@heroui/card";
+import { PaperAirplaneIcon } from "@heroicons/react/24/solid"; // Use Heroicons
 import { Button } from "@heroui/button";
 import { Textarea } from "@heroui/input";
-import { PaperAirplaneIcon } from "@heroicons/react/24/solid"; // Use Heroicons
+import { useEffect, useRef, useState } from "react";
 
 type Message = {
     role: "user" | "assistant";

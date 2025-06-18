@@ -1,8 +1,8 @@
-from fastapi import FastAPI, HTTPException, UploadFile, File
+from fastapi import FastAPI, Form, HTTPException, Header, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
-from typing import List, Optional, Dict, Any
+from typing import Annotated, List, Optional, Dict, Any
 import asyncio
 import tempfile
 import os
@@ -20,6 +20,11 @@ from agent import (
 )
 import json
 import time
+
+
+async def fetch_graph_folders_names_from_os():
+    """Fetch the names of the folders in the custom_kg directory."""
+    return os.listdir("./AppDbStore")
 
 
 async def determine_entity_type(
@@ -102,7 +107,12 @@ class GraphQueryRequest(BaseModel):
 
 class ChatRequest(BaseModel):
     query: str
+    dir_path: str = "./custom_kg"
     conversation_history: Optional[List[Dict[str, str]]] = None
+
+
+class GraphFoldersNamesResponse(BaseModel):
+    folders: List[str]
 
 
 @app.get("/")
@@ -157,11 +167,24 @@ async def fetch_links(request: SampleLinksRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@app.get("/graph-folders-names", response_model=GraphFoldersNamesResponse)
+async def get_graph_folders_names():
+    """Get the names of the folders in the custom_kg directory."""
+    try:
+        folders = await fetch_graph_folders_names_from_os()
+        return GraphFoldersNamesResponse(folders=folders)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @app.get("/graph-data", response_model=GraphDataResponse)
-async def get_graph_data():
+async def get_graph_data(
+    dir_path: Annotated[str, Header(alias="dir_path")] = "./custom_kg",
+):
     """Get graph data for visualization."""
     try:
-        graph_data = await generate_visual_graph()
+        print(f"dir_path: {dir_path}")
+        graph_data = await generate_visual_graph(dir_path=dir_path)
         return GraphDataResponse(**graph_data)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -170,10 +193,10 @@ async def get_graph_data():
 @app.post("/build-kg", response_model=BuildKGResponse)
 async def build_knowledge_graph(
     file: UploadFile = File(...),
-    source_column: str = "Source",
-    target_column: str = "Destination",
-    relationship_columns: Optional[List[str]] = None,
-    working_dir: str = "./custom_kg",
+    source_column: Annotated[str, Form()] = "Source IP",
+    target_column: Annotated[str, Form()] = "Destination IP",
+    relationship_columns: Annotated[Optional[List[str]], Form()] = None,
+    working_dir: Annotated[str, Form()] = "./custom_kg",
 ):
     """
     Build a knowledge graph from an uploaded CSV or PCAP file.
@@ -198,12 +221,12 @@ async def build_knowledge_graph(
             temp_file_path = temp_file.name
 
         # Initialize RAG
-        rag = await initialize_rag_deepseek()
-
+        rag = await initialize_rag_ollama(working_dir=working_dir)
+        print(f"working_dir: {working_dir}")
         # Process the file based on its extension
         file_ext = os.path.splitext(file.filename)[1].lower()
         if file_ext == ".csv":
-            flows = await csv_to_json_list(temp_file_path)
+            flows = await csv_to_json_list(temp_file_path, max_rows=40)
         elif file_ext == ".pcap":
             flows = await pcap_to_json_list(temp_file_path)
         else:
@@ -303,8 +326,9 @@ async def query_stream(request: ChatRequest):
     Stream a response to a chat query.
     """
     try:
+        print(f"request.dir_path: {request.dir_path}")
         # Initialize RAG
-        rag = await initialize_rag_ollama()
+        rag = await initialize_rag_deepseek(working_dir=request.dir_path)
 
         # Query using RAG with global mode
         response = await rag.aquery(

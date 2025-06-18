@@ -2506,13 +2506,13 @@
 <node id="78.46.223.24">
   <data key="d0">78.46.223.24</data>
   <data key="d1">IP Address</data>
-  <data key="d2">IP Address involved in network traffic | No.: 40 | Time: 69.782343 | Protocol: DNS | Length: 79 | Info: Standard query 0xbfa0 A smtp.googlemail.com</data>
+  <data key="d2">IP Address involved in network traffic | No.: 23 | Time: 102.069005 | Protocol: DNS | Length: 65 | Info: Standard query 0x438d A smtp.googlemail.com</data>
   <data key="d3">UNKNOWN</data>
 </node>
 <node id="198.7.63.141">
   <data key="d0">198.7.63.141</data>
   <data key="d1">IP Address</data>
-  <data key="d2">IP Address involved in network traffic | No.: 39 | Time: 69.782082 | Protocol: DNS | Length: 79 | Info: Standard query 0xbfa0 A smtp.googlemail.com</data>
+  <data key="d2">IP Address involved in network traffic | No.: 22 | Time: 102.068965 | Protocol: DNS | Length: 65 | Info: Standard query 0x438d A smtp.googlemail.com</data>
   <data key="d3">UNKNOWN</data>
 </node>
 <node id="131.202.243.12">
@@ -3790,7 +3790,7 @@
 <node id="216.58.208.46">
   <data key="d0">216.58.208.46</data>
   <data key="d1">IP Address</data>
-  <data key="d2">IP Address involved in network traffic | No.: 59 | Time: 70.119018 | Protocol: TCP | Length: 74 | Info: 53913  &gt;  80 [SYN] Seq=0 Win=29200 Len=0 MSS=1460 SACK_PERM TSval=4888134 TSecr=0 WS=128</data>
+  <data key="d2">IP Address involved in network traffic | No.: 3 | Time: 5.306131 | Protocol: TCP | Length: 52 | Info: 33063  &gt;  80 [ACK] Seq=1 Ack=1 Win=241 Len=0 TSval=65688 TSecr=296438506</data>
   <data key="d3">UNKNOWN</data>
 </node>
 <node id="64.233.184.16">

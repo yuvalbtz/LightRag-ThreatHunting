@@ -72,6 +72,11 @@ export const GraphVisualization: React.FC<GraphVisualizationProps> = ({
                     enabled: true,
                     type: 'continuous',
                     roundness: 0.5
+                },
+                title: 'title',
+                font: {
+                    size: 12,
+                    color: '#ffffff'
                 }
             },
             physics: {

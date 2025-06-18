@@ -88,7 +88,7 @@ export const ChatContainer = () => {
         if (!input.trim() && !file) return;
         const message = input.trim();
         setInput('');
-        await sendMessage(createUserMessage(message));
+        await sendMessage(createUserMessage(message), state.dir_path);
     };
 
     return (
@@ -208,7 +208,7 @@ export const ChatContainer = () => {
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                         placeholder={graphData ? "Ask about potential threats..." : "Upload a file to enable chat..."}
-                        className={`flex-1 transition-colors duration-200 focus:outline-violet-500`}
+                        className={`flex-1 transition-colors duration-200 focus:outline-violet-500 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
                         variant='underlined'
                         disabled={isLoading || !graphData}
                     />

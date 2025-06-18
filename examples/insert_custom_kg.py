@@ -19,25 +19,28 @@ from agent import initialize_rag_deepseek
 #########
 
 
-async def csv_to_json_list(file_path: str) -> List[Dict[str, Any]]:
+async def csv_to_json_list(
+    file_path: str, max_rows: int = None
+) -> List[Dict[str, Any]]:
     """
-    Asynchronously converts a CSV file to a list of dictionaries.
+    Asynchronously converts a CSV file to a list of cleaned dictionaries.
 
     :param file_path: Path to the CSV file.
-    :return: A list of dictionaries where each row is a dictionary with proper key-value pairs.
+    :return: A list of dictionaries with stripped and cleaned key-value pairs.
     """
-    loop = asyncio.get_running_loop()
+    with open(file_path, mode="r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        if max_rows:
+            rows = list(reader)[:max_rows]
+        else:
+            rows = list(reader)
 
-    # Read CSV asynchronously
-    with open(file_path, mode="r", encoding="utf-8") as csv_file:
-        reader = await loop.run_in_executor(
-            None, lambda: list(csv.DictReader(csv_file))
-        )
+    def clean(s: str) -> str:
+        return s.strip().replace('"', "").replace("'", "")
 
-    # Convert all values to strings with double quotes
-    json_data = [{str(k): str(v) for k, v in row.items()} for row in reader]
+    json_data = [{clean(k): clean(v) for k, v in row.items()} for row in rows]
 
-    return json_data  # List[Dict[str, Any]]
+    return json_data
 
 
 def is_folder_missing_or_empty(folder_path: str) -> bool:
@@ -160,7 +163,7 @@ async def build_kg(
                 entity_attrs = {
                     "entity_name": endpoint,
                     "entity_type": entity_type,
-                    "description": " | ".join(entity_desc_parts),
+                    "description": "\n".join(entity_desc_parts),
                     "source_id": f"entity-{endpoint}",
                 }
 
@@ -184,7 +187,7 @@ async def build_kg(
         relationship_attrs = {
             "src_id": source,
             "tgt_id": target,
-            "description": " | ".join(relationship_desc),
+            "description": "\n".join(relationship_desc),
             "keywords": ", ".join(
                 [
                     str(flow.get(col, "")).lower()
@@ -214,7 +217,7 @@ async def build_kg(
 
         chunks.append(
             {
-                "content": " | ".join(chunk_content),
+                "content": "\n".join(chunk_content),
                 "source_id": source_id,
                 "source_chunk_index": index + 1,
             }
@@ -228,7 +231,7 @@ async def build_kg(
     }
 
     try:
-        await rag.ainsert_custom_kg(custom_kg)
+        await rag.ainsert_custom_kg(custom_kg=custom_kg, file_path=rag.working_dir)
         print(
             f"Successfully inserted knowledge graph with {len(entity_map)} entities and {len(relationships)} relationships"
         )

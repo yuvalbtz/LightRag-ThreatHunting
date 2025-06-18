@@ -1,0 +1,2198 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="source_id" attr.type="string"/>
+<key id="d6" for="edge" attr.name="keywords" attr.type="string"/>
+<key id="d5" for="edge" attr.name="description" attr.type="string"/>
+<key id="d4" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d3" for="node" attr.name="source_id" attr.type="string"/>
+<key id="d2" for="node" attr.name="description" attr.type="string"/>
+<key id="d1" for="node" attr.name="entity_type" attr.type="string"/>
+<key id="d0" for="node" attr.name="entity_id" attr.type="string"/>
+<graph edgedefault="undirected"><node id="192.168.10.5">
+  <data key="d0">192.168.10.5</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP Address involved in network traffic
+Flow ID: 192.168.10.3-192.168.10.5-88-49182-6
+Source Port: 49182
+Destination Port: 88
+Protocol: 6
+Timestamp: 4/7/2017 8:54
+Flow Duration: 640
+Total Fwd Packets: 7
+Total Backward Packets: 4
+Total Length of Fwd Packets: 440
+Total Length of Bwd Packets: 358
+Fwd Packet Length Max: 220
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 62.85714286
+Fwd Packet Length Std: 107.349008
+Bwd Packet Length Max: 179
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 89.5
+Bwd Packet Length Std: 103.3456982
+Flow Bytes/s: 1246875
+Flow Packets/s: 17187.5
+Flow IAT Mean: 64
+Flow IAT Std: 135.557286
+Flow IAT Max: 445
+Flow IAT Min: 1
+Fwd IAT Total: 640
+Fwd IAT Mean: 106.6666667
+Fwd IAT Std: 194.3251571
+Fwd IAT Max: 497
+Fwd IAT Min: 1
+Bwd IAT Total: 538
+Bwd IAT Mean: 179.3333333
+Bwd IAT Std: 303.6862416
+Bwd IAT Max: 530
+Bwd IAT Min: 4
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 164
+Bwd Header Length: 104
+Fwd Packets/s: 10937.5
+Bwd Packets/s: 6250
+Min Packet Length: 0
+Max Packet Length: 220
+Packet Length Mean: 66.5
+Packet Length Std: 99.00183653
+Packet Length Variance: 9801.363636
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 72.54545455
+Avg Fwd Segment Size: 62.85714286
+Avg Bwd Segment Size: 89.5
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 7
+Subflow Fwd Bytes: 440
+Subflow Bwd Packets: 4
+Subflow Bwd Bytes: 358
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 2053
+act_data_pkt_fwd: 2
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="192.168.10.3">
+  <data key="d0">192.168.10.3</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP Address involved in network traffic
+Flow ID: 192.168.10.3-192.168.10.5-88-49182-6
+Source Port: 49182
+Destination Port: 88
+Protocol: 6
+Timestamp: 4/7/2017 8:54
+Flow Duration: 640
+Total Fwd Packets: 7
+Total Backward Packets: 4
+Total Length of Fwd Packets: 440
+Total Length of Bwd Packets: 358
+Fwd Packet Length Max: 220
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 62.85714286
+Fwd Packet Length Std: 107.349008
+Bwd Packet Length Max: 179
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 89.5
+Bwd Packet Length Std: 103.3456982
+Flow Bytes/s: 1246875
+Flow Packets/s: 17187.5
+Flow IAT Mean: 64
+Flow IAT Std: 135.557286
+Flow IAT Max: 445
+Flow IAT Min: 1
+Fwd IAT Total: 640
+Fwd IAT Mean: 106.6666667
+Fwd IAT Std: 194.3251571
+Fwd IAT Max: 497
+Fwd IAT Min: 1
+Bwd IAT Total: 538
+Bwd IAT Mean: 179.3333333
+Bwd IAT Std: 303.6862416
+Bwd IAT Max: 530
+Bwd IAT Min: 4
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 164
+Bwd Header Length: 104
+Fwd Packets/s: 10937.5
+Bwd Packets/s: 6250
+Min Packet Length: 0
+Max Packet Length: 220
+Packet Length Mean: 66.5
+Packet Length Std: 99.00183653
+Packet Length Variance: 9801.363636
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 72.54545455
+Avg Fwd Segment Size: 62.85714286
+Avg Bwd Segment Size: 89.5
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 7
+Subflow Fwd Bytes: 440
+Subflow Bwd Packets: 4
+Subflow Bwd Bytes: 358
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 2053
+act_data_pkt_fwd: 2
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="23.202.233.152">
+  <data key="d0">23.202.233.152</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP Address involved in network traffic
+Flow ID: 192.168.10.5-23.202.233.152-49201-80-6
+Source Port: 49201
+Destination Port: 80
+Protocol: 6
+Timestamp: 4/7/2017 8:54
+Flow Duration: 26641766
+Total Fwd Packets: 4
+Total Backward Packets: 4
+Total Length of Fwd Packets: 227
+Total Length of Bwd Packets: 301
+Fwd Packet Length Max: 227
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 56.75
+Fwd Packet Length Std: 113.5
+Bwd Packet Length Max: 301
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 75.25
+Bwd Packet Length Std: 150.5
+Flow Bytes/s: 19.81850603
+Flow Packets/s: 0.300280394
+Flow IAT Mean: 3805966.571
+Flow IAT Std: 1.00E+07
+Flow IAT Max: 2.66E+07
+Flow IAT Min: 30
+Fwd IAT Total: 75494
+Fwd IAT Mean: 25164.66667
+Fwd IAT Std: 21765.99872
+Fwd IAT Max: 38095
+Fwd IAT Min: 35
+Bwd IAT Total: 2.66E+07
+Bwd IAT Mean: 8868151.333
+Bwd IAT Std: 1.53E+07
+Bwd IAT Max: 2.66E+07
+Bwd IAT Min: 736
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 92
+Bwd Header Length: 92
+Fwd Packets/s: 0.150140197
+Bwd Packets/s: 0.150140197
+Min Packet Length: 0
+Max Packet Length: 301
+Packet Length Mean: 58.66666667
+Packet Length Std: 117.8738733
+Packet Length Variance: 13894.25
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 1
+Average Packet Size: 66
+Avg Fwd Segment Size: 56.75
+Avg Bwd Segment Size: 75.25
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 4
+Subflow Fwd Bytes: 227
+Subflow Bwd Packets: 4
+Subflow Bwd Bytes: 301
+Init_Win_bytes_forward: 65535
+Init_Win_bytes_backward: 946
+act_data_pkt_fwd: 1
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="172.217.9.228">
+  <data key="d0">172.217.9.228</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP Address involved in network traffic
+Flow ID: 172.217.9.228-192.168.10.5-443-49212-6
+Source Port: 49212
+Destination Port: 443
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 310531
+Total Fwd Packets: 15
+Total Backward Packets: 13
+Total Length of Fwd Packets: 938
+Total Length of Bwd Packets: 4633
+Fwd Packet Length Max: 376
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 62.53333333
+Fwd Packet Length Std: 106.5496978
+Bwd Packet Length Max: 1430
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 356.3846154
+Bwd Packet Length Std: 515.0487903
+Flow Bytes/s: 17940.23785
+Flow Packets/s: 90.16813136
+Flow IAT Mean: 11501.14815
+Flow IAT Std: 20369.31564
+Flow IAT Max: 68414
+Flow IAT Min: 3
+Fwd IAT Total: 310531
+Fwd IAT Mean: 22180.78571
+Fwd IAT Std: 26718.8112
+Fwd IAT Max: 68529
+Fwd IAT Min: 4
+Bwd IAT Total: 272770
+Bwd IAT Mean: 22730.83333
+Bwd IAT Std: 48027.45376
+Bwd IAT Max: 166490
+Bwd IAT Min: 3
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 312
+Bwd Header Length: 272
+Fwd Packets/s: 48.30435609
+Bwd Packets/s: 41.86377528
+Min Packet Length: 0
+Max Packet Length: 1430
+Packet Length Mean: 192.1034483
+Packet Length Std: 377.1046032
+Packet Length Variance: 142207.8818
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 198.9642857
+Avg Fwd Segment Size: 62.53333333
+Avg Bwd Segment Size: 356.3846154
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 15
+Subflow Fwd Bytes: 938
+Subflow Bwd Packets: 13
+Subflow Bwd Bytes: 4633
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 360
+act_data_pkt_fwd: 7
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="172.217.12.195">
+  <data key="d0">172.217.12.195</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP Address involved in network traffic
+Flow ID: 172.217.12.195-192.168.10.5-443-49220-6
+Source Port: 49220
+Destination Port: 443
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 123156
+Total Fwd Packets: 9
+Total Backward Packets: 8
+Total Length of Fwd Packets: 496
+Total Length of Bwd Packets: 4528
+Fwd Packet Length Max: 192
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 55.11111111
+Fwd Packet Length Std: 80.26432029
+Bwd Packet Length Max: 1430
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 566
+Bwd Packet Length Std: 679.1749196
+Flow Bytes/s: 40793.78999
+Flow Packets/s: 138.0363117
+Flow IAT Mean: 7697.25
+Flow IAT Std: 14502.12423
+Flow IAT Max: 36995
+Flow IAT Min: 47
+Fwd IAT Total: 123156
+Fwd IAT Mean: 15394.5
+Fwd IAT Std: 18101.19773
+Fwd IAT Max: 37775
+Fwd IAT Min: 48
+Bwd IAT Total: 86168
+Bwd IAT Mean: 12309.71429
+Bwd IAT Std: 20878.23132
+Bwd IAT Max: 47791
+Bwd IAT Min: 48
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 192
+Bwd Header Length: 172
+Fwd Packets/s: 73.07804735
+Bwd Packets/s: 64.95826432
+Min Packet Length: 0
+Max Packet Length: 1430
+Packet Length Mean: 279.1111111
+Packet Length Std: 512.687141
+Packet Length Variance: 262848.1046
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 295.5294118
+Avg Fwd Segment Size: 55.11111111
+Avg Bwd Segment Size: 566
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 9
+Subflow Fwd Bytes: 496
+Subflow Bwd Packets: 8
+Subflow Bwd Bytes: 4528
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 343
+act_data_pkt_fwd: 4
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="172.217.10.78">
+  <data key="d0">172.217.10.78</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP Address involved in network traffic
+Flow ID: 172.217.10.78-192.168.10.5-443-49222-6
+Source Port: 49222
+Destination Port: 443
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 689974
+Total Fwd Packets: 12
+Total Backward Packets: 10
+Total Length of Fwd Packets: 563
+Total Length of Bwd Packets: 3995
+Fwd Packet Length Max: 192
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 46.91666667
+Fwd Packet Length Std: 67.54723375
+Bwd Packet Length Max: 1430
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 399.5
+Bwd Packet Length Std: 584.6524609
+Flow Bytes/s: 6606.046025
+Flow Packets/s: 31.88525944
+Flow IAT Mean: 32855.90476
+Flow IAT Std: 94373.97249
+Flow IAT Max: 438268
+Flow IAT Min: 1
+Fwd IAT Total: 689974
+Fwd IAT Mean: 62724.90909
+Fwd IAT Std: 127556.6553
+Fwd IAT Max: 438268
+Fwd IAT Min: 48
+Bwd IAT Total: 201311
+Bwd IAT Mean: 22367.88889
+Bwd IAT Std: 27836.33369
+Bwd IAT Max: 72801
+Bwd IAT Min: 1
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 252
+Bwd Header Length: 212
+Fwd Packets/s: 17.3919597
+Bwd Packets/s: 14.49329975
+Min Packet Length: 0
+Max Packet Length: 1430
+Packet Length Mean: 198.173913
+Packet Length Std: 418.0960799
+Packet Length Variance: 174804.332
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 207.1818182
+Avg Fwd Segment Size: 46.91666667
+Avg Bwd Segment Size: 399.5
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 12
+Subflow Fwd Bytes: 563
+Subflow Bwd Packets: 10
+Subflow Bwd Bytes: 3995
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 351
+act_data_pkt_fwd: 6
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="172.217.12.131">
+  <data key="d0">172.217.12.131</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP Address involved in network traffic
+Flow ID: 172.217.12.131-192.168.10.5-443-49219-6
+Source Port: 49219
+Destination Port: 443
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 1581930
+Total Fwd Packets: 14
+Total Backward Packets: 13
+Total Length of Fwd Packets: 1044
+Total Length of Bwd Packets: 5121
+Fwd Packet Length Max: 438
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 74.57142857
+Fwd Packet Length Std: 121.3917462
+Bwd Packet Length Max: 1430
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 393.9230769
+Bwd Packet Length Std: 579.8994829
+Flow Bytes/s: 3897.138306
+Flow Packets/s: 17.067759
+Flow IAT Mean: 60843.46154
+Flow IAT Std: 258333.5705
+Flow IAT Max: 1324171
+Flow IAT Min: 2
+Fwd IAT Total: 1581930
+Fwd IAT Mean: 121686.9231
+Fwd IAT Std: 384917.9783
+Fwd IAT Max: 1401302
+Fwd IAT Min: 4
+Bwd IAT Total: 219825
+Bwd IAT Mean: 18318.75
+Bwd IAT Std: 25900.25979
+Bwd IAT Max: 77559
+Bwd IAT Min: 2
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 292
+Bwd Header Length: 272
+Fwd Packets/s: 8.849949113
+Bwd Packets/s: 8.21780989
+Min Packet Length: 0
+Max Packet Length: 1430
+Packet Length Mean: 220.1785714
+Packet Length Std: 428.8097267
+Packet Length Variance: 183877.7817
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 228.3333333
+Avg Fwd Segment Size: 74.57142857
+Avg Bwd Segment Size: 393.9230769
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 14
+Subflow Fwd Bytes: 1044
+Subflow Bwd Packets: 13
+Subflow Bwd Bytes: 5121
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 360
+act_data_pkt_fwd: 8
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="172.217.10.131">
+  <data key="d0">172.217.10.131</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP Address involved in network traffic
+Flow ID: 172.217.10.131-192.168.10.5-443-49214-6
+Source Port: 49214
+Destination Port: 443
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 2830799
+Total Fwd Packets: 72
+Total Backward Packets: 119
+Total Length of Fwd Packets: 2238
+Total Length of Bwd Packets: 150460
+Fwd Packet Length Max: 613
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 31.08333333
+Fwd Packet Length Std: 107.8403554
+Bwd Packet Length Max: 2860
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 1264.369748
+Bwd Packet Length Std: 466.6719507
+Flow Bytes/s: 53941.66099
+Flow Packets/s: 67.47211653
+Flow IAT Mean: 14898.94211
+Flow IAT Std: 97518.63227
+Flow IAT Max: 1085339
+Flow IAT Min: 1
+Fwd IAT Total: 2830799
+Fwd IAT Mean: 39870.40845
+Fwd IAT Std: 166774.0006
+Fwd IAT Max: 1161888
+Fwd IAT Min: 4
+Bwd IAT Total: 2470249
+Bwd IAT Mean: 20934.31356
+Bwd IAT Std: 123502.9378
+Bwd IAT Max: 1121875
+Bwd IAT Min: 1
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 1452
+Bwd Header Length: 2392
+Fwd Packets/s: 25.43451513
+Bwd Packets/s: 42.0376014
+Min Packet Length: 0
+Max Packet Length: 2860
+Packet Length Mean: 795.3020833
+Packet Length Std: 706.6981571
+Packet Length Variance: 499422.2852
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 1
+Average Packet Size: 799.4659686
+Avg Fwd Segment Size: 31.08333333
+Avg Bwd Segment Size: 1264.369748
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 72
+Subflow Fwd Bytes: 2238
+Subflow Bwd Packets: 119
+Subflow Bwd Bytes: 150460
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 368
+act_data_pkt_fwd: 12
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="172.217.6.206">
+  <data key="d0">172.217.6.206</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP Address involved in network traffic
+Flow ID: 172.217.6.206-192.168.10.5-80-49213-6
+Source Port: 49213
+Destination Port: 80
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 2989643
+Total Fwd Packets: 7
+Total Backward Packets: 4
+Total Length of Fwd Packets: 866
+Total Length of Bwd Packets: 1492
+Fwd Packet Length Max: 433
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 123.7142857
+Fwd Packet Length Std: 211.2823658
+Bwd Packet Length Max: 746
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 373
+Bwd Packet Length Std: 430.7033008
+Flow Bytes/s: 788.7229345
+Flow Packets/s: 3.679369075
+Flow IAT Mean: 298964.3
+Flow IAT Std: 658683.6578
+Flow IAT Max: 2095890
+Flow IAT Min: 69
+Fwd IAT Total: 2989643
+Fwd IAT Mean: 498273.8333
+Fwd IAT Std: 815309.6326
+Fwd IAT Max: 2095890
+Fwd IAT Min: 98
+Bwd IAT Total: 789933
+Bwd IAT Mean: 263311
+Bwd IAT Std: 406350.334
+Bwd IAT Max: 732426
+Bwd IAT Min: 20451
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 152
+Bwd Header Length: 92
+Fwd Packets/s: 2.341416684
+Bwd Packets/s: 1.337952391
+Min Packet Length: 0
+Max Packet Length: 746
+Packet Length Mean: 196.5
+Packet Length Std: 305.2067853
+Packet Length Variance: 93151.18182
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 214.3636364
+Avg Fwd Segment Size: 123.7142857
+Avg Bwd Segment Size: 373
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 7
+Subflow Fwd Bytes: 866
+Subflow Bwd Packets: 4
+Subflow Bwd Bytes: 1492
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 351
+act_data_pkt_fwd: 2
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="72.21.91.29">
+  <data key="d0">72.21.91.29</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP Address involved in network traffic
+Flow ID: 192.168.10.5-72.21.91.29-49208-80-6
+Source Port: 49208
+Destination Port: 80
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 4770553
+Total Fwd Packets: 6
+Total Backward Packets: 4
+Total Length of Fwd Packets: 870
+Total Length of Bwd Packets: 1592
+Fwd Packet Length Max: 435
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 145
+Fwd Packet Length Std: 224.6330341
+Bwd Packet Length Max: 796
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 398
+Bwd Packet Length Std: 459.5708143
+Flow Bytes/s: 516.0827267
+Flow Packets/s: 2.096193041
+Flow IAT Mean: 530061.4444
+Flow IAT Std: 1542432.779
+Flow IAT Max: 4643029
+Flow IAT Min: 73
+Fwd IAT Total: 4770553
+Fwd IAT Mean: 954110.6
+Fwd IAT Std: 2062315.48
+Fwd IAT Max: 4643029
+Fwd IAT Min: 91
+Bwd IAT Total: 59834
+Bwd IAT Mean: 19944.66667
+Bwd IAT Std: 16712.73602
+Bwd IAT Max: 34382
+Bwd IAT Min: 1636
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 132
+Bwd Header Length: 92
+Fwd Packets/s: 1.257715825
+Bwd Packets/s: 0.838477216
+Min Packet Length: 0
+Max Packet Length: 796
+Packet Length Mean: 223.8181818
+Packet Length Std: 330.8536892
+Packet Length Variance: 109464.1636
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 246.2
+Avg Fwd Segment Size: 145
+Avg Bwd Segment Size: 398
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 6
+Subflow Fwd Bytes: 870
+Subflow Bwd Packets: 4
+Subflow Bwd Bytes: 1592
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 290
+act_data_pkt_fwd: 2
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="54.69.227.52">
+  <data key="d0">54.69.227.52</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP Address involved in network traffic
+Flow ID: 192.168.10.5-54.69.227.52-49207-443-6
+Source Port: 49207
+Destination Port: 443
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 4953235
+Total Fwd Packets: 14
+Total Backward Packets: 12
+Total Length of Fwd Packets: 2356
+Total Length of Bwd Packets: 10073
+Fwd Packet Length Max: 679
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 168.2857143
+Fwd Packet Length Std: 276.3841887
+Bwd Packet Length Max: 1460
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 839.4166667
+Bwd Packet Length Std: 645.0021083
+Flow Bytes/s: 2509.269195
+Flow Packets/s: 5.249094784
+Flow IAT Mean: 198129.4
+Flow IAT Std: 726367.0293
+Flow IAT Max: 3653585
+Flow IAT Min: 3
+Fwd IAT Total: 4953235
+Fwd IAT Mean: 381018.0769
+Fwd IAT Std: 996862.0629
+Fwd IAT Max: 3653585
+Fwd IAT Min: 3
+Bwd IAT Total: 1172197
+Bwd IAT Mean: 106563.3636
+Bwd IAT Std: 148538.7807
+Bwd IAT Max: 467616
+Bwd IAT Min: 40
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 292
+Bwd Header Length: 252
+Fwd Packets/s: 2.826435653
+Bwd Packets/s: 2.422659131
+Min Packet Length: 0
+Max Packet Length: 1460
+Packet Length Mean: 460.3333333
+Packet Length Std: 578.4526442
+Packet Length Variance: 334607.4615
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 478.0384615
+Avg Fwd Segment Size: 168.2857143
+Avg Bwd Segment Size: 839.4166667
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 14
+Subflow Fwd Bytes: 2356
+Subflow Bwd Packets: 12
+Subflow Bwd Bytes: 10073
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 125
+act_data_pkt_fwd: 6
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="184.25.102.48">
+  <data key="d0">184.25.102.48</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP Address involved in network traffic
+Flow ID: 184.25.102.48-192.168.10.5-80-49206-6
+Source Port: 49206
+Destination Port: 80
+Protocol: 6
+Timestamp: 4/7/2017 8:54
+Flow Duration: 10637980
+Total Fwd Packets: 6
+Total Backward Packets: 4
+Total Length of Fwd Packets: 293
+Total Length of Bwd Packets: 384
+Fwd Packet Length Max: 292
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 48.83333333
+Fwd Packet Length Std: 119.1275227
+Bwd Packet Length Max: 384
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 96
+Bwd Packet Length Std: 192
+Flow Bytes/s: 63.63990156
+Flow Packets/s: 0.940028088
+Flow IAT Mean: 1181997.778
+Flow IAT Std: 3306519.342
+Flow IAT Max: 9989850
+Flow IAT Min: 85
+Fwd IAT Total: 1.06E+07
+Fwd IAT Mean: 2127596
+Fwd IAT Std: 4400440.449
+Fwd IAT Max: 9989850
+Fwd IAT Min: 179
+Bwd IAT Total: 1.01E+07
+Bwd IAT Mean: 3367968.667
+Bwd IAT Std: 5789001.847
+Bwd IAT Max: 1.01E+07
+Bwd IAT Min: 542
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 132
+Bwd Header Length: 104
+Fwd Packets/s: 0.564016853
+Bwd Packets/s: 0.376011235
+Min Packet Length: 0
+Max Packet Length: 384
+Packet Length Mean: 61.54545455
+Packet Length Std: 138.2225478
+Packet Length Variance: 19105.47273
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 67.7
+Avg Fwd Segment Size: 48.83333333
+Avg Bwd Segment Size: 96
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 6
+Subflow Fwd Bytes: 293
+Subflow Bwd Packets: 4
+Subflow Bwd Bytes: 384
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 946
+act_data_pkt_fwd: 2
+min_seg_size_forward: 20
+Active Mean: 114131
+Active Std: 0
+Active Max: 114131
+Active Min: 114131
+Idle Mean: 9989850
+Idle Std: 0
+Idle Max: 9989850
+Idle Min: 9989850
+Label: BENIGN</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<node id="52.84.145.75">
+  <data key="d0">52.84.145.75</data>
+  <data key="d1">IP Address</data>
+  <data key="d2">IP Address involved in network traffic
+Flow ID: 192.168.10.5-52.84.145.75-49209-443-6
+Source Port: 49209
+Destination Port: 443
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 4589384
+Total Fwd Packets: 8
+Total Backward Packets: 6
+Total Length of Fwd Packets: 369
+Total Length of Bwd Packets: 3710
+Fwd Packet Length Max: 212
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 46.125
+Fwd Packet Length Std: 79.96505933
+Bwd Packet Length Max: 1460
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 618.3333333
+Bwd Packet Length Std: 680.9950563
+Flow Bytes/s: 888.7903039
+Flow Packets/s: 3.050518327
+Flow IAT Mean: 353029.5385
+Flow IAT Std: 1232875.329
+Flow IAT Max: 4455903
+Flow IAT Min: 4
+Fwd IAT Total: 4589384
+Fwd IAT Mean: 655626.2857
+Fwd IAT Std: 1675997.849
+Fwd IAT Max: 4455903
+Fwd IAT Min: 4
+Bwd IAT Total: 53190
+Bwd IAT Mean: 10638
+Bwd IAT Std: 13241.97017
+Bwd IAT Max: 27417
+Bwd IAT Min: 48
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 172
+Bwd Header Length: 132
+Fwd Packets/s: 1.74315333
+Bwd Packets/s: 1.307364997
+Min Packet Length: 0
+Max Packet Length: 1460
+Packet Length Mean: 271.9333333
+Packet Length Std: 504.6464769
+Packet Length Variance: 254668.0667
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 291.3571429
+Avg Fwd Segment Size: 46.125
+Avg Bwd Segment Size: 618.3333333
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 8
+Subflow Fwd Bytes: 369
+Subflow Bwd Packets: 6
+Subflow Bwd Bytes: 3710
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 119
+act_data_pkt_fwd: 3
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d3">UNKNOWN</data>
+</node>
+<edge source="192.168.10.5" target="192.168.10.3">
+  <data key="d4">1.0</data>
+  <data key="d5">Flow ID: 192.168.10.3-192.168.10.5-49666-49188-6
+Source Port: 49188
+Destination Port: 49666
+Protocol: 6
+Timestamp: 4/7/2017 8:54
+Flow Duration: 62
+Total Fwd Packets: 1
+Total Backward Packets: 3
+Total Length of Fwd Packets: 0
+Total Length of Bwd Packets: 0
+Fwd Packet Length Max: 0
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 0
+Fwd Packet Length Std: 0
+Bwd Packet Length Max: 0
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 0
+Bwd Packet Length Std: 0
+Flow Bytes/s: 0
+Flow Packets/s: 64516.12903
+Flow IAT Mean: 20.66666667
+Flow IAT Std: 34.06366588
+Flow IAT Max: 60
+Flow IAT Min: 1
+Fwd IAT Total: 0
+Fwd IAT Mean: 0
+Fwd IAT Std: 0
+Fwd IAT Max: 0
+Fwd IAT Min: 0
+Bwd IAT Total: 2
+Bwd IAT Mean: 1
+Bwd IAT Std: 0
+Bwd IAT Max: 1
+Bwd IAT Min: 1
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 20
+Bwd Header Length: 60
+Fwd Packets/s: 16129.03226
+Bwd Packets/s: 48387.09677
+Min Packet Length: 0
+Max Packet Length: 0
+Packet Length Mean: 0
+Packet Length Std: 0
+Packet Length Variance: 0
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 0
+ACK Flag Count: 1
+URG Flag Count: 1
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 3
+Average Packet Size: 0
+Avg Fwd Segment Size: 0
+Avg Bwd Segment Size: 0
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 1
+Subflow Fwd Bytes: 0
+Subflow Bwd Packets: 3
+Subflow Bwd Bytes: 0
+Init_Win_bytes_forward: 256
+Init_Win_bytes_backward: 2053
+act_data_pkt_fwd: 0
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d6">192.168.10.3-192.168.10.5-49666-49188-6, 49188, 49666, 6, 4/7/2017 8:54, 62, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64516.12903, 20.66666667, 34.06366588, 60, 1, 0, 0, 0, 0, 0, 2, 1, 0, 1, 1, 0, 0, 0, 0, 20, 60, 16129.03226, 48387.09677, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 256, 2053, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, benign</data>
+  <data key="d7">chunk-c4b4692387c858a877af82ddc130389f</data>
+</edge>
+<edge source="192.168.10.5" target="23.202.233.152">
+  <data key="d4">1.0</data>
+  <data key="d5">Flow ID: 192.168.10.5-23.202.233.152-49201-80-6
+Source Port: 49201
+Destination Port: 80
+Protocol: 6
+Timestamp: 4/7/2017 8:54
+Flow Duration: 26641766
+Total Fwd Packets: 4
+Total Backward Packets: 4
+Total Length of Fwd Packets: 227
+Total Length of Bwd Packets: 301
+Fwd Packet Length Max: 227
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 56.75
+Fwd Packet Length Std: 113.5
+Bwd Packet Length Max: 301
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 75.25
+Bwd Packet Length Std: 150.5
+Flow Bytes/s: 19.81850603
+Flow Packets/s: 0.300280394
+Flow IAT Mean: 3805966.571
+Flow IAT Std: 1.00E+07
+Flow IAT Max: 2.66E+07
+Flow IAT Min: 30
+Fwd IAT Total: 75494
+Fwd IAT Mean: 25164.66667
+Fwd IAT Std: 21765.99872
+Fwd IAT Max: 38095
+Fwd IAT Min: 35
+Bwd IAT Total: 2.66E+07
+Bwd IAT Mean: 8868151.333
+Bwd IAT Std: 1.53E+07
+Bwd IAT Max: 2.66E+07
+Bwd IAT Min: 736
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 92
+Bwd Header Length: 92
+Fwd Packets/s: 0.150140197
+Bwd Packets/s: 0.150140197
+Min Packet Length: 0
+Max Packet Length: 301
+Packet Length Mean: 58.66666667
+Packet Length Std: 117.8738733
+Packet Length Variance: 13894.25
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 1
+Average Packet Size: 66
+Avg Fwd Segment Size: 56.75
+Avg Bwd Segment Size: 75.25
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 4
+Subflow Fwd Bytes: 227
+Subflow Bwd Packets: 4
+Subflow Bwd Bytes: 301
+Init_Win_bytes_forward: 65535
+Init_Win_bytes_backward: 946
+act_data_pkt_fwd: 1
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d6">192.168.10.5-23.202.233.152-49201-80-6, 49201, 80, 6, 4/7/2017 8:54, 26641766, 4, 4, 227, 301, 227, 0, 56.75, 113.5, 301, 0, 75.25, 150.5, 19.81850603, 0.300280394, 3805966.571, 1.00e+07, 2.66e+07, 30, 75494, 25164.66667, 21765.99872, 38095, 35, 2.66e+07, 8868151.333, 1.53e+07, 2.66e+07, 736, 0, 0, 0, 0, 92, 92, 0.150140197, 0.150140197, 0, 301, 58.66666667, 117.8738733, 13894.25, 0, 0, 0, 1, 0, 0, 0, 0, 1, 66, 56.75, 75.25, 0, 0, 0, 0, 0, 0, 4, 227, 4, 301, 65535, 946, 1, 20, 0, 0, 0, 0, 0, 0, 0, 0, benign</data>
+  <data key="d7">chunk-e5063fb14872c5e33e3514c44d705f08</data>
+</edge>
+<edge source="192.168.10.5" target="172.217.9.228">
+  <data key="d4">1.0</data>
+  <data key="d5">Flow ID: 172.217.9.228-192.168.10.5-443-49210-6
+Source Port: 443
+Destination Port: 49210
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 2451
+Total Fwd Packets: 3
+Total Backward Packets: 0
+Total Length of Fwd Packets: 0
+Total Length of Bwd Packets: 0
+Fwd Packet Length Max: 0
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 0
+Fwd Packet Length Std: 0
+Bwd Packet Length Max: 0
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 0
+Bwd Packet Length Std: 0
+Flow Bytes/s: 0
+Flow Packets/s: 1223.990208
+Flow IAT Mean: 1225.5
+Flow IAT Std: 1728.87608
+Flow IAT Max: 2448
+Flow IAT Min: 3
+Fwd IAT Total: 2451
+Fwd IAT Mean: 1225.5
+Fwd IAT Std: 1728.87608
+Fwd IAT Max: 2448
+Fwd IAT Min: 3
+Bwd IAT Total: 0
+Bwd IAT Mean: 0
+Bwd IAT Std: 0
+Bwd IAT Max: 0
+Bwd IAT Min: 0
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 60
+Bwd Header Length: 0
+Fwd Packets/s: 1223.990208
+Bwd Packets/s: 0
+Min Packet Length: 0
+Max Packet Length: 0
+Packet Length Mean: 0
+Packet Length Std: 0
+Packet Length Variance: 0
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 0
+ACK Flag Count: 1
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 0
+Avg Fwd Segment Size: 0
+Avg Bwd Segment Size: 0
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 3
+Subflow Fwd Bytes: 0
+Subflow Bwd Packets: 0
+Subflow Bwd Bytes: 0
+Init_Win_bytes_forward: 351
+Init_Win_bytes_backward: -1
+act_data_pkt_fwd: 0
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d6">172.217.9.228-192.168.10.5-443-49210-6, 443, 49210, 6, 4/7/2017 8:55, 2451, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1223.990208, 1225.5, 1728.87608, 2448, 3, 2451, 1225.5, 1728.87608, 2448, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60, 0, 1223.990208, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 351, -1, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, benign</data>
+  <data key="d7">chunk-58caee2007e03ea58471d37a7170a082</data>
+</edge>
+<edge source="192.168.10.5" target="172.217.12.195">
+  <data key="d4">1.0</data>
+  <data key="d5">Flow ID: 172.217.12.195-192.168.10.5-443-49217-6
+Source Port: 443
+Destination Port: 49217
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 1484
+Total Fwd Packets: 3
+Total Backward Packets: 0
+Total Length of Fwd Packets: 0
+Total Length of Bwd Packets: 0
+Fwd Packet Length Max: 0
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 0
+Fwd Packet Length Std: 0
+Bwd Packet Length Max: 0
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 0
+Bwd Packet Length Std: 0
+Flow Bytes/s: 0
+Flow Packets/s: 2021.563342
+Flow IAT Mean: 742
+Flow IAT Std: 1045.103823
+Flow IAT Max: 1481
+Flow IAT Min: 3
+Fwd IAT Total: 1484
+Fwd IAT Mean: 742
+Fwd IAT Std: 1045.103823
+Fwd IAT Max: 1481
+Fwd IAT Min: 3
+Bwd IAT Total: 0
+Bwd IAT Mean: 0
+Bwd IAT Std: 0
+Bwd IAT Max: 0
+Bwd IAT Min: 0
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 60
+Bwd Header Length: 0
+Fwd Packets/s: 2021.563342
+Bwd Packets/s: 0
+Min Packet Length: 0
+Max Packet Length: 0
+Packet Length Mean: 0
+Packet Length Std: 0
+Packet Length Variance: 0
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 0
+ACK Flag Count: 1
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 0
+Avg Fwd Segment Size: 0
+Avg Bwd Segment Size: 0
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 3
+Subflow Fwd Bytes: 0
+Subflow Bwd Packets: 0
+Subflow Bwd Bytes: 0
+Init_Win_bytes_forward: 351
+Init_Win_bytes_backward: -1
+act_data_pkt_fwd: 0
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d6">172.217.12.195-192.168.10.5-443-49217-6, 443, 49217, 6, 4/7/2017 8:55, 1484, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2021.563342, 742, 1045.103823, 1481, 3, 1484, 742, 1045.103823, 1481, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60, 0, 2021.563342, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 351, -1, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, benign</data>
+  <data key="d7">chunk-fe527701dac7f34ea5189792d248716c</data>
+</edge>
+<edge source="192.168.10.5" target="172.217.10.78">
+  <data key="d4">1.0</data>
+  <data key="d5">Flow ID: 172.217.10.78-192.168.10.5-443-49222-6
+Source Port: 443
+Destination Port: 49222
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 640
+Total Fwd Packets: 3
+Total Backward Packets: 0
+Total Length of Fwd Packets: 0
+Total Length of Bwd Packets: 0
+Fwd Packet Length Max: 0
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 0
+Fwd Packet Length Std: 0
+Bwd Packet Length Max: 0
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 0
+Bwd Packet Length Std: 0
+Flow Bytes/s: 0
+Flow Packets/s: 4687.5
+Flow IAT Mean: 320
+Flow IAT Std: 448.3056993
+Flow IAT Max: 637
+Flow IAT Min: 3
+Fwd IAT Total: 640
+Fwd IAT Mean: 320
+Fwd IAT Std: 448.3056993
+Fwd IAT Max: 637
+Fwd IAT Min: 3
+Bwd IAT Total: 0
+Bwd IAT Mean: 0
+Bwd IAT Std: 0
+Bwd IAT Max: 0
+Bwd IAT Min: 0
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 60
+Bwd Header Length: 0
+Fwd Packets/s: 4687.5
+Bwd Packets/s: 0
+Min Packet Length: 0
+Max Packet Length: 0
+Packet Length Mean: 0
+Packet Length Std: 0
+Packet Length Variance: 0
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 0
+ACK Flag Count: 1
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 0
+Avg Fwd Segment Size: 0
+Avg Bwd Segment Size: 0
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 3
+Subflow Fwd Bytes: 0
+Subflow Bwd Packets: 0
+Subflow Bwd Bytes: 0
+Init_Win_bytes_forward: 351
+Init_Win_bytes_backward: -1
+act_data_pkt_fwd: 0
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d6">172.217.10.78-192.168.10.5-443-49222-6, 443, 49222, 6, 4/7/2017 8:55, 640, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4687.5, 320, 448.3056993, 637, 3, 640, 320, 448.3056993, 637, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60, 0, 4687.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 351, -1, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, benign</data>
+  <data key="d7">chunk-64a159bcc2d051434f6604f7d2767cf7</data>
+</edge>
+<edge source="192.168.10.5" target="172.217.12.131">
+  <data key="d4">1.0</data>
+  <data key="d5">Flow ID: 172.217.12.131-192.168.10.5-443-49219-6
+Source Port: 443
+Destination Port: 49219
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 237019
+Total Fwd Packets: 2
+Total Backward Packets: 0
+Total Length of Fwd Packets: 0
+Total Length of Bwd Packets: 0
+Fwd Packet Length Max: 0
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 0
+Fwd Packet Length Std: 0
+Bwd Packet Length Max: 0
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 0
+Bwd Packet Length Std: 0
+Flow Bytes/s: 0
+Flow Packets/s: 8.43814209
+Flow IAT Mean: 237019
+Flow IAT Std: 0
+Flow IAT Max: 237019
+Flow IAT Min: 237019
+Fwd IAT Total: 237019
+Fwd IAT Mean: 237019
+Fwd IAT Std: 0
+Fwd IAT Max: 237019
+Fwd IAT Min: 237019
+Bwd IAT Total: 0
+Bwd IAT Mean: 0
+Bwd IAT Std: 0
+Bwd IAT Max: 0
+Bwd IAT Min: 0
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 40
+Bwd Header Length: 0
+Fwd Packets/s: 8.43814209
+Bwd Packets/s: 0
+Min Packet Length: 0
+Max Packet Length: 0
+Packet Length Mean: 0
+Packet Length Std: 0
+Packet Length Variance: 0
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 0
+ACK Flag Count: 1
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 0
+Avg Fwd Segment Size: 0
+Avg Bwd Segment Size: 0
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 2
+Subflow Fwd Bytes: 0
+Subflow Bwd Packets: 0
+Subflow Bwd Bytes: 0
+Init_Win_bytes_forward: 360
+Init_Win_bytes_backward: -1
+act_data_pkt_fwd: 0
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d6">172.217.12.131-192.168.10.5-443-49219-6, 443, 49219, 6, 4/7/2017 8:55, 237019, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8.43814209, 237019, 0, 237019, 237019, 237019, 237019, 0, 237019, 237019, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 8.43814209, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 360, -1, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, benign</data>
+  <data key="d7">chunk-6ea4bf56802597fdeeceaa19ec7fca73</data>
+</edge>
+<edge source="192.168.10.5" target="172.217.10.131">
+  <data key="d4">1.0</data>
+  <data key="d5">Flow ID: 172.217.10.131-192.168.10.5-443-49214-6
+Source Port: 443
+Destination Port: 49214
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 9749
+Total Fwd Packets: 5
+Total Backward Packets: 0
+Total Length of Fwd Packets: 0
+Total Length of Bwd Packets: 0
+Fwd Packet Length Max: 0
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 0
+Fwd Packet Length Std: 0
+Bwd Packet Length Max: 0
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 0
+Bwd Packet Length Std: 0
+Flow Bytes/s: 0
+Flow Packets/s: 512.8731152
+Flow IAT Mean: 2437.25
+Flow IAT Std: 4177.206912
+Flow IAT Max: 8656
+Flow IAT Min: 3
+Fwd IAT Total: 9749
+Fwd IAT Mean: 2437.25
+Fwd IAT Std: 4177.206912
+Fwd IAT Max: 8656
+Fwd IAT Min: 3
+Bwd IAT Total: 0
+Bwd IAT Mean: 0
+Bwd IAT Std: 0
+Bwd IAT Max: 0
+Bwd IAT Min: 0
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 100
+Bwd Header Length: 0
+Fwd Packets/s: 512.8731152
+Bwd Packets/s: 0
+Min Packet Length: 0
+Max Packet Length: 0
+Packet Length Mean: 0
+Packet Length Std: 0
+Packet Length Variance: 0
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 0
+ACK Flag Count: 1
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 0
+Avg Fwd Segment Size: 0
+Avg Bwd Segment Size: 0
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 5
+Subflow Fwd Bytes: 0
+Subflow Bwd Packets: 0
+Subflow Bwd Bytes: 0
+Init_Win_bytes_forward: 378
+Init_Win_bytes_backward: -1
+act_data_pkt_fwd: 0
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d6">172.217.10.131-192.168.10.5-443-49214-6, 443, 49214, 6, 4/7/2017 8:55, 9749, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512.8731152, 2437.25, 4177.206912, 8656, 3, 9749, 2437.25, 4177.206912, 8656, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 512.8731152, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 378, -1, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, benign</data>
+  <data key="d7">chunk-8896c0ad08beec3600e43bf0f243bac6</data>
+</edge>
+<edge source="192.168.10.5" target="172.217.6.206">
+  <data key="d4">1.0</data>
+  <data key="d5">Flow ID: 172.217.6.206-192.168.10.5-80-49211-6
+Source Port: 49211
+Destination Port: 80
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 3182843
+Total Fwd Packets: 9
+Total Backward Packets: 5
+Total Length of Fwd Packets: 1299
+Total Length of Bwd Packets: 2238
+Fwd Packet Length Max: 433
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 144.3333333
+Fwd Packet Length Std: 216.5
+Bwd Packet Length Max: 746
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 447.6
+Bwd Packet Length Std: 408.6010279
+Flow Bytes/s: 1111.270647
+Flow Packets/s: 4.398583279
+Flow IAT Mean: 244834.0769
+Flow IAT Std: 530235.2941
+Flow IAT Max: 1956947
+Flow IAT Min: 121
+Fwd IAT Total: 3182843
+Fwd IAT Mean: 397855.375
+Fwd IAT Std: 644462.3127
+Fwd IAT Max: 1956947
+Fwd IAT Min: 36667
+Bwd IAT Total: 2611136
+Bwd IAT Mean: 652784
+Bwd IAT Std: 957688.0896
+Bwd IAT Max: 2077333
+Bwd IAT Min: 19931
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 192
+Bwd Header Length: 112
+Fwd Packets/s: 2.827660679
+Bwd Packets/s: 1.5709226
+Min Packet Length: 0
+Max Packet Length: 746
+Packet Length Mean: 235.8
+Packet Length Std: 316.0007233
+Packet Length Variance: 99856.45714
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 252.6428571
+Avg Fwd Segment Size: 144.3333333
+Avg Bwd Segment Size: 447.6
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 9
+Subflow Fwd Bytes: 1299
+Subflow Bwd Packets: 5
+Subflow Bwd Bytes: 2238
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 360
+act_data_pkt_fwd: 3
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d6">172.217.6.206-192.168.10.5-80-49211-6, 49211, 80, 6, 4/7/2017 8:55, 3182843, 9, 5, 1299, 2238, 433, 0, 144.3333333, 216.5, 746, 0, 447.6, 408.6010279, 1111.270647, 4.398583279, 244834.0769, 530235.2941, 1956947, 121, 3182843, 397855.375, 644462.3127, 1956947, 36667, 2611136, 652784, 957688.0896, 2077333, 19931, 0, 0, 0, 0, 192, 112, 2.827660679, 1.5709226, 0, 746, 235.8, 316.0007233, 99856.45714, 0, 0, 0, 1, 0, 0, 0, 0, 0, 252.6428571, 144.3333333, 447.6, 0, 0, 0, 0, 0, 0, 9, 1299, 5, 2238, 8192, 360, 3, 20, 0, 0, 0, 0, 0, 0, 0, 0, benign</data>
+  <data key="d7">chunk-92a430ed66de0f7d3022fc4362b5bfa9</data>
+</edge>
+<edge source="192.168.10.5" target="72.21.91.29">
+  <data key="d4">1.0</data>
+  <data key="d5">Flow ID: 192.168.10.5-72.21.91.29-49208-80-6
+Source Port: 49208
+Destination Port: 80
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 4770553
+Total Fwd Packets: 6
+Total Backward Packets: 4
+Total Length of Fwd Packets: 870
+Total Length of Bwd Packets: 1592
+Fwd Packet Length Max: 435
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 145
+Fwd Packet Length Std: 224.6330341
+Bwd Packet Length Max: 796
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 398
+Bwd Packet Length Std: 459.5708143
+Flow Bytes/s: 516.0827267
+Flow Packets/s: 2.096193041
+Flow IAT Mean: 530061.4444
+Flow IAT Std: 1542432.779
+Flow IAT Max: 4643029
+Flow IAT Min: 73
+Fwd IAT Total: 4770553
+Fwd IAT Mean: 954110.6
+Fwd IAT Std: 2062315.48
+Fwd IAT Max: 4643029
+Fwd IAT Min: 91
+Bwd IAT Total: 59834
+Bwd IAT Mean: 19944.66667
+Bwd IAT Std: 16712.73602
+Bwd IAT Max: 34382
+Bwd IAT Min: 1636
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 132
+Bwd Header Length: 92
+Fwd Packets/s: 1.257715825
+Bwd Packets/s: 0.838477216
+Min Packet Length: 0
+Max Packet Length: 796
+Packet Length Mean: 223.8181818
+Packet Length Std: 330.8536892
+Packet Length Variance: 109464.1636
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 246.2
+Avg Fwd Segment Size: 145
+Avg Bwd Segment Size: 398
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 6
+Subflow Fwd Bytes: 870
+Subflow Bwd Packets: 4
+Subflow Bwd Bytes: 1592
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 290
+act_data_pkt_fwd: 2
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d6">192.168.10.5-72.21.91.29-49208-80-6, 49208, 80, 6, 4/7/2017 8:55, 4770553, 6, 4, 870, 1592, 435, 0, 145, 224.6330341, 796, 0, 398, 459.5708143, 516.0827267, 2.096193041, 530061.4444, 1542432.779, 4643029, 73, 4770553, 954110.6, 2062315.48, 4643029, 91, 59834, 19944.66667, 16712.73602, 34382, 1636, 0, 0, 0, 0, 132, 92, 1.257715825, 0.838477216, 0, 796, 223.8181818, 330.8536892, 109464.1636, 0, 0, 0, 1, 0, 0, 0, 0, 0, 246.2, 145, 398, 0, 0, 0, 0, 0, 0, 6, 870, 4, 1592, 8192, 290, 2, 20, 0, 0, 0, 0, 0, 0, 0, 0, benign</data>
+  <data key="d7">chunk-1b8d6aa40174b4e8c75f259fff61d102</data>
+</edge>
+<edge source="192.168.10.5" target="54.69.227.52">
+  <data key="d4">1.0</data>
+  <data key="d5">Flow ID: 192.168.10.5-54.69.227.52-49207-443-6
+Source Port: 443
+Destination Port: 49207
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 347
+Total Fwd Packets: 3
+Total Backward Packets: 0
+Total Length of Fwd Packets: 31
+Total Length of Bwd Packets: 0
+Fwd Packet Length Max: 31
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 10.33333333
+Fwd Packet Length Std: 17.89785834
+Bwd Packet Length Max: 0
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 0
+Bwd Packet Length Std: 0
+Flow Bytes/s: 89337.17579
+Flow Packets/s: 8645.533141
+Flow IAT Mean: 173.5
+Flow IAT Std: 241.1234124
+Flow IAT Max: 344
+Flow IAT Min: 3
+Fwd IAT Total: 347
+Fwd IAT Mean: 173.5
+Fwd IAT Std: 241.1234124
+Fwd IAT Max: 344
+Fwd IAT Min: 3
+Bwd IAT Total: 0
+Bwd IAT Mean: 0
+Bwd IAT Std: 0
+Bwd IAT Max: 0
+Bwd IAT Min: 0
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 60
+Bwd Header Length: 0
+Fwd Packets/s: 8645.533141
+Bwd Packets/s: 0
+Min Packet Length: 0
+Max Packet Length: 31
+Packet Length Mean: 7.75
+Packet Length Std: 15.5
+Packet Length Variance: 240.25
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 0
+ACK Flag Count: 1
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 10.33333333
+Avg Fwd Segment Size: 10.33333333
+Avg Bwd Segment Size: 0
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 3
+Subflow Fwd Bytes: 31
+Subflow Bwd Packets: 0
+Subflow Bwd Bytes: 0
+Init_Win_bytes_forward: 125
+Init_Win_bytes_backward: -1
+act_data_pkt_fwd: 1
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d6">192.168.10.5-54.69.227.52-49207-443-6, 443, 49207, 6, 4/7/2017 8:55, 347, 3, 0, 31, 0, 31, 0, 10.33333333, 17.89785834, 0, 0, 0, 0, 89337.17579, 8645.533141, 173.5, 241.1234124, 344, 3, 347, 173.5, 241.1234124, 344, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60, 0, 8645.533141, 0, 0, 31, 7.75, 15.5, 240.25, 0, 0, 0, 0, 1, 0, 0, 0, 0, 10.33333333, 10.33333333, 0, 0, 0, 0, 0, 0, 0, 3, 31, 0, 0, 125, -1, 1, 20, 0, 0, 0, 0, 0, 0, 0, 0, benign</data>
+  <data key="d7">chunk-e703fbec5ddf011043c394f33437083d</data>
+</edge>
+<edge source="192.168.10.5" target="184.25.102.48">
+  <data key="d4">1.0</data>
+  <data key="d5">Flow ID: 184.25.102.48-192.168.10.5-80-49206-6
+Source Port: 49206
+Destination Port: 80
+Protocol: 6
+Timestamp: 4/7/2017 8:54
+Flow Duration: 10637980
+Total Fwd Packets: 6
+Total Backward Packets: 4
+Total Length of Fwd Packets: 293
+Total Length of Bwd Packets: 384
+Fwd Packet Length Max: 292
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 48.83333333
+Fwd Packet Length Std: 119.1275227
+Bwd Packet Length Max: 384
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 96
+Bwd Packet Length Std: 192
+Flow Bytes/s: 63.63990156
+Flow Packets/s: 0.940028088
+Flow IAT Mean: 1181997.778
+Flow IAT Std: 3306519.342
+Flow IAT Max: 9989850
+Flow IAT Min: 85
+Fwd IAT Total: 1.06E+07
+Fwd IAT Mean: 2127596
+Fwd IAT Std: 4400440.449
+Fwd IAT Max: 9989850
+Fwd IAT Min: 179
+Bwd IAT Total: 1.01E+07
+Bwd IAT Mean: 3367968.667
+Bwd IAT Std: 5789001.847
+Bwd IAT Max: 1.01E+07
+Bwd IAT Min: 542
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 132
+Bwd Header Length: 104
+Fwd Packets/s: 0.564016853
+Bwd Packets/s: 0.376011235
+Min Packet Length: 0
+Max Packet Length: 384
+Packet Length Mean: 61.54545455
+Packet Length Std: 138.2225478
+Packet Length Variance: 19105.47273
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 67.7
+Avg Fwd Segment Size: 48.83333333
+Avg Bwd Segment Size: 96
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 6
+Subflow Fwd Bytes: 293
+Subflow Bwd Packets: 4
+Subflow Bwd Bytes: 384
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 946
+act_data_pkt_fwd: 2
+min_seg_size_forward: 20
+Active Mean: 114131
+Active Std: 0
+Active Max: 114131
+Active Min: 114131
+Idle Mean: 9989850
+Idle Std: 0
+Idle Max: 9989850
+Idle Min: 9989850
+Label: BENIGN</data>
+  <data key="d6">184.25.102.48-192.168.10.5-80-49206-6, 49206, 80, 6, 4/7/2017 8:54, 10637980, 6, 4, 293, 384, 292, 0, 48.83333333, 119.1275227, 384, 0, 96, 192, 63.63990156, 0.940028088, 1181997.778, 3306519.342, 9989850, 85, 1.06e+07, 2127596, 4400440.449, 9989850, 179, 1.01e+07, 3367968.667, 5789001.847, 1.01e+07, 542, 0, 0, 0, 0, 132, 104, 0.564016853, 0.376011235, 0, 384, 61.54545455, 138.2225478, 19105.47273, 0, 0, 0, 1, 0, 0, 0, 0, 0, 67.7, 48.83333333, 96, 0, 0, 0, 0, 0, 0, 6, 293, 4, 384, 8192, 946, 2, 20, 114131, 0, 114131, 114131, 9989850, 0, 9989850, 9989850, benign</data>
+  <data key="d7">chunk-6b1faeaff8394d64ecd7ff399897f869</data>
+</edge>
+<edge source="192.168.10.5" target="52.84.145.75">
+  <data key="d4">1.0</data>
+  <data key="d5">Flow ID: 192.168.10.5-52.84.145.75-49209-443-6
+Source Port: 49209
+Destination Port: 443
+Protocol: 6
+Timestamp: 4/7/2017 8:55
+Flow Duration: 4589384
+Total Fwd Packets: 8
+Total Backward Packets: 6
+Total Length of Fwd Packets: 369
+Total Length of Bwd Packets: 3710
+Fwd Packet Length Max: 212
+Fwd Packet Length Min: 0
+Fwd Packet Length Mean: 46.125
+Fwd Packet Length Std: 79.96505933
+Bwd Packet Length Max: 1460
+Bwd Packet Length Min: 0
+Bwd Packet Length Mean: 618.3333333
+Bwd Packet Length Std: 680.9950563
+Flow Bytes/s: 888.7903039
+Flow Packets/s: 3.050518327
+Flow IAT Mean: 353029.5385
+Flow IAT Std: 1232875.329
+Flow IAT Max: 4455903
+Flow IAT Min: 4
+Fwd IAT Total: 4589384
+Fwd IAT Mean: 655626.2857
+Fwd IAT Std: 1675997.849
+Fwd IAT Max: 4455903
+Fwd IAT Min: 4
+Bwd IAT Total: 53190
+Bwd IAT Mean: 10638
+Bwd IAT Std: 13241.97017
+Bwd IAT Max: 27417
+Bwd IAT Min: 48
+Fwd PSH Flags: 0
+Bwd PSH Flags: 0
+Fwd URG Flags: 0
+Bwd URG Flags: 0
+Fwd Header Length: 172
+Bwd Header Length: 132
+Fwd Packets/s: 1.74315333
+Bwd Packets/s: 1.307364997
+Min Packet Length: 0
+Max Packet Length: 1460
+Packet Length Mean: 271.9333333
+Packet Length Std: 504.6464769
+Packet Length Variance: 254668.0667
+FIN Flag Count: 0
+SYN Flag Count: 0
+RST Flag Count: 0
+PSH Flag Count: 1
+ACK Flag Count: 0
+URG Flag Count: 0
+CWE Flag Count: 0
+ECE Flag Count: 0
+Down/Up Ratio: 0
+Average Packet Size: 291.3571429
+Avg Fwd Segment Size: 46.125
+Avg Bwd Segment Size: 618.3333333
+Fwd Avg Bytes/Bulk: 0
+Fwd Avg Packets/Bulk: 0
+Fwd Avg Bulk Rate: 0
+Bwd Avg Bytes/Bulk: 0
+Bwd Avg Packets/Bulk: 0
+Bwd Avg Bulk Rate: 0
+Subflow Fwd Packets: 8
+Subflow Fwd Bytes: 369
+Subflow Bwd Packets: 6
+Subflow Bwd Bytes: 3710
+Init_Win_bytes_forward: 8192
+Init_Win_bytes_backward: 119
+act_data_pkt_fwd: 3
+min_seg_size_forward: 20
+Active Mean: 0
+Active Std: 0
+Active Max: 0
+Active Min: 0
+Idle Mean: 0
+Idle Std: 0
+Idle Max: 0
+Idle Min: 0
+Label: BENIGN</data>
+  <data key="d6">192.168.10.5-52.84.145.75-49209-443-6, 49209, 443, 6, 4/7/2017 8:55, 4589384, 8, 6, 369, 3710, 212, 0, 46.125, 79.96505933, 1460, 0, 618.3333333, 680.9950563, 888.7903039, 3.050518327, 353029.5385, 1232875.329, 4455903, 4, 4589384, 655626.2857, 1675997.849, 4455903, 4, 53190, 10638, 13241.97017, 27417, 48, 0, 0, 0, 0, 172, 132, 1.74315333, 1.307364997, 0, 1460, 271.9333333, 504.6464769, 254668.0667, 0, 0, 0, 1, 0, 0, 0, 0, 0, 291.3571429, 46.125, 618.3333333, 0, 0, 0, 0, 0, 0, 8, 369, 6, 3710, 8192, 119, 3, 20, 0, 0, 0, 0, 0, 0, 0, 0, benign</data>
+  <data key="d7">chunk-b6f3dc045c351786df82b35d62abad07</data>
+</edge>
+</graph></graphml>

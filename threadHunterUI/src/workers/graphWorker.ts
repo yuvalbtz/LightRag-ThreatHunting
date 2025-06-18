@@ -14,6 +14,9 @@ self.onmessage = async (e: MessageEvent) => {
             try {
                 const formData = new FormData();
                 formData.append('file', data.file);
+                formData.append('source_column', 'Source IP');
+                formData.append('target_column', 'Destination IP');
+                formData.append('working_dir', './AppDbStore/' + data.file.name?.split('.')[0]);
 
                 const response = await fetch('http://localhost:8000/build-kg', {
                     method: 'POST',
@@ -33,7 +36,7 @@ self.onmessage = async (e: MessageEvent) => {
 
         case 'GET_GRAPH_DATA':
             try {
-                const response = await fetch('http://localhost:8000/graph-data');
+                const response = await fetch('http://localhost:8000/graph-data', { headers: { dir_path: './AppDbStore/' + data.dir_path } });
                 if (!response.ok) {
                     throw new Error('Failed to fetch graph data');
                 }
@@ -62,16 +65,24 @@ function processGraphData(data: GraphData): GraphData {
     }));
 
     // Process edges
-    const processedEdges = data.edges.map(edge => ({
-        ...edge,
-        // Add any edge processing logic here
-        title: edge.label, // Add tooltip
-        smooth: {
-            enabled: true,
-            type: 'continuous',
-            roundness: 0.5
-        }
-    }));
+    const processedEdges = data.edges.map(edge => {
+        const fromNode = data.nodes.find(n => n.id === edge.from);
+        const toNode = data.nodes.find(n => n.id === edge.to);
+        const edgeTitle = edge.label || `${fromNode?.label || edge.from} → ${toNode?.label || edge.to}`;
+        return {
+            ...edge,
+            title: edgeTitle,
+            label: edgeTitle,
+            arrows: {
+                to: { enabled: true, scaleFactor: 1 }
+            },
+            smooth: {
+                enabled: true,
+                type: 'continuous',
+                roundness: 0.5
+            }
+        };
+    });
 
     return {
         nodes: processedNodes,

@@ -66,11 +66,14 @@ def retry_on_failure(max_retries: int = MAX_RETRIES, delay: int = RETRY_DELAY):
 
 
 @lru_cache(maxsize=128)
-def get_rag_instance(model_type: str = "ollama") -> LightRAG:
+def get_rag_instance(
+    model_type: str = "ollama", working_dir: str = "./custom_kg"
+) -> LightRAG:
     """Get or create a cached RAG instance."""
     if model_type == "ollama":
+        print(f"get_rag_instance-ollama-working_dir: {working_dir}")
         return LightRAG(
-            working_dir=WORKING_DIR,
+            working_dir=working_dir,
             llm_model_func=ollama_model_complete,
             llm_model_name=OLLAMA_MODEL,
             llm_model_max_token_size=32768,
@@ -93,7 +96,7 @@ def get_rag_instance(model_type: str = "ollama") -> LightRAG:
         )
     else:
         return LightRAG(
-            working_dir=WORKING_DIR,
+            working_dir=working_dir,
             llm_model_func=deepseek_model_complete,
             llm_model_name=DEEPSEEK_MODEL,
             llm_model_kwargs={},
@@ -107,10 +110,10 @@ def get_rag_instance(model_type: str = "ollama") -> LightRAG:
         )
 
 
-async def initialize_rag_deepseek():
+async def initialize_rag_deepseek(working_dir: str = "./custom_kg"):
     """Initialize RAG with DeepSeek model."""
     try:
-        rag = get_rag_instance("deepseek")
+        rag = get_rag_instance("deepseek", working_dir=working_dir)
         await rag.initialize_storages()
         await initialize_pipeline_status()
         logger.info("Successfully initialized RAG with DeepSeek model")
@@ -120,10 +123,10 @@ async def initialize_rag_deepseek():
         raise
 
 
-async def initialize_rag_ollama():
+async def initialize_rag_ollama(working_dir: str = "./custom_kg"):
     """Initialize RAG with Ollama model."""
     try:
-        rag = get_rag_instance("ollama")
+        rag = get_rag_instance("ollama", working_dir=working_dir)
         await rag.initialize_storages()
         await initialize_pipeline_status()
         logger.info("Successfully initialized RAG with Ollama model")
@@ -462,5 +465,7 @@ async def generate_enriched_playbooks(
 
 
 if __name__ == "__main__":
-    enriched_playbooks = asyncio.run(fetch_all_playbooks(year="2014", max_samples=2))
-    print(enriched_playbooks)
+    playbooks = asyncio.run(fetch_all_playbooks(year="2014", max_samples=1))
+    print("playbook", playbooks)
+    graph_prompt = asyncio.run(playbook_to_graph_prompt(playbooks[0]))
+    print("graph promt", graph_prompt)
