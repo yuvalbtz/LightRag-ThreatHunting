@@ -12,6 +12,7 @@ export interface Message {
   timestamp: Date;
   file?: File;
   isError?: boolean;
+  graph_dir_path: string;
 }
 
 export interface Playbook {

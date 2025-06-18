@@ -1,6 +1,6 @@
 import React from 'react';
 import { createContext, useContextSelector } from 'use-context-selector';
-
+import { useTheme as useHeroUITheme } from '@heroui/use-theme';
 interface ThemeContextType {
     isDarkMode: boolean;
     toggleTheme: () => void;
@@ -9,26 +9,15 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [isDarkMode, setIsDarkMode] = React.useState(() => {
-        const saved = localStorage.getItem('darkMode');
-        return saved ? JSON.parse(saved) : false;
-    });
+    const { theme, setTheme } = useHeroUITheme();
 
     const toggleTheme = React.useCallback(() => {
-        setIsDarkMode((prev: boolean) => {
-            const newValue = !prev;
-            localStorage.setItem('darkMode', JSON.stringify(newValue));
-            return newValue;
-        });
-    }, []);
+        setTheme(theme === 'dark' ? 'light' : 'dark');
+    }, [theme]);
 
-    const value = React.useMemo(() => ({
-        isDarkMode,
-        toggleTheme
-    }), [isDarkMode, toggleTheme]);
 
     return (
-        <ThemeContext.Provider value={value}>
+        <ThemeContext.Provider value={{ isDarkMode: theme === 'dark', toggleTheme }}>
             {children}
         </ThemeContext.Provider>
     );

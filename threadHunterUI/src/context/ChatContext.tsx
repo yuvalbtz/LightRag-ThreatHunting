@@ -12,17 +12,18 @@ interface ChatContextType {
 const ChatContext = createContext<ChatContextType | null>(null);
 
 // Message creation helpers
-const createMessage = (content: string, role: 'user' | 'system' | 'assistant', isError?: boolean): Message => ({
+const createMessage = (content: string, role: 'user' | 'system' | 'assistant', isError?: boolean, graph_dir_path?: string): Message => ({
     id: crypto.randomUUID(),
     role,
     content,
     timestamp: new Date(),
-    isError
+    isError,
+    graph_dir_path: graph_dir_path || ''
 });
 
-export const createUserMessage = (content: string): Message => createMessage(content, 'user');
-export const createSystemMessage = (content: string, isError?: boolean): Message => createMessage(content, 'system', isError);
-export const createAssistantMessage = (content: string): Message => createMessage(content, 'assistant');
+export const createUserMessage = (content: string, graph_dir_path: string): Message => createMessage(content, 'user', false, graph_dir_path);
+export const createSystemMessage = (content: string, isError?: boolean, graph_dir_path?: string): Message => createMessage(content, 'system', isError, graph_dir_path || '');
+export const createAssistantMessage = (content: string, graph_dir_path: string): Message => createMessage(content, 'assistant', false, graph_dir_path);
 
 export const useChat = () => {
     const context = useContextSelector(ChatContext, (state) => state);

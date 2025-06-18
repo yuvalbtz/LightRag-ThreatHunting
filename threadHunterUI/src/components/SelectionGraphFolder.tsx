@@ -33,6 +33,7 @@ const GraphFoldersNamesSelection = () => {
             const selected = Array.from(keys)[0];
             await getGraphData(selected.toString());
         }}
+        listboxProps={{ emptyContent: 'No graph folders found' }}
         classNames={{ popoverContent: isDarkMode ? 'bg-gray-800/80 text-white' : '' }}
         className={`w-[300px] ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
         variant="underlined"

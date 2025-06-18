@@ -39,24 +39,24 @@ export const KnowledgeGraphContainer: React.FC = () => {
         }
 
         try {
-            await sendMessage(createSystemMessage(`Uploading your file '${file.name}' and building graph...`), dir_path);
+            await sendMessage(createSystemMessage(`Uploading your file '${file.name}' and building graph...`, false, dir_path), dir_path);
             try {
                 await buildGraph(file);
                 const newGraphData = await getGraphData(file.name.split('.')[0]);
                 setGraphData(newGraphData);
-                await sendMessage(createSystemMessage(`Successfully generated graph with ${newGraphData.nodes.length} nodes and ${newGraphData.edges.length} edges.`), dir_path);
+                await sendMessage(createSystemMessage(`Successfully generated graph with ${newGraphData.nodes.length} nodes and ${newGraphData.edges.length} edges.`, false, dir_path), dir_path);
             } catch (error) {
-                await sendMessage(createSystemMessage(`Error: Failed to process ${file.name}`, true), dir_path);
+                await sendMessage(createSystemMessage(`Error: Failed to process ${file.name}`, true, dir_path), dir_path);
             }
         } catch (error) {
-            sendMessage(createSystemMessage(`Error: ${error instanceof Error ? error.message : 'Failed to process file'}`, true), dir_path);
+            sendMessage(createSystemMessage(`Error: ${error instanceof Error ? error.message : 'Failed to process file'}`, true, dir_path), dir_path);
         } finally {
         }
     }, [buildGraph, getGraphData, sendMessage, setGraphData]);
 
     const handleReset = async () => {
         resetGraph();
-        await sendMessage(createSystemMessage('Graph has been reset. You can now drag and drop a new file.'), dir_path);
+        await sendMessage(createSystemMessage('Graph has been reset. You can now drag and drop a new file.', false, dir_path), dir_path);
     };
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({

@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@heroui/button';
-import { Input } from '@heroui/input';
+import { Input, Textarea } from '@heroui/input';
 import { Card } from '@heroui/card';
 import { GraphData } from '../types';
-import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
+import { FolderIcon, PaperAirplaneIcon } from '@heroicons/react/24/outline';
 import { useMessages, useSendMessage, useChatLoading, createUserMessage } from '../context/ChatContext';
 import { useGraphWorker } from '../hooks/useGraphWorker';
 import { useTheme } from '@/context/ThemeContext';
+import { Chip } from '@heroui/react';
 
 interface ChatContainerProps {
     isDarkMode: boolean;
@@ -69,7 +70,6 @@ export const ChatContainer = () => {
     const [input, setInput] = useState('');
     const [file, setFile] = useState<File | null>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
-    const { graphData } = useGraphWorker();
     const state = useGraphWorker();
 
     console.log("graphData !!!", state);
@@ -88,7 +88,7 @@ export const ChatContainer = () => {
         if (!input.trim() && !file) return;
         const message = input.trim();
         setInput('');
-        await sendMessage(createUserMessage(message), state.dir_path);
+        await sendMessage(createUserMessage(message, state.dir_path), state.dir_path);
     };
 
     return (
@@ -142,7 +142,7 @@ export const ChatContainer = () => {
                 </g>
             </svg>
             <div className={`flex-1 overflow-y-auto p-4 space-y-4 transition-colors duration-200 z-10`}>
-                {!graphData && (
+                {!state.graphData && (
                     <div className={`text-center p-2 mb-2 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} text-sm`}>
                         Please upload a file to enable chat functionality
                     </div>
@@ -153,7 +153,7 @@ export const ChatContainer = () => {
                         className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                     >
                         <Card
-                            className={`max-w-[80%] transition-colors duration-200 ${message.role === 'user'
+                            className={`max-w-[80%]  transition-colors duration-200 ${message.role === 'user'
                                 ? `${isDarkMode ? 'bg-blue-800 text-blue-100' : 'bg-blue-100 text-blue-900'}`
                                 : message.isError
                                     ? 'bg-dark text-red-700'
@@ -162,13 +162,21 @@ export const ChatContainer = () => {
                                         : 'bg-white text-gray-900'
                                 }`}
                         >
-                            <div className="p-4">
+                            <div className="p-4 flex flex-col">
                                 {message.file && (
                                     <div className={`text-xs opacity-50 mb-2 transition-colors duration-200 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'
                                         }`}>
                                         📎 {message.file.name}
                                     </div>
                                 )}
+                                <div className="flex justify-end transition-colors duration-200">
+                                    <Chip
+                                        variant="flat"
+                                        startContent={<FolderIcon className="w-5 h-5" />}
+                                    >
+                                        {message.graph_dir_path || 'No graph selected'}
+                                    </Chip>
+                                </div>
                                 <div className={`text-sm opacity-70 mb-1 transition-colors duration-200 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
                                     }`}>
                                     {message.role === 'user' ? 'You' : 'ThreatHunter AI'}
@@ -202,24 +210,25 @@ export const ChatContainer = () => {
             </div>
 
             <form onSubmit={handleSubmit} className={`p-4 border-t transition-colors duration-200 ${isDarkMode ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-white'}`}>
-                <div className="flex space-x-4">
-                    <Input
-                        type="text"
+                <div className="flex space-x-4 items-end">
+                    <Textarea
                         value={input}
+                        minRows={1}
+                        maxRows={10}
                         onChange={(e) => setInput(e.target.value)}
-                        placeholder={graphData ? "Ask about potential threats..." : "Upload a file to enable chat..."}
+                        placeholder={state.graphData ? "Ask about potential threats..." : "Upload a file to enable chat..."}
                         className={`flex-1 transition-colors duration-200 focus:outline-violet-500 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
                         variant='underlined'
-                        disabled={isLoading || !graphData}
+                        disabled={isLoading || !state.graphData}
                     />
                     <Button
                         type="submit"
-                        disabled={!input.trim() || isLoading || !graphData}
+                        disabled={!input.trim() || isLoading || !state.graphData}
                         className={`min-w-[40px] h-10 transition-colors duration-200 ${isDarkMode
                             ? 'bg-gray-700 text-white hover:bg-gray-600'
                             : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
                             }`}
-                        title={graphData ? "Send message" : "Upload a file to enable chat"}
+                        title={state.graphData ? "Send message" : "Upload a file to enable chat"}
                     >
                         {isLoading ? (
                             <div className="flex items-center">

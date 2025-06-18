@@ -102,7 +102,7 @@ export const api = {
                                     if (lastMessage && lastMessage.role === 'assistant') {
                                         lastMessage.content = currentResponse;
                                     } else {
-                                        newMessages.push(createAssistantMessage(currentResponse));
+                                        newMessages.push(createAssistantMessage(currentResponse, dir_path));
                                     }
                                     return newMessages;
                                 });
@@ -121,7 +121,8 @@ export const api = {
                 id: crypto.randomUUID(),
                 role: 'assistant',
                 content: currentResponse,
-                timestamp: new Date()
+                timestamp: new Date(),
+                graph_dir_path: dir_path
             };
         }
     },

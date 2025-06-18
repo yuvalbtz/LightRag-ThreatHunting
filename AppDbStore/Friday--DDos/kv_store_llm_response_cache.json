@@ -1,0 +1,22 @@
+{
+  "global": {
+    "bec466f7b3d49ffd8ee2781bf1468616": {
+      "return": "{\"high_level_keywords\": [\"DDoS detection\", \"Knowledge graph analysis\", \"Volumetric DDoS\", \"Application-layer DDoS\", \"Network traffic patterns\"], \"low_level_keywords\": [\"Source entities\", \"Target entity\", \"Incoming relationships\", \"Short time window\", \"Flow Bytes/s\", \"Flow Packets/s\", \"Down/Up Ratio\", \"Destination nodes\", \"IP:Port\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Given the knowledge graph of flows, identify potential signs of DDoS by looking for:\n- Many different source entities pointing to the same target entity.\n- The target entity (e.g., IP:Port) receiving more than 20 distinct incoming relationships in a short time window.\n- High Flow Bytes/s, high Flow Packets/s, and a Down/Up Ratio near 0 for that entity.\n\nList any such destination nodes and describe whether they could be part of a volumetric or application-layer DDoS."
+    },
+    "ecfed6aaa5d5c683ceae1662a5700fc1": {
+      "return": "Based on analysis of the provided network flows, no destination entities in the knowledge base meet all three criteria for DDoS detection:\n\n**Key Findings:**\n1. **Connection Patterns**  \nNo destination entity receives >20 distinct incoming relationships. All observed flows show 1:1 source-target relationships (e.g., 192.168.10.16→199.244.48.55, 192.168.10.19→172.217.10.238).\n\n2. **Flow Characteristics**  \n- **199.244.48.55:443/6** shows high throughput (573K Bytes/s, 578 Packets/s) but normal Down/Up Ratio=1  \n- **172.217.10.238:80/6** has Down/Up Ratio=0 but extremely low throughput (20 Bytes/s, 0.28 Packets/s)  \n- **192.168.10.3:53/17** demonstrates UDP-based high throughput (848K Bytes/s, 16K Packets/s) but normal DNS port usage\n\n3. **Attack Type Analysis**  \nThe combination of high throughput + ratio imbalance required for volumetric DDoS (e.g., UDP/ICMP floods) or application-layer DDoS (e.g., HTTP floods) isn't fully satisfied by any entity. The single-source relationships and lack of concentrated traffic patterns suggest normal application traffic rather than coordinated attacks.\n\n**References**  \n[KG] ./AppDbStore/Friday--DDos (Network Entity: 192.168.10.16:42424/6)  \n[KG] ./AppDbStore/Friday--DDos (Network Entity: 192.168.10.3:53/17)  \n[KG] ./AppDbStore/Friday--DDos (Network Entity: 172.217.10.238:80/6)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Given the knowledge graph of flows, identify potential signs of DDoS by looking for:\n- Many different source entities pointing to the same target entity.\n- The target entity (e.g., IP:Port) receiving more than 20 distinct incoming relationships in a short time window.\n- High Flow Bytes/s, high Flow Packets/s, and a Down/Up Ratio near 0 for that entity.\n\nList any such destination nodes and describe whether they could be part of a volumetric or application-layer DDoS."
+    }
+  }
+}

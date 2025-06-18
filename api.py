@@ -226,7 +226,7 @@ async def build_knowledge_graph(
         # Process the file based on its extension
         file_ext = os.path.splitext(file.filename)[1].lower()
         if file_ext == ".csv":
-            flows = await csv_to_json_list(temp_file_path, max_rows=40)
+            flows = await csv_to_json_list(temp_file_path, max_rows=500)
         elif file_ext == ".pcap":
             flows = await pcap_to_json_list(temp_file_path)
         else:

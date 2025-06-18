@@ -139,12 +139,26 @@ async def build_kg(
     )
 
     for index, flow in enumerate(flows):
-        session_id = str(uuid.uuid4())
-        source_id = f"session-{session_id}"
+        session_id = flow.get("Flow ID", "Unknown")
+        source_id = session_id
 
         # Get source and target
         source = flow.get(source_column, "Unknown")
         target = flow.get(target_column, "Unknown")
+
+        def generate_entity_id(ip: str, port: str, protocol: str) -> str:
+            return f"{ip}:{port}/{protocol}".lower()
+
+        source = generate_entity_id(
+            flow[source_column],
+            flow.get("Source Port", "Unknown"),
+            flow.get("Protocol", "Unknown"),
+        )
+        target = generate_entity_id(
+            flow[target_column],
+            flow.get("Destination Port", "Unknown"),
+            flow.get("Protocol", "Unknown"),
+        )
 
         # Create entities if they don't exist
         for endpoint in (source, target):
@@ -164,7 +178,7 @@ async def build_kg(
                     "entity_name": endpoint,
                     "entity_type": entity_type,
                     "description": "\n".join(entity_desc_parts),
-                    "source_id": f"entity-{endpoint}",
+                    "source_id": source_id,
                 }
 
                 # Add all available attributes to the entity
@@ -222,6 +236,22 @@ async def build_kg(
                 "source_chunk_index": index + 1,
             }
         )
+
+        # Deduplicate chunks: ensure every entity has a chunk with its source_id
+        existing_chunk_ids = {
+            (chunk["source_id"], chunk["source_chunk_index"]) for chunk in chunks
+        }
+
+        for endpoint, entity in entity_map.items():
+            chunk_key = (entity["source_id"], 0)
+            if entity["source_id"] != "Unknown" and chunk_key not in existing_chunk_ids:
+                chunks.append(
+                    {
+                        "content": f"{entity['entity_type']} Entity: {endpoint}\n{entity['description']}",
+                        "source_id": entity["source_id"],
+                        "source_chunk_index": 0,
+                    }
+                )
 
     # Create and insert the knowledge graph
     custom_kg = {
