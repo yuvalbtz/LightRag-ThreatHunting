@@ -221,7 +221,7 @@ async def build_knowledge_graph(
             temp_file_path = temp_file.name
 
         # Initialize RAG
-        rag = await initialize_rag_ollama(working_dir=working_dir)
+        rag = await initialize_rag_deepseek(working_dir=working_dir)
         print(f"working_dir: {working_dir}")
         # Process the file based on its extension
         file_ext = os.path.splitext(file.filename)[1].lower()
@@ -334,7 +334,7 @@ async def query_stream(request: ChatRequest):
         response = await rag.aquery(
             request.query,
             param=QueryParam(
-                mode="global", conversation_history=request.conversation_history
+                mode="local", conversation_history=request.conversation_history
             ),
         )
 

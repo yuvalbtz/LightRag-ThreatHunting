@@ -99,7 +99,11 @@ def get_rag_instance(
             working_dir=working_dir,
             llm_model_func=deepseek_model_complete,
             llm_model_name=DEEPSEEK_MODEL,
-            llm_model_kwargs={},
+            llm_model_max_token_size=164000,
+            llm_model_kwargs={
+                "temperature": 0.0,
+                "num_ctx": 164000,
+            },
             embedding_func=EmbeddingFunc(
                 embedding_dim=768,
                 max_token_size=8192,

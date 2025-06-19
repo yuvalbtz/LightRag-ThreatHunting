@@ -1,22 +1,76 @@
 {
-  "global": {
-    "bec466f7b3d49ffd8ee2781bf1468616": {
-      "return": "{\"high_level_keywords\": [\"DDoS detection\", \"Knowledge graph analysis\", \"Volumetric DDoS\", \"Application-layer DDoS\", \"Network traffic patterns\"], \"low_level_keywords\": [\"Source entities\", \"Target entity\", \"Incoming relationships\", \"Short time window\", \"Flow Bytes/s\", \"Flow Packets/s\", \"Down/Up Ratio\", \"Destination nodes\", \"IP:Port\"]}",
+  "local": {
+    "d5193dfcfc473c9c575beb683860fbc5": {
+      "return": "{\"high_level_keywords\": [\"IP address analysis\", \"Network traffic visualization\", \"Cybersecurity monitoring\"], \"low_level_keywords\": [\"199.244.48.55:443/6\", \"HTTPS port\", \"Subnet /6\", \"Network graph\", \"Traffic data\"]}",
       "cache_type": "keywords",
       "embedding": null,
       "embedding_shape": null,
       "embedding_min": null,
       "embedding_max": null,
-      "original_prompt": "Given the knowledge graph of flows, identify potential signs of DDoS by looking for:\n- Many different source entities pointing to the same target entity.\n- The target entity (e.g., IP:Port) receiving more than 20 distinct incoming relationships in a short time window.\n- High Flow Bytes/s, high Flow Packets/s, and a Down/Up Ratio near 0 for that entity.\n\nList any such destination nodes and describe whether they could be part of a volumetric or application-layer DDoS."
+      "original_prompt": "tell me about ip 199.244.48.55:443/6 in the graph"
     },
-    "ecfed6aaa5d5c683ceae1662a5700fc1": {
-      "return": "Based on analysis of the provided network flows, no destination entities in the knowledge base meet all three criteria for DDoS detection:\n\n**Key Findings:**\n1. **Connection Patterns**  \nNo destination entity receives >20 distinct incoming relationships. All observed flows show 1:1 source-target relationships (e.g., 192.168.10.16→199.244.48.55, 192.168.10.19→172.217.10.238).\n\n2. **Flow Characteristics**  \n- **199.244.48.55:443/6** shows high throughput (573K Bytes/s, 578 Packets/s) but normal Down/Up Ratio=1  \n- **172.217.10.238:80/6** has Down/Up Ratio=0 but extremely low throughput (20 Bytes/s, 0.28 Packets/s)  \n- **192.168.10.3:53/17** demonstrates UDP-based high throughput (848K Bytes/s, 16K Packets/s) but normal DNS port usage\n\n3. **Attack Type Analysis**  \nThe combination of high throughput + ratio imbalance required for volumetric DDoS (e.g., UDP/ICMP floods) or application-layer DDoS (e.g., HTTP floods) isn't fully satisfied by any entity. The single-source relationships and lack of concentrated traffic patterns suggest normal application traffic rather than coordinated attacks.\n\n**References**  \n[KG] ./AppDbStore/Friday--DDos (Network Entity: 192.168.10.16:42424/6)  \n[KG] ./AppDbStore/Friday--DDos (Network Entity: 192.168.10.3:53/17)  \n[KG] ./AppDbStore/Friday--DDos (Network Entity: 172.217.10.238:80/6)",
+    "69e87fc9588630ee9a778cac1da53c7f": {
+      "return": "The IP address 199.244.48.55:443/6 appears in the knowledge base as a web server receiving multiple connections from internal network endpoints. Key details:\n\n### Network Activity\n1. **Connection Sources**:  \n   Receives traffic from 6 different ports on 192.168.10.16:\n   - Ports: 42438, 41948, 42436, 41982, 41980, 42038  \n   - All connections use TCP (protocol 6) with normal behavior and low threat level.\n\n2. **Traffic Characteristics**:  \n   - High throughput: Ranges from 346,776.45 to 769,626.59 bytes/second  \n   - Consistent PSH flag usage (push data immediately)  \n   - No SYN/FIN/RST flags observed  \n   - Long-lived connections (143-300 seconds duration)\n\n3. **Data Volume**:  \n   Typical backward (incoming) bytes range from 100,049 to 108,751 bytes per connection, suggesting substantial data transfer to the internal endpoints.\n\n### Behavioral Analysis\n- Classified as \"normal\" in all flows with **low anomaly scores**  \n- No suspicious patterns or threat indicators reported  \n- Service type consistently identified as web server (HTTPS port 443)\n\n### Notable Relationships\nOne high-bandwidth flow from 192.168.10.16:42170 shows:\n- 25 forward packets / 33 backward packets  \n- 2356246.26 bytes/sec throughput  \n- FIN flag present (connection termination)  \n- Tagged with \"data_exfiltration\" keyword despite normal classification\n\n---\n\n**References**  \n[KG] Relationships ID 0-6,18,22 (unknown_source)  \n[KG] Source ID 18,22 (./AppDbStore/Friday--DDos)",
       "cache_type": "query",
       "embedding": null,
       "embedding_shape": null,
       "embedding_min": null,
       "embedding_max": null,
-      "original_prompt": "Given the knowledge graph of flows, identify potential signs of DDoS by looking for:\n- Many different source entities pointing to the same target entity.\n- The target entity (e.g., IP:Port) receiving more than 20 distinct incoming relationships in a short time window.\n- High Flow Bytes/s, high Flow Packets/s, and a Down/Up Ratio near 0 for that entity.\n\nList any such destination nodes and describe whether they could be part of a volumetric or application-layer DDoS."
+      "original_prompt": "tell me about ip 199.244.48.55:443/6 in the graph"
+    },
+    "20e256f22b0c040cfb04670ff878f79c": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"Connection flows\", \"Network monitoring\"], \"low_level_keywords\": [\"199.244.48.55\", \"Port 443\", \"Protocol 6 (TCP)\", \"Flows\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many flows connected to 199.244.48.55:443/6 ?"
+    },
+    "6ba2aaefd360a2e114f4295bd1cf7821": {
+      "return": "Based on the provided Knowledge Base:\n\nThe web server at **199.244.48.55:443/6** shows 2 distinct connection patterns:\n\n1. **Entity Record**  \n   Directly states this server was observed in **272 network flows** with \"anomalous\" behavior (Entity ID 16).\n\n2. **Documented Relationships**  \n   Shows **25 specific flows** from internal network endpoints (192.168.10.16:* ports) to this server, all flagged with:\n   - Medium/LOW threat levels\n   - High packet size variance patterns\n   - Normal behavior classification (despite anomalous server designation)\n\n**Discrepancy Note:** The 272 flows in the entity record significantly exceed the 25 documented relationships, suggesting either:\n- Aggregated historical data in the entity record\n- Incomplete relationship documentation in the provided KB\n\nReferences:  \n[KG] Entity ID 16 (unknown_source)  \n[KG] Relationships ID 0-24 (unknown_source)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many flows connected to 199.244.48.55:443/6 ?"
+    },
+    "367f8cb38711c9170dae29502a138b39": {
+      "return": "{\"high_level_keywords\": [\"IP address\", \"Network graph\", \"Network traffic\", \"Data visualization\"], \"low_level_keywords\": [\"192.168.10.3\", \"Port 61539\", \"/17 subnet\", \"TCP/UDP\", \"Network monitoring\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me about ip 192.168.10.3:61539/17  in the graph"
+    },
+    "07ac66479e46af925d57f8a963d424b8": {
+      "return": "The network endpoint **192.168.10.3:61539/17** (UDP protocol) appears in the knowledge base with the following characteristics:\n\n### Entity Details\n- **Type**: Network Endpoint\n- **Behavior**: Normal\n- **Service Type**: Generic network endpoint\n- **Observed**: In 1 network flow\n- **Rank**: 1 (standard priority)\n\n### Network Activity\nThis endpoint was observed communicating with **192.168.10.1:53/17** (DNS server) in a flow lasting 23,537 milliseconds:\n- **Data Transfer**: 106 bytes (2 packets)\n- **Flow Rate**: 4,503.55 bytes/sec\n- **Packet Rate**: 84.97 packets/sec\n- **Threat Level**: Low\n- **Flags**: No SYN/FIN/RST/PSH/ACK flags observed\n\n### Key Observations\n1. Represents standard DNS query behavior\n2. No suspicious patterns or threat indicators detected\n3. Short-duration communication typical of DNS resolution\n4. Normal traffic characteristics with low data volume\n\n### References\n[KG] `./AppDbStore/Friday--DDos` (Source ID 3)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me about ip 192.168.10.3:61539/17  in the graph"
+    },
+    "fcaf8c7e817d835ca0e18526af7ea862": {
+      "return": "{\"high_level_keywords\": [\"Networking\", \"IP addressing\", \"Network protocols\"], \"low_level_keywords\": [\"192.168.10.1\", \"Port 53\", \"DNS (Domain Name System)\", \"Subnet mask\", \"CIDR notation\", \"Private IP range\", \"TCP/UDP\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about ip 192.168.10.1:53/17"
+    },
+    "21f5940aa764e8f3c54e57703d9c040b": {
+      "return": "### Summary for 192.168.10.1:53/17  \nThis IP:port combination represents a **DNS server** operating over UDP (protocol 17).  \n\n#### Key Characteristics:  \n1. **Service Type**: Dedicated DNS server  \n2. **Observed Activity**:  \n   - Involved in 7 network flows (all marked \"normal\")  \n   - Primarily receives DNS queries from internal clients (e.g., 192.168.10.3 endpoints)  \n3. **Flow Patterns**:  \n   - Typical DNS transaction characteristics:  \n     - Short duration (milliseconds to seconds)  \n     - Small packet sizes (68-326 bytes per flow)  \n   - High-bandwidth exceptions observed in some communications (e.g., 1.87 MB/sec in flow from 192.168.10.16:9278)  \n4. **Security Context**:  \n   - All flows classified as **LOW** threat level  \n   - No suspicious flags (SYN/FIN/RST/PSH/ACK=0 in all packets)  \n\n#### Notable Relationships:  \nMultiple endpoints from 192.168.10.3 and 192.168.10.16 exhibit repeated DNS queries to this server, with some flows flagged for:  \n- `high_bandwidth`  \n- `data_exfiltration` patterns (though marked \"normal\" in context)  \n\n---\n\n### References  \n[KG] unknown_source (Entities)  \n[KG] unknown_source (Relationships)  \n[DC] ./AppDbStore/Friday--DDos (Sources 0,4-9,19)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about ip 192.168.10.1:53/17"
     }
   }
 }

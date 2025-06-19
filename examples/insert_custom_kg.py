@@ -86,174 +86,718 @@ async def determine_entity_type(
         return "Traffic Class"
 
     # Default to Network Entity if no specific type is determined
-    return "Network Entity"
+    return "Network Endpoint"
 
 
 async def build_kg(
     flows: List[Dict[str, Any]],
-    rag: LightRAG,
-    source_column: str = "Source",
-    target_column: str = "Destination",
+    rag,  # LightRAG instance
+    source_column: str = "Source IP",
+    target_column: str = "Destination IP",
     relationship_columns: List[str] = None,
 ) -> None:
     """
-    Build and insert a custom knowledge graph into LightRAG from flow records.
-    Automatically extracts entities and their types from the data.
-
-    Args:
-        flows: List of flow dictionaries parsed from CSV/PCAP
-        rag: LightRAG instance
-        source_column: Column name for source entity
-        target_column: Column name for target entity
-        relationship_columns: List of column names to include in relationships
+    Build and insert a knowledge graph into LightRAG based on comprehensive network flow data.
+    Enhanced for better LLM retrieval with detailed flow characteristics and threat analysis.
     """
-    entity_map = {}
-    relationships = []
-    chunks = []
-
     if not flows:
-        raise ValueError("No data provided")
+        raise ValueError("No flow data provided")
 
-    # Get all available columns from the first record
-    available_columns = list(flows[0].keys())
+    entity_map = {}  # Maps unique endpoint IDs to entity dicts
+    relationships = []  # List of relationship entries
+    chunks = []  # List of narrative chunks
 
-    # If relationship_columns not specified, use all columns except source and target
+    # Define the expected columns based on the provided schema
+    expected_columns = [
+        "Flow ID",
+        "Source IP",
+        "Source Port",
+        "Destination IP",
+        "Destination Port",
+        "Protocol",
+        "Timestamp",
+        "Flow Duration",
+        "Total Fwd Packets",
+        "Total Backward Packets",
+        "Total Length of Fwd Packets",
+        "Total Length of Bwd Packets",
+        "Fwd Packet Length Max",
+        "Fwd Packet Length Min",
+        "Fwd Packet Length Mean",
+        "Fwd Packet Length Std",
+        "Bwd Packet Length Max",
+        "Bwd Packet Length Min",
+        "Bwd Packet Length Mean",
+        "Bwd Packet Length Std",
+        "Flow Bytes/s",
+        "Flow Packets/s",
+        "Flow IAT Mean",
+        "Flow IAT Std",
+        "Flow IAT Max",
+        "Flow IAT Min",
+        "Fwd IAT Total",
+        "Fwd IAT Mean",
+        "Fwd IAT Std",
+        "Fwd IAT Max",
+        "Fwd IAT Min",
+        "Bwd IAT Total",
+        "Bwd IAT Mean",
+        "Bwd IAT Std",
+        "Bwd IAT Max",
+        "Bwd IAT Min",
+        "Fwd PSH Flags",
+        "Bwd PSH Flags",
+        "Fwd URG Flags",
+        "Bwd URG Flags",
+        "Fwd Header Length",
+        "Bwd Header Length",
+        "Fwd Packets/s",
+        "Bwd Packets/s",
+        "Min Packet Length",
+        "Max Packet Length",
+        "Packet Length Mean",
+        "Packet Length Std",
+        "Packet Length Variance",
+        "FIN Flag Count",
+        "SYN Flag Count",
+        "RST Flag Count",
+        "PSH Flag Count",
+        "ACK Flag Count",
+        "URG Flag Count",
+        "CWE Flag Count",
+        "ECE Flag Count",
+        "Down/Up Ratio",
+        "Average Packet Size",
+        "Avg Fwd Segment Size",
+        "Avg Bwd Segment Size",
+        "Fwd Header Length",
+        "Fwd Avg Bytes/Bulk",
+        "Fwd Avg Packets/Bulk",
+        "Fwd Avg Bulk Rate",
+        "Bwd Avg Bytes/Bulk",
+        "Bwd Avg Packets/Bulk",
+        "Bwd Avg Bulk Rate",
+        "Subflow Fwd Packets",
+        "Subflow Fwd Bytes",
+        "Subflow Bwd Packets",
+        "Subflow Bwd Bytes",
+        "Init_Win_bytes_forward",
+        "Init_Win_bytes_backward",
+        "act_data_pkt_fwd",
+        "min_seg_size_forward",
+        "Active Mean",
+        "Active Std",
+        "Active Max",
+        "Active Min",
+        "Idle Mean",
+        "Idle Std",
+        "Idle Max",
+        "Idle Min",
+        "Label",
+    ]
+
+    # Auto-detect relationship columns (all columns except basic flow info)
     if relationship_columns is None:
         relationship_columns = [
             col
-            for col in available_columns
-            if col not in [source_column, target_column]
+            for col in expected_columns
+            if col
+            not in [
+                source_column,
+                target_column,
+                "Source Port",
+                "Destination Port",
+                "Protocol",
+                "Flow ID",
+                "Timestamp",
+            ]
         ]
 
-    # Overview chunk
+    # Enhanced overview chunk with comprehensive flow analysis
     chunks.append(
         {
             "content": (
-                "This knowledge graph visualizes network traffic flow characteristics. "
-                "Each entity represents a network endpoint or component, and relationships capture "
-                "various attributes and metrics from the traffic data."
+                "COMPREHENSIVE NETWORK FLOW ANALYSIS KNOWLEDGE GRAPH\n\n"
+                "This knowledge graph contains detailed network flow characteristics for advanced threat analysis:\n"
+                "- ENTITIES: Network endpoints (IP:Port/Protocol) with behavioral classifications\n"
+                "- RELATIONSHIPS: Detailed flow characteristics including packet statistics, timing, and behavioral patterns\n"
+                "- BEHAVIORAL ANALYSIS: Packet size distributions, inter-arrival times, flag patterns, and bulk transfer characteristics\n"
+                "- THREAT INDICATORS: Anomalous patterns, suspicious timing, unusual packet distributions\n"
+                "- PERFORMANCE METRICS: Flow rates, window sizes, segment sizes, and connection efficiency\n\n"
+                "QUERY EXAMPLES:\n"
+                "- 'Show flows with unusual packet size distributions'\n"
+                "- 'Find connections with high SYN flag counts (potential port scanning)'\n"
+                "- 'Identify flows with abnormal inter-arrival times'\n"
+                "- 'List high-volume data transfers with bulk characteristics'\n"
+                "- 'Show flows with unusual flag patterns'\n"
+                "- 'Find connections with suspicious timing patterns'\n"
+                "- 'Identify potential DDoS attacks based on flow characteristics'\n"
+                "- 'Show flows with unusual window size patterns'\n"
             ),
             "source_id": "overview",
             "source_chunk_index": 0,
         }
     )
 
-    for index, flow in enumerate(flows):
-        session_id = flow.get("Flow ID", "Unknown")
-        source_id = session_id
+    def generate_entity_id(ip: str, port: str, proto: str) -> str:
+        """Generate a standardized entity ID with protocol context."""
+        return f"{ip}:{port}/{proto}".lower()
 
-        # Get source and target
-        source = flow.get(source_column, "Unknown")
-        target = flow.get(target_column, "Unknown")
+    def get_entity_type(ip: str, port: str, protocol: str) -> str:
+        """Determine entity type based on port and protocol with behavioral context."""
+        try:
+            protocol_lower = str(protocol).lower()
+            port_str = str(port)
 
-        def generate_entity_id(ip: str, port: str, protocol: str) -> str:
-            return f"{ip}:{port}/{protocol}".lower()
+            # Web services
+            if protocol_lower in ["http", "https", "80", "443"] or port_str in [
+                "80",
+                "443",
+                "8080",
+                "8443",
+            ]:
+                return "Web Server"
+            # Management services
+            elif protocol_lower in ["ssh", "22"] or port_str == "22":
+                return "SSH Server"
+            elif protocol_lower in ["telnet", "23"] or port_str == "23":
+                return "Telnet Server"
+            elif protocol_lower in ["rdp", "3389"] or port_str == "3389":
+                return "Remote Desktop Server"
+            # File transfer
+            elif protocol_lower in ["ftp", "21"] or port_str == "21":
+                return "FTP Server"
+            elif protocol_lower in ["sftp", "22"]:
+                return "SFTP Server"
+            # Network services
+            elif protocol_lower in ["dns", "53"] or port_str == "53":
+                return "DNS Server"
+            elif protocol_lower in ["dhcp", "67", "68"] or port_str in ["67", "68"]:
+                return "DHCP Server"
+            # Mail services
+            elif protocol_lower in ["smtp", "25", "587"] or port_str in ["25", "587"]:
+                return "Mail Server"
+            elif protocol_lower in ["pop3", "110", "995"] or port_str in ["110", "995"]:
+                return "POP3 Server"
+            elif protocol_lower in ["imap", "143", "993"] or port_str in ["143", "993"]:
+                return "IMAP Server"
+            # Database services
+            elif port_str in ["3306", "5432", "1433", "1521"]:
+                return "Database Server"
+            # Common application ports
+            elif port_str in ["22", "23", "3389", "5900"]:
+                return "Management Server"
+            elif port_str in ["80", "443", "8080", "8443", "3000", "5000"]:
+                return "Web Service"
+            else:
+                return "Network Endpoint"
+        except Exception:
+            return "Network Endpoint"
 
-        source = generate_entity_id(
-            flow[source_column],
-            flow.get("Source Port", "Unknown"),
-            flow.get("Protocol", "Unknown"),
-        )
-        target = generate_entity_id(
-            flow[target_column],
-            flow.get("Destination Port", "Unknown"),
-            flow.get("Protocol", "Unknown"),
-        )
+    def analyze_flow_behavior(flow: Dict[str, Any]) -> Dict[str, Any]:
+        """Analyze flow behavior patterns for threat detection."""
+        try:
+            behavior = {
+                "anomaly_score": 0,
+                "suspicious_patterns": [],
+                "behavior_type": "normal",
+                "threat_indicators": [],
+            }
 
-        # Create entities if they don't exist
-        for endpoint in (source, target):
-            if endpoint not in entity_map:
-                # Determine entity type automatically
-                entity_type = await determine_entity_type(
-                    endpoint, available_columns, flow
+            # Analyze packet size patterns
+            fwd_packet_mean = float(flow.get("Fwd Packet Length Mean", 0) or 0)
+            bwd_packet_mean = float(flow.get("Bwd Packet Length Mean", 0) or 0)
+            packet_std = float(flow.get("Packet Length Std", 0) or 0)
+
+            if packet_std > 1000:  # High variance in packet sizes
+                behavior["suspicious_patterns"].append("high_packet_size_variance")
+                behavior["anomaly_score"] += 2
+
+            # Analyze flag patterns
+            syn_count = int(flow.get("SYN Flag Count", 0) or 0)
+            fin_count = int(flow.get("FIN Flag Count", 0) or 0)
+            rst_count = int(flow.get("RST Flag Count", 0) or 0)
+            psh_count = int(flow.get("PSH Flag Count", 0) or 0)
+
+            if syn_count > 10:  # Potential port scanning
+                behavior["suspicious_patterns"].append("high_syn_count")
+                behavior["threat_indicators"].append("potential_port_scanning")
+                behavior["anomaly_score"] += 3
+
+            if rst_count > 5:  # Connection resets
+                behavior["suspicious_patterns"].append("high_rst_count")
+                behavior["anomaly_score"] += 1
+
+            # Analyze timing patterns
+            flow_iat_mean = float(flow.get("Flow IAT Mean", 0) or 0)
+            flow_iat_std = float(flow.get("Flow IAT Std", 0) or 0)
+
+            if flow_iat_std > 1000000:  # High timing variance
+                behavior["suspicious_patterns"].append("irregular_timing")
+                behavior["anomaly_score"] += 2
+
+            # Analyze bulk transfer patterns
+            fwd_bulk_rate = float(flow.get("Fwd Avg Bulk Rate", 0) or 0)
+            bwd_bulk_rate = float(flow.get("Bwd Avg Bulk Rate", 0) or 0)
+
+            if fwd_bulk_rate > 1000000 or bwd_bulk_rate > 1000000:  # High bulk transfer
+                behavior["suspicious_patterns"].append("high_bulk_transfer")
+                behavior["anomaly_score"] += 2
+
+            # Determine behavior type
+            if behavior["anomaly_score"] >= 5:
+                behavior["behavior_type"] = "suspicious"
+            elif behavior["anomaly_score"] >= 3:
+                behavior["behavior_type"] = "anomalous"
+            else:
+                behavior["behavior_type"] = "normal"
+
+            return behavior
+        except Exception as e:
+            print(f"Error in analyze_flow_behavior: {e}")
+            return {
+                "anomaly_score": 0,
+                "suspicious_patterns": [],
+                "behavior_type": "normal",
+                "threat_indicators": [],
+            }
+
+    def get_threat_level(flow: Dict[str, Any], behavior: Dict[str, Any]) -> str:
+        """Determine threat level based on flow characteristics and behavior."""
+        try:
+            anomaly_score = behavior["anomaly_score"]
+            protocol = str(flow.get("Protocol", "")).lower()
+            dst_port = str(flow.get("Destination Port", ""))
+
+            # High-risk services
+            if dst_port in ["22", "23", "3389", "5900"] or protocol in [
+                "ssh",
+                "telnet",
+                "rdp",
+            ]:
+                if anomaly_score >= 3:
+                    return "HIGH"
+                elif anomaly_score >= 1:
+                    return "MEDIUM"
+                else:
+                    return "LOW"
+
+            # Web services
+            elif dst_port in ["80", "443", "8080", "8443"]:
+                if anomaly_score >= 4:
+                    return "HIGH"
+                elif anomaly_score >= 2:
+                    return "MEDIUM"
+                else:
+                    return "LOW"
+
+            # Database services
+            elif dst_port in ["3306", "5432", "1433", "1521"]:
+                if anomaly_score >= 2:
+                    return "HIGH"
+                elif anomaly_score >= 1:
+                    return "MEDIUM"
+                else:
+                    return "LOW"
+
+            else:
+                if anomaly_score >= 5:
+                    return "HIGH"
+                elif anomaly_score >= 3:
+                    return "MEDIUM"
+                else:
+                    return "LOW"
+        except Exception:
+            return "LOW"
+
+    def get_entity_description(
+        ip: str, port: str, protocol: str, flow_count: int, avg_behavior: str
+    ) -> str:
+        """Generate detailed entity description with behavioral context."""
+        try:
+            entity_type = get_entity_type(ip, port, protocol)
+
+            return (
+                f"{entity_type} at {ip}:{port} using {protocol} protocol. "
+                f"Observed in {flow_count} network flow(s). "
+                f"Typical behavior: {avg_behavior}. "
+                f"Service type: {entity_type.lower()}"
+            )
+        except Exception:
+            return f"Network endpoint at {ip}:{port} using {protocol} protocol. Observed in {flow_count} flows."
+
+    # First pass: collect entity statistics and behavior patterns
+    entity_stats = {}
+    entity_behaviors = {}
+    traffic_patterns = {}
+
+    try:
+        for flow in flows:
+            src_ip = str(flow.get(source_column, "0.0.0.0"))
+            src_port = str(flow.get("Source Port", "0"))
+            dst_ip = str(flow.get(target_column, "0.0.0.0"))
+            dst_port = str(flow.get("Destination Port", "0"))
+            protocol = str(flow.get("Protocol", "0"))
+
+            src_entity = generate_entity_id(src_ip, src_port, protocol)
+            dst_entity = generate_entity_id(dst_ip, dst_port, protocol)
+
+            entity_stats[src_entity] = entity_stats.get(src_entity, 0) + 1
+            entity_stats[dst_entity] = entity_stats.get(dst_entity, 0) + 1
+
+            # Analyze flow behavior
+            behavior = analyze_flow_behavior(flow)
+
+            if src_entity not in entity_behaviors:
+                entity_behaviors[src_entity] = []
+            if dst_entity not in entity_behaviors:
+                entity_behaviors[dst_entity] = []
+
+            entity_behaviors[src_entity].append(behavior)
+            entity_behaviors[dst_entity].append(behavior)
+
+            # Track traffic patterns
+            pattern_key = f"{protocol}:{dst_port}"
+            if pattern_key not in traffic_patterns:
+                traffic_patterns[pattern_key] = {
+                    "count": 0,
+                    "sources": set(),
+                    "destinations": set(),
+                    "total_fwd_packets": 0,
+                    "total_bwd_packets": 0,
+                    "total_fwd_bytes": 0,
+                    "total_bwd_bytes": 0,
+                    "anomaly_scores": [],
+                }
+            traffic_patterns[pattern_key]["count"] += 1
+            traffic_patterns[pattern_key]["sources"].add(src_ip)
+            traffic_patterns[pattern_key]["destinations"].add(dst_ip)
+            traffic_patterns[pattern_key]["total_fwd_packets"] += int(
+                flow.get("Total Fwd Packets", 0) or 0
+            )
+            traffic_patterns[pattern_key]["total_bwd_packets"] += int(
+                flow.get("Total Backward Packets", 0) or 0
+            )
+            traffic_patterns[pattern_key]["total_fwd_bytes"] += int(
+                flow.get("Total Length of Fwd Packets", 0) or 0
+            )
+            traffic_patterns[pattern_key]["total_bwd_bytes"] += int(
+                flow.get("Total Length of Bwd Packets", 0) or 0
+            )
+            traffic_patterns[pattern_key]["anomaly_scores"].append(
+                behavior["anomaly_score"]
+            )
+
+        # Second pass: create enhanced entities
+        for flow in flows:
+            flow_id = str(flow.get("Flow ID", str(uuid.uuid4())))
+            source_id = f"flow-{flow_id}"
+
+            src_ip = str(flow.get(source_column, "0.0.0.0"))
+            src_port = str(flow.get("Source Port", "0"))
+            dst_ip = str(flow.get(target_column, "0.0.0.0"))
+            dst_port = str(flow.get("Destination Port", "0"))
+            protocol = str(flow.get("Protocol", "0"))
+
+            src_entity = generate_entity_id(src_ip, src_port, protocol)
+            dst_entity = generate_entity_id(dst_ip, dst_port, protocol)
+
+            # Create enhanced entities with behavioral context
+            for endpoint, (ip, port, proto) in [
+                (src_entity, (src_ip, src_port, protocol)),
+                (dst_entity, (dst_ip, dst_port, protocol)),
+            ]:
+                if endpoint not in entity_map:
+                    flow_count = entity_stats.get(endpoint, 1)
+                    behaviors = entity_behaviors.get(endpoint, [])
+                    avg_behavior = "normal"
+                    avg_anomaly = 0
+                    if behaviors:
+                        avg_anomaly = sum(b["anomaly_score"] for b in behaviors) / len(
+                            behaviors
+                        )
+                        if avg_anomaly >= 3:
+                            avg_behavior = "suspicious"
+                        elif avg_anomaly >= 1:
+                            avg_behavior = "anomalous"
+
+                    entity_map[endpoint] = {
+                        "entity_name": endpoint,
+                        "entity_type": get_entity_type(ip, port, proto),
+                        "description": get_entity_description(
+                            ip, port, proto, flow_count, avg_behavior
+                        ),
+                        "source_id": source_id,
+                        "metadata": {
+                            "ip": ip,
+                            "port": port,
+                            "protocol": proto,
+                            "flow_count": flow_count,
+                            "avg_behavior": avg_behavior,
+                            "avg_anomaly_score": avg_anomaly,
+                        },
+                    }
+
+            # Analyze current flow behavior
+            behavior = analyze_flow_behavior(flow)
+            threat_level = get_threat_level(flow, behavior)
+
+            # Enhanced relationship with comprehensive flow characteristics
+            flow_characteristics = []
+
+            # Packet statistics
+            total_fwd_packets = int(flow.get("Total Fwd Packets", 0) or 0)
+            total_bwd_packets = int(flow.get("Total Backward Packets", 0) or 0)
+            total_fwd_bytes = int(flow.get("Total Length of Fwd Packets", 0) or 0)
+            total_bwd_bytes = int(flow.get("Total Length of Bwd Packets", 0) or 0)
+
+            flow_characteristics.extend(
+                [
+                    f"Forward packets: {total_fwd_packets}",
+                    f"Backward packets: {total_bwd_packets}",
+                    f"Forward bytes: {total_fwd_bytes}",
+                    f"Backward bytes: {total_bwd_bytes}",
+                ]
+            )
+
+            # Timing characteristics
+            flow_duration = int(flow.get("Flow Duration", 0) or 0)
+            flow_bytes_per_sec = float(flow.get("Flow Bytes/s", 0) or 0)
+            flow_packets_per_sec = float(flow.get("Flow Packets/s", 0) or 0)
+
+            if flow_duration > 0:
+                flow_characteristics.extend(
+                    [
+                        f"Duration: {flow_duration}ms",
+                        f"Bytes/sec: {flow_bytes_per_sec:.2f}",
+                        f"Packets/sec: {flow_packets_per_sec:.2f}",
+                    ]
                 )
 
-                # Create entity description based on available data
-                entity_desc_parts = [f"{entity_type} involved in network traffic"]
-                for col in relationship_columns:
-                    if flow.get(col) is not None:
-                        entity_desc_parts.append(f"{col}: {flow[col]}")
+            # Flag patterns
+            syn_count = int(flow.get("SYN Flag Count", 0) or 0)
+            fin_count = int(flow.get("FIN Flag Count", 0) or 0)
+            rst_count = int(flow.get("RST Flag Count", 0) or 0)
+            psh_count = int(flow.get("PSH Flag Count", 0) or 0)
+            ack_count = int(flow.get("ACK Flag Count", 0) or 0)
 
-                entity_attrs = {
-                    "entity_name": endpoint,
-                    "entity_type": entity_type,
-                    "description": "\n".join(entity_desc_parts),
-                    "source_id": source_id,
-                }
-
-                # Add all available attributes to the entity
-                for col in available_columns:
-                    if (
-                        col not in [source_column, target_column]
-                        and flow.get(col) is not None
-                    ):
-                        entity_attrs[col] = flow[col]
-
-                entity_map[endpoint] = entity_attrs
-
-        # Build relationship description from specified columns
-        relationship_desc = []
-        for col in relationship_columns:
-            if flow.get(col) is not None:
-                relationship_desc.append(f"{col}: {flow[col]}")
-
-        # Create relationship
-        relationship_attrs = {
-            "src_id": source,
-            "tgt_id": target,
-            "description": "\n".join(relationship_desc),
-            "keywords": ", ".join(
+            flow_characteristics.extend(
                 [
-                    str(flow.get(col, "")).lower()
-                    for col in relationship_columns
-                    if flow.get(col)
+                    f"SYN: {syn_count}, FIN: {fin_count}, RST: {rst_count}, PSH: {psh_count}, ACK: {ack_count}"
                 ]
-            ),
-            "weight": 1.0,
-            "source_id": source_id,
-        }
+            )
 
-        # Add all relationship columns as attributes
-        for col in relationship_columns:
-            if flow.get(col) is not None:
-                relationship_attrs[col] = flow[col]
+            # Behavioral indicators
+            if behavior["suspicious_patterns"]:
+                flow_characteristics.append(
+                    f"Suspicious patterns: {', '.join(behavior['suspicious_patterns'])}"
+                )
 
-        relationships.append(relationship_attrs)
+            if behavior["threat_indicators"]:
+                flow_characteristics.append(
+                    f"Threat indicators: {', '.join(behavior['threat_indicators'])}"
+                )
 
-        # Create chunk with all available information
-        chunk_content = []
-        if source != "Unknown" and target != "Unknown":
-            chunk_content.append(f"Traffic from {source} to {target}")
+            relationship_text = "\n".join(flow_characteristics)
 
-        for col in relationship_columns:
-            if flow.get(col) is not None:
-                chunk_content.append(f"{col}: {flow[col]}")
+            # Create comprehensive relationship description
+            src_type = get_entity_type(src_ip, src_port, protocol)
+            dst_type = get_entity_type(dst_ip, dst_port, protocol)
+
+            relationship_desc = (
+                f"COMPREHENSIVE FLOW ANALYSIS\n"
+                f"Source: {src_type} ({src_entity})\n"
+                f"Destination: {dst_type} ({dst_entity})\n"
+                f"Protocol: {protocol}\n"
+                f"Ports: {src_port} → {dst_port}\n"
+                f"Behavior: {behavior['behavior_type']}\n"
+                f"Threat Level: {threat_level}\n"
+                f"Flow Characteristics:\n{relationship_text}"
+            )
+
+            # Enhanced keywords for comprehensive search
+            keywords = []
+            keywords.extend([protocol.lower(), src_port, dst_port, src_ip, dst_ip])
+            keywords.extend([src_type.lower(), dst_type.lower()])
+            keywords.extend([behavior["behavior_type"], threat_level.lower()])
+            keywords.extend(behavior["suspicious_patterns"])
+            keywords.extend(behavior["threat_indicators"])
+
+            # Add flow-specific keywords
+            if total_fwd_packets > 100:
+                keywords.extend(["high_packet_count", "bulk_transfer"])
+            if syn_count > 5:
+                keywords.extend(["port_scanning", "syn_flood"])
+            if flow_bytes_per_sec > 1000000:
+                keywords.extend(["high_bandwidth", "data_exfiltration"])
+
+            relationships.append(
+                {
+                    "src_id": src_entity,
+                    "tgt_id": dst_entity,
+                    "description": relationship_desc,
+                    "keywords": ", ".join(filter(None, keywords)),
+                    "weight": 1.0,
+                    "source_id": source_id,
+                    "metadata": {
+                        "protocol": protocol,
+                        "src_port": src_port,
+                        "dst_port": dst_port,
+                        "flow_id": flow_id,
+                        "behavior_type": behavior["behavior_type"],
+                        "threat_level": threat_level,
+                        "anomaly_score": behavior["anomaly_score"],
+                        "total_fwd_packets": total_fwd_packets,
+                        "total_bwd_packets": total_bwd_packets,
+                        "total_fwd_bytes": total_fwd_bytes,
+                        "total_bwd_bytes": total_bwd_bytes,
+                        "flow_duration": flow_duration,
+                        "src_type": src_type,
+                        "dst_type": dst_type,
+                    },
+                }
+            )
+
+            # Enhanced chunk with comprehensive analysis
+            chunk_content = (
+                f"COMPREHENSIVE NETWORK FLOW ANALYSIS\n"
+                f"Flow ID: {flow_id}\n"
+                f"Source: {src_type} ({src_entity})\n"
+                f"Destination: {dst_type} ({dst_entity})\n"
+                f"Protocol: {protocol}\n"
+                f"Ports: {src_port} → {dst_port}\n"
+                f"Duration: {flow_duration}ms\n"
+                f"Data Transfer: {total_fwd_bytes + total_bwd_bytes} bytes ({total_fwd_packets + total_bwd_packets} packets)\n"
+                f"Flow Rate: {flow_bytes_per_sec:.2f} bytes/sec, {flow_packets_per_sec:.2f} packets/sec\n"
+                f"Flag Pattern: SYN:{syn_count} FIN:{fin_count} RST:{rst_count} PSH:{psh_count} ACK:{ack_count}\n"
+                f"Behavior: {behavior['behavior_type']}\n"
+                f"Threat Level: {threat_level}\n"
+                f"Anomaly Score: {behavior['anomaly_score']}\n"
+                f"Suspicious Patterns: {', '.join(behavior['suspicious_patterns']) if behavior['suspicious_patterns'] else 'None'}\n"
+                f"Threat Indicators: {', '.join(behavior['threat_indicators']) if behavior['threat_indicators'] else 'None'}"
+            )
+
+            chunks.append(
+                {
+                    "content": chunk_content,
+                    "source_id": source_id,
+                    "source_chunk_index": len(chunks),
+                }
+            )
+
+        # Add entity-specific chunks with behavioral analysis
+        for entity_id, entity in entity_map.items():
+            behaviors = entity_behaviors.get(entity_id, [])
+            avg_anomaly = entity["metadata"]["avg_anomaly_score"]
+            avg_behavior = entity["metadata"]["avg_behavior"]
+
+            entity_chunk = (
+                f"ENTITY BEHAVIORAL ANALYSIS: {entity['entity_name']}\n"
+                f"Type: {entity['entity_type']}\n"
+                f"Average Behavior: {avg_behavior}\n"
+                f"Average Anomaly Score: {avg_anomaly:.2f}\n"
+                f"Description: {entity['description']}\n"
+                f"IP Address: {entity['metadata']['ip']}\n"
+                f"Port: {entity['metadata']['port']}\n"
+                f"Protocol: {entity['metadata']['protocol']}\n"
+                f"Flow Count: {entity['metadata']['flow_count']}\n"
+                f"Behavioral Notes: {avg_behavior} endpoint with {entity['metadata']['flow_count']} observed flows"
+            )
+
+            chunks.append(
+                {
+                    "content": entity_chunk,
+                    "source_id": f"entity-{entity_id}",
+                    "source_chunk_index": 0,
+                }
+            )
+
+        # Add traffic pattern analysis chunks
+        for pattern_key, pattern_data in traffic_patterns.items():
+            protocol, port = pattern_key.split(":", 1)
+            entity_type = get_entity_type("0.0.0.0", port, protocol)
+            avg_anomaly = (
+                sum(pattern_data["anomaly_scores"])
+                / len(pattern_data["anomaly_scores"])
+                if pattern_data["anomaly_scores"]
+                else 0
+            )
+
+            pattern_chunk = (
+                f"TRAFFIC PATTERN ANALYSIS\n"
+                f"Pattern: {protocol.upper()} traffic to port {port}\n"
+                f"Service Type: {entity_type}\n"
+                f"Total Flows: {pattern_data['count']}\n"
+                f"Unique Sources: {len(pattern_data['sources'])}\n"
+                f"Unique Destinations: {len(pattern_data['destinations'])}\n"
+                f"Total Forward Packets: {pattern_data['total_fwd_packets']}\n"
+                f"Total Backward Packets: {pattern_data['total_bwd_packets']}\n"
+                f"Total Forward Bytes: {pattern_data['total_fwd_bytes']}\n"
+                f"Total Backward Bytes: {pattern_data['total_bwd_bytes']}\n"
+                f"Average Anomaly Score: {avg_anomaly:.2f}\n"
+                f"Average Forward Packets per Flow: {pattern_data['total_fwd_packets'] // pattern_data['count'] if pattern_data['count'] > 0 else 0}\n"
+                f"Average Backward Packets per Flow: {pattern_data['total_bwd_packets'] // pattern_data['count'] if pattern_data['count'] > 0 else 0}"
+            )
+
+            chunks.append(
+                {
+                    "content": pattern_chunk,
+                    "source_id": f"pattern-{pattern_key}",
+                    "source_chunk_index": 0,
+                }
+            )
+
+        # Add comprehensive threat analysis summary
+        suspicious_entities = [
+            e
+            for e in entity_map.values()
+            if e["metadata"]["avg_behavior"] == "suspicious"
+        ]
+        anomalous_entities = [
+            e
+            for e in entity_map.values()
+            if e["metadata"]["avg_behavior"] == "anomalous"
+        ]
+        high_threat_flows = [
+            r for r in relationships if r["metadata"]["threat_level"] == "HIGH"
+        ]
+        medium_threat_flows = [
+            r for r in relationships if r["metadata"]["threat_level"] == "MEDIUM"
+        ]
+
+        threat_summary = (
+            f"COMPREHENSIVE THREAT ANALYSIS SUMMARY\n"
+            f"Total Entities: {len(entity_map)}\n"
+            f"Suspicious Entities: {len(suspicious_entities)}\n"
+            f"Anomalous Entities: {len(anomalous_entities)}\n"
+            f"Normal Entities: {len(entity_map) - len(suspicious_entities) - len(anomalous_entities)}\n"
+            f"Total Flows: {len(flows)}\n"
+            f"High Threat Flows: {len(high_threat_flows)}\n"
+            f"Medium Threat Flows: {len(medium_threat_flows)}\n"
+            f"Low Threat Flows: {len(flows) - len(high_threat_flows) - len(medium_threat_flows)}\n"
+            f"Unique Protocols: {len(set(r['metadata']['protocol'] for r in relationships))}\n"
+            f"Traffic Patterns: {len(traffic_patterns)} unique patterns\n\n"
+            f"SECURITY RECOMMENDATIONS:\n"
+            f"- Investigate {len(suspicious_entities)} suspicious endpoints\n"
+            f"- Monitor {len(anomalous_entities)} anomalous entities\n"
+            f"- Review {len(high_threat_flows)} high-threat flows\n"
+            f"- Analyze {len(traffic_patterns)} traffic patterns for anomalies\n"
+            f"- Focus on entities with high anomaly scores"
+        )
 
         chunks.append(
             {
-                "content": "\n".join(chunk_content),
-                "source_id": source_id,
-                "source_chunk_index": index + 1,
+                "content": threat_summary,
+                "source_id": "threat-summary",
+                "source_chunk_index": 0,
             }
         )
 
-        # Deduplicate chunks: ensure every entity has a chunk with its source_id
-        existing_chunk_ids = {
-            (chunk["source_id"], chunk["source_chunk_index"]) for chunk in chunks
-        }
+    except Exception as e:
+        print(f"Error during knowledge graph construction: {e}")
+        raise
 
-        for endpoint, entity in entity_map.items():
-            chunk_key = (entity["source_id"], 0)
-            if entity["source_id"] != "Unknown" and chunk_key not in existing_chunk_ids:
-                chunks.append(
-                    {
-                        "content": f"{entity['entity_type']} Entity: {endpoint}\n{entity['description']}",
-                        "source_id": entity["source_id"],
-                        "source_chunk_index": 0,
-                    }
-                )
-
-    # Create and insert the knowledge graph
+    # Final KG structure
     custom_kg = {
         "entities": list(entity_map.values()),
         "relationships": relationships,
@@ -263,14 +807,22 @@ async def build_kg(
     try:
         await rag.ainsert_custom_kg(custom_kg=custom_kg, file_path=rag.working_dir)
         print(
-            f"Successfully inserted knowledge graph with {len(entity_map)} entities and {len(relationships)} relationships"
+            f"✅ Comprehensive Knowledge Graph inserted: {len(entity_map)} entities, {len(relationships)} relationships, {len(chunks)} chunks."
         )
-        print(f"Used columns: {relationship_columns}")
+        print(f"📊 Entity types: {set(e['entity_type'] for e in entity_map.values())}")
+        print(f"🔗 Protocols: {set(r['metadata']['protocol'] for r in relationships)}")
         print(
-            f"Entity types found: {set(entity['entity_type'] for entity in entity_map.values())}"
+            f"⚠️  Threat levels: {set(r['metadata']['threat_level'] for r in relationships)}"
         )
+        print(
+            f"🎭 Behavior types: {set(r['metadata']['behavior_type'] for r in relationships)}"
+        )
+        print(f"📈 Traffic patterns: {len(traffic_patterns)} unique patterns")
+        print(f"🔍 Suspicious entities: {len(suspicious_entities)}")
+        print(f"⚠️  High threat flows: {len(high_threat_flows)}")
     except Exception as e:
-        print(f"Error inserting custom KG: {e}")
+        print(f"❌ Failed to insert knowledge graph: {e}")
+        raise
 
 
 WORKING_DIR = "./email2a_vpn_kg"
