@@ -418,13 +418,13 @@ async def build_kg(
             entity_type = get_entity_type(ip, port, protocol)
 
             return (
-                f"{entity_type} at {ip}:{port} using {protocol} protocol. \n"
-                f"Observed in {flow_count} network flow(s). \n"
-                f"Typical behavior: {avg_behavior}. \n"
-                f"Service type: {entity_type.lower()}."
+                f"{entity_type} at {ip}:{port} using {protocol} protocol. "
+                f"Observed in {flow_count} network flow(s). "
+                f"Typical behavior: {avg_behavior}. "
+                f"Service type: {entity_type.lower()}"
             )
         except Exception:
-            return f"Network endpoint at {ip}:{port} using {protocol} protocol.\n Observed in {flow_count} flows."
+            return f"Network endpoint at {ip}:{port} using {protocol} protocol. Observed in {flow_count} flows."
 
     # First pass: collect entity statistics and behavior patterns
     entity_stats = {}
