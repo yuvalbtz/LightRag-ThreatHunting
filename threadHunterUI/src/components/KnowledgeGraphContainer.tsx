@@ -1,16 +1,12 @@
-import {
-    ArrowPathIcon,
-    ArrowsPointingOutIcon,
-    MagnifyingGlassMinusIcon,
-    MagnifyingGlassPlusIcon
-} from '@heroicons/react/24/outline';
-import { Button } from '@heroui/button';
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { createSystemMessage, useChat } from '../context/ChatContext';
 import { useDarkMode } from '../context/ThemeContext';
 import { useGraphWorker } from '../hooks/useGraphWorker';
+import KnowledgeGraphControls from './KnowledgeGraphControls';
+import KnowledgeGraphNetwork from './KnowledgeGraphNetwork';
 import SelectionGraphFolder from './SelectionGraphFolder';
+import KnowledgeGraphRenderingLoader from './KnowledgeGraphRenderingLoader';
 
 export const KnowledgeGraphContainer: React.FC = () => {
     const isDarkMode = useDarkMode();
@@ -19,10 +15,6 @@ export const KnowledgeGraphContainer: React.FC = () => {
         isLoading,
         isRendering,
         dir_path,
-        networkInstance,
-        networkRef,
-        stabilizationProgress,
-        resetGraph,
         buildGraph,
         getGraphData,
         setGraphData,
@@ -42,7 +34,7 @@ export const KnowledgeGraphContainer: React.FC = () => {
             await sendMessage(createSystemMessage(`Uploading your file '${file.name}' and building graph...`, false, dir_path), dir_path);
             try {
                 await buildGraph(file);
-                const newGraphData = await getGraphData(file.name.split('.')[0]);
+                const newGraphData = await getGraphData(`./AppDbStore/${file.name.split('.')[0]}`);
                 setGraphData(newGraphData);
                 await sendMessage(createSystemMessage(`Successfully generated graph with ${newGraphData.nodes.length} nodes and ${newGraphData.edges.length} edges.`, false, dir_path), dir_path);
             } catch (error) {
@@ -54,10 +46,7 @@ export const KnowledgeGraphContainer: React.FC = () => {
         }
     }, [buildGraph, getGraphData, sendMessage, setGraphData]);
 
-    const handleReset = async () => {
-        resetGraph();
-        await sendMessage(createSystemMessage('Graph has been reset. You can now drag and drop a new file.', false, dir_path), dir_path);
-    };
+
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
         onDrop,
@@ -83,20 +72,10 @@ export const KnowledgeGraphContainer: React.FC = () => {
                     className={`w-full flex-1 border-2 ${isDarkMode ? 'border-gray-700' : 'border-gray-200'} rounded-lg relative overflow-hidden ${graphData ? 'cursor-default' : 'cursor-pointer'}`}
                 >
                     <input {...getInputProps()} />
-                    <div ref={networkRef} className="w-full h-[100%]" />
+                    <KnowledgeGraphNetwork />
 
                     {isRendering && (
-                        <div className="absolute inset-0 flex items-center justify-center z-10">
-                            <div className="w-1/3 h-0.5 bg-gray-200 rounded-full overflow-hidden">
-                                <div
-                                    className="h-full bg-blue-500 rounded-full"
-                                    style={{
-                                        width: `${stabilizationProgress}%`,
-                                        transition: 'width 50ms linear'
-                                    }}
-                                />
-                            </div>
-                        </div>
+                        <KnowledgeGraphRenderingLoader />
                     )}
 
                     {isLoading && (
@@ -149,43 +128,7 @@ export const KnowledgeGraphContainer: React.FC = () => {
                         </div>
                     )}
 
-                    {graphData && (
-                        <div className={`absolute m-auto p-1 left-0 right-0 rounded-full bottom-0 w-fit px-4 mb-1 flex gap-4 justify-center items-center z-20 ${isDarkMode ? 'bg-gray-900/80' : 'bg-white/90'} backdrop-blur-md`}>
-                            <Button size="lg" isIconOnly variant="light" title="Zoom In" className={isDarkMode ? 'text-blue-200 hover:bg-gray-800' : 'text-blue-700 hover:bg-blue-100'} onPress={() => {
-                                if (networkInstance) {
-                                    networkInstance.moveTo({
-                                        scale: networkInstance.getScale() * 1.2
-                                    });
-                                }
-                            }}>
-                                <MagnifyingGlassPlusIcon className="w-7 h-7" />
-                            </Button>
-                            <Button size="lg" isIconOnly variant="light" title="Zoom Out" className={isDarkMode ? 'text-blue-200 hover:bg-gray-800' : 'text-blue-700 hover:bg-blue-100'} onPress={() => {
-                                if (networkInstance) {
-                                    networkInstance.moveTo({
-                                        scale: networkInstance.getScale() * 0.8
-                                    });
-                                }
-                            }}>
-                                <MagnifyingGlassMinusIcon className="w-7 h-7" />
-                            </Button>
-                            <Button size="lg" isIconOnly variant="light" title="Fit to View" className={isDarkMode ? 'text-blue-200 hover:bg-gray-800' : 'text-blue-700 hover:bg-blue-100'} onPress={() => {
-                                if (networkInstance) {
-                                    networkInstance.fit({
-                                        animation: {
-                                            duration: 1000,
-                                            easingFunction: 'easeInOutQuad'
-                                        }
-                                    });
-                                }
-                            }}>
-                                <ArrowsPointingOutIcon className="w-7 h-7" />
-                            </Button>
-                            <Button size="lg" isIconOnly variant="light" title="Reset Graph" className={isDarkMode ? 'text-blue-200 hover:bg-gray-800' : 'text-blue-700 hover:bg-blue-100'} onPress={handleReset}>
-                                <ArrowPathIcon className="w-7 h-7" />
-                            </Button>
-                        </div>
-                    )}
+                    <KnowledgeGraphControls />
                 </div>
             </div>
         </div>

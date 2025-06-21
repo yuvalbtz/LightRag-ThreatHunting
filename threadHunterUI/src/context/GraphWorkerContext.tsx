@@ -9,7 +9,7 @@ interface GraphWorkerState {
 
 interface GraphWorkerContextType extends GraphWorkerState {
     buildGraph: (file: File) => Promise<{ entity_count: number; relationship_count: number }>;
-    getGraphData: () => Promise<GraphData>;
+    getGraphData: (dir_path?: string) => Promise<GraphData>;
     searchGraph: (query: string) => Promise<void>;
     resetGraph: () => void;
     setGraphData: (data: GraphData) => void;
@@ -63,7 +63,7 @@ export const GraphWorkerProvider: React.FC<{ children: React.ReactNode }> = ({ c
         });
     }, []);
 
-    const getGraphData = useCallback(async (): Promise<GraphData> => {
+    const getGraphData = useCallback(async (dir_path?: string): Promise<GraphData> => {
         setState(prev => ({ ...prev, isLoading: true, error: null }));
 
         return new Promise((resolve, reject) => {
@@ -88,7 +88,8 @@ export const GraphWorkerProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
             workerRef.current.addEventListener('message', handler);
             workerRef.current.postMessage({
-                type: 'GET_GRAPH_DATA'
+                type: 'GET_GRAPH_DATA',
+                data: { dir_path }
             });
         });
     }, []);

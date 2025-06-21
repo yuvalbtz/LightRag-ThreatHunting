@@ -6,11 +6,10 @@ import logging
 import json
 import time
 from functools import lru_cache, wraps
-from typing import List, Dict, Any, Optional, Union
+from typing import List, Dict, Any
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from dotenv import load_dotenv
-from lightrag.base import QueryParam
 from lightrag.kg.shared_storage import initialize_pipeline_status
 from lightrag.lightrag import LightRAG
 from lightrag.utils import EmbeddingFunc
@@ -32,7 +31,7 @@ DEEPSEEK_MODEL = "deepseek/deepseek-r1:free"
 DEEPSEEK_API_BASE = "https://openrouter.ai/api/v1/chat/completions"
 WORKING_DIR = "./email2a_vpn_kg"
 EMBED_MODEL = "nomic-embed-text"
-OLLAMA_HOST = "http://localhost:11434"
+OLLAMA_HOST = "http://ollama:11434"
 OLLAMA_MODEL = "qwen2.5:1.5b"
 
 # Cache configuration
@@ -232,7 +231,7 @@ async def generate_visual_graph(dir_path: str = "./custom_kg") -> Dict[str, Any]
     import random
 
     # Load the GraphML file
-    G = nx.read_graphml(f"{dir_path}/graph_chunk_entity_relation.graphml")
+    G = nx.read_graphml(f"./AppDbStore/{dir_path}/graph_chunk_entity_relation.graphml")
 
     # Create a Pyvis network
     net = Network(height="100vh", notebook=True)

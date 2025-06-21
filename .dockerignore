@@ -20,7 +20,7 @@ build/
 *.tar.gz
 
 # Exclude siles and folders
-*.yml
+# *.yml  # Commented out to allow environment.yml
 .dockerignore
 Dockerfile
 Makefile
@@ -61,3 +61,79 @@ TODO.md
 .github
 .gitignore
 .pre-commit-config.yaml
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+pip-log.txt
+pip-delete-this-directory.txt
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git
+.mypy_cache
+.pytest_cache
+.hypothesis
+
+# Node.js
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# IDEs
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+working_dir/
+AppDbStore/
+custom_kg/
+email2a_vpn_kg/
+rag_storage/
+lightrag_hku.egg-info/
+*.csv
+*.json
+*.log
+knowledge_graph.html
+graph_data.json
+test.json
+dataset.json
+kgStructure.json
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Documentation
+README.md
+README-zh.md
+docs/
+*.md

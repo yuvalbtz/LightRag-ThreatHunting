@@ -1,0 +1,4863 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="source_id" attr.type="string"/>
+<key id="d6" for="edge" attr.name="keywords" attr.type="string"/>
+<key id="d5" for="edge" attr.name="description" attr.type="string"/>
+<key id="d4" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d3" for="node" attr.name="source_id" attr.type="string"/>
+<key id="d2" for="node" attr.name="description" attr.type="string"/>
+<key id="d1" for="node" attr.name="entity_type" attr.type="string"/>
+<key id="d0" for="node" attr.name="entity_id" attr.type="string"/>
+<graph edgedefault="undirected"><node id="192.168.10.50:56108/6">
+  <data key="d0">192.168.10.50:56108/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.50:56108 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-7b78ef0ce973eec69fe5ffcb489b8573</data>
+</node>
+<node id="192.168.10.3:3268/6">
+  <data key="d0">192.168.10.3:3268/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:3268 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-7b78ef0ce973eec69fe5ffcb489b8573</data>
+</node>
+<node id="192.168.10.50:42144/6">
+  <data key="d0">192.168.10.50:42144/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.50:42144 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-4f0929f40f93ae5c9d8e335e0893407c</data>
+</node>
+<node id="192.168.10.3:389/6">
+  <data key="d0">192.168.10.3:389/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:389 using 6 protocol. 
+Observed in 19 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-4f0929f40f93ae5c9d8e335e0893407c</data>
+</node>
+<node id="8.6.0.1:0/0">
+  <data key="d0">8.6.0.1:0/0</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 8.6.0.1:0 using 0 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-b0f70c40b5e86eaa00a2353611745dc6</data>
+</node>
+<node id="8.0.6.4:0/0">
+  <data key="d0">8.0.6.4:0/0</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 8.0.6.4:0 using 0 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-b0f70c40b5e86eaa00a2353611745dc6</data>
+</node>
+<node id="192.168.10.9:63210/17">
+  <data key="d0">192.168.10.9:63210/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:63210 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-aef4152feaa5b8fd89c52a4348b3d173</data>
+</node>
+<node id="224.0.0.252:5355/17">
+  <data key="d0">224.0.0.252:5355/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 224.0.0.252:5355 using 17 protocol. 
+Observed in 3 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-aef4152feaa5b8fd89c52a4348b3d173</data>
+</node>
+<node id="192.168.10.9:0/0">
+  <data key="d0">192.168.10.9:0/0</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:0 using 0 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-46eb0277c4eff4695581636d12527b36</data>
+</node>
+<node id="224.0.0.22:0/0">
+  <data key="d0">224.0.0.22:0/0</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 224.0.0.22:0 using 0 protocol. 
+Observed in 3 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-46eb0277c4eff4695581636d12527b36</data>
+</node>
+<node id="192.168.10.9:1031/6">
+  <data key="d0">192.168.10.9:1031/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:1031 using 6 protocol. 
+Observed in 3 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-2b1c3d070f08cf7ca1c83ae52478c0a1</data>
+</node>
+<node id="192.168.10.3:88/6">
+  <data key="d0">192.168.10.3:88/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:88 using 6 protocol. 
+Observed in 69 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-2b1c3d070f08cf7ca1c83ae52478c0a1</data>
+</node>
+<node id="192.168.10.9:1032/6">
+  <data key="d0">192.168.10.9:1032/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:1032 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-3a4209929c08167abb00886874983c47</data>
+</node>
+<node id="192.168.10.9:1033/6">
+  <data key="d0">192.168.10.9:1033/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:1033 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-e48b87ccf2934af6c6a86b05208a0d38</data>
+</node>
+<node id="192.168.10.9:1034/6">
+  <data key="d0">192.168.10.9:1034/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:1034 using 6 protocol. 
+Observed in 3 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-5640c80db373b98c3214b5fbf3e425d1</data>
+</node>
+<node id="192.168.10.9:1036/6">
+  <data key="d0">192.168.10.9:1036/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:1036 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-52354a991c491e76359b0f11b07abdb1</data>
+</node>
+<node id="192.168.10.9:1035/6">
+  <data key="d0">192.168.10.9:1035/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:1035 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-9d04c0a9e26d45127aaf98d5d2794b9a</data>
+</node>
+<node id="192.168.10.9:1028/6">
+  <data key="d0">192.168.10.9:1028/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:1028 using 6 protocol. 
+Observed in 3 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-12ab09c5af20f6065939bc32506e3309</data>
+</node>
+<node id="192.168.10.3:135/6">
+  <data key="d0">192.168.10.3:135/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:135 using 6 protocol. 
+Observed in 5 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-12ab09c5af20f6065939bc32506e3309</data>
+</node>
+<node id="192.168.10.9:1029/6">
+  <data key="d0">192.168.10.9:1029/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:1029 using 6 protocol. 
+Observed in 3 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-e185ed822eb6d6007e7064e470aa310a</data>
+</node>
+<node id="192.168.10.3:49671/6">
+  <data key="d0">192.168.10.3:49671/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:49671 using 6 protocol. 
+Observed in 5 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-e185ed822eb6d6007e7064e470aa310a</data>
+</node>
+<node id="192.168.10.9:137/17">
+  <data key="d0">192.168.10.9:137/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:137 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-cbd1b6c1782548a6f05a775b06b80013</data>
+</node>
+<node id="192.168.10.3:137/17">
+  <data key="d0">192.168.10.3:137/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:137 using 17 protocol. 
+Observed in 3 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-cbd1b6c1782548a6f05a775b06b80013</data>
+</node>
+<node id="192.168.10.9:49429/17">
+  <data key="d0">192.168.10.9:49429/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:49429 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-ec43b71bc0661aa3f1f5f00ba0df65cd</data>
+</node>
+<node id="192.168.10.3:53/17">
+  <data key="d0">192.168.10.3:53/17</data>
+  <data key="d1">DNS Server</data>
+  <data key="d2">DNS Server at 192.168.10.3:53 using 17 protocol. 
+Observed in 44 network flow(s). 
+Typical behavior: normal. 
+Service type: dns server.</data>
+  <data key="d3">chunk-ec43b71bc0661aa3f1f5f00ba0df65cd</data>
+</node>
+<node id="192.168.10.9:56588/17">
+  <data key="d0">192.168.10.9:56588/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:56588 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-2868c2cf28431f5c4016135a63a8df63</data>
+</node>
+<node id="192.168.10.9:65512/17">
+  <data key="d0">192.168.10.9:65512/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:65512 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-90c443f766e9af94c373d28b1effa3ed</data>
+</node>
+<node id="192.168.10.9:62625/17">
+  <data key="d0">192.168.10.9:62625/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:62625 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-0a0f37f5571fda6533f7256d86f59819</data>
+</node>
+<node id="192.168.10.9:1030/6">
+  <data key="d0">192.168.10.9:1030/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:1030 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-89d8ea59c3e1e3f807aadb133cc70488</data>
+</node>
+<node id="192.168.10.3:445/6">
+  <data key="d0">192.168.10.3:445/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:445 using 6 protocol. 
+Observed in 3 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-89d8ea59c3e1e3f807aadb133cc70488</data>
+</node>
+<node id="192.168.10.9:56590/17">
+  <data key="d0">192.168.10.9:56590/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:56590 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-16599f8f2f27203cdf077283fb4d7c27</data>
+</node>
+<node id="192.168.10.3:389/17">
+  <data key="d0">192.168.10.3:389/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:389 using 17 protocol. 
+Observed in 13 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-16599f8f2f27203cdf077283fb4d7c27</data>
+</node>
+<node id="192.168.10.9:56591/17">
+  <data key="d0">192.168.10.9:56591/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:56591 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-b52691045fcebdd1aab501137b442dc2</data>
+</node>
+<node id="192.168.10.9:64531/17">
+  <data key="d0">192.168.10.9:64531/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:64531 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-96dd50e5d64deb3c0c63698c72d92531</data>
+</node>
+<node id="192.168.10.9:62626/17">
+  <data key="d0">192.168.10.9:62626/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:62626 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-77ae3d95f50fcfcef9844a3ea6ddec0f</data>
+</node>
+<node id="192.168.10.25:138/17">
+  <data key="d0">192.168.10.25:138/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.25:138 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-26d6c24138943cc0e7e49d76f0165f15</data>
+</node>
+<node id="192.168.10.255:138/17">
+  <data key="d0">192.168.10.255:138/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.255:138 using 17 protocol. 
+Observed in 3 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-26d6c24138943cc0e7e49d76f0165f15</data>
+</node>
+<node id="192.168.10.50:138/17">
+  <data key="d0">192.168.10.50:138/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.50:138 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-ae82705f491f0ac0f8fc31185ba79799</data>
+</node>
+<node id="192.168.10.25:137/17">
+  <data key="d0">192.168.10.25:137/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.25:137 using 17 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-8f30b8de966d92659ad9574c25e31d35</data>
+</node>
+<node id="192.168.10.255:137/17">
+  <data key="d0">192.168.10.255:137/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.255:137 using 17 protocol. 
+Observed in 3 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-8f30b8de966d92659ad9574c25e31d35</data>
+</node>
+<node id="192.168.10.25:64992/17">
+  <data key="d0">192.168.10.25:64992/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.25:64992 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-30786b1f95566552fbc80c973df66ed8</data>
+</node>
+<node id="192.168.10.25:53893/17">
+  <data key="d0">192.168.10.25:53893/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.25:53893 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-56c1b29767dc5d0bc40dadf168ae2905</data>
+</node>
+<node id="192.168.10.25:58059/17">
+  <data key="d0">192.168.10.25:58059/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.25:58059 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-d820230896fb29fe298bba873622c33c</data>
+</node>
+<node id="192.168.10.25:0/0">
+  <data key="d0">192.168.10.25:0/0</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.25:0 using 0 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-54ca4c36fa18c37741140de257b8c5b2</data>
+</node>
+<node id="224.0.0.251:0/0">
+  <data key="d0">224.0.0.251:0/0</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 224.0.0.251:0 using 0 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-54ca4c36fa18c37741140de257b8c5b2</data>
+</node>
+<node id="192.168.10.25:5353/17">
+  <data key="d0">192.168.10.25:5353/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.25:5353 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-2a799575daace31d697860c0287cb37a</data>
+</node>
+<node id="224.0.0.251:5353/17">
+  <data key="d0">224.0.0.251:5353/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 224.0.0.251:5353 using 17 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-2a799575daace31d697860c0287cb37a</data>
+</node>
+<node id="192.168.10.25:123/17">
+  <data key="d0">192.168.10.25:123/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.25:123 using 17 protocol. 
+Observed in 5 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-8776e8a20fb0bd332aa76d0334f99c99</data>
+</node>
+<node id="17.253.14.125:123/17">
+  <data key="d0">17.253.14.125:123/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 17.253.14.125:123 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-8776e8a20fb0bd332aa76d0334f99c99</data>
+</node>
+<node id="192.168.10.3:60061/17">
+  <data key="d0">192.168.10.3:60061/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:60061 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-2aa32717eb18e7432ce031061b346dc3</data>
+</node>
+<node id="192.168.10.1:53/17">
+  <data key="d0">192.168.10.1:53/17</data>
+  <data key="d1">DNS Server</data>
+  <data key="d2">DNS Server at 192.168.10.1:53 using 17 protocol. 
+Observed in 6 network flow(s). 
+Typical behavior: normal. 
+Service type: dns server.</data>
+  <data key="d3">chunk-2aa32717eb18e7432ce031061b346dc3</data>
+</node>
+<node id="192.168.10.3:60730/17">
+  <data key="d0">192.168.10.3:60730/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:60730 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-b1138a001746545e6784195f433b7b7f</data>
+</node>
+<node id="192.168.10.25:54967/17">
+  <data key="d0">192.168.10.25:54967/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.25:54967 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-55c1f1da3ae090de59fdbc2aaf4ad6f7</data>
+</node>
+<node id="192.168.10.9:64123/17">
+  <data key="d0">192.168.10.9:64123/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:64123 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-3f3f5923e7d97504651f5711a4491df7</data>
+</node>
+<node id="192.168.10.9:60987/17">
+  <data key="d0">192.168.10.9:60987/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:60987 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-b4f54be340829d04342351373e75f15b</data>
+</node>
+<node id="17.253.14.253:123/17">
+  <data key="d0">17.253.14.253:123/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 17.253.14.253:123 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-9993769ec33936d0b592105609477900</data>
+</node>
+<node id="192.168.10.25:60949/17">
+  <data key="d0">192.168.10.25:60949/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.25:60949 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-f3a9086905c219cef76d79c1859ec923</data>
+</node>
+<node id="192.168.10.9:64782/17">
+  <data key="d0">192.168.10.9:64782/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:64782 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-8db7dcc1ed674e50a35472b6dcd324e0</data>
+</node>
+<node id="192.168.10.25:56764/17">
+  <data key="d0">192.168.10.25:56764/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.25:56764 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-0e922bde6943d7b9c7d57a217823edeb</data>
+</node>
+<node id="192.168.10.25:50735/17">
+  <data key="d0">192.168.10.25:50735/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.25:50735 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-adf0a019ace1699027b85b71f591f4b6</data>
+</node>
+<node id="192.168.10.9:50009/17">
+  <data key="d0">192.168.10.9:50009/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:50009 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-b5a25a58ba4b6cf4333d02bdab7be486</data>
+</node>
+<node id="17.253.20.125:123/17">
+  <data key="d0">17.253.20.125:123/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 17.253.20.125:123 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-c4159d4eeb995b8603a410cfba52e052</data>
+</node>
+<node id="17.253.20.253:123/17">
+  <data key="d0">17.253.20.253:123/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 17.253.20.253:123 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-c15aeedcb5398e7f9b63a194ff42d8f8</data>
+</node>
+<node id="17.253.24.125:123/17">
+  <data key="d0">17.253.24.125:123/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 17.253.24.125:123 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-c782fb29713d472d0881256343884df1</data>
+</node>
+<node id="192.168.10.14:62000/17">
+  <data key="d0">192.168.10.14:62000/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:62000 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-32033b87930c540dc4b4edb362aa8cbf</data>
+</node>
+<node id="192.168.10.14:0/0">
+  <data key="d0">192.168.10.14:0/0</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:0 using 0 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-5c4b7cd1a5605cfe1f140f2a234ecfd5</data>
+</node>
+<node id="192.168.10.14:53408/17">
+  <data key="d0">192.168.10.14:53408/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:53408 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-a5107d9330faf2291d44a81cd4e8d712</data>
+</node>
+<node id="192.168.10.14:49415/6">
+  <data key="d0">192.168.10.14:49415/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49415 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-963b23a2f06cc34bb70cf43f46ada1df</data>
+</node>
+<node id="192.168.10.14:49416/6">
+  <data key="d0">192.168.10.14:49416/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49416 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-264388308b732b4e1d7b298cdd8c93ab</data>
+</node>
+<node id="192.168.10.14:49417/6">
+  <data key="d0">192.168.10.14:49417/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49417 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-0c0ab8788ba037650e77e30383f1c444</data>
+</node>
+<node id="192.168.10.14:49418/6">
+  <data key="d0">192.168.10.14:49418/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49418 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-baddde5f661b882d7d777c9e4f98aec3</data>
+</node>
+<node id="192.168.10.14:49419/6">
+  <data key="d0">192.168.10.14:49419/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49419 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-94a4aff56d89030e224a1bd4ee7921c2</data>
+</node>
+<node id="192.168.10.14:49420/6">
+  <data key="d0">192.168.10.14:49420/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49420 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-bce1fa94e21bb47f788444acd519f356</data>
+</node>
+<node id="192.168.10.14:49421/6">
+  <data key="d0">192.168.10.14:49421/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49421 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-5c745039bb86562b3caefcb7779df122</data>
+</node>
+<node id="192.168.10.14:49412/6">
+  <data key="d0">192.168.10.14:49412/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49412 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-f77b3ee306d6e5d0fe1e156b23ecce88</data>
+</node>
+<node id="192.168.10.14:49413/6">
+  <data key="d0">192.168.10.14:49413/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49413 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-006b137247fe729ef0c3473d5eaead10</data>
+</node>
+<node id="192.168.10.3:49666/6">
+  <data key="d0">192.168.10.3:49666/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:49666 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-006b137247fe729ef0c3473d5eaead10</data>
+</node>
+<node id="192.168.10.14:49414/6">
+  <data key="d0">192.168.10.14:49414/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49414 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-2a74c075f4e2965034840546cb205530</data>
+</node>
+<node id="192.168.10.14:137/17">
+  <data key="d0">192.168.10.14:137/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:137 using 17 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-9b5d24d1016139bef52fab2f18a54477</data>
+</node>
+<node id="192.168.10.14:58423/17">
+  <data key="d0">192.168.10.14:58423/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:58423 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-1eb8995e3040b33fa6cdb957952405f7</data>
+</node>
+<node id="192.168.10.14:58425/17">
+  <data key="d0">192.168.10.14:58425/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:58425 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-7dbf362017dd9133b792d162002e790c</data>
+</node>
+<node id="192.168.10.14:50980/17">
+  <data key="d0">192.168.10.14:50980/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:50980 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-ae61075c9cb05a92a556fe6caf01cb4f</data>
+</node>
+<node id="192.168.10.14:65442/17">
+  <data key="d0">192.168.10.14:65442/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:65442 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-ac285c6acef4e143cd5e36656645e59b</data>
+</node>
+<node id="192.168.10.14:50981/17">
+  <data key="d0">192.168.10.14:50981/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:50981 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-b2df2bcf42ed5cbaacf7eafe44c7f494</data>
+</node>
+<node id="192.168.10.14:58421/17">
+  <data key="d0">192.168.10.14:58421/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:58421 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-db76cca36214e0d5716d1cf7eb0f1e2d</data>
+</node>
+<node id="192.168.10.14:49424/6">
+  <data key="d0">192.168.10.14:49424/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49424 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-dc9f96b3980c4c870ff504e1b1e9fc55</data>
+</node>
+<node id="192.168.10.14:49423/6">
+  <data key="d0">192.168.10.14:49423/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49423 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-522b586ef550beddb467448d5f1aff44</data>
+</node>
+<node id="192.168.10.14:49422/6">
+  <data key="d0">192.168.10.14:49422/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49422 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-7c4dff3179da8610d305534e63d61bf9</data>
+</node>
+<node id="192.168.10.5:0/0">
+  <data key="d0">192.168.10.5:0/0</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:0 using 0 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-c75aedda1c154f2ebd780f8c2c5bed72</data>
+</node>
+<node id="192.168.10.5:61595/17">
+  <data key="d0">192.168.10.5:61595/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:61595 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-23e6bf0afdf29527004fb01c9a50d587</data>
+</node>
+<node id="192.168.10.5:49160/6">
+  <data key="d0">192.168.10.5:49160/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49160 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-ca489d8dfd58d37300b0ba0b8475d4da</data>
+</node>
+<node id="192.168.10.5:49161/6">
+  <data key="d0">192.168.10.5:49161/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49161 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-1be8b81e65f43ca905ac7f9d8ce49fc7</data>
+</node>
+<node id="192.168.10.5:49162/6">
+  <data key="d0">192.168.10.5:49162/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49162 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-4e5ebd55ad69b9600a3df14cd11dd24d</data>
+</node>
+<node id="192.168.10.5:49163/6">
+  <data key="d0">192.168.10.5:49163/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49163 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-91fbc7df25094c71715cb791b2a0c053</data>
+</node>
+<node id="192.168.10.5:49166/6">
+  <data key="d0">192.168.10.5:49166/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49166 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-18919b0eb59946724a110ecb89eb255b</data>
+</node>
+<node id="192.168.10.5:49168/6">
+  <data key="d0">192.168.10.5:49168/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49168 using 6 protocol. 
+Observed in 3 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-b3b4a4fb0031f165302d5153e67f2c74</data>
+</node>
+<node id="192.168.10.5:49169/6">
+  <data key="d0">192.168.10.5:49169/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49169 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-a5269c35c9623894fd3b52e9e1b27a8a</data>
+</node>
+<node id="192.168.10.5:49170/6">
+  <data key="d0">192.168.10.5:49170/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49170 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-45f94dd39bd61b89ab90cc67ec4002c2</data>
+</node>
+<node id="192.168.10.5:49172/6">
+  <data key="d0">192.168.10.5:49172/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49172 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-33df003aaf463cdb6e01a2c62b10e0eb</data>
+</node>
+<node id="192.168.10.5:49174/6">
+  <data key="d0">192.168.10.5:49174/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49174 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-0287bf0ded7ad313638577ab1c12f10e</data>
+</node>
+<node id="192.168.10.5:49175/6">
+  <data key="d0">192.168.10.5:49175/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49175 using 6 protocol. 
+Observed in 3 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-b96ae45291a2772285140b1bd18482ff</data>
+</node>
+<node id="192.168.10.5:49171/6">
+  <data key="d0">192.168.10.5:49171/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49171 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-65efda41992c950591151e25b266529e</data>
+</node>
+<node id="192.168.10.5:49157/6">
+  <data key="d0">192.168.10.5:49157/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49157 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-7a7eadaf8bc91be94075e724cb5c90a2</data>
+</node>
+<node id="192.168.10.5:49158/6">
+  <data key="d0">192.168.10.5:49158/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49158 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-c887d170a641d84cb84f801fa46c6045</data>
+</node>
+<node id="192.168.10.5:49167/6">
+  <data key="d0">192.168.10.5:49167/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49167 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-43f7f17a20a9a0514d0c512729f39da4</data>
+</node>
+<node id="192.168.10.5:49159/6">
+  <data key="d0">192.168.10.5:49159/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49159 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-c335c8be31a2825188cab4148a5b108e</data>
+</node>
+<node id="192.168.10.5:137/17">
+  <data key="d0">192.168.10.5:137/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:137 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-28872167a3f770d106038ad49845e6ef</data>
+</node>
+<node id="192.168.10.5:54104/17">
+  <data key="d0">192.168.10.5:54104/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:54104 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-ad8c9c43cf46586b07e74310d21a17bb</data>
+</node>
+<node id="192.168.10.3:62497/17">
+  <data key="d0">192.168.10.3:62497/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:62497 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-0c6fb2c1c20c43868c640199189a74e2</data>
+</node>
+<node id="192.168.10.5:60926/17">
+  <data key="d0">192.168.10.5:60926/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:60926 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-b565003d26f623eb2809dc3e05d03be0</data>
+</node>
+<node id="192.168.10.5:53643/17">
+  <data key="d0">192.168.10.5:53643/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:53643 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-a17d6f0db3e9253eecf2d12a7b95c470</data>
+</node>
+<node id="192.168.10.5:61968/17">
+  <data key="d0">192.168.10.5:61968/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:61968 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-76cb01ada53d4d76a7d6d70fae2015d6</data>
+</node>
+<node id="192.168.10.5:51904/17">
+  <data key="d0">192.168.10.5:51904/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:51904 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-09514251f1fdfb8f1daa8ddf019c0751</data>
+</node>
+<node id="192.168.10.5:55761/17">
+  <data key="d0">192.168.10.5:55761/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:55761 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-86f22286b37a2f2da38a974a06027ace</data>
+</node>
+<node id="192.168.10.5:55574/17">
+  <data key="d0">192.168.10.5:55574/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:55574 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-cd7f61fc5ef383bddf7facf5c225e2ef</data>
+</node>
+<node id="192.168.10.14:54608/17">
+  <data key="d0">192.168.10.14:54608/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:54608 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-6d9665b25a38144eed1d2acc8ed518de</data>
+</node>
+<node id="192.168.10.5:54108/17">
+  <data key="d0">192.168.10.5:54108/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:54108 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-aab9ffeed72839718a414d1239a6dda0</data>
+</node>
+<node id="192.168.10.5:51905/17">
+  <data key="d0">192.168.10.5:51905/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:51905 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-1b349c1f7fb08fbffb1f16f3c1fcfa5a</data>
+</node>
+<node id="192.168.10.5:49173/6">
+  <data key="d0">192.168.10.5:49173/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49173 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-897e1ad3cf8b535ff9df07d1d8308691</data>
+</node>
+<node id="192.168.10.5:49165/6">
+  <data key="d0">192.168.10.5:49165/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49165 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-a003a396b0711f6c8d63a2d46683793a</data>
+</node>
+<node id="192.168.10.5:55674/17">
+  <data key="d0">192.168.10.5:55674/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:55674 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-e7f85bfa4283f92cf66476734b40c91d</data>
+</node>
+<node id="192.168.10.5:54106/17">
+  <data key="d0">192.168.10.5:54106/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:54106 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-efbf8184b1f590298514d32113e8722f</data>
+</node>
+<node id="192.168.10.5:54107/17">
+  <data key="d0">192.168.10.5:54107/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:54107 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-5235e8ceba0f945cc99df27af0405edb</data>
+</node>
+<node id="192.168.10.14:53/17">
+  <data key="d0">192.168.10.14:53/17</data>
+  <data key="d1">DNS Server</data>
+  <data key="d2">DNS Server at 192.168.10.14:53 using 17 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: dns server.</data>
+  <data key="d3">chunk-6195e2db41f0a77e538dec96032c87aa</data>
+</node>
+<node id="192.168.10.3:53408/17">
+  <data key="d0">192.168.10.3:53408/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:53408 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-6195e2db41f0a77e538dec96032c87aa</data>
+</node>
+<node id="192.168.10.5:123/17">
+  <data key="d0">192.168.10.5:123/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:123 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-dd85cc16187478b5e48d24f14677894e</data>
+</node>
+<node id="192.168.10.3:123/17">
+  <data key="d0">192.168.10.3:123/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:123 using 17 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-dd85cc16187478b5e48d24f14677894e</data>
+</node>
+<node id="192.168.10.14:54882/17">
+  <data key="d0">192.168.10.14:54882/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:54882 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-311f696442f90ef4b71c785754aa37a7</data>
+</node>
+<node id="192.168.10.14:64029/17">
+  <data key="d0">192.168.10.14:64029/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:64029 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-d932b865cf44e8d045725e8d0cf80f22</data>
+</node>
+<node id="192.168.10.14:57095/17">
+  <data key="d0">192.168.10.14:57095/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:57095 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-818bb26e7a0c71829aa4508152a327a4</data>
+</node>
+<node id="192.168.10.14:63046/17">
+  <data key="d0">192.168.10.14:63046/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:63046 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-3e1049cfbd8aae57802f1909b1b7b5a2</data>
+</node>
+<node id="192.168.10.5:49176/6">
+  <data key="d0">192.168.10.5:49176/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49176 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-7e872e7a30a152c09977847a13959b10</data>
+</node>
+<node id="134.170.115.55:443/6">
+  <data key="d0">134.170.115.55:443/6</data>
+  <data key="d1">Web Server</data>
+  <data key="d2">Web Server at 134.170.115.55:443 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: web server.</data>
+  <data key="d3">chunk-7e872e7a30a152c09977847a13959b10</data>
+</node>
+<node id="192.168.10.3:60678/17">
+  <data key="d0">192.168.10.3:60678/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:60678 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-85268c82e6a58b3e89dce78655040f0a</data>
+</node>
+<node id="192.168.10.5:65095/17">
+  <data key="d0">192.168.10.5:65095/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:65095 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-76b53d07ec24a57d405eaa2637068881</data>
+</node>
+<node id="192.168.10.14:49428/6">
+  <data key="d0">192.168.10.14:49428/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49428 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-498b8eb1a0fdc873a64b275a5586a792</data>
+</node>
+<node id="192.168.10.14:123/17">
+  <data key="d0">192.168.10.14:123/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:123 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-7008335acc57f227803d63c6ae0c8b68</data>
+</node>
+<node id="192.168.10.5:50336/17">
+  <data key="d0">192.168.10.5:50336/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:50336 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-1abddbebfa1a5d2d6320b5e78b590e7a</data>
+</node>
+<node id="192.168.10.5:58481/17">
+  <data key="d0">192.168.10.5:58481/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:58481 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-500f2224da23f2554587fd8b0e440d03</data>
+</node>
+<node id="192.168.10.5:61096/17">
+  <data key="d0">192.168.10.5:61096/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:61096 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-fb27e1cf4bb602ae1cdd42816599cd46</data>
+</node>
+<node id="192.168.10.5:51404/17">
+  <data key="d0">192.168.10.5:51404/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:51404 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-420d233facb38266cb884c0e87fbaf9a</data>
+</node>
+<node id="192.168.10.14:49429/6">
+  <data key="d0">192.168.10.14:49429/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49429 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-7757fb8c65b6e345536e0f6ab734e2be</data>
+</node>
+<node id="192.168.10.14:55854/17">
+  <data key="d0">192.168.10.14:55854/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:55854 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-1ae5691567dcf96d1a5867b028ec7460</data>
+</node>
+<node id="192.168.10.14:49430/6">
+  <data key="d0">192.168.10.14:49430/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49430 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-17bee176344e4e0adb1a681de070c61c</data>
+</node>
+<node id="192.168.10.14:55855/17">
+  <data key="d0">192.168.10.14:55855/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:55855 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-f3b5da6e4072a499bf6b75e42e8c402a</data>
+</node>
+<node id="192.168.10.14:49431/6">
+  <data key="d0">192.168.10.14:49431/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49431 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-deb85f382d234380d26d6dd2b9c895b3</data>
+</node>
+<node id="192.168.10.14:49432/6">
+  <data key="d0">192.168.10.14:49432/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49432 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-2250e9601710ddc44739f9ae830b4348</data>
+</node>
+<node id="192.168.10.5:61098/17">
+  <data key="d0">192.168.10.5:61098/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:61098 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-26b25b08ffcbb1d8861e2a83190233b0</data>
+</node>
+<node id="192.168.10.5:49180/6">
+  <data key="d0">192.168.10.5:49180/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49180 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-6daf5d0d5c29b5ad3b57e86119122405</data>
+</node>
+<node id="192.168.10.5:49181/6">
+  <data key="d0">192.168.10.5:49181/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49181 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-5a25105c777eb29e6eff3957f5aead90</data>
+</node>
+<node id="192.168.10.5:49182/6">
+  <data key="d0">192.168.10.5:49182/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49182 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-e7fbe060fc99c2e5a174077155eaa0d1</data>
+</node>
+<node id="192.168.10.5:49179/6">
+  <data key="d0">192.168.10.5:49179/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49179 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-b3e35c2b6c7720fe20c4919c704b9f6f</data>
+</node>
+<node id="192.168.10.5:49178/6">
+  <data key="d0">192.168.10.5:49178/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:49178 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-a33602ca09ce02a7a417f460a5378ec1</data>
+</node>
+<node id="192.168.10.5:61099/17">
+  <data key="d0">192.168.10.5:61099/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.5:61099 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-532c8e65128d694b29cbcf2491e2dc2b</data>
+</node>
+<node id="192.168.10.14:49433/6">
+  <data key="d0">192.168.10.14:49433/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49433 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-ce2714fbf5cac056e007a0676c2513d8</data>
+</node>
+<node id="131.253.61.80:80/6">
+  <data key="d0">131.253.61.80:80/6</data>
+  <data key="d1">Web Server</data>
+  <data key="d2">Web Server at 131.253.61.80:80 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: web server.</data>
+  <data key="d3">chunk-ce2714fbf5cac056e007a0676c2513d8</data>
+</node>
+<node id="192.168.10.3:62450/17">
+  <data key="d0">192.168.10.3:62450/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:62450 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-d4f802beb585d302e58b738f77b0e8e7</data>
+</node>
+<node id="192.168.10.14:49954/17">
+  <data key="d0">192.168.10.14:49954/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49954 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-4b916b0ba12b1960d703e2ed6f35e3c0</data>
+</node>
+<node id="192.168.10.14:49818/17">
+  <data key="d0">192.168.10.14:49818/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49818 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-cb3cb1f8ad3af0a3c68b14f4b90b3458</data>
+</node>
+<node id="192.168.10.14:49434/6">
+  <data key="d0">192.168.10.14:49434/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49434 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-9ac16d98637bba312cde7542d4835001</data>
+</node>
+<node id="131.253.61.80:443/6">
+  <data key="d0">131.253.61.80:443/6</data>
+  <data key="d1">Web Server</data>
+  <data key="d2">Web Server at 131.253.61.80:443 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: web server.</data>
+  <data key="d3">chunk-9ac16d98637bba312cde7542d4835001</data>
+</node>
+<node id="192.168.10.9:7725/17">
+  <data key="d0">192.168.10.9:7725/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:7725 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-97218bfbc549b61ca61c0c38bd361420</data>
+</node>
+<node id="255.255.255.255:7725/17">
+  <data key="d0">255.255.255.255:7725/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 255.255.255.255:7725 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-97218bfbc549b61ca61c0c38bd361420</data>
+</node>
+<node id="192.168.10.25:49152/6">
+  <data key="d0">192.168.10.25:49152/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.25:49152 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-5455fc5a8ec68e30901c446fcb09484c</data>
+</node>
+<node id="192.168.10.25:49153/6">
+  <data key="d0">192.168.10.25:49153/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.25:49153 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-4fef5e142581c8b74b163b41782b1617</data>
+</node>
+<node id="192.168.10.9:53148/17">
+  <data key="d0">192.168.10.9:53148/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:53148 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-ef6a854e8c61317643d64b7b25d8addb</data>
+</node>
+<node id="192.168.10.9:52921/17">
+  <data key="d0">192.168.10.9:52921/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:52921 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-05c6f1cc74e6ef2c3607e1615c33bb64</data>
+</node>
+<node id="192.168.10.3:49954/17">
+  <data key="d0">192.168.10.3:49954/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:49954 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-58383b0e1ca6f7008e90805a99206100</data>
+</node>
+<node id="192.168.10.9:138/17">
+  <data key="d0">192.168.10.9:138/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:138 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-4978fdcd892650231f79ccda3253c726</data>
+</node>
+<node id="192.168.10.51:5353/17">
+  <data key="d0">192.168.10.51:5353/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.51:5353 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: anomalous. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-06bc43b1f43bf736177a6d0345626f53</data>
+</node>
+<node id="192.168.10.3:61985/17">
+  <data key="d0">192.168.10.3:61985/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.3:61985 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-f3d03a34790c502599e285dad2e822f2</data>
+</node>
+<node id="192.168.10.14:57645/17">
+  <data key="d0">192.168.10.14:57645/17</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:57645 using 17 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-3dffe2bf6de5f82874bff31afff26789</data>
+</node>
+<node id="192.168.10.14:49438/6">
+  <data key="d0">192.168.10.14:49438/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49438 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-a97cd128267ebb4ca26c0523d6e3899a</data>
+</node>
+<node id="192.168.10.14:49439/6">
+  <data key="d0">192.168.10.14:49439/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49439 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-3517908c8306c65f4fa525d33af503e1</data>
+</node>
+<node id="192.168.10.14:49440/6">
+  <data key="d0">192.168.10.14:49440/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49440 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-7996f2b13bfecc7499a7ddd2981eb327</data>
+</node>
+<node id="192.168.10.14:49437/6">
+  <data key="d0">192.168.10.14:49437/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.14:49437 using 6 protocol. 
+Observed in 1 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-60867b9077395bba2ee19deee56fcde1</data>
+</node>
+<node id="192.168.10.9:1043/6">
+  <data key="d0">192.168.10.9:1043/6</data>
+  <data key="d1">Network Endpoint</data>
+  <data key="d2">Network Endpoint at 192.168.10.9:1043 using 6 protocol. 
+Observed in 2 network flow(s). 
+Typical behavior: normal. 
+Service type: network endpoint.</data>
+  <data key="d3">chunk-a52634954d86e12e9c7d82812f1ea4c9</data>
+</node>
+<edge source="192.168.10.50:56108/6" target="192.168.10.3:3268/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.50:56108/6)
+Destination: Network Endpoint (192.168.10.3:3268/6)
+Protocol: 6
+Ports: 56108 → 3268
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 32
+Backward packets: 16
+Forward bytes: 6448
+Backward bytes: 1152
+Duration: 112740690ms
+Bytes/sec: 67.41
+Packets/sec: 0.43
+SYN: 1, FIN: 0, RST: 0, PSH: 0, ACK: 1
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">6, 56108, 3268, 192.168.10.50, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-7b78ef0ce973eec69fe5ffcb489b8573</data>
+</edge>
+<edge source="192.168.10.50:42144/6" target="192.168.10.3:389/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.50:42144/6)
+Destination: Network Endpoint (192.168.10.3:389/6)
+Protocol: 6
+Ports: 42144 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 32
+Backward packets: 16
+Forward bytes: 6448
+Backward bytes: 5056
+Duration: 112740560ms
+Bytes/sec: 102.04
+Packets/sec: 0.43
+SYN: 1, FIN: 0, RST: 0, PSH: 0, ACK: 1
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">6, 42144, 389, 192.168.10.50, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-4f0929f40f93ae5c9d8e335e0893407c</data>
+</edge>
+<edge source="192.168.10.3:389/6" target="192.168.10.9:1035/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:1035/6)
+Destination: Network Endpoint (192.168.10.3:389/6)
+Protocol: 6
+Ports: 1035 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 13
+Backward packets: 13
+Forward bytes: 4160
+Backward bytes: 5724
+Duration: 4315ms
+Bytes/sec: 2290614.14
+Packets/sec: 6025.49
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0</data>
+  <data key="d6">6, 1035, 389, 192.168.10.9, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-9d04c0a9e26d45127aaf98d5d2794b9a</data>
+</edge>
+<edge source="192.168.10.3:389/6" target="192.168.10.14:49423/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49423/6)
+Destination: Network Endpoint (192.168.10.3:389/6)
+Protocol: 6
+Ports: 49423 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 2
+Forward bytes: 6
+Backward bytes: 12
+Duration: 47ms
+Bytes/sec: 382978.72
+Packets/sec: 63829.79
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49423, 389, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-522b586ef550beddb467448d5f1aff44</data>
+</edge>
+<edge source="192.168.10.3:389/6" target="192.168.10.5:49171/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:389/6)
+Destination: Network Endpoint (192.168.10.5:49171/6)
+Protocol: 6
+Ports: 389 → 49171
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 3
+Backward packets: 1
+Forward bytes: 18
+Backward bytes: 6
+Duration: 35ms
+Bytes/sec: 685714.29
+Packets/sec: 114285.71
+SYN: 0, FIN: 1, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 389, 49171, 192.168.10.3, 192.168.10.5, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-65efda41992c950591151e25b266529e</data>
+</edge>
+<edge source="192.168.10.3:389/6" target="192.168.10.5:49173/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49173/6)
+Destination: Network Endpoint (192.168.10.3:389/6)
+Protocol: 6
+Ports: 49173 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 12
+Backward packets: 12
+Forward bytes: 4116
+Backward bytes: 1044
+Duration: 29592ms
+Bytes/sec: 174371.45
+Packets/sec: 811.03
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0</data>
+  <data key="d6">6, 49173, 389, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-897e1ad3cf8b535ff9df07d1d8308691</data>
+</edge>
+<edge source="192.168.10.3:389/6" target="192.168.10.5:49165/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49165/6)
+Destination: Network Endpoint (192.168.10.3:389/6)
+Protocol: 6
+Ports: 49165 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 12
+Backward packets: 11
+Forward bytes: 4178
+Backward bytes: 5712
+Duration: 4415ms
+Bytes/sec: 2240090.60
+Packets/sec: 5209.51
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0</data>
+  <data key="d6">6, 49165, 389, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-a003a396b0711f6c8d63a2d46683793a</data>
+</edge>
+<edge source="192.168.10.3:389/6" target="192.168.10.14:49428/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49428/6)
+Destination: Network Endpoint (192.168.10.3:389/6)
+Protocol: 6
+Ports: 49428 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 22
+Backward packets: 15
+Forward bytes: 5766
+Backward bytes: 9256
+Duration: 7166960ms
+Bytes/sec: 2096.01
+Packets/sec: 5.16
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0</data>
+  <data key="d6">6, 49428, 389, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-498b8eb1a0fdc873a64b275a5586a792</data>
+</edge>
+<edge source="192.168.10.3:389/6" target="192.168.10.14:49430/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49430/6)
+Destination: Network Endpoint (192.168.10.3:389/6)
+Protocol: 6
+Ports: 49430 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 14
+Backward packets: 12
+Forward bytes: 4128
+Backward bytes: 1044
+Duration: 1204315ms
+Bytes/sec: 4294.56
+Packets/sec: 21.59
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0</data>
+  <data key="d6">6, 49430, 389, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-17bee176344e4e0adb1a681de070c61c</data>
+</edge>
+<edge source="192.168.10.3:389/6" target="192.168.10.5:49179/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49179/6)
+Destination: Network Endpoint (192.168.10.3:389/6)
+Protocol: 6
+Ports: 49179 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 2
+Forward bytes: 6
+Backward bytes: 12
+Duration: 23ms
+Bytes/sec: 782608.70
+Packets/sec: 130434.78
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49179, 389, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-b3e35c2b6c7720fe20c4919c704b9f6f</data>
+</edge>
+<edge source="192.168.10.3:389/6" target="192.168.10.5:49178/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49178/6)
+Destination: Network Endpoint (192.168.10.3:389/6)
+Protocol: 6
+Ports: 49178 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 2
+Forward bytes: 6
+Backward bytes: 12
+Duration: 10ms
+Bytes/sec: 1800000.00
+Packets/sec: 300000.00
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49178, 389, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-a33602ca09ce02a7a417f460a5378ec1</data>
+</edge>
+<edge source="192.168.10.3:389/6" target="192.168.10.25:49152/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:49152/6)
+Destination: Network Endpoint (192.168.10.3:389/6)
+Protocol: 6
+Ports: 49152 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 3
+Backward packets: 6
+Forward bytes: 0
+Backward bytes: 24
+Duration: 107ms
+Bytes/sec: 224299.07
+Packets/sec: 84112.15
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49152, 389, 192.168.10.25, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-5455fc5a8ec68e30901c446fcb09484c</data>
+</edge>
+<edge source="192.168.10.3:389/6" target="192.168.10.25:49153/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:49153/6)
+Destination: Network Endpoint (192.168.10.3:389/6)
+Protocol: 6
+Ports: 49153 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 3
+Backward packets: 6
+Forward bytes: 0
+Backward bytes: 24
+Duration: 96ms
+Bytes/sec: 250000.00
+Packets/sec: 93750.00
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49153, 389, 192.168.10.25, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-4fef5e142581c8b74b163b41782b1617</data>
+</edge>
+<edge source="192.168.10.3:389/6" target="192.168.10.14:49437/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49437/6)
+Destination: Network Endpoint (192.168.10.3:389/6)
+Protocol: 6
+Ports: 49437 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 13
+Backward packets: 14
+Forward bytes: 5772
+Backward bytes: 976
+Duration: 36945ms
+Bytes/sec: 182649.89
+Packets/sec: 730.82
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0</data>
+  <data key="d6">6, 49437, 389, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-60867b9077395bba2ee19deee56fcde1</data>
+</edge>
+<edge source="8.6.0.1:0/0" target="8.0.6.4:0/0">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (8.6.0.1:0/0)
+Destination: Network Endpoint (8.0.6.4:0/0)
+Protocol: 0
+Ports: 0 → 0
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 545
+Backward packets: 0
+Forward bytes: 0
+Backward bytes: 0
+Duration: 113757377ms
+Bytes/sec: 0.00
+Packets/sec: 4.79
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">0, 0, 0, 8.6.0.1, 8.0.6.4, network endpoint, network endpoint, normal, low, irregular_timing, high_packet_count, bulk_transfer</data>
+  <data key="d7">chunk-b0f70c40b5e86eaa00a2353611745dc6</data>
+</edge>
+<edge source="192.168.10.9:63210/17" target="224.0.0.252:5355/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:63210/17)
+Destination: Network Endpoint (224.0.0.252:5355/17)
+Protocol: 17
+Ports: 63210 → 5355
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 22
+Backward packets: 0
+Forward bytes: 616
+Backward bytes: 0
+Duration: 100126ms
+Bytes/sec: 6152.25
+Packets/sec: 219.72
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 63210, 5355, 192.168.10.9, 224.0.0.252, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-aef4152feaa5b8fd89c52a4348b3d173</data>
+</edge>
+<edge source="224.0.0.252:5355/17" target="192.168.10.14:62000/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:62000/17)
+Destination: Network Endpoint (224.0.0.252:5355/17)
+Protocol: 17
+Ports: 62000 → 5355
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 22
+Backward packets: 0
+Forward bytes: 616
+Backward bytes: 0
+Duration: 416932ms
+Bytes/sec: 1477.46
+Packets/sec: 52.77
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 62000, 5355, 192.168.10.14, 224.0.0.252, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-32033b87930c540dc4b4edb362aa8cbf</data>
+</edge>
+<edge source="224.0.0.252:5355/17" target="192.168.10.5:61595/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:61595/17)
+Destination: Network Endpoint (224.0.0.252:5355/17)
+Protocol: 17
+Ports: 61595 → 5355
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 24
+Backward packets: 0
+Forward bytes: 672
+Backward bytes: 0
+Duration: 422485ms
+Bytes/sec: 1590.59
+Packets/sec: 56.81
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 61595, 5355, 192.168.10.5, 224.0.0.252, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-23e6bf0afdf29527004fb01c9a50d587</data>
+</edge>
+<edge source="192.168.10.9:0/0" target="224.0.0.22:0/0">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:0/0)
+Destination: Network Endpoint (224.0.0.22:0/0)
+Protocol: 0
+Ports: 0 → 0
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 4
+Backward packets: 0
+Forward bytes: 0
+Backward bytes: 0
+Duration: 54760ms
+Bytes/sec: 0.00
+Packets/sec: 73.05
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">0, 0, 0, 192.168.10.9, 224.0.0.22, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-46eb0277c4eff4695581636d12527b36</data>
+</edge>
+<edge source="224.0.0.22:0/0" target="192.168.10.14:0/0">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:0/0)
+Destination: Network Endpoint (224.0.0.22:0/0)
+Protocol: 0
+Ports: 0 → 0
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 7
+Backward packets: 0
+Forward bytes: 0
+Backward bytes: 0
+Duration: 98241768ms
+Bytes/sec: 0.00
+Packets/sec: 0.07
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">0, 0, 0, 192.168.10.14, 224.0.0.22, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-5c4b7cd1a5605cfe1f140f2a234ecfd5</data>
+</edge>
+<edge source="224.0.0.22:0/0" target="192.168.10.5:0/0">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:0/0)
+Destination: Network Endpoint (224.0.0.22:0/0)
+Protocol: 0
+Ports: 0 → 0
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 6
+Backward packets: 0
+Forward bytes: 0
+Backward bytes: 0
+Duration: 95328884ms
+Bytes/sec: 0.00
+Packets/sec: 0.06
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">0, 0, 0, 192.168.10.5, 224.0.0.22, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-c75aedda1c154f2ebd780f8c2c5bed72</data>
+</edge>
+<edge source="192.168.10.9:1031/6" target="192.168.10.3:88/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:88/6)
+Destination: Network Endpoint (192.168.10.9:1031/6)
+Protocol: 6
+Ports: 88 → 1031
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 3
+Backward packets: 0
+Forward bytes: 18
+Backward bytes: 0
+Duration: 2ms
+Bytes/sec: 9000000.00
+Packets/sec: 1500000.00
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 88, 1031, 192.168.10.3, 192.168.10.9, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-2b1c3d070f08cf7ca1c83ae52478c0a1</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.9:1032/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:1032/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 1032 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 80ms
+Bytes/sec: 375000.00
+Packets/sec: 62500.00
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 1032, 88, 192.168.10.9, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-3a4209929c08167abb00886874983c47</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.9:1033/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:1033/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 1033 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 38ms
+Bytes/sec: 789473.68
+Packets/sec: 131578.95
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 1033, 88, 192.168.10.9, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-e48b87ccf2934af6c6a86b05208a0d38</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.9:1034/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:88/6)
+Destination: Network Endpoint (192.168.10.9:1034/6)
+Protocol: 6
+Ports: 88 → 1034
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 3
+Backward packets: 0
+Forward bytes: 18
+Backward bytes: 0
+Duration: 2ms
+Bytes/sec: 9000000.00
+Packets/sec: 1500000.00
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 88, 1034, 192.168.10.3, 192.168.10.9, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-5640c80db373b98c3214b5fbf3e425d1</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.9:1036/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:1036/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 1036 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 40ms
+Bytes/sec: 750000.00
+Packets/sec: 125000.00
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 1036, 88, 192.168.10.9, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-52354a991c491e76359b0f11b07abdb1</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.14:49415/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:88/6)
+Destination: Network Endpoint (192.168.10.14:49415/6)
+Protocol: 6
+Ports: 88 → 49415
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 3
+Backward packets: 1
+Forward bytes: 18
+Backward bytes: 6
+Duration: 7ms
+Bytes/sec: 3428571.43
+Packets/sec: 571428.57
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 88, 49415, 192.168.10.3, 192.168.10.14, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-963b23a2f06cc34bb70cf43f46ada1df</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.14:49416/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49416/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49416 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 3
+Forward bytes: 6
+Backward bytes: 18
+Duration: 48ms
+Bytes/sec: 500000.00
+Packets/sec: 83333.33
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49416, 88, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-264388308b732b4e1d7b298cdd8c93ab</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.14:49417/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49417/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49417 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 31ms
+Bytes/sec: 967741.94
+Packets/sec: 161290.32
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49417, 88, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-0c0ab8788ba037650e77e30383f1c444</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.14:49418/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49418/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49418 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 73ms
+Bytes/sec: 410958.90
+Packets/sec: 68493.15
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49418, 88, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-baddde5f661b882d7d777c9e4f98aec3</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.14:49419/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49419/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49419 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 3
+Forward bytes: 6
+Backward bytes: 18
+Duration: 61ms
+Bytes/sec: 393442.62
+Packets/sec: 65573.77
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49419, 88, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-94a4aff56d89030e224a1bd4ee7921c2</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.14:49420/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49420/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49420 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 74ms
+Bytes/sec: 405405.41
+Packets/sec: 67567.57
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49420, 88, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-bce1fa94e21bb47f788444acd519f356</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.14:49421/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49421/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49421 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 197ms
+Bytes/sec: 152284.26
+Packets/sec: 25380.71
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49421, 88, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-5c745039bb86562b3caefcb7779df122</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.14:49424/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49424/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49424 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 92ms
+Bytes/sec: 326086.96
+Packets/sec: 54347.83
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49424, 88, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-dc9f96b3980c4c870ff504e1b1e9fc55</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.5:49160/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49160/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49160 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 71ms
+Bytes/sec: 422535.21
+Packets/sec: 70422.54
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49160, 88, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-ca489d8dfd58d37300b0ba0b8475d4da</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.5:49161/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49161/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49161 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 101ms
+Bytes/sec: 297029.70
+Packets/sec: 49504.95
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49161, 88, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-1be8b81e65f43ca905ac7f9d8ce49fc7</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.5:49162/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49162/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49162 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 86ms
+Bytes/sec: 348837.21
+Packets/sec: 58139.53
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49162, 88, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-4e5ebd55ad69b9600a3df14cd11dd24d</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.5:49163/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49163/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49163 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 3
+Forward bytes: 6
+Backward bytes: 18
+Duration: 180ms
+Bytes/sec: 133333.33
+Packets/sec: 22222.22
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49163, 88, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-91fbc7df25094c71715cb791b2a0c053</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.5:49166/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49166/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49166 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 88ms
+Bytes/sec: 340909.09
+Packets/sec: 56818.18
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49166, 88, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-18919b0eb59946724a110ecb89eb255b</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.5:49168/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:88/6)
+Destination: Network Endpoint (192.168.10.5:49168/6)
+Protocol: 6
+Ports: 88 → 49168
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 3
+Backward packets: 0
+Forward bytes: 18
+Backward bytes: 0
+Duration: 2ms
+Bytes/sec: 9000000.00
+Packets/sec: 1500000.00
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 88, 49168, 192.168.10.3, 192.168.10.5, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-b3b4a4fb0031f165302d5153e67f2c74</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.5:49169/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49169/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49169 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 71ms
+Bytes/sec: 422535.21
+Packets/sec: 70422.54
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49169, 88, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-a5269c35c9623894fd3b52e9e1b27a8a</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.5:49170/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49170/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49170 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 1
+Forward bytes: 6
+Backward bytes: 6
+Duration: 53ms
+Bytes/sec: 226415.09
+Packets/sec: 37735.85
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49170, 88, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-45f94dd39bd61b89ab90cc67ec4002c2</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.5:49172/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49172/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49172 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 3
+Forward bytes: 6
+Backward bytes: 18
+Duration: 69ms
+Bytes/sec: 347826.09
+Packets/sec: 57971.01
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49172, 88, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-33df003aaf463cdb6e01a2c62b10e0eb</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.5:49174/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49174/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49174 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 89ms
+Bytes/sec: 337078.65
+Packets/sec: 56179.78
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49174, 88, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-0287bf0ded7ad313638577ab1c12f10e</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.5:49175/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:88/6)
+Destination: Network Endpoint (192.168.10.5:49175/6)
+Protocol: 6
+Ports: 88 → 49175
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 3
+Backward packets: 0
+Forward bytes: 18
+Backward bytes: 0
+Duration: 3ms
+Bytes/sec: 6000000.00
+Packets/sec: 1000000.00
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 88, 49175, 192.168.10.3, 192.168.10.5, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-b96ae45291a2772285140b1bd18482ff</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.14:49429/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49429/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49429 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 83ms
+Bytes/sec: 361445.78
+Packets/sec: 60240.96
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49429, 88, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-7757fb8c65b6e345536e0f6ab734e2be</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.14:49431/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49431/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49431 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 88ms
+Bytes/sec: 340909.09
+Packets/sec: 56818.18
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49431, 88, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-deb85f382d234380d26d6dd2b9c895b3</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.14:49432/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49432/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49432 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 190ms
+Bytes/sec: 157894.74
+Packets/sec: 26315.79
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49432, 88, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-2250e9601710ddc44739f9ae830b4348</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.5:49180/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49180/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49180 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 4
+Forward bytes: 6
+Backward bytes: 24
+Duration: 51ms
+Bytes/sec: 588235.29
+Packets/sec: 98039.22
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49180, 88, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-6daf5d0d5c29b5ad3b57e86119122405</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.5:49181/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49181/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49181 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 3
+Forward bytes: 6
+Backward bytes: 18
+Duration: 68ms
+Bytes/sec: 352941.18
+Packets/sec: 58823.53
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49181, 88, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-5a25105c777eb29e6eff3957f5aead90</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.5:49182/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49182/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49182 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 2
+Forward bytes: 6
+Backward bytes: 12
+Duration: 57ms
+Bytes/sec: 315789.47
+Packets/sec: 52631.58
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49182, 88, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-e7fbe060fc99c2e5a174077155eaa0d1</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.14:49438/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49438/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49438 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 7
+Backward packets: 4
+Forward bytes: 486
+Backward bytes: 444
+Duration: 571ms
+Bytes/sec: 1628721.54
+Packets/sec: 19264.45
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0</data>
+  <data key="d6">6, 49438, 88, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-a97cd128267ebb4ca26c0523d6e3899a</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.14:49439/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49439/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49439 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 9
+Backward packets: 5
+Forward bytes: 658
+Backward bytes: 3070
+Duration: 984ms
+Bytes/sec: 3788617.89
+Packets/sec: 14227.64
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0</data>
+  <data key="d6">6, 49439, 88, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-3517908c8306c65f4fa525d33af503e1</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.14:49440/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49440/6)
+Destination: Network Endpoint (192.168.10.3:88/6)
+Protocol: 6
+Ports: 49440 → 88
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 9
+Backward packets: 6
+Forward bytes: 3094
+Backward bytes: 3002
+Duration: 1060ms
+Bytes/sec: 5750943.40
+Packets/sec: 14150.94
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0</data>
+  <data key="d6">6, 49440, 88, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-7996f2b13bfecc7499a7ddd2981eb327</data>
+</edge>
+<edge source="192.168.10.3:88/6" target="192.168.10.9:1043/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:88/6)
+Destination: Network Endpoint (192.168.10.9:1043/6)
+Protocol: 6
+Ports: 88 → 1043
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 1
+Forward bytes: 6
+Backward bytes: 6
+Duration: 9ms
+Bytes/sec: 1333333.33
+Packets/sec: 222222.22
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 88, 1043, 192.168.10.3, 192.168.10.9, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-a52634954d86e12e9c7d82812f1ea4c9</data>
+</edge>
+<edge source="192.168.10.9:1028/6" target="192.168.10.3:135/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:135/6)
+Destination: Network Endpoint (192.168.10.9:1028/6)
+Protocol: 6
+Ports: 135 → 1028
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 2
+Forward bytes: 6
+Backward bytes: 12
+Duration: 80ms
+Bytes/sec: 225000.00
+Packets/sec: 37500.00
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 135, 1028, 192.168.10.3, 192.168.10.9, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-12ab09c5af20f6065939bc32506e3309</data>
+</edge>
+<edge source="192.168.10.3:135/6" target="192.168.10.14:49412/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49412/6)
+Destination: Network Endpoint (192.168.10.3:135/6)
+Protocol: 6
+Ports: 49412 → 135
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 25
+Backward packets: 14
+Forward bytes: 1858
+Backward bytes: 1864
+Duration: 23054556ms
+Bytes/sec: 161.44
+Packets/sec: 1.69
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">6, 49412, 135, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-f77b3ee306d6e5d0fe1e156b23ecce88</data>
+</edge>
+<edge source="192.168.10.3:135/6" target="192.168.10.5:49157/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49157/6)
+Destination: Network Endpoint (192.168.10.3:135/6)
+Protocol: 6
+Ports: 49157 → 135
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 19
+Backward packets: 10
+Forward bytes: 1382
+Backward bytes: 1440
+Duration: 18866691ms
+Bytes/sec: 149.58
+Packets/sec: 1.54
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">6, 49157, 135, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-7a7eadaf8bc91be94075e724cb5c90a2</data>
+</edge>
+<edge source="192.168.10.9:1029/6" target="192.168.10.3:49671/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:49671/6)
+Destination: Network Endpoint (192.168.10.9:1029/6)
+Protocol: 6
+Ports: 49671 → 1029
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 2
+Forward bytes: 6
+Backward bytes: 12
+Duration: 123ms
+Bytes/sec: 146341.46
+Packets/sec: 24390.24
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49671, 1029, 192.168.10.3, 192.168.10.9, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-e185ed822eb6d6007e7064e470aa310a</data>
+</edge>
+<edge source="192.168.10.3:49671/6" target="192.168.10.14:49422/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49422/6)
+Destination: Network Endpoint (192.168.10.3:49671/6)
+Protocol: 6
+Ports: 49422 → 49671
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 21
+Backward packets: 14
+Forward bytes: 3056
+Backward bytes: 2080
+Duration: 22934060ms
+Bytes/sec: 223.95
+Packets/sec: 1.53
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">6, 49422, 49671, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-7c4dff3179da8610d305534e63d61bf9</data>
+</edge>
+<edge source="192.168.10.3:49671/6" target="192.168.10.5:49158/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49158/6)
+Destination: Network Endpoint (192.168.10.3:49671/6)
+Protocol: 6
+Ports: 49158 → 49671
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 19
+Backward packets: 14
+Forward bytes: 3676
+Backward bytes: 2672
+Duration: 18865342ms
+Bytes/sec: 336.49
+Packets/sec: 1.75
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">6, 49158, 49671, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-c887d170a641d84cb84f801fa46c6045</data>
+</edge>
+<edge source="192.168.10.9:137/17" target="192.168.10.3:137/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:137/17)
+Destination: Network Endpoint (192.168.10.3:137/17)
+Protocol: 17
+Ports: 137 → 137
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 20
+Backward packets: 20
+Forward bytes: 1180
+Backward bytes: 1180
+Duration: 93069427ms
+Bytes/sec: 25.36
+Packets/sec: 0.43
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">17, 137, 137, 192.168.10.9, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-cbd1b6c1782548a6f05a775b06b80013</data>
+</edge>
+<edge source="192.168.10.3:137/17" target="192.168.10.25:137/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:137/17)
+Destination: Network Endpoint (192.168.10.3:137/17)
+Protocol: 17
+Ports: 137 → 137
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 32
+Backward packets: 30
+Forward bytes: 2040
+Backward bytes: 1860
+Duration: 30392250ms
+Bytes/sec: 128.32
+Packets/sec: 2.04
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">17, 137, 137, 192.168.10.25, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-76a81f246a801daa762e7491a0f5993a</data>
+</edge>
+<edge source="192.168.10.3:137/17" target="192.168.10.14:137/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:137/17)
+Destination: Network Endpoint (192.168.10.3:137/17)
+Protocol: 17
+Ports: 137 → 137
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 14
+Backward packets: 14
+Forward bytes: 808
+Backward bytes: 820
+Duration: 15782105ms
+Bytes/sec: 103.15
+Packets/sec: 1.77
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">17, 137, 137, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-9b5d24d1016139bef52fab2f18a54477</data>
+</edge>
+<edge source="192.168.10.9:49429/17" target="192.168.10.3:53/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:49429/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 49429 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 162
+Backward bytes: 262
+Duration: 245ms
+Bytes/sec: 1730612.25
+Packets/sec: 16326.53
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 49429, 53, 192.168.10.9, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-ec43b71bc0661aa3f1f5f00ba0df65cd</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.9:56588/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:56588/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 56588 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 64
+Backward bytes: 96
+Duration: 184ms
+Bytes/sec: 869565.22
+Packets/sec: 21739.13
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 56588, 53, 192.168.10.9, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-2868c2cf28431f5c4016135a63a8df63</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.9:65512/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:65512/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 65512 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 162
+Backward bytes: 262
+Duration: 225ms
+Bytes/sec: 1884444.44
+Packets/sec: 17777.78
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 65512, 53, 192.168.10.9, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-90c443f766e9af94c373d28b1effa3ed</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.9:62625/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:62625/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 62625 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 142
+Backward bytes: 242
+Duration: 198ms
+Bytes/sec: 1939393.94
+Packets/sec: 20202.02
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 62625, 53, 192.168.10.9, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-0a0f37f5571fda6533f7256d86f59819</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.9:64531/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:64531/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 64531 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 64
+Backward bytes: 96
+Duration: 145ms
+Bytes/sec: 1103448.28
+Packets/sec: 27586.21
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 64531, 53, 192.168.10.9, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-96dd50e5d64deb3c0c63698c72d92531</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.25:64992/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:64992/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 64992 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 64
+Backward bytes: 96
+Duration: 250ms
+Bytes/sec: 640000.00
+Packets/sec: 16000.00
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 64992, 53, 192.168.10.25, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-30786b1f95566552fbc80c973df66ed8</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.25:53893/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:53893/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 53893 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 80
+Backward bytes: 180
+Duration: 215ms
+Bytes/sec: 1209302.33
+Packets/sec: 18604.65
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 53893, 53, 192.168.10.25, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-56c1b29767dc5d0bc40dadf168ae2905</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.25:58059/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:58059/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 58059 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 58
+Backward bytes: 90
+Duration: 233ms
+Bytes/sec: 635193.13
+Packets/sec: 17167.38
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 58059, 53, 192.168.10.25, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-d820230896fb29fe298bba873622c33c</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.25:54967/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:54967/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 54967 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 88
+Backward bytes: 150
+Duration: 186ms
+Bytes/sec: 1279569.89
+Packets/sec: 21505.38
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 54967, 53, 192.168.10.25, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-55c1f1da3ae090de59fdbc2aaf4ad6f7</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.9:64123/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:64123/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 64123 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 86
+Backward bytes: 240
+Duration: 183ms
+Bytes/sec: 1781420.76
+Packets/sec: 21857.92
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 64123, 53, 192.168.10.9, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-3f3f5923e7d97504651f5711a4491df7</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.9:60987/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:60987/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 60987 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 80
+Backward bytes: 212
+Duration: 196ms
+Bytes/sec: 1489795.92
+Packets/sec: 20408.16
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 60987, 53, 192.168.10.9, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-b4f54be340829d04342351373e75f15b</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.25:60949/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:60949/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 60949 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 64
+Backward bytes: 290
+Duration: 119991ms
+Bytes/sec: 2950.22
+Packets/sec: 33.34
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 60949, 53, 192.168.10.25, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-f3a9086905c219cef76d79c1859ec923</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.9:64782/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:64782/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 64782 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 252
+Backward bytes: 252
+Duration: 600ms
+Bytes/sec: 840000.00
+Packets/sec: 6666.67
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 64782, 53, 192.168.10.9, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-8db7dcc1ed674e50a35472b6dcd324e0</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.25:56764/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:56764/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 56764 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 84
+Backward bytes: 190
+Duration: 24013ms
+Bytes/sec: 11410.49
+Packets/sec: 166.58
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 56764, 53, 192.168.10.25, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-0e922bde6943d7b9c7d57a217823edeb</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.25:50735/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:50735/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 50735 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 108
+Backward bytes: 230
+Duration: 195ms
+Bytes/sec: 1733333.33
+Packets/sec: 20512.82
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 50735, 53, 192.168.10.25, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-adf0a019ace1699027b85b71f591f4b6</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.9:50009/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:50009/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 50009 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 206
+Backward bytes: 206
+Duration: 735ms
+Bytes/sec: 560544.22
+Packets/sec: 5442.18
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 50009, 53, 192.168.10.9, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-b5a25a58ba4b6cf4333d02bdab7be486</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.14:53408/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:53408/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 53408 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 6
+Backward packets: 6
+Forward bytes: 204
+Backward bytes: 570
+Duration: 5278273ms
+Bytes/sec: 146.64
+Packets/sec: 2.27
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 53408, 53, 192.168.10.14, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-a5107d9330faf2291d44a81cd4e8d712</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.14:50980/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:50980/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 50980 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 162
+Backward bytes: 262
+Duration: 179ms
+Bytes/sec: 2368715.08
+Packets/sec: 22346.37
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 50980, 53, 192.168.10.14, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-ae61075c9cb05a92a556fe6caf01cb4f</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.14:65442/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:65442/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 65442 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 100
+Backward bytes: 200
+Duration: 188ms
+Bytes/sec: 1595744.68
+Packets/sec: 21276.60
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 65442, 53, 192.168.10.14, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-ac285c6acef4e143cd5e36656645e59b</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.14:58421/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:58421/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 58421 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 64
+Backward bytes: 96
+Duration: 140ms
+Bytes/sec: 1142857.14
+Packets/sec: 28571.43
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 58421, 53, 192.168.10.14, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-db76cca36214e0d5716d1cf7eb0f1e2d</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.5:54104/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:54104/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 54104 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 64
+Backward bytes: 96
+Duration: 148ms
+Bytes/sec: 1081081.08
+Packets/sec: 27027.03
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 54104, 53, 192.168.10.5, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-ad8c9c43cf46586b07e74310d21a17bb</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.5:60926/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:60926/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 60926 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 6
+Backward packets: 6
+Forward bytes: 204
+Backward bytes: 570
+Duration: 4767895ms
+Bytes/sec: 162.34
+Packets/sec: 2.52
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 60926, 53, 192.168.10.5, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-b565003d26f623eb2809dc3e05d03be0</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.5:53643/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:53643/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 53643 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 162
+Backward bytes: 262
+Duration: 203ms
+Bytes/sec: 2088669.95
+Packets/sec: 19704.43
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 53643, 53, 192.168.10.5, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-a17d6f0db3e9253eecf2d12a7b95c470</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.5:61968/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:61968/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 61968 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 68
+Backward bytes: 100
+Duration: 142ms
+Bytes/sec: 1183098.59
+Packets/sec: 28169.01
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 61968, 53, 192.168.10.5, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-76cb01ada53d4d76a7d6d70fae2015d6</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.5:51904/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:51904/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 51904 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 142
+Backward bytes: 242
+Duration: 240ms
+Bytes/sec: 1600000.00
+Packets/sec: 16666.67
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 51904, 53, 192.168.10.5, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-09514251f1fdfb8f1daa8ddf019c0751</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.5:55761/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:55761/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 55761 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 6
+Backward packets: 6
+Forward bytes: 216
+Backward bytes: 582
+Duration: 4825367ms
+Bytes/sec: 165.38
+Packets/sec: 2.49
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 55761, 53, 192.168.10.5, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-86f22286b37a2f2da38a974a06027ace</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.5:55574/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:55574/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 55574 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 64
+Backward bytes: 96
+Duration: 157ms
+Bytes/sec: 1019108.28
+Packets/sec: 25477.71
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 55574, 53, 192.168.10.5, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-cd7f61fc5ef383bddf7facf5c225e2ef</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.14:54608/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:54608/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 54608 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 68
+Backward bytes: 100
+Duration: 23687ms
+Bytes/sec: 7092.50
+Packets/sec: 168.87
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 54608, 53, 192.168.10.14, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-6d9665b25a38144eed1d2acc8ed518de</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.5:55674/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:55674/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 55674 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 6
+Backward packets: 6
+Forward bytes: 240
+Backward bytes: 606
+Duration: 4706924ms
+Bytes/sec: 179.74
+Packets/sec: 2.55
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 55674, 53, 192.168.10.5, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-e7f85bfa4283f92cf66476734b40c91d</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.14:54882/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:54882/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 54882 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 88
+Backward bytes: 242
+Duration: 177ms
+Bytes/sec: 1864406.78
+Packets/sec: 22598.87
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 54882, 53, 192.168.10.14, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-311f696442f90ef4b71c785754aa37a7</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.14:64029/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:64029/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 64029 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 254
+Backward bytes: 254
+Duration: 591ms
+Bytes/sec: 859560.07
+Packets/sec: 6768.19
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 64029, 53, 192.168.10.14, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-d932b865cf44e8d045725e8d0cf80f22</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.14:57095/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:57095/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 57095 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 206
+Backward bytes: 206
+Duration: 676ms
+Bytes/sec: 609467.46
+Packets/sec: 5917.16
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 57095, 53, 192.168.10.14, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-818bb26e7a0c71829aa4508152a327a4</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.14:63046/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:63046/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 63046 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 80
+Backward bytes: 212
+Duration: 245ms
+Bytes/sec: 1191836.74
+Packets/sec: 16326.53
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 63046, 53, 192.168.10.14, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-3e1049cfbd8aae57802f1909b1b7b5a2</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.5:65095/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:65095/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 65095 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 84
+Backward bytes: 212
+Duration: 46626ms
+Bytes/sec: 6348.39
+Packets/sec: 85.79
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 65095, 53, 192.168.10.5, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-76b53d07ec24a57d405eaa2637068881</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.5:50336/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:50336/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 50336 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 80
+Backward bytes: 212
+Duration: 210ms
+Bytes/sec: 1390476.19
+Packets/sec: 19047.62
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 50336, 53, 192.168.10.5, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-1abddbebfa1a5d2d6320b5e78b590e7a</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.5:58481/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:58481/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 58481 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 206
+Backward bytes: 206
+Duration: 623ms
+Bytes/sec: 661316.21
+Packets/sec: 6420.55
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 58481, 53, 192.168.10.5, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-500f2224da23f2554587fd8b0e440d03</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.5:61096/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:61096/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 61096 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 252
+Backward bytes: 252
+Duration: 564ms
+Bytes/sec: 893617.02
+Packets/sec: 7092.20
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 61096, 53, 192.168.10.5, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-fb27e1cf4bb602ae1cdd42816599cd46</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.5:51404/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:51404/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 51404 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 86
+Backward bytes: 240
+Duration: 179ms
+Bytes/sec: 1821229.05
+Packets/sec: 22346.37
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 51404, 53, 192.168.10.5, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-420d233facb38266cb884c0e87fbaf9a</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.14:55854/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:55854/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 55854 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 142
+Backward bytes: 242
+Duration: 303ms
+Bytes/sec: 1267326.73
+Packets/sec: 13201.32
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 55854, 53, 192.168.10.14, 192.168.10.3, network endpoint, dns server, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-1ae5691567dcf96d1a5867b028ec7460</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.14:49954/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49954/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 49954 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 6
+Backward packets: 6
+Forward bytes: 216
+Backward bytes: 582
+Duration: 4249233ms
+Bytes/sec: 187.80
+Packets/sec: 2.82
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 49954, 53, 192.168.10.14, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-4b916b0ba12b1960d703e2ed6f35e3c0</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.14:49818/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49818/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 49818 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 64
+Backward bytes: 390
+Duration: 1105ms
+Bytes/sec: 410859.73
+Packets/sec: 3619.91
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 49818, 53, 192.168.10.14, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-cb3cb1f8ad3af0a3c68b14f4b90b3458</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.9:53148/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:53148/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 53148 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 6
+Backward packets: 6
+Forward bytes: 216
+Backward bytes: 582
+Duration: 5158909ms
+Bytes/sec: 154.68
+Packets/sec: 2.33
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 53148, 53, 192.168.10.9, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-ef6a854e8c61317643d64b7b25d8addb</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.9:52921/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:52921/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 52921 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 6
+Backward packets: 6
+Forward bytes: 204
+Backward bytes: 570
+Duration: 4947620ms
+Bytes/sec: 156.44
+Packets/sec: 2.43
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 52921, 53, 192.168.10.9, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-05c6f1cc74e6ef2c3607e1615c33bb64</data>
+</edge>
+<edge source="192.168.10.3:53/17" target="192.168.10.14:57645/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:57645/17)
+Destination: DNS Server (192.168.10.3:53/17)
+Protocol: 17
+Ports: 57645 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 82
+Backward bytes: 386
+Duration: 70437ms
+Bytes/sec: 6644.24
+Packets/sec: 56.79
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 57645, 53, 192.168.10.14, 192.168.10.3, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-3dffe2bf6de5f82874bff31afff26789</data>
+</edge>
+<edge source="192.168.10.9:1030/6" target="192.168.10.3:445/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:1030/6)
+Destination: Network Endpoint (192.168.10.3:445/6)
+Protocol: 6
+Ports: 1030 → 445
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 25
+Backward packets: 20
+Forward bytes: 7506
+Backward bytes: 2420
+Duration: 10882111ms
+Bytes/sec: 912.14
+Packets/sec: 4.14
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">6, 1030, 445, 192.168.10.9, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-89d8ea59c3e1e3f807aadb133cc70488</data>
+</edge>
+<edge source="192.168.10.3:445/6" target="192.168.10.14:49414/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49414/6)
+Destination: Network Endpoint (192.168.10.3:445/6)
+Protocol: 6
+Ports: 49414 → 445
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 206
+Backward packets: 190
+Forward bytes: 42416
+Backward bytes: 54982
+Duration: 116933759ms
+Bytes/sec: 832.93
+Packets/sec: 3.39
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">6, 49414, 445, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing, high_packet_count, bulk_transfer</data>
+  <data key="d7">chunk-2a74c075f4e2965034840546cb205530</data>
+</edge>
+<edge source="192.168.10.3:445/6" target="192.168.10.5:49159/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49159/6)
+Destination: Network Endpoint (192.168.10.3:445/6)
+Protocol: 6
+Ports: 49159 → 445
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 124
+Backward packets: 115
+Forward bytes: 34316
+Backward bytes: 46162
+Duration: 106176490ms
+Bytes/sec: 757.96
+Packets/sec: 2.25
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">6, 49159, 445, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing, high_packet_count, bulk_transfer</data>
+  <data key="d7">chunk-c335c8be31a2825188cab4148a5b108e</data>
+</edge>
+<edge source="192.168.10.9:56590/17" target="192.168.10.3:389/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:56590/17)
+Destination: Network Endpoint (192.168.10.3:389/17)
+Protocol: 17
+Ports: 56590 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 328
+Backward bytes: 326
+Duration: 152ms
+Bytes/sec: 4302631.58
+Packets/sec: 26315.79
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 56590, 389, 192.168.10.9, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-16599f8f2f27203cdf077283fb4d7c27</data>
+</edge>
+<edge source="192.168.10.3:389/17" target="192.168.10.9:56591/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:56591/17)
+Destination: Network Endpoint (192.168.10.3:389/17)
+Protocol: 17
+Ports: 56591 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 414
+Backward bytes: 326
+Duration: 173ms
+Bytes/sec: 4277456.65
+Packets/sec: 23121.39
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 56591, 389, 192.168.10.9, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-b52691045fcebdd1aab501137b442dc2</data>
+</edge>
+<edge source="192.168.10.3:389/17" target="192.168.10.9:62626/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:62626/17)
+Destination: Network Endpoint (192.168.10.3:389/17)
+Protocol: 17
+Ports: 62626 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 328
+Backward bytes: 326
+Duration: 121ms
+Bytes/sec: 5404958.68
+Packets/sec: 33057.85
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 62626, 389, 192.168.10.9, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-77ae3d95f50fcfcef9844a3ea6ddec0f</data>
+</edge>
+<edge source="192.168.10.3:389/17" target="192.168.10.14:58423/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:58423/17)
+Destination: Network Endpoint (192.168.10.3:389/17)
+Protocol: 17
+Ports: 58423 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 412
+Backward bytes: 326
+Duration: 159ms
+Bytes/sec: 4641509.43
+Packets/sec: 25157.23
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 58423, 389, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-1eb8995e3040b33fa6cdb957952405f7</data>
+</edge>
+<edge source="192.168.10.3:389/17" target="192.168.10.14:58425/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:58425/17)
+Destination: Network Endpoint (192.168.10.3:389/17)
+Protocol: 17
+Ports: 58425 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 496
+Backward bytes: 350
+Duration: 162ms
+Bytes/sec: 5222222.22
+Packets/sec: 24691.36
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 58425, 389, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-7dbf362017dd9133b792d162002e790c</data>
+</edge>
+<edge source="192.168.10.3:389/17" target="192.168.10.14:50981/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:50981/17)
+Destination: Network Endpoint (192.168.10.3:389/17)
+Protocol: 17
+Ports: 50981 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 414
+Backward bytes: 326
+Duration: 130ms
+Bytes/sec: 5692307.69
+Packets/sec: 30769.23
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 50981, 389, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-b2df2bcf42ed5cbaacf7eafe44c7f494</data>
+</edge>
+<edge source="192.168.10.3:389/17" target="192.168.10.5:54108/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:54108/17)
+Destination: Network Endpoint (192.168.10.3:389/17)
+Protocol: 17
+Ports: 54108 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 414
+Backward bytes: 326
+Duration: 126ms
+Bytes/sec: 5873015.87
+Packets/sec: 31746.03
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 54108, 389, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-aab9ffeed72839718a414d1239a6dda0</data>
+</edge>
+<edge source="192.168.10.3:389/17" target="192.168.10.5:51905/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:51905/17)
+Destination: Network Endpoint (192.168.10.3:389/17)
+Protocol: 17
+Ports: 51905 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 412
+Backward bytes: 326
+Duration: 164ms
+Bytes/sec: 4500000.00
+Packets/sec: 24390.24
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 51905, 389, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-1b349c1f7fb08fbffb1f16f3c1fcfa5a</data>
+</edge>
+<edge source="192.168.10.3:389/17" target="192.168.10.5:54106/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:54106/17)
+Destination: Network Endpoint (192.168.10.3:389/17)
+Protocol: 17
+Ports: 54106 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 500
+Backward bytes: 326
+Duration: 128ms
+Bytes/sec: 6453125.00
+Packets/sec: 31250.00
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 54106, 389, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-efbf8184b1f590298514d32113e8722f</data>
+</edge>
+<edge source="192.168.10.3:389/17" target="192.168.10.5:54107/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:54107/17)
+Destination: Network Endpoint (192.168.10.3:389/17)
+Protocol: 17
+Ports: 54107 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 414
+Backward bytes: 326
+Duration: 126ms
+Bytes/sec: 5873015.87
+Packets/sec: 31746.03
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 54107, 389, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-5235e8ceba0f945cc99df27af0405edb</data>
+</edge>
+<edge source="192.168.10.3:389/17" target="192.168.10.14:55855/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:55855/17)
+Destination: Network Endpoint (192.168.10.3:389/17)
+Protocol: 17
+Ports: 55855 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 412
+Backward bytes: 326
+Duration: 139ms
+Bytes/sec: 5309352.52
+Packets/sec: 28776.98
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 55855, 389, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-f3b5da6e4072a499bf6b75e42e8c402a</data>
+</edge>
+<edge source="192.168.10.3:389/17" target="192.168.10.5:61098/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:61098/17)
+Destination: Network Endpoint (192.168.10.3:389/17)
+Protocol: 17
+Ports: 61098 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 414
+Backward bytes: 326
+Duration: 158ms
+Bytes/sec: 4683544.30
+Packets/sec: 25316.46
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 61098, 389, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-26b25b08ffcbb1d8861e2a83190233b0</data>
+</edge>
+<edge source="192.168.10.3:389/17" target="192.168.10.5:61099/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:61099/17)
+Destination: Network Endpoint (192.168.10.3:389/17)
+Protocol: 17
+Ports: 61099 → 389
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 2
+Forward bytes: 414
+Backward bytes: 326
+Duration: 126ms
+Bytes/sec: 5873015.87
+Packets/sec: 31746.03
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 61099, 389, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-532c8e65128d694b29cbcf2491e2dc2b</data>
+</edge>
+<edge source="192.168.10.25:138/17" target="192.168.10.255:138/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:138/17)
+Destination: Network Endpoint (192.168.10.255:138/17)
+Protocol: 17
+Ports: 138 → 138
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 48
+Backward packets: 0
+Forward bytes: 10368
+Backward bytes: 0
+Duration: 102133850ms
+Bytes/sec: 101.51
+Packets/sec: 0.47
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">17, 138, 138, 192.168.10.25, 192.168.10.255, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-26d6c24138943cc0e7e49d76f0165f15</data>
+</edge>
+<edge source="192.168.10.255:138/17" target="192.168.10.50:138/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.50:138/17)
+Destination: Network Endpoint (192.168.10.255:138/17)
+Protocol: 17
+Ports: 138 → 138
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 46
+Backward packets: 0
+Forward bytes: 10373
+Backward bytes: 0
+Duration: 23719992ms
+Bytes/sec: 437.31
+Packets/sec: 1.94
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">17, 138, 138, 192.168.10.50, 192.168.10.255, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-ae82705f491f0ac0f8fc31185ba79799</data>
+</edge>
+<edge source="192.168.10.255:138/17" target="192.168.10.9:138/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:138/17)
+Destination: Network Endpoint (192.168.10.255:138/17)
+Protocol: 17
+Ports: 138 → 138
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 33
+Backward packets: 0
+Forward bytes: 6413
+Backward bytes: 0
+Duration: 10719ms
+Bytes/sec: 598283.42
+Packets/sec: 3078.65
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 138, 138, 192.168.10.9, 192.168.10.255, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-4978fdcd892650231f79ccda3253c726</data>
+</edge>
+<edge source="192.168.10.25:137/17" target="192.168.10.255:137/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:137/17)
+Destination: Network Endpoint (192.168.10.255:137/17)
+Protocol: 17
+Ports: 137 → 137
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 460
+Backward packets: 0
+Forward bytes: 31280
+Backward bytes: 0
+Duration: 34758082ms
+Bytes/sec: 899.93
+Packets/sec: 13.23
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">17, 137, 137, 192.168.10.25, 192.168.10.255, network endpoint, network endpoint, normal, low, irregular_timing, high_packet_count, bulk_transfer</data>
+  <data key="d7">chunk-8f30b8de966d92659ad9574c25e31d35</data>
+</edge>
+<edge source="192.168.10.255:137/17" target="192.168.10.5:137/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:137/17)
+Destination: Network Endpoint (192.168.10.255:137/17)
+Protocol: 17
+Ports: 137 → 137
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 360
+Backward packets: 0
+Forward bytes: 20592
+Backward bytes: 0
+Duration: 4804730ms
+Bytes/sec: 4285.78
+Packets/sec: 74.93
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 137, 137, 192.168.10.5, 192.168.10.255, network endpoint, network endpoint, normal, low, high_packet_count, bulk_transfer</data>
+  <data key="d7">chunk-28872167a3f770d106038ad49845e6ef</data>
+</edge>
+<edge source="192.168.10.255:137/17" target="192.168.10.14:137/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:137/17)
+Destination: Network Endpoint (192.168.10.255:137/17)
+Protocol: 17
+Ports: 137 → 137
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 132
+Backward packets: 0
+Forward bytes: 6600
+Backward bytes: 0
+Duration: 1518383ms
+Bytes/sec: 4346.73
+Packets/sec: 86.93
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 137, 137, 192.168.10.14, 192.168.10.255, network endpoint, network endpoint, normal, low, high_packet_count, bulk_transfer</data>
+  <data key="d7">chunk-d0f95371ec72bd6438261d123721af7a</data>
+</edge>
+<edge source="192.168.10.25:0/0" target="224.0.0.251:0/0">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:0/0)
+Destination: Network Endpoint (224.0.0.251:0/0)
+Protocol: 0
+Ports: 0 → 0
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 0
+Forward bytes: 0
+Backward bytes: 0
+Duration: 4155641ms
+Bytes/sec: 0.00
+Packets/sec: 0.48
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">0, 0, 0, 192.168.10.25, 224.0.0.251, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-54ca4c36fa18c37741140de257b8c5b2</data>
+</edge>
+<edge source="192.168.10.25:5353/17" target="224.0.0.251:5353/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:5353/17)
+Destination: Network Endpoint (224.0.0.251:5353/17)
+Protocol: 17
+Ports: 5353 → 5353
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 388
+Backward packets: 0
+Forward bytes: 37151
+Backward bytes: 0
+Duration: 91997219ms
+Bytes/sec: 403.83
+Packets/sec: 4.22
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">17, 5353, 5353, 192.168.10.25, 224.0.0.251, network endpoint, network endpoint, normal, low, irregular_timing, high_packet_count, bulk_transfer</data>
+  <data key="d7">chunk-2a799575daace31d697860c0287cb37a</data>
+</edge>
+<edge source="224.0.0.251:5353/17" target="192.168.10.51:5353/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.51:5353/17)
+Destination: Network Endpoint (224.0.0.251:5353/17)
+Protocol: 17
+Ports: 5353 → 5353
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 270
+Backward packets: 0
+Forward bytes: 39398
+Backward bytes: 0
+Duration: 90275363ms
+Bytes/sec: 436.42
+Packets/sec: 2.99
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">17, 5353, 5353, 192.168.10.51, 224.0.0.251, network endpoint, network endpoint, normal, low, irregular_timing, high_packet_count, bulk_transfer</data>
+  <data key="d7">chunk-06bc43b1f43bf736177a6d0345626f53</data>
+</edge>
+<edge source="192.168.10.25:123/17" target="17.253.14.125:123/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:123/17)
+Destination: Network Endpoint (17.253.14.125:123/17)
+Protocol: 17
+Ports: 123 → 123
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 6
+Backward packets: 6
+Forward bytes: 288
+Backward bytes: 288
+Duration: 66966070ms
+Bytes/sec: 8.60
+Packets/sec: 0.18
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">17, 123, 123, 192.168.10.25, 17.253.14.125, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-8776e8a20fb0bd332aa76d0334f99c99</data>
+</edge>
+<edge source="192.168.10.25:123/17" target="17.253.14.253:123/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:123/17)
+Destination: Network Endpoint (17.253.14.253:123/17)
+Protocol: 17
+Ports: 123 → 123
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 4
+Backward packets: 4
+Forward bytes: 192
+Backward bytes: 192
+Duration: 94635ms
+Bytes/sec: 4057.70
+Packets/sec: 84.54
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 123, 123, 192.168.10.25, 17.253.14.253, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-9993769ec33936d0b592105609477900</data>
+</edge>
+<edge source="192.168.10.25:123/17" target="17.253.20.125:123/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:123/17)
+Destination: Network Endpoint (17.253.20.125:123/17)
+Protocol: 17
+Ports: 123 → 123
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 4
+Backward packets: 4
+Forward bytes: 192
+Backward bytes: 192
+Duration: 114254ms
+Bytes/sec: 3360.93
+Packets/sec: 70.02
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 123, 123, 192.168.10.25, 17.253.20.125, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-c4159d4eeb995b8603a410cfba52e052</data>
+</edge>
+<edge source="192.168.10.25:123/17" target="17.253.20.253:123/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:123/17)
+Destination: Network Endpoint (17.253.20.253:123/17)
+Protocol: 17
+Ports: 123 → 123
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 4
+Backward packets: 4
+Forward bytes: 192
+Backward bytes: 192
+Duration: 114602ms
+Bytes/sec: 3350.73
+Packets/sec: 69.81
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 123, 123, 192.168.10.25, 17.253.20.253, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-c15aeedcb5398e7f9b63a194ff42d8f8</data>
+</edge>
+<edge source="192.168.10.25:123/17" target="17.253.24.125:123/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.25:123/17)
+Destination: Network Endpoint (17.253.24.125:123/17)
+Protocol: 17
+Ports: 123 → 123
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 4
+Backward packets: 4
+Forward bytes: 192
+Backward bytes: 192
+Duration: 139284ms
+Bytes/sec: 2756.96
+Packets/sec: 57.44
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 123, 123, 192.168.10.25, 17.253.24.125, network endpoint, network endpoint, normal, low</data>
+  <data key="d7">chunk-c782fb29713d472d0881256343884df1</data>
+</edge>
+<edge source="192.168.10.3:60061/17" target="192.168.10.1:53/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:60061/17)
+Destination: DNS Server (192.168.10.1:53/17)
+Protocol: 17
+Ports: 60061 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 1
+Forward bytes: 43
+Backward bytes: 156
+Duration: 119520ms
+Bytes/sec: 1664.99
+Packets/sec: 16.73
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 60061, 53, 192.168.10.3, 192.168.10.1, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-2aa32717eb18e7432ce031061b346dc3</data>
+</edge>
+<edge source="192.168.10.1:53/17" target="192.168.10.3:60730/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:60730/17)
+Destination: DNS Server (192.168.10.1:53/17)
+Protocol: 17
+Ports: 60730 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 1
+Forward bytes: 53
+Backward bytes: 106
+Duration: 23527ms
+Bytes/sec: 6758.19
+Packets/sec: 85.01
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 60730, 53, 192.168.10.3, 192.168.10.1, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-b1138a001746545e6784195f433b7b7f</data>
+</edge>
+<edge source="192.168.10.1:53/17" target="192.168.10.3:62497/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:62497/17)
+Destination: DNS Server (192.168.10.1:53/17)
+Protocol: 17
+Ports: 62497 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 1
+Forward bytes: 45
+Backward bytes: 61
+Duration: 23351ms
+Bytes/sec: 4539.42
+Packets/sec: 85.65
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 62497, 53, 192.168.10.3, 192.168.10.1, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-0c6fb2c1c20c43868c640199189a74e2</data>
+</edge>
+<edge source="192.168.10.1:53/17" target="192.168.10.3:60678/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:60678/17)
+Destination: DNS Server (192.168.10.1:53/17)
+Protocol: 17
+Ports: 60678 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 1
+Forward bytes: 53
+Backward bytes: 117
+Duration: 46173ms
+Bytes/sec: 3681.81
+Packets/sec: 43.32
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 60678, 53, 192.168.10.3, 192.168.10.1, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-85268c82e6a58b3e89dce78655040f0a</data>
+</edge>
+<edge source="192.168.10.1:53/17" target="192.168.10.3:62450/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:62450/17)
+Destination: DNS Server (192.168.10.1:53/17)
+Protocol: 17
+Ports: 62450 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 1
+Forward bytes: 43
+Backward bytes: 206
+Duration: 586ms
+Bytes/sec: 424914.68
+Packets/sec: 3412.97
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 62450, 53, 192.168.10.3, 192.168.10.1, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-d4f802beb585d302e58b738f77b0e8e7</data>
+</edge>
+<edge source="192.168.10.1:53/17" target="192.168.10.3:61985/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.3:61985/17)
+Destination: DNS Server (192.168.10.1:53/17)
+Protocol: 17
+Ports: 61985 → 53
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 1
+Forward bytes: 52
+Backward bytes: 204
+Duration: 69950ms
+Bytes/sec: 3659.76
+Packets/sec: 28.59
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 61985, 53, 192.168.10.3, 192.168.10.1, network endpoint, dns server, normal, low</data>
+  <data key="d7">chunk-f3d03a34790c502599e285dad2e822f2</data>
+</edge>
+<edge source="192.168.10.14:49413/6" target="192.168.10.3:49666/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49413/6)
+Destination: Network Endpoint (192.168.10.3:49666/6)
+Protocol: 6
+Ports: 49413 → 49666
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 49
+Backward packets: 46
+Forward bytes: 16804
+Backward bytes: 7402
+Duration: 53044563ms
+Bytes/sec: 456.33
+Packets/sec: 1.79
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">6, 49413, 49666, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-006b137247fe729ef0c3473d5eaead10</data>
+</edge>
+<edge source="192.168.10.3:49666/6" target="192.168.10.5:49167/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49167/6)
+Destination: Network Endpoint (192.168.10.3:49666/6)
+Protocol: 6
+Ports: 49167 → 49666
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 27
+Backward packets: 22
+Forward bytes: 7174
+Backward bytes: 4382
+Duration: 48686580ms
+Bytes/sec: 237.35
+Packets/sec: 1.01
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">6, 49167, 49666, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-43f7f17a20a9a0514d0c512729f39da4</data>
+</edge>
+<edge source="192.168.10.14:53/17" target="192.168.10.3:53408/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: DNS Server (192.168.10.14:53/17)
+Destination: Network Endpoint (192.168.10.3:53408/17)
+Protocol: 17
+Ports: 53 → 53408
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 4
+Backward packets: 0
+Forward bytes: 380
+Backward bytes: 0
+Duration: 900680ms
+Bytes/sec: 421.90
+Packets/sec: 4.44
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 53, 53408, 192.168.10.14, 192.168.10.3, dns server, network endpoint, normal, low</data>
+  <data key="d7">chunk-6195e2db41f0a77e538dec96032c87aa</data>
+</edge>
+<edge source="192.168.10.14:53/17" target="192.168.10.3:49954/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: DNS Server (192.168.10.14:53/17)
+Destination: Network Endpoint (192.168.10.3:49954/17)
+Protocol: 17
+Ports: 53 → 49954
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 4
+Backward packets: 0
+Forward bytes: 388
+Backward bytes: 0
+Duration: 901948ms
+Bytes/sec: 430.18
+Packets/sec: 4.43
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 53, 49954, 192.168.10.14, 192.168.10.3, dns server, network endpoint, normal, low</data>
+  <data key="d7">chunk-58383b0e1ca6f7008e90805a99206100</data>
+</edge>
+<edge source="192.168.10.5:123/17" target="192.168.10.3:123/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:123/17)
+Destination: Network Endpoint (192.168.10.3:123/17)
+Protocol: 17
+Ports: 123 → 123
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 6
+Backward packets: 6
+Forward bytes: 288
+Backward bytes: 288
+Duration: 66137889ms
+Bytes/sec: 8.71
+Packets/sec: 0.18
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">17, 123, 123, 192.168.10.5, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-dd85cc16187478b5e48d24f14677894e</data>
+</edge>
+<edge source="192.168.10.3:123/17" target="192.168.10.14:123/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:123/17)
+Destination: Network Endpoint (192.168.10.3:123/17)
+Protocol: 17
+Ports: 123 → 123
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 8
+Backward packets: 8
+Forward bytes: 384
+Backward bytes: 384
+Duration: 81488902ms
+Bytes/sec: 9.42
+Packets/sec: 0.20
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">17, 123, 123, 192.168.10.14, 192.168.10.3, network endpoint, network endpoint, normal, low, irregular_timing</data>
+  <data key="d7">chunk-7008335acc57f227803d63c6ae0c8b68</data>
+</edge>
+<edge source="192.168.10.5:49176/6" target="134.170.115.55:443/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.5:49176/6)
+Destination: Web Server (134.170.115.55:443/6)
+Protocol: 6
+Ports: 49176 → 443
+Behavior: normal
+Threat Level: MEDIUM
+Flow Characteristics:
+Forward packets: 10
+Backward packets: 9
+Forward bytes: 1626
+Backward bytes: 5319
+Duration: 79593267ms
+Bytes/sec: 87.26
+Packets/sec: 0.24
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0
+Suspicious patterns: irregular_timing</data>
+  <data key="d6">6, 49176, 443, 192.168.10.5, 134.170.115.55, network endpoint, web server, normal, medium, irregular_timing</data>
+  <data key="d7">chunk-7e872e7a30a152c09977847a13959b10</data>
+</edge>
+<edge source="192.168.10.14:49433/6" target="131.253.61.80:80/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49433/6)
+Destination: Web Server (131.253.61.80:80/6)
+Protocol: 6
+Ports: 49433 → 80
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 2
+Backward packets: 0
+Forward bytes: 12
+Backward bytes: 0
+Duration: 22ms
+Bytes/sec: 545454.55
+Packets/sec: 90909.09
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+  <data key="d6">6, 49433, 80, 192.168.10.14, 131.253.61.80, network endpoint, web server, normal, low</data>
+  <data key="d7">chunk-ce2714fbf5cac056e007a0676c2513d8</data>
+</edge>
+<edge source="192.168.10.14:49434/6" target="131.253.61.80:443/6">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.14:49434/6)
+Destination: Web Server (131.253.61.80:443/6)
+Protocol: 6
+Ports: 49434 → 443
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 13
+Backward packets: 14
+Forward bytes: 5801
+Backward bytes: 16108
+Duration: 7462064ms
+Bytes/sec: 2936.05
+Packets/sec: 3.62
+SYN: 0, FIN: 0, RST: 0, PSH: 1, ACK: 0</data>
+  <data key="d6">6, 49434, 443, 192.168.10.14, 131.253.61.80, network endpoint, web server, normal, low</data>
+  <data key="d7">chunk-9ac16d98637bba312cde7542d4835001</data>
+</edge>
+<edge source="192.168.10.9:7725/17" target="255.255.255.255:7725/17">
+  <data key="d4">1.0</data>
+  <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (192.168.10.9:7725/17)
+Destination: Network Endpoint (255.255.255.255:7725/17)
+Protocol: 17
+Ports: 7725 → 7725
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 12
+Backward packets: 0
+Forward bytes: 768
+Backward bytes: 0
+Duration: 16ms
+Bytes/sec: 48000000.00
+Packets/sec: 750000.00
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+  <data key="d6">17, 7725, 7725, 192.168.10.9, 255.255.255.255, network endpoint, network endpoint, normal, low, high_bandwidth, data_exfiltration</data>
+  <data key="d7">chunk-97218bfbc549b61ca61c0c38bd361420</data>
+</edge>
+</graph></graphml>

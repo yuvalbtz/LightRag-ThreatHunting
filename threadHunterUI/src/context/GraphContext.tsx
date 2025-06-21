@@ -10,7 +10,7 @@ interface GraphContextType {
     buildGraph: (file: File) => Promise<{ entity_count: number; relationship_count: number }>;
     searchGraph: (query: string) => Promise<void>;
     resetGraph: () => void;
-    getGraphData: () => Promise<void>;
+    getGraphData: (dir_path?: string) => Promise<void>;
     setGraphData: (data: GraphData) => void;
 }
 
@@ -38,7 +38,7 @@ export const GraphProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
 
 
-    const getGraphData = async () => {
+    const getGraphData = async (dir_path?: string) => {
         setIsLoading(true);
         setError(null);
         try {
@@ -47,7 +47,7 @@ export const GraphProvider: React.FC<{ children: React.ReactNode }> = ({ childre
             await new Promise(resolve => setTimeout(resolve, 3000));
 
             // Then, get the graph data
-            const data = await api.graph.getData();
+            const data = await api.graph.getData(dir_path);
             setGraphData(data);
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Failed to get graph data');

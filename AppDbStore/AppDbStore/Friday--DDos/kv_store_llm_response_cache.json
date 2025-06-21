@@ -1,0 +1,13 @@
+{
+  "hybrid": {
+    "1b1c79203e349e3f6f3d86ba53640d95": {
+      "return": "{\"high_level_keywords\": [\"Search terms\", \"Information retrieval\"], \"low_level_keywords\": [\"Keywords extracted from search query\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "sdfsdfs df sdfsdf"
+    }
+  }
+}

@@ -2,7 +2,7 @@ import { createAssistantMessage } from '@/context/ChatContext';
 import { GraphData, GraphFoldersNamesResponse, Message, Playbook } from '../types';
 
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = '/api';
 
 export const api = {
     // Graph related API calls
@@ -26,8 +26,15 @@ export const api = {
             return response.json();
         },
 
-        getData: async (): Promise<GraphData> => {
-            const response = await fetch(`${API_BASE_URL}/graph-data`);
+        getData: async (dir_path?: string): Promise<GraphData> => {
+            const headers: Record<string, string> = {};
+            if (dir_path) {
+                headers['dir_path'] = dir_path;
+            }
+
+            const response = await fetch(`${API_BASE_URL}/graph-data`, {
+                headers
+            });
             if (!response.ok) {
                 throw new Error('Failed to fetch graph data');
             }

@@ -1,66 +1,239 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Button } from '@heroui/button';
-import { Input, Textarea } from '@heroui/input';
-import { Card } from '@heroui/card';
-import { GraphData } from '../types';
-import { FolderIcon, PaperAirplaneIcon } from '@heroicons/react/24/outline';
-import { useMessages, useSendMessage, useChatLoading, createUserMessage } from '../context/ChatContext';
-import { useGraphWorker } from '../hooks/useGraphWorker';
 import { useTheme } from '@/context/ThemeContext';
+import { FolderIcon, PaperAirplaneIcon } from '@heroicons/react/24/outline';
+import { Button } from '@heroui/button';
+import { Card } from '@heroui/card';
+import { Textarea } from '@heroui/input';
 import { Chip } from '@heroui/react';
-
-interface ChatContainerProps {
-    isDarkMode: boolean;
-    graphData: GraphData | null;
-}
+import React, { useEffect, useRef, useState } from 'react';
+import { createUserMessage, useChatLoading, useMessages, useSendMessage } from '../context/ChatContext';
+import { useGraphWorker } from '../hooks/useGraphWorker';
 
 const formatMessage = (content: string) => {
-    const sections = content.split(/(?=###|\*\*)/);
+    // If content is too short or doesn't contain expected patterns, return simple formatting
+    if (content.length < 50 || !content.includes('###')) {
+        return (
+            <div className="whitespace-pre-wrap text-gray-700 dark:text-gray-300">
+                {content}
+            </div>
+        );
+    }
+
+    // Clean up the content first - remove extra # symbols and normalize spacing
+    let cleanedContent = content
+        .replace(/#{5,}/g, '####') // Replace 5+ # with ####
+        .replace(/#{3,4}/g, '###') // Replace 3-4 # with ###
+        .replace(/\n{3,}/g, '\n\n') // Replace multiple newlines with double newlines
+        .trim();
+
+    const sections = cleanedContent.split(/(?=###|\*\*|#\s*\d+\.|-\s*[A-Z][^:]*:|References|Recommended Investigation Steps|---)/);
 
     return sections.map((section, index) => {
+        // Handle numbered sections (e.g., "#### 1. **High-Risk External Communications**")
+        if (section.match(/^####\s*\d+\.\s*\*\*/)) {
+            const numberMatch = section.match(/^####\s*(\d+)\.\s*\*\*(.*?)\*\*/);
+            if (numberMatch) {
+                return (
+                    <div key={index} className="mt-2 mb-1">
+                        <h3 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-1">
+                            {numberMatch[1]}. {numberMatch[2]}
+                        </h3>
+                    </div>
+                );
+            }
+        }
+
+        // Handle main section headers (e.g., "### Threat Hunting Observations")
         if (section.startsWith('###')) {
+            const cleanHeader = section.replace(/^###+/, '').trim();
+            if (cleanHeader && !cleanHeader.match(/^\d+\./)) {
+                return (
+                    <h2 key={index} className="text-xl font-bold mt-3 mb-2 text-gray-800 dark:text-gray-200">
+                        {cleanHeader}
+                    </h2>
+                );
+            }
+        }
+
+        // Handle subsection headers with arrows (e.g., "Internal ↔ External Interactions:")
+        if (section.match(/^-\s*[A-Z][^:]*:/)) {
+            const cleanSection = section.replace(/^-\s*/, '').trim();
             return (
-                <h3 key={index} className="text-lg font-semibold mt-4 mb-2">
-                    {section.replace('###', '').trim()}
-                </h3>
+                <h4 key={index} className="text-md font-semibold mt-1 mb-1 text-gray-700 dark:text-gray-300">
+                    {cleanSection}
+                </h4>
             );
         }
 
+        // Handle "Recommended Investigation Steps"
+        if (section.startsWith('Recommended Investigation Steps')) {
+            return (
+                <div key={index} className="mt-3 p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+                    <h4 className="font-semibold mb-1 text-blue-800 dark:text-blue-300">Recommended Investigation Steps</h4>
+                    <div className="text-sm text-blue-700 dark:text-blue-200">
+                        {section.replace('Recommended Investigation Steps', '').split('\n').filter(line => line.trim()).map((line, i) => (
+                            <p key={i}>{line.trim()}</p>
+                        ))}
+                    </div>
+                </div>
+            );
+        }
+
+        // Handle bold text
         if (section.startsWith('**')) {
             return (
-                <p key={index} className="font-semibold my-2">
+                <p key={index} className="font-semibold my-0.5 text-gray-800 dark:text-gray-200">
                     {section.replace(/\*\*/g, '').trim()}
                 </p>
             );
         }
 
+        // Handle bullet points with specific threat level formatting
         if (section.includes('- ')) {
             const items = section.split('- ').filter(item => item.trim());
             return (
-                <ul key={index} className="list-disc pl-6 my-2">
-                    {items.map((item, i) => (
-                        <li key={i} className="mb-1">{item.trim()}</li>
-                    ))}
+                <ul key={index} className="list-disc pl-6 my-0.5 space-y-0">
+                    {items.map((item, i) => {
+                        const trimmedItem = item.trim();
+                        // Check for threat level indicators
+                        if (trimmedItem.includes('HIGH threat level') || trimmedItem.includes('High threat level') ||
+                            trimmedItem.includes('High-Risk') || trimmedItem.includes('high-threat')) {
+                            return (
+                                <li key={i} className="text-red-600 dark:text-red-400 font-medium">
+                                    {trimmedItem}
+                                </li>
+                            );
+                        }
+                        if (trimmedItem.includes('MEDIUM-HIGH') || trimmedItem.includes('Medium threat level') ||
+                            trimmedItem.includes('MEDIUM-threat') || trimmedItem.includes('MEDIUM threat')) {
+                            return (
+                                <li key={i} className="text-yellow-600 dark:text-yellow-400 font-medium">
+                                    {trimmedItem}
+                                </li>
+                            );
+                        }
+                        if (trimmedItem.includes('Low threat level') || trimmedItem.includes('low threat')) {
+                            return (
+                                <li key={i} className="text-green-600 dark:text-green-400 font-medium">
+                                    {trimmedItem}
+                                </li>
+                            );
+                        }
+                        // Check for suspicious/anomalous indicators
+                        if (trimmedItem.includes('suspicious') || trimmedItem.includes('anomalous') ||
+                            trimmedItem.includes('irregular_timing') || trimmedItem.includes('high_syn_count') ||
+                            trimmedItem.includes('port_scanning') || trimmedItem.includes('data exfiltration') ||
+                            trimmedItem.includes('command-and-control') || trimmedItem.includes('C2') ||
+                            trimmedItem.includes('lateral movement')) {
+                            return (
+                                <li key={i} className="text-orange-600 dark:text-orange-400 font-medium">
+                                    {trimmedItem}
+                                </li>
+                            );
+                        }
+                        return (
+                            <li key={i} className="text-gray-700 dark:text-gray-300">
+                                {trimmedItem}
+                            </li>
+                        );
+                    })}
                 </ul>
             );
         }
 
+        // Handle References section - be more flexible for streaming
+        if (section.startsWith('References') || section.includes('References')) {
+            const referencesContent = section.replace('References', '').trim();
+            // Handle both numbered and unnumbered references
+            const referenceItems = referencesContent.split(/\d+\.\s*\[KG\]/).filter(item => item.trim());
+
+            if (referenceItems.length > 0) {
+                return (
+                    <div key={index} className="mt-3 p-2 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                        <h4 className="font-semibold mb-1 text-gray-800 dark:text-gray-200">References</h4>
+                        <div className="text-sm text-gray-600 dark:text-gray-400">
+                            {referenceItems.map((item, i) => {
+                                const trimmedItem = item.trim();
+                                if (trimmedItem) {
+                                    return (
+                                        <div key={i} className="mb-2">
+                                            <span className="font-medium">{i + 1}.</span> [KG] {trimmedItem}
+                                        </div>
+                                    );
+                                }
+                                return null;
+                            }).filter(Boolean)}
+                        </div>
+                    </div>
+                );
+            } else {
+                // Fallback for incomplete references
+                return (
+                    <div key={index} className="mt-3 p-2 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                        <h4 className="font-semibold mb-1 text-gray-800 dark:text-gray-200">References</h4>
+                        <div className="text-sm text-gray-600 dark:text-gray-400 whitespace-pre-wrap">
+                            {referencesContent}
+                        </div>
+                    </div>
+                );
+            }
+        }
+
+        // Handle [KG] citations
         if (section.includes('[KG]')) {
             return (
-                <div key={index} className="text-sm text-gray-500 mt-4">
-                    {section.split('\n').map((line, i) => (
+                <div key={index} className="text-sm text-gray-500 mt-1 p-2 bg-gray-50 dark:bg-gray-800 rounded">
+                    {section.split('\n').filter(line => line.trim()).map((line, i) => (
                         <p key={i}>{line.trim()}</p>
                     ))}
                 </div>
             );
         }
 
-        return (
-            <p key={index} className="my-2">
-                {section.trim()}
-            </p>
-        );
-    });
+        // Handle technical details with IP addresses, flow IDs, and protocol information
+        if ((section.includes('`') && section.includes('→')) ||
+            (section.includes('Flow ID') && section.includes('192.168.')) ||
+            section.match(/\d+\.\d+\.\d+\.\d+:\d+/) ||
+            section.includes('Protocol 6') ||
+            section.includes('SMB port') ||
+            section.includes('UDP flows') ||
+            section.includes('packets/sec') ||
+            section.includes('duration')) {
+            return (
+                <div key={index} className="my-0.5 p-2 bg-gray-100 dark:bg-gray-700 rounded font-mono text-sm">
+                    {section.trim()}
+                </div>
+            );
+        }
+
+        // Handle numbered investigation steps
+        if (section.match(/^\d+\.\s*\*\*/)) {
+            const stepMatch = section.match(/^(\d+)\.\s*\*\*(.*?)\*\*/);
+            if (stepMatch) {
+                return (
+                    <div key={index} className="my-0.5">
+                        <span className="font-semibold text-blue-600 dark:text-blue-400">
+                            {stepMatch[1]}. {stepMatch[2]}:
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300 ml-1">
+                            {section.replace(/^\d+\.\s*\*\*.*?\*\*/, '').trim()}
+                        </span>
+                    </div>
+                );
+            }
+        }
+
+        // Default paragraph - only render if there's actual content
+        const trimmedSection = section.trim();
+        if (trimmedSection && !trimmedSection.startsWith('#') && !trimmedSection.startsWith('---')) {
+            return (
+                <p key={index} className="my-0.5 text-gray-700 dark:text-gray-300">
+                    {trimmedSection}
+                </p>
+            );
+        }
+
+        return null;
+    }).filter(Boolean); // Remove null elements
 };
 
 export const ChatContainer = () => {
@@ -68,7 +241,6 @@ export const ChatContainer = () => {
     const sendMessage = useSendMessage();
     const isLoading = useChatLoading();
     const [input, setInput] = useState('');
-    const [file, setFile] = useState<File | null>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const state = useGraphWorker();
 
@@ -85,7 +257,7 @@ export const ChatContainer = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!input.trim() && !file) return;
+        if (!input.trim()) return;
         const message = input.trim();
         setInput('');
         await sendMessage(createUserMessage(message, state.dir_path), state.dir_path);
@@ -223,20 +395,23 @@ export const ChatContainer = () => {
                     />
                     <Button
                         type="submit"
+                        isIconOnly
+                        spinner={<div className="flex items-center justify-center">
+                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                        </div>}
+                        isLoading={isLoading}
                         disabled={!input.trim() || isLoading || !state.graphData}
-                        className={`min-w-[40px] h-10 transition-colors duration-200 ${isDarkMode
-                            ? 'bg-gray-700 text-white hover:bg-gray-600'
-                            : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
+                        className={`min-w-[40px] h-10 transition-colors duration-200 ${!input.trim() || isLoading || !state.graphData
+                            ? isDarkMode
+                                ? 'bg-gray-600 text-gray-400 cursor-not-allowed opacity-50'
+                                : 'bg-gray-300 text-gray-500 cursor-not-allowed opacity-50'
+                            : isDarkMode
+                                ? 'bg-gray-700 text-white hover:bg-gray-600'
+                                : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
                             }`}
                         title={state.graphData ? "Send message" : "Upload a file to enable chat"}
                     >
-                        {isLoading ? (
-                            <div className="flex items-center">
-                                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                            </div>
-                        ) : (
-                            <PaperAirplaneIcon className="h-5 w-5" />
-                        )}
+                        <PaperAirplaneIcon className="h-5 w-5" />
                     </Button>
                 </div>
             </form>

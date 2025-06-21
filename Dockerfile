@@ -1,49 +1,51 @@
-# Build stage
-FROM python:3.11-slim AS builder
+# Use conda base image
+FROM continuumio/miniconda3:latest
 
+# Set working directory
 WORKDIR /app
 
-# Install Rust and required build dependencies
+# Copy conda environment file
+COPY environment.yml ./
+
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
-    curl \
     build-essential \
-    pkg-config \
-    && rm -rf /var/lib/apt/lists/* \
-    && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
-    && . $HOME/.cargo/env
+    curl \
+    git \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy only requirements files first to leverage Docker cache
-COPY requirements.txt .
-COPY lightrag/api/requirements.txt ./lightrag/api/
+# Create and activate conda environment
+RUN conda env create -f environment.yml
 
-# Install dependencies
-ENV PATH="/root/.cargo/bin:${PATH}"
-RUN pip install --user --no-cache-dir -r requirements.txt
-RUN pip install --user --no-cache-dir -r lightrag/api/requirements.txt
+# Make RUN commands use the conda environment
+SHELL ["conda", "run", "-n", "lightrag_env", "/bin/bash", "-c"]
 
-# Final stage
-FROM python:3.11-slim
+# Copy application code
+COPY . .
 
-WORKDIR /app
+# Install the local lightrag package without dependencies first
+RUN pip install -e . --no-deps
 
-# Copy only necessary files from builder
-COPY --from=builder /root/.local /root/.local
-COPY ./lightrag ./lightrag
-COPY setup.py .
-
-RUN pip install .
-# Make sure scripts in .local are usable
-ENV PATH=/root/.local/bin:$PATH
+# Install dependencies separately using the setup requirements
+COPY requirements-setup.txt ./
+RUN pip install -r requirements-setup.txt
 
 # Create necessary directories
-RUN mkdir -p /app/data/rag_storage /app/data/inputs
+RUN mkdir -p /app/working_dir /app/AppDbStore /app/custom_kg
 
-# Docker data directories
-ENV WORKING_DIR=/app/data/rag_storage
-ENV INPUT_DIR=/app/data/inputs
+# Expose port for the API
+EXPOSE 8000
 
-# Expose the default port
-EXPOSE 9621
+# Set environment variables
+ENV PYTHONPATH=/app
+ENV WORKING_DIR=/app/working_dir
 
-# Set entrypoint
-ENTRYPOINT ["python", "-m", "lightrag.api.lightrag_server"]
+# Activate conda environment for the CMD
+SHELL ["/bin/bash", "-c"]
+
+# Health check
+# HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+#    CMD curl -f http://localhost:8000/health || exit 1
+
+# Start the application with conda environment
+CMD ["./start.sh"]

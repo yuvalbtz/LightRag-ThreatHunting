@@ -4,19 +4,16 @@ import { KnowledgeGraphContainer } from './KnowledgeGraphContainer';
 import { ChatContainer } from './ChatContainer';
 import { PlaybooksContainer } from './PlaybooksContainer';
 import { useTheme } from '../context/ThemeContext';
-import { useChat } from '../context/ChatContext';
-import { Playbook } from '../types';
 
 export const ChatInterface: React.FC = () => {
     const { isDarkMode, toggleTheme } = useTheme();
-    const { sendMessage } = useChat();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const handlePlaybookSelect = (playbook: Playbook) => {
+    const handlePlaybookSelect = () => {
         // sendMessage(`Selected playbook: ${playbook.name}`, null);
     };
 
-    const handleGraphSearch = (query: string) => {
+    const handleGraphSearch = () => {
         // sendMessage(`Searching graph for: ${query}`, null);
     };
 

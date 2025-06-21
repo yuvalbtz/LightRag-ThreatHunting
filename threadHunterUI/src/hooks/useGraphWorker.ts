@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { GraphData } from '../types';
-import { DataSet, Network, Edge, Node } from 'vis-network/standalone';
 import { useDarkMode } from '@/context/ThemeContext';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { DataSet, Edge, Network, Node, Options } from 'vis-network/standalone';
+import { GraphData } from '../types';
 const CLUSTER_THRESHOLD = 50; // Adjust this value based on your needs
 
 interface GraphWorkerState {
@@ -119,7 +119,7 @@ export function useGraphWorker() {
     }, [addEventListener, removeEventListener]);
 
     const getGraphData = useCallback(async (dir_path: string): Promise<GraphData> => {
-        updateState({ isRendering: true, error: null, dir_path: dir_path });
+        updateState({ isRendering: true, error: null, dir_path: dir_path, stabilizationProgress: 0 });
 
         return new Promise((resolve, reject) => {
             if (!workerInstance) return reject(new Error('Worker not initialized'));
@@ -130,7 +130,7 @@ export function useGraphWorker() {
                     removeEventListener('GRAPH_DATA_ERROR', handler);
                     const graphData = e.data.data;
                     updateState({
-                        graphData
+                        graphData,
                     });
                     resolve(graphData);
                 } else if (e.data.type === 'GRAPH_DATA_ERROR') {
@@ -209,7 +209,7 @@ export function useGraphWorker() {
         const nodes = new DataSet<Node>(state.graphData.nodes);
         const edges = new DataSet<Edge>(state.graphData.edges);
 
-        const options = {
+        const options: Options = {
             nodes: {
                 shape: 'dot',
                 size: 16,
@@ -249,8 +249,9 @@ export function useGraphWorker() {
             },
             physics: {
                 stabilization: {
-                    iterations: 100,
-                    updateInterval: 25
+                    iterations: 300,
+                    updateInterval: 25,
+                    fit: true
                 },
                 barnesHut: {
                     gravitationalConstant: -2000,
@@ -278,12 +279,13 @@ export function useGraphWorker() {
         }
 
         const network = new Network(networkRef.current, { nodes, edges }, options);
-        updateState({ networkInstance: network, isRendering: true });
+        updateState({ networkInstance: network, isRendering: true, stabilizationProgress: 0 });
 
         network.on('stabilizationProgress', (params) => {
             const progress = Math.min(100, Math.round((params.iterations / params.total) * 100));
             updateState({ stabilizationProgress: progress });
         });
+
 
         network.once('stabilizationIterationsDone', () => {
             updateState({ stabilizationProgress: 100, isRendering: false });

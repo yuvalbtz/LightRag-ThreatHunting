@@ -1,0 +1,22 @@
+{
+  "hybrid": {
+    "0659de87aab32a55d68daac52a3521da": {
+      "return": "{\"high_level_keywords\": [\"Community groups\", \"Quantitative analysis\", \"Graph data\"], \"low_level_keywords\": [\"Number of groups\", \"Graph structure\", \"Network analysis\", \"Nodes\", \"Edges\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many community groups in the graph ?"
+    },
+    "1a8b9a2ce5b75a93a0d108287ece2d83": {
+      "return": "The Knowledge Base provided does not contain explicit information about community groups within the network graph. The data focuses on individual network endpoints, their relationships, and flow analyses, but does not mention community detection algorithms, clustering results, or group classifications.\n\nKey observations:\n1. Entities are described as standalone network endpoints (IP:port combinations)\n2. Relationships document specific communication flows between endpoints\n3. No attributes or metadata indicate group/cluster affiliations\n4. No community detection analysis results are included in the sources\n\nWithout explicit community group identifiers or clustering metadata in the provided data, this information cannot be determined from the available Knowledge Base.\n\nReferences:  \n[KG] unknown_source  \n[KG] ./AppDbStore/Friday-PortScan",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many community groups in the graph ?"
+    }
+  }
+}

@@ -1,9 +1,12 @@
 import { GraphData, GraphNode, GraphEdge } from '../types';
 
+
+
+
 // Process graph data for visualization
 self.onmessage = async (e: MessageEvent) => {
     const { type, data } = e.data;
-
+    const API_BASE_URL = '/api'
     switch (type) {
         case 'PROCESS_GRAPH_DATA':
             const processedData = processGraphData(data);
@@ -18,7 +21,7 @@ self.onmessage = async (e: MessageEvent) => {
                 formData.append('target_column', 'Destination IP');
                 formData.append('working_dir', './AppDbStore/' + data.file.name?.split('.')[0]);
 
-                const response = await fetch('http://localhost:8000/build-kg', {
+                const response = await fetch(`${API_BASE_URL}/build-kg`, {
                     method: 'POST',
                     body: formData,
                 });
@@ -36,7 +39,8 @@ self.onmessage = async (e: MessageEvent) => {
 
         case 'GET_GRAPH_DATA':
             try {
-                const response = await fetch('http://localhost:8000/graph-data', { headers: { dir_path: './AppDbStore/' + data.dir_path } });
+                const dir_path = data?.dir_path || './custom_kg';
+                const response = await fetch(`${API_BASE_URL}/graph-data?dir_path=${dir_path}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch graph data');
                 }
