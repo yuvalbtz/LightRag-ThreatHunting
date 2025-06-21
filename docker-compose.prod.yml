@@ -1,0 +1,43 @@
+services:
+  # Python Backend API
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./AppDbStore:/app/AppDbStore
+      - ./custom_kg:/app/custom_kg
+    environment:
+      - PYTHONPATH=/app
+    restart: unless-stopped
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 3
+    #   start_period: 40s
+
+  # React Frontend
+  frontend:
+    build: ./threadHunterUI
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+
+  # Optional: Ollama service for LLM
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11435:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+    profiles:
+      - llm
+
+volumes:
+  ollama_data:

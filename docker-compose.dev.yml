@@ -1,0 +1,62 @@
+services:
+  # Python Backend API with hot reload
+  backend:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./AppDbStore:/app/AppDbStore
+      - ./custom_kg:/app/custom_kg
+      - ./api.py:/app/api.py
+      - ./agent.py:/app/agent.py
+      - ./lightrag:/app/lightrag
+      - ./lib:/app/lib
+      - ./tests:/app/tests
+      - ./examples:/app/examples
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+      - WATCHDOG_TIMEOUT=1
+      - OPENROUTER_API_KEY=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
+    restart: unless-stopped
+
+  # React Frontend with hot reload
+  frontend:
+    build: 
+      context: ./threadHunterUI
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./threadHunterUI/src:/app/src
+      - ./threadHunterUI/public:/app/public
+      - ./threadHunterUI/package.json:/app/package.json
+      - ./threadHunterUI/package-lock.json:/app/package-lock.json
+      - ./threadHunterUI/tsconfig.json:/app/tsconfig.json
+      - ./threadHunterUI/tailwind.config.js:/app/tailwind.config.js
+      - ./threadHunterUI/vite.config.ts:/app/vite.config.ts
+      - /app/node_modules
+    depends_on:
+      - backend
+    restart: unless-stopped
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+
+  # Optional: Ollama service for LLM
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11435:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+    profiles:
+      - llm
+
+volumes:
+  ollama_data: 

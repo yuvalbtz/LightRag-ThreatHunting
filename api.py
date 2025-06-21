@@ -147,6 +147,15 @@ async def root():
     return {"message": "Welcome to the Threat Hunting API"}
 
 
+@app.get("/test-hot-reload")
+async def test_hot_reload():
+    """Test endpoint to verify hot reload is working."""
+    return {
+        "message": "Hot reload test - version 1!!!",
+        "timestamp": str(datetime.now()),
+    }
+
+
 @app.post("/generate-playbooks", response_model=PlaybookResponse)
 async def generate_playbooks(request: PlaybookRequest):
     try:
@@ -370,7 +379,7 @@ async def query_stream(request: ChatRequest):
     try:
         logger.info("Initializing RAG with Ollama...")
         # Initialize RAG with Ollama instead of DeepSeek
-        rag = await initialize_rag_ollama(working_dir=request.dir_path)
+        rag = await initialize_rag_deepseek(working_dir=request.dir_path)
         logger.info("RAG initialization completed successfully")
 
         logger.info("Executing query with RAG...")

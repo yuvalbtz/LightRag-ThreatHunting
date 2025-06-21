@@ -1,7 +1,243 @@
 {
+  "local": {
+    "08156259d171c476ca246e598d008469": {
+      "return": "{\"high_level_keywords\": [\"IP address\", \"Network infrastructure\", \"Network visualization\", \"Network traffic\"], \"low_level_keywords\": [\"72.167.239.239:80/6\", \"Port 80\", \"CIDR notation\", \"Network graph\", \"Port usage\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me about ip 72.167.239.239:80/6 in the graph"
+    },
+    "cd8ef6ca17b5a49e77cd336490676438": {
+      "return": "### IP 72.167.239.239:80/6 Analysis  \nThis entity is identified as a **web server** in the knowledge base, observed in **22 network flows** with typical **normal behavior**. Key characteristics include:  \n\n1. **Service Type**:  \n   - Operates on port 80 using protocol 6 (TCP), consistent with standard HTTP web traffic.  \n\n2. **Network Activity**:  \n   - Handles multiple connections from internal endpoints (e.g., `192.168.10.8` on ports 52474, 52473, 52476, etc.).  \n   - Example flows show minimal data transfer (e.g., 12 bytes forward, 0 bytes backward) and low threat levels.  \n\n3. **Behavioral Patterns**:  \n   - Normal TCP handshakes observed (SYN/ACK flags).  \n   - One flow (`192.168.10.8:52476/6 → 72.167.239.239:80/6`) transferred 432 bytes forward and 2,280 bytes backward, suggesting a small HTTP request/response cycle.  \n\n4. **Threat Profile**:  \n   - All associated flows are classified as **low risk** with no suspicious patterns or anomalies detected.  \n\n### References  \n- [KG] `unknown_source` (Entity ID 0)  \n- [DC] `./AppDbStore/Thursday--Infilteration` (Sources 0, 21-26)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me about ip 72.167.239.239:80/6 in the graph"
+    },
+    "e9689faeeb790c5476e0f127b244367d": {
+      "return": "{\"high_level_keywords\": [\"Network analysis\", \"Cybersecurity\", \"IP address tracking\"], \"low_level_keywords\": [\"213.239.195.215\", \"Network graph\", \"IP connections\", \"Traffic data\", \"Node relationships\", \"Data visualization\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me about ip 213.239.195.215 in the graph"
+    },
+    "544924d4c99b7908d43fbbd1cc7cb3c4": {
+      "return": "The IP address 213.239.195.215 does not appear in any records within the provided Knowledge Base. There are no entities, relationships, or network flows associated with this specific IP address in the dataset.\n\n### Key Observations:\n1. **Entity Analysis**: None of the 60+ network endpoints listed in the Knowledge Base include this IP address\n2. **Relationship Review**: All documented network connections involve other public IPs like 178.255.83.1, 66.114.49.26, and 54.70.245.228, but not 213.239.195.215\n3. **Flow Details**: The comprehensive flow analyses from the \"Thursday--Infiltration\" dataset contain no references to this IP as either source or destination\n\n### References:\n[KG] unknown_source (Entities)  \n[KG] unknown_source (Relationships)  \n[DC] ./AppDbStore/Thursday--Infilteration (Sources)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me about ip 213.239.195.215 in the graph"
+    },
+    "19def9550839ca82f2423170dba5246e": {
+      "return": "{\"high_level_keywords\": [\"Network analysis\", \"IP address\", \"Data visualization\"], \"low_level_keywords\": [\"213.239.195.215\", \"Port 443\", \"/6\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me about ip 213.239.195.215:443/6 in the graph"
+    },
+    "1733752515acfbe022628d902c69c729": {
+      "return": "### Web Server 213.239.195.215:443/6 Analysis  \n\n#### Entity Overview  \n- **Type**: Web Server (protocol 6/TCP)  \n- **Observed Activity**: Involved in **37 network flows**  \n- **Behavior**: Marked as **anomalous** despite most associated flows being labeled \"normal\"  \n- **Service Type**: Standard web server (HTTPS port 443)  \n\n#### Key Relationships  \n1. **Internal Connections**:  \n   - Received **16 connections** from internal endpoints (192.168.10.8:*), all classified as:  \n     - **Low threat**  \n     - Short durations (74ms–8991 seconds)  \n     - Minimal data transfer (0–12 bytes)  \n   - One exception: Flow `192.168.10.8:52553 → 213.239.195.215:443` had:  \n     - **Medium threat level**  \n     - Irregular timing (8,991-second duration with 0 bytes transferred)  \n\n2. **Behavioral Conflict**:  \n   - Entity labeled \"anomalous\" in the knowledge graph, but most flows show normal characteristics.  \n   - High flow count (37) may contribute to anomaly designation despite individual low-risk flows.  \n\n#### Security Implications  \n- Monitor for **unusual bulk connections** from internal hosts to this server.  \n- Investigate the **prolonged medium-threat flow** (ID 15 in Relationships) for potential stealth scanning or beaconing.  \n\n### References  \n1. [KG] Entity ID 3 (213.239.195.215:443/6) - `unknown_source`  \n2. [KG] Relationships ID 0-18 - `unknown_source`  \n3. [DC] Flow ID 192.168.10.8-213.239.195.215-52453-443-6 - `./AppDbStore/Thursday--Infilteration`",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me about ip 213.239.195.215:443/6 in the graph"
+    },
+    "66935a0cd9ab3a3211b05631d38bb3b4": {
+      "return": "{\"high_level_keywords\": [\"Network connectivity\", \"Server connections\", \"Internal network monitoring\"], \"low_level_keywords\": [\"213.239.195.215\", \"Port 443\", \"Internal IP addresses\", \"TCP/6 protocol\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "to how many internals ips Web Server 213.239.195.215:443/6 is connected to ?"
+    },
+    "c11260a13c67cbd2e3e9fc12c52b899e": {
+      "return": "The Knowledge Base does not contain any information about a Web Server at 213.239.195.215:443/6. This IP address and port combination does not appear in:  \n1. The list of entities (web servers and network endpoints)  \n2. Relationship data showing connections between entities  \n3. Network flow analysis records  \n\nThere is no evidence in the provided data of this specific web server interacting with any internal IP addresses.\n\n**References**  \n[KG] Entities data (no matching entry found)  \n[KG] Relationships data (no matching entry found)  \n[KG] Sources data (no matching entry found)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "to how many internals ips Web Server 213.239.195.215:443/6 is connected to ?"
+    }
+  },
   "hybrid": {
+    "a9eb9119c9adeace13d5e1b126ebf9c4": {
+      "return": "{\"high_level_keywords\": [\"Network connections\", \"Server infrastructure\", \"Web server connectivity\"], \"low_level_keywords\": [\"213.239.195.215:443/6\", \"Internal IPs\", \"Port 443\", \"Connection monitoring\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "to how many internals ips Web Server 213.239.195.215:443/6 is connected to ?"
+    },
+    "bee6a208ff674c91d8ac84e04ac50abb": {
+      "return": "The Web Server at 213.239.195.215:443/6 is connected to **1 internal IP address** based on the provided data:\n\n- **Internal IP**: 192.168.10.8  \n  This internal endpoint initiated multiple connections to the web server through different ports (52453, 52534, 52536, and others), but they all originate from the same internal IP address.\n\nAll observed connections to this web server came exclusively from 192.168.10.8, with no other internal IPs interacting with it according to the Knowledge Base.\n\n---\n\n### References  \n[KG] Relationships 28-46 (unknown_source)  \n[KG] Entity 61 (213.239.195.215:443/6)  \n[KG] Sources 28-46 (./AppDbStore/Thursday--Infilteration)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "to how many internals ips Web Server 213.239.195.215:443/6 is connected to ?"
+    },
+    "bee0bc6faad20965fc6f0bd49d3a958f": {
+      "return": "{\"high_level_keywords\": [\"Behavior of relationships\", \"Graph analysis\", \"Graph theory\"], \"low_level_keywords\": [\"Node interactions\", \"Edge dynamics\", \"Network patterns\", \"Graph traversal\", \"Connectivity\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me the behavior of the relationships in the graph ?"
+    },
+    "0a632ee80f5541e6fd601405d9630598": {
+      "return": "### Behavior Analysis of Relationships in the Knowledge Graph  \n\n#### 1. **Communication Patterns**  \n- **Internal ↔ External Interactions**: Most relationships show internal network endpoints (192.168.x.x) communicating with external web servers (e.g., 54.192.x.x, 23.203.x.x) over TCP (protocol 6). Examples include:  \n  - `192.168.10.8:52590/6` → `54.192.48.203:443/6` (46 forward packets, 58 backward packets)  \n  - `192.168.10.17:56424/6` → `52.33.61.7:443/6` (16 forward packets, 13 backward packets).  \n- **Internal ↔ Internal Traffic**: Limited internal communications (e.g., `192.168.10.5:53433/6` → `192.168.10.3:445/6`), often using SMB port 445.  \n\n#### 2. **Threat Levels**  \n- **Medium Risk**: Flows marked as \"normal\" but with medium threat levels due to `irregular_timing` patterns (e.g., long durations exceeding 100,000ms with low packet rates).  \n- **Low Risk**: Short-duration flows (e.g., 10–100ms) with minimal data transfer, often ACK-only packets (e.g., `192.168.10.17:39137/6` ↔ `23.203.79.138:443/6`).  \n\n#### 3. **Anomalous Indicators**  \n- **Suspicious Timing**: 14 relationships flagged for `irregular_timing`, such as `192.168.10.8:52577/6` → `54.192.48.32:443/6` (116,472,521ms duration).  \n- **High Bandwidth Exceptions**: UDP port 123 (NTP) flows (e.g., `192.168.10.50:123/17` → `4.53.160.75:123/17`) show unusually high bytes/sec (1.8M) despite being labeled \"normal.\"  \n\n#### 4. **Data Transfer Characteristics**  \n- **Asymmetrical Traffic**: Web server responses often dwarf client requests (e.g., `172.217.12.206:443/6` sent 12 bytes to `192.168.10.14:63217/6`, but received 0 bytes).  \n- **Protocol-Specific Behaviors**: TCP flows frequently use PSH flags (push data), while UDP flows (protocol 17) lack flag patterns but exhibit high throughput.  \n\n---\n\n### References  \n1. [KG] Relationships CSV (entries 1-53)  \n2. [KG] Sources CSV (entries 1-46)  \n3. [DC] `./AppDbStore/Thursday--Infilteration` (flow analysis context)  \n4. [KG] Entity CSV (entries 1-96)  \n5. [DC] `unknown_source` (timestamped relationship metadata)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me the behavior of the relationships in the graph ?"
+    },
+    "f079570d1ca7d9169e7d97c168eeaff5": {
+      "return": "{\"high_level_keywords\": [\"Data visualization\", \"Graph analysis\", \"Trend identification\"], \"low_level_keywords\": [\"Data points\", \"Axes labels\", \"Time series\", \"Correlation\", \"Peaks and troughs\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what are the patterns in the graph ?"
+    },
+    "59f17ca4d5967b48845dbe19da2f346b": {
+      "return": "### Observed Network Patterns Analysis\n\n#### 1. **Anomalous Timing Patterns**  \nMultiple flows exhibit **irregular timing characteristics**, particularly in TCP connections (protocol 6) to web servers. These flows show:  \n- Extremely low packet rates (0.33–1.72 packets/sec) despite large durations (e.g., 117M milliseconds)  \n- Suspiciously long-lived sessions with minimal data transfer (e.g., 0 bytes over 9M ms in Flow ID 192.168.10.8-69.64.147.32-52535-443-6)  \n- Flagged as \"irregular_timing\" in 18+ relationships (KG Relationships 1,4-9,14,19-22,38,40-45)  \n\n#### 2. **Protocol/Port Concentration**  \n- **HTTP/HTTPS Dominance**: 80% of external communications target ports 80/443, with 54.192.48.203 (AWS IP) and 72.21.91.29 (Amazon) being frequent destinations.  \n- **Internal SMB Activity**: Port 445 traffic between internal endpoints (192.168.10.3/5/8/9/15) shows bidirectional data exchange (e.g., 8,238→4,208 bytes in Flow ID 192.168.10.3-192.168.10.15-445-55583-6).  \n- **NTP Traffic**: UDP/123 communications with external servers (72.38.129.202, 4.53.160.75) show normal behavior but high frequency (KG Relationships 47-48,51).  \n\n#### 3. **Threat Level Distribution**  \n- **Medium-Risk Web Traffic**: 63% of web server connections are MEDIUM threat level due to:  \n  - Asymmetric packet ratios (e.g., 76→106 packets in Flow ID 192.168.10.8-54.192.48.203-52593-443-6)  \n  - Large backward byte volumes (up to 209,485 bytes)  \n- **Low-Risk Internal Flows**: SMB/NTP communications classified LOW threat despite anomalous timing indicators.  \n\n#### 4. **Internal Network Behavior**  \n- **Endpoint 192.168.10.8**: Acts as major internal hub with:  \n  - 35+ unique outbound connections  \n  - Repeated connections to suspicious external IPs (e.g., 213.239.195.215, 89.255.249.54)  \n  - Multiple ephemeral ports (525xx range) in use  \n- **Consistent ACK Flags**: 72% of TCP flows show ACK=1 without SYN/FIN, suggesting established-but-unusual persistent connections.  \n\n#### 5. **NTP Server Communications**  \n- **UDP/123 Patterns**:  \n  - Bi-directional 48-byte packet exchanges (typical of NTP)  \n  - Connections to diverse geographic locations (Canada, France, Germany)  \n  - All classified LOW threat with normal behavior scores  \n\n---\n\n### References  \n[KG] Relationships 1,5,7,38,42 (unknown_source)  \n[KG] Sources 1,5,7,15,24 (./AppDbStore/Thursday--Infilteration)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what are the patterns in the graph ?"
+    },
+    "1e887e29f2125c53d8ea6e3535286a64": {
+      "return": "{\"high_level_keywords\": [\"Threat hunting\", \"Investigation\", \"Graph analysis\", \"Cybersecurity\"], \"low_level_keywords\": [\"Cyber attacks\", \"Network traffic\", \"Anomaly detection\", \"Malware analysis\", \"Incident response\", \"Data visualization\", \"Security incidents\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about the graph in terms of threatHunting invistigation ?"
+    },
+    "e2e3ef496aa2ec91d5c26784f8e2797e": {
+      "return": "### Threat Hunting Investigation Findings\n\n#### 1. **Anomalous External Communications**\n- Multiple internal endpoints (192.168.10.8, 192.168.10.12, 192.168.10.17) show connections to external web servers flagged as **anomalous/suspicious**, including:\n  - 72.21.91.66:443 (suspicious behavior)\n  - 23.192.24.134:443 (6 flows, high threat level)\n  - 23.195.254.217:443 (6 flows, high threat level)\n- Flow ID 25 (192.168.10.12 ↔ 23.192.24.134) shows **HIGH threat level** with irregular timing and high packet size variance, suggesting potential data exfiltration.\n\n#### 2. **DNS Server Activity**\n- The internal DNS server (192.168.10.3:53/17) handles **626 flows**, primarily with UDP/17 protocol. While marked \"normal,\" the volume of short-duration, high-bandwidth DNS queries from multiple endpoints (e.g., 192.168.10.8 subnets) could indicate DNS tunneling if combined with other anomalies.\n\n#### 3. **Long-Lived Suspicious Connections**\n- Several TCP/6 flows exhibit **extremely long durations** (e.g., 32+ hours) with low throughput:\n  - Flow ID 24 (192.168.10.8 ↔ 72.21.91.66:443) shows 32.2-hour duration with only 7KB transferred.\n  - Flow ID 28 (192.168.10.17 ↔ 35.164.147.83:443) lasts ~32 hours with irregular timing.\n\n#### 4. **Potential Data Exfiltration Patterns**\n- Multiple flows to external IPs (e.g., 89.255.249.54:443, 52.33.61.7:443) show:\n  - High forward/backward byte disparities\n  - PSH flag usage without ACK confirmation (e.g., Flow ID 40-44)\n  - \"High packet size variance\" alerts in critical flows\n\n#### 5. **Suspicious Internal Endpoints**\n- 192.168.10.12 demonstrates **repeated suspicious outbound patterns**:\n  - Multiple ephemeral ports (59262-59270, 44950-44956) connecting to external web servers\n  - Associated with threat levels MEDIUM-HIGH in 5+ flows\n\n---\n\n### Recommended Investigation Steps\n1. **Prioritize 192.168.10.12** for endpoint analysis due to clustered suspicious outbound activity.\n2. **Analyze DNS logs** for 192.168.10.3 to detect potential encoded payloads in DNS queries.\n3. **Inspect TLS/SSL certificates** for communications with 23.192.24.134 and 23.195.254.217 (known risky ASNs).\n4. **Review firewall logs** for repeated connections to 72.21.91.66/70 (Amazon AWS IPs often abused for C2).\n\n---\n\n### References\n1. [KG] Relationships 25,29,40-44 (High threat flows) - `./AppDbStore/Thursday--Infilteration`  \n2. [KG] Entity 2 (DNS Server) - `unknown_source`  \n3. [KG] Entity 40,42,46 (Suspicious web servers) - `unknown_source`  \n4. [KG] Source 24,25,28 (Long-duration anomalies) - `./AppDbStore/Thursday--Infilteration`  \n5. [KG] Relationships 11-23 (External comm patterns) - `unknown_source`",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about the graph in terms of threatHunting invistigation ?"
+    },
+    "bbada58dacaa5f1ba77ac620d60f0988": {
+      "return": "{\"high_level_keywords\": [\"Threat hunting\", \"Investigation\", \"Cybersecurity analysis\"], \"low_level_keywords\": [\"Graph nodes\", \"Graph edges\", \"Threat indicators\", \"Attack vectors\", \"Data visualization\", \"Network traffic\", \"Malicious activity detection\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about the graph in terms of threatHunting invistigation"
+    },
+    "ac0c9e104db69f17120846bab942ba56": {
+      "return": "### Threat Hunting Observations from Network Analysis  \n\n#### 1. **High-Risk External Communications**  \n- **Anomalous HTTPS Traffic**: Multiple high-threat flows (e.g., `192.168.10.8:52648 → 72.21.91.70:443`) show:  \n  - Extreme duration (~33 hours) with low throughput (11.82 packets/sec)  \n  - High packet size variance and irregular timing patterns  \n  - Bulk data transfers (1.6 MB backward bytes)  \n  - **Indicators**: Potential data exfiltration or command-and-control (C2) activity.  \n\n- **Suspicious Web Server Interactions**:  \n  - `192.168.10.12` initiated multiple high-threat connections to `23.195.254.217:443` and `23.192.24.134:443`, featuring:  \n    - Asymmetric traffic (small outbound packets vs large inbound payloads)  \n    - Sustained durations (>32 hours per flow)  \n    - Flag patterns lacking ACK/SYN (PSH=1 dominance)  \n\n#### 2. **Internal Network Anomalies**  \n- **Protocol 6 (TCP) Irregularities**:  \n  - Multiple endpoints (e.g., `192.168.10.8:52525`, `192.168.10.8:52553`) communicated with external web servers using uncommon port combinations, displaying:  \n    - MEDIUM threat levels  \n    - Irregular timing (e.g., 8991206ms duration with 0.33 packets/sec)  \n    - PSH flag dominance without ACK/SYN  \n\n- **SMB Protocol Activity**:  \n  - Internal flow `192.168.10.15:55583 → 192.168.10.3:445` (SMB port) showed:  \n    - Low throughput (4.75 packets/sec over 3 hours)  \n    - Irregular timing patterns (score: 2)  \n\n#### 3. **DNS Server Activity**  \n- The DNS server `192.168.10.3:53` handled 626 UDP flows, all classified as:  \n  - **Normal behavior** with low threat levels  \n  - Short durations (<300ms) and small payloads (<500 bytes)  \n  - No observed DNS tunneling or large query patterns  \n\n#### 4. **Lateral Movement Indicators**  \n- Internal endpoint `192.168.10.8` showed:  \n  - 14 distinct anomalous flows to external web servers  \n  - Protocol 6 connections with mismatched port usage (e.g., `52610 → 443`)  \n  - MEDIUM-threat flows with sustained durations (>1 day)  \n\n### Recommended Investigation Steps  \n1. **Prioritize `192.168.10.12`**: Investigate its simultaneous high-threat HTTPS connections to multiple external IPs.  \n2. **Analyze PSH Flag Dominance**: Review flows with PSH=1 patterns for potential data extrusion.  \n3. **Verify SMB Activity**: Inspect `192.168.10.3:445` interactions for possible credential dumping/lateral movement.  \n4. **Baseline Comparison**: Compare anomalous Protocol 6 flows to normal web traffic patterns in the environment.  \n\n---\n\n**References**  \n1. [KG] ./AppDbStore/Thursday--Infilteration (Flow IDs 24-35, 41-45)  \n2. [KG] unknown_source (Entities 15-19, 52-53)  \n3. [KG] unknown_source (Relationships 41-50)  \n4. [KG] unknown_source (Entity 55 - SMB port activity)  \n5. [KG] unknown_source (Relationship 37 - Internal SMB flow)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about the graph in terms of threatHunting invistigation"
+    },
+    "ce8ee480a1cfcd39ac4852609a14c82b": {
+      "return": "{\"high_level_keywords\": [\"Community groups\", \"Graph\", \"Network analysis\"], \"low_level_keywords\": [\"Data visualization\", \"Social networks\", \"Node clusters\", \"Modularity\", \"Graph theory\", \"Algorithms\", \"Community detection\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me the community groups in the graph"
+    },
+    "56de436dd15d2f141e2e41326ebe8655": {
+      "return": "Based on the network analysis from the Knowledge Base, we can identify 3 distinct community groups showing different interaction patterns:\n\n### 1. DNS Query Group\n**Core Member**:  \n- DNS Server 192.168.10.3:53 (handled 63 network flows)\n\n**Associated Endpoints**:  \n- 192.168.10.17 (multiple ports: 55769, 55785, 55975)  \n- 192.168.10.14:53279  \n\n**Characteristics**:  \n- UDP protocol (17) communications  \n- Low threat level (LOW)  \n- Typical DNS resolution patterns with short durations (188ms-83s)  \n\n---\n\n### 2. Web Service Cluster\n**Key Servers**:  \n- 199.244.48.55:443 (multiple high-volume connections)  \n- 121.29.54.141:443  \n- 185.86.137.17:443  \n\n**Client Endpoints**:  \n- 192.168.10.16 (34+ ports including 42098, 42094, 42092)  \n- 192.168.10.25 (ports 53524-53528)  \n- 192.168.10.5 (ports 55039-55180)  \n\n**Characteristics**:  \n- TCP protocol (6) communications  \n- Medium threat level alerts on 199.244.48.55 flows  \n- Suspicious patterns: High packet size variance in 192.168.10.16 communications  \n\n---\n\n### 3. Anomalous Activity Group\n**Notable Members**:  \n- 192.168.10.16:42078 (2 flows to 199.244.48.55:443)  \n- 192.168.10.17:45231 (anomalous endpoint)  \n- 192.168.10.3:3268 (uncommon port usage)  \n\n**Characteristics**:  \n- Marked as \"anomalous\" in entity descriptions  \n- FIN/RST flag usage in some flows  \n- High bandwidth patterns (e.g., 2226463.82 bytes/sec)  \n\n---\n\n**References**  \n[KG] unknown_source (DNS Server relationships)  \n[KG] unknown_source (Web Server cluster flows)  \n[KG] unknown_source (Anomalous activity patterns)  \n[KG] unknown_source (High variance packet analysis)  \n[KG] unknown_source (Protocol-specific behavior logs)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me the community groups in the graph"
+    },
+    "e0cb5d05fdfa91850ef385e50ef27128": {
+      "return": "{\"high_level_keywords\": [\"Graph analysis\", \"Community group quantification\", \"Data visualization interpretation\"], \"low_level_keywords\": [\"Community groups\", \"Graph\", \"Number of groups\", \"Visual data\", \"Statistical count\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many community groups do you see in the graph ?"
+    },
+    "b6e9e32b3a1273b96f12e95f6e4c7524": {
+      "return": "The Knowledge Base provided does not contain explicit information about community group detection or clustering analysis within the network graph. While the data includes numerous network endpoints and their connections, there is no indication of:\n\n1. Community detection algorithms applied (e.g., Louvain, Girvan-Newman)\n2. Modularity scores\n3. Group/cluster identifiers\n4. Intra-community vs inter-community relationship analysis\n\nThe available information focuses on individual network flows and endpoint characteristics rather than graph community structures. To determine community groups, additional analysis would be required using graph theory techniques not present in the provided data.\n\nReferences:  \n[KG] unknown_source (Entities)  \n[KG] unknown_source (Relationships)  \n[DC] ./AppDbStore/Thursday--Infilteration (Sources)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many community groups do you see in the graph ?"
+    },
+    "ceb1db7c834f5769f4a3feb7ff4d91f4": {
+      "return": "{\"high_level_keywords\": [\"Community groups\", \"Graph analysis\", \"Quantitative analysis\"], \"low_level_keywords\": [\"Number of groups\", \"Graph visualization\", \"Network structure\", \"Data points\", \"Count\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many community groups do you see in the graph"
+    },
+    "1888001afaba8cfc456df2cf104d38f4": {
+      "return": "The Knowledge Base provided does not contain explicit information about community group detection or clustering analysis in the network graph. The data focuses on individual network endpoints, web servers, and their pairwise connections through network flows, but does not include any:  \n1. Community detection metrics (modularity scores, clustering coefficients)\n2. Grouping algorithms applied\n3. Cluster identifiers or labels\n4. Intra-cluster vs inter-cluster relationship analysis\n\nThe relationships shown represent direct connections between specific endpoints rather than community groupings. Many internal endpoints (192.168.x.x) connect to common external web servers (like 199.244.48.55:443), but without graph topology analysis we cannot determine if these form distinct communities.\n\n**References**  \n[KG] unknown_source (Relationships 1-16)  \n[KG] unknown_source (Relationships 27-32)  \n[KG] unknown_source (Relationships 46-47)  \n[KG] unknown_source (Relationships 50-53)  \n[KG] unknown_source (Entity 2)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many community groups do you see in the graph"
+    },
+    "b98c5fd0514ef3dfad0ef6be799b7cf0": {
+      "return": "{\"high_level_keywords\": [\"Community groups\", \"Graph analysis\", \"Data quantification\"], \"low_level_keywords\": [\"Count\", \"Graph structure\", \"Network data\", \"Statistical measurement\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many community groups in the graph"
+    },
+    "c5152e4d1dbd97e1acc03e80ee0d51f9": {
+      "return": "The knowledge base provided does not contain explicit information about community groups within the network graph. The data focuses on individual network endpoints, services, and their relationships through network flows, but does not include any clustering analysis, community detection results, or grouping classifications.\n\nKey observations:\n1. Entities are listed as standalone network endpoints and servers\n2. Relationships describe specific TCP/UDP flows between endpoints\n3. No community identifiers, cluster labels, or grouping metadata are present in either entities or relationships\n\nWithout explicit community group annotations or algorithmic clustering results in the provided data, we cannot determine the number of community groups in the graph.\n\nReferences:  \n[KG] unknown_source (Entity definitions and relationships)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many community groups in the graph"
+    },
     "0659de87aab32a55d68daac52a3521da": {
-      "return": "{\"high_level_keywords\": [\"Community groups\", \"Quantitative analysis\", \"Graph data\"], \"low_level_keywords\": [\"Number of groups\", \"Graph structure\", \"Network analysis\", \"Nodes\", \"Edges\"]}",
+      "return": "{\"high_level_keywords\": [\"Community groups\", \"Quantitative analysis\", \"Graph data\"], \"low_level_keywords\": [\"Graph\", \"Count\", \"Community detection\", \"Network structure\", \"Nodes\"]}",
       "cache_type": "keywords",
       "embedding": null,
       "embedding_shape": null,
@@ -10,13 +246,175 @@
       "original_prompt": "how many community groups in the graph ?"
     },
     "1a8b9a2ce5b75a93a0d108287ece2d83": {
-      "return": "The Knowledge Base provided does not contain explicit information about community groups within the network graph. The data focuses on individual network endpoints, their relationships, and flow analyses, but does not mention community detection algorithms, clustering results, or group classifications.\n\nKey observations:\n1. Entities are described as standalone network endpoints (IP:port combinations)\n2. Relationships document specific communication flows between endpoints\n3. No attributes or metadata indicate group/cluster affiliations\n4. No community detection analysis results are included in the sources\n\nWithout explicit community group identifiers or clustering metadata in the provided data, this information cannot be determined from the available Knowledge Base.\n\nReferences:  \n[KG] unknown_source  \n[KG] ./AppDbStore/Friday-PortScan",
+      "return": "The Knowledge Base provided does not contain explicit information about \"community groups\" in the network graph. The available data focuses on individual network endpoints, web servers, and their relationships through network flows, but does not mention or define any community group structures or clustering within the network.\n\nReferences:  \n[KG] unknown_source (Entities)  \n[KG] unknown_source (Relationships)  \n[KG] ./AppDbStore/Thursday--Infilteration (Sources)",
       "cache_type": "query",
       "embedding": null,
       "embedding_shape": null,
       "embedding_min": null,
       "embedding_max": null,
       "original_prompt": "how many community groups in the graph ?"
+    },
+    "f4d5a7589b7f299ca3644a0ca96f900f": {
+      "return": "{\"high_level_keywords\": [\"Graph\", \"Visualization\", \"Data interpretation\"], \"low_level_keywords\": [\"Charts\", \"Tables\", \"Numbers\", \"Variables\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what do you think about the graph ?"
+    },
+    "8878de1ca01c73090e52e7783ff51885": {
+      "return": "As an AI language model, I don't have feelings or opinions. However, I can suggest some possible points to consider when evaluating a graph:\n\n1. Accuracy: Is the data accurately represented in the graph? Are any values missing or incorrect?\n\n2. Clarity: Is it easy to understand what each part of the graph represents? Is there enough space for labels and axis titles that clearly describe what is being shown?\n\n3. Consistency: Does the graph have consistent units, scales, and colors used across different parts of the chart?\n\n4. Purpose: What is the purpose of the graph? Does it accurately convey the message intended by the author or presenter?\n\n5. Bias: Is there any possible bias in how data has been collected or presented that might affect the reader's interpretation of the graph?",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what do you think about the graph ?"
+    },
+    "7c33dc959e62725df41b77c58b25541e": {
+      "return": "{\"high_level_keywords\": [\"kg\", \"data generation\"], \"low_level_keywords\": [\"kilograms\", \"generated data\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see the kg that was generated ?"
+    },
+    "3b4a0c290b8391dc1292e42fe24a660e": {
+      "return": "As an AI language model, I don't have access to information about your specific conversation or context. If you'd like me to describe what a kg might look like in general terms, please let me know and I'll do my best to provide some insights based on common knowledge.",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see the kg that was generated ?"
+    },
+    "786dd9f3707f062b85113fb622e7e4be": {
+      "return": "{\"high_level_keywords\": [\"Graph\", \"Data visualization\"], \"low_level_keywords\": [\"Nodes and edges\", \"Visualization tools\", \"Network analysis\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "can you describe me the graph ?"
+    },
+    "875cc6584a0fd36a5c0f9b93854f27fc": {
+      "return": "Sure! I'd be happy to help you with describing a graph. Can you provide more details about what kind of graph it is or what information it contains? For example, are we talking about a bar chart, line graph, scatter plot, or something else entirely? Knowing this will allow me to give a more accurate description.",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "can you describe me the graph ?"
+    },
+    "33d2749172206295957ef296393f24f2": {
+      "return": "{\"high_level_keywords\": [\"Graph\", \"Data visualization\"], \"low_level_keywords\": [\"Nodes and edges\", \"Network analysis\", \"Visualization tools\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about the graph"
+    },
+    "f17bb53119da0c0666da38e6a3c1a908": {
+      "return": "Sure, I'd be happy to help with any questions you have about graphs! Please provide more details or ask specific questions so that I can give you accurate and helpful information.",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about the graph"
+    },
+    "3022048eecc404ba57231f857dd3e697": {
+      "return": "{\"high_level_keywords\": [\"Graph\", \"Data visualization\", \"Information presentation\", \"Graph analysis\"], \"low_level_keywords\": [\"Chart types\", \"Data points\", \"Axes labels\", \"Trends\", \"Visual representation\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about the graph ?"
+    },
+    "acccfaaa12f9e8ac6d3c8f60c754c175": {
+      "return": "### Network Graph Analysis Summary\n\n#### 1. **Key Entities**\n- **Core Components**: Contains 95 entities including:\n  - 72 Network Endpoints (e.g., 192.168.10.16:42170/6)\n  - 7 Web Servers (e.g., 199.244.48.55:443/6 with 272 observed flows)\n  - 1 DNS Server (192.168.10.3:53/17 handling 63 UDP flows)\n- **Protocol Distribution**: TCP (Protocol 6) dominates web traffic, UDP (Protocol 17) used for DNS/NTP\n- **Anomalous Nodes**: \n  - Web Server 199.244.48.55:443/6 (272 flows, marked anomalous)\n  - Network Endpoint 192.168.10.17:57764/6 (anomalous behavior)\n\n#### 2. **Communication Patterns**\n- **High-Volume Flows**:\n  - 192.168.10.16 ↔ 199.244.48.55: 58 packets/23.5MB over 23 seconds\n  - Multiple endpoints connecting to DNS server 192.168.10.3:53 via UDP\n- **Suspicious Patterns**:\n  - Zero-byte transfers between 192.168.10.25 and 121.29.54.141:443\n  - High SYN packets without completion in web server communications\n\n#### 3. **Behavior Analysis**\n- **Normal Operations**:\n  - DNS resolution traffic (192.168.10.3:53 handling 63 flows)\n  - NTP synchronization (123/UDP port usage)\n- **Anomalous Activities**:\n  - Irregular timing patterns in 192.168.10.25 ↔ 17.253.14.125:123 UDP flow\n  - High bandwidth flows (>2MB/sec) flagged for potential data exfiltration\n\n#### 4. **Threat Landscape**\n- **Risk Profile**:\n  - 93% of flows marked LOW threat\n  - 7 anomalous flows (4.6% of total) with medium confidence scores\n- **Key Vulnerabilities**:\n  - Unencrypted HTTP traffic to 23.21.56.196:80\n  - Repeated connection attempts to 31.13.71.7:443 (Facebook IP space)\n\n#### 5. **Temporal Characteristics**\n- Flow durations range from 1ms to 63021 seconds\n- 68% of flows under 1 minute duration\n- Longest sustained connection: 17.5 hours (192.168.10.25 ↔ 17.253.14.125:123)\n\n### References\n1. [KG] unknown_source (Entities)  \n2. [KG] unknown_source (Relationships)  \n3. [KG] ./AppDbStore/Friday--DDos (Flow Analysis 1-40)  \n4. [KG] ./AppDbStore/Friday--DDos (NTP Anomaly)  \n5. [KG] ./AppDbStore/Friday--DDos (DNS Patterns)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about the graph ?"
+    },
+    "08d7c7e18167842c331ef562a14acded": {
+      "return": "{\"high_level_keywords\": [\"Interpersonal relationships\", \"Social dynamics\", \"Contextual significance\"], \"low_level_keywords\": [\"Family bonds\", \"Romantic partnerships\", \"Friendship\", \"Workplace alliances\", \"Diplomatic ties\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see any special relationships ?"
+    },
+    "0e10613837e3c00e47aa9cca111b2ab2": {
+      "return": "### Special Relationships Identified\n\n#### 1. Anomalous Network Flows with Medium Threat  \n- **192.168.10.19:38355/6 → 172.217.10.238:80/6** (Relationship 2):  \n  Displays irregular timing patterns over an extremely long duration (116,038 seconds) with medium threat level.  \n- **192.168.10.16:50350/6 → 172.217.10.238:443/6** (Relationship 3):  \n  Shows irregular timing and SYN-ACK flag mismatches over 101,027 seconds.  \n- **192.168.10.14:57700/6 → 104.97.114.112:80/6** (Relationship 19) and **192.168.10.14:57701/6 → 104.97.114.112:80/6** (Relationship 21):  \n  Both exhibit irregular timing with PSH flags and medium threat levels.  \n\n#### 2. High-Volume Data Transfers  \n- **172.217.10.238:443/6 → 192.168.10.8:9175/6** (Relationship 8):  \n  Extremely high throughput (4,000,000 bytes/sec) over 3ms, though classified as low threat.  \n- **104.97.125.160:443/6 → 192.168.10.5:55144/6** (Relationship 9):  \n  Transfers 37 bytes at 37,000,000 bytes/sec.  \n\n#### 3. DNS Query Patterns  \n- **192.168.10.17 → 192.168.10.3:53/17** (Relationships 1, 30–41):  \n  Repeated DNS queries from multiple source ports (1945, 45041, 19340, etc.) with high throughput (up to 1.1M bytes/sec). All marked normal but frequent.  \n\n#### 4. NTP Communications  \n- **192.168.10.17:123/17 ↔ External NTP Servers** (Relationships 52–54):  \n  Bidirectional NTP traffic with 91.189.89.199, 91.189.91.157, and 171.66.97.126. Low threat but notable for time synchronization.  \n\n### References  \n1. [KG] Relationships 2, 3, 19, 21, 29 (unknown_source)  \n2. [KG] Relationships 8, 9 (unknown_source)  \n3. [KG] Relationships 1, 30–41 (unknown_source)  \n4. [KG] Relationships 52–54 (unknown_source)  \n5. [DC] Sources 2, 3, 19, 21 (./AppDbStore/Friday--DDos)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see any special relationships ?"
+    },
+    "589e9d86fe496c9105bd2cf840c8915c": {
+      "return": "{\"high_level_keywords\": [\"Community groups\", \"Data analysis\", \"Graph visualization\"], \"low_level_keywords\": [\"Count\", \"Graph data\", \"Network structure\", \"Node clusters\", \"Group identification\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many community groups do see in the graph ?"
+    },
+    "a1f28067510bda4fd0e30388b65c15b6": {
+      "return": "The Knowledge Base provided does not contain explicit information about community group detection or clustering analysis within the network graph. The available data focuses on:\n\n1. **Individual network endpoints** (88 entities)\n2. **DNS server interactions** (27 relationships)\n3. **Web server communications** (29 relationships)\n4. **Flow characteristics** including protocol, duration, and threat levels\n\nThere is no indication of:\n- Community detection algorithms being applied\n- Modularity analysis\n- Group/cluster identifiers\n- Node clustering metrics\n\nThe relationships primarily show direct communication patterns rather than community structures. For community group analysis, additional graph computation would be required using metrics like betweenness centrality, modularity classes, or other clustering techniques not present in the provided data.\n\nReferences:  \n[KG] unknown_source (Entities)  \n[KG] unknown_source (Relationships)  \n[DC] ./AppDbStore/Friday--DDos (Sources)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many community groups do see in the graph ?"
+    },
+    "84804517cb827a0b0bb1eef1f1a7786a": {
+      "return": "{\"high_level_keywords\": [\"Internal IPs\", \"Graph\", \"Network structure\"], \"low_level_keywords\": [\"IP addresses\", \"Count\", \"Network graph\", \"Internal network\", \"IP allocation\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many internals ips are in the graph ?"
+    },
+    "86e12f470878c465e30ca06753a30d8b": {
+      "return": "Based on the analysis of entities in the Knowledge Base:\n\n**Internal IP Addresses (10 unique):**  \n1. 192.168.10.1  \n2. 192.168.10.3  \n3. 192.168.10.5  \n4. 192.168.10.9  \n5. 192.168.10.12  \n6. 192.168.10.14  \n7. 192.168.10.16  \n8. 192.168.10.17  \n9. 192.168.10.19  \n10. 192.168.10.25  \n\nThese IPs belong to the private range `192.168.0.0/16` and represent internal network endpoints, DNS servers, and other infrastructure. Public/external IPs (e.g., 199.244.48.55, 121.29.54.141) are excluded from this count.\n\n---\n\n**References**  \n[KG] unknown_source (Entities CSV)  \n[KG] unknown_source (Relationships CSV)  \n[DC] ./AppDbStore/Friday--DDos (Flow Analysis Sources)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many internals ips are in the graph ?"
+    },
+    "8520b20f59221210fd11bd3a10a992f4": {
+      "return": "{\"high_level_keywords\": [\"Graph analysis\", \"Special relationships\", \"Data patterns\"], \"low_level_keywords\": [\"Graph visualization\", \"Correlations\", \"Nodes\", \"Edges\", \"Clusters\", \"Trend lines\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see any special relationships in the graph ?"
+    },
+    "427e722db888bffebdecb0ea1dee4dc6": {
+      "return": "### Special Relationships Analysis\n\n#### 1. **DNS Server Communications**  \nMultiple endpoints (192.168.10.19, 192.168.10.25) exhibit repeated DNS queries to the internal DNS server (192.168.10.3:53/17). These flows are marked as normal but show high bandwidth usage (1.3–2.6 MB/sec) and bidirectional packet exchanges, typical of DNS resolution.  \n\n#### 2. **Anomalous LDAP Activity**  \n- **192.168.10.25:52396/6 → 192.168.10.3:389/6**: A TCP flow to an LDAP server with irregular timing patterns over an extremely long duration (~15 hours). Marked as \"normal\" but flagged for suspicious timing.  \n- **192.168.10.5:52381/6 → 192.168.10.3:389/6**: Asymmetric traffic (4.1 KB sent vs. 1 KB received), suggesting potential data transfer or misconfigured authentication attempts.  \n\n#### 3. **External NTP Server Interactions**  \n**192.168.10.17:123/17** communicates with multiple external NTP servers (e.g., 144.217.164.10, 91.189.89.199, 206.108.0.131). These flows are low-threat but involve geographically diverse servers, which may indicate time synchronization across distributed systems.  \n\n#### 4. **Suspicious Broadcast Traffic**  \n- **192.168.10.16:137/17 → 192.168.10.255:137/17**: High-volume NetBIOS broadcasts (650 bytes in 22ms) typical for local network discovery but flagged for \"high_bandwidth.\"  \n- Similar broadcasts observed from 192.168.10.5, 192.168.10.14, and 192.168.10.50.  \n\n#### 5. **External Web Server Connections**  \n- **192.168.10.8:5001/6 → 205.174.165.73:8080/6**: Outbound TCP traffic to a web server (port 8080) with minimal data transfer (18 bytes received). Behavior is normal but warrants monitoring due to external connectivity.  \n\n### References  \n1. [KG] Relationships 25, 47 (LDAP anomalies)  \n2. [KG] Relationships 1-21, 28 (DNS queries)  \n3. [KG] Relationships 30-40, 58 (NTP interactions)  \n4. [KG] Relationships 23, 45-46, 52-54 (NetBIOS broadcasts)  \n5. [KG] Relationships 42-44 (External web server traffic)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see any special relationships in the graph ?"
     }
   }
 }

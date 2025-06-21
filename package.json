@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@types/force-graph": "^1.21.2",
-    "force-graph": "^1.49.6",
-    "react-force-graph": "^1.47.7"
-  }
-}
