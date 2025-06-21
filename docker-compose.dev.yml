@@ -4,6 +4,8 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile.dev
+    env_file:
+      - ./.env
     ports:
       - "8000:8000"
     volumes:
@@ -19,7 +21,6 @@ services:
       - PYTHONPATH=/app
       - PYTHONUNBUFFERED=1
       - WATCHDOG_TIMEOUT=1
-      - OPENROUTER_API_KEY=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
     restart: unless-stopped
 
   # React Frontend with hot reload
