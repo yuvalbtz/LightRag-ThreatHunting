@@ -316,7 +316,7 @@ export const ChatContainer = () => {
             <div className={`flex-1 overflow-y-auto p-4 space-y-4 transition-colors duration-200 z-10`}>
                 {!state.graphData && (
                     <div className={`text-center p-2 mb-2 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} text-sm`}>
-                        Please upload a file to enable chat functionality
+                        Please Select a Graph Folder or upload a file to enable chat functionality
                     </div>
                 )}
                 {messages.map((message, index) => (

@@ -7,8 +7,11 @@ services:
     volumes:
       - ./AppDbStore:/app/AppDbStore
       - ./custom_kg:/app/custom_kg
+    env_file:
+      - .env
     environment:
       - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
     restart: unless-stopped
     # healthcheck:
     #   test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
@@ -19,12 +22,16 @@ services:
 
   # React Frontend
   frontend:
-    build: ./threadHunterUI
+    build: 
+      context: ./threadHunterUI
+      dockerfile: Dockerfile
     ports:
-      - "3000:80"
+      - "80:80"
     depends_on:
       - backend
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
       - REACT_APP_API_URL=http://localhost:8000
 

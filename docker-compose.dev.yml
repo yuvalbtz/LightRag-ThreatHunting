@@ -4,8 +4,6 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile.dev
-    env_file:
-      - ./.env
     ports:
       - "8000:8000"
     volumes:
@@ -17,6 +15,8 @@ services:
       - ./lib:/app/lib
       - ./tests:/app/tests
       - ./examples:/app/examples
+    env_file:
+      - .env
     environment:
       - PYTHONPATH=/app
       - PYTHONUNBUFFERED=1
@@ -42,6 +42,8 @@ services:
     depends_on:
       - backend
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
       - REACT_APP_API_URL=http://localhost:8000
       - CHOKIDAR_USEPOLLING=true

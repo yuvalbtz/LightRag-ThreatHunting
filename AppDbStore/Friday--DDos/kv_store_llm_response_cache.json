@@ -397,6 +397,24 @@
       "embedding_min": null,
       "embedding_max": null,
       "original_prompt": "how many internals ips are in the graph ?"
+    },
+    "ab6ec2fbae0d2ecfc4e89169f022ac5f": {
+      "return": "{\"high_level_keywords\": [\"Graph analysis\", \"Data interpretation\", \"Visual representation\"], \"low_level_keywords\": [\"Data trends\", \"Chart types\", \"Statistical data\", \"Graph axes\", \"Data visualization\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me your thoghts about this graph"
+    },
+    "4d419ecb560dfe3855244f05573d8dba": {
+      "return": "### Analysis of Network Knowledge Graph\n\n#### 1. **Key Observations**\n- **Anomalous Web Server Activity**: The endpoint 199.244.48.55:443/6 (Web Server) stands out with 272 observed flows and \"anomalous\" behavior. Multiple internal endpoints (e.g., 192.168.10.16, 192.168.10.17) connect to it with medium threat levels and high packet size variance, suggesting potential suspicious activity like data exfiltration or DDoS patterns [KG].  \n- **DNS Server Utilization**: 192.168.10.3:53/17 (DNS Server) shows 63 normal flows, primarily handling UDP-based DNS queries from internal endpoints (e.g., 192.168.10.17). This aligns with expected network behavior.  \n- **NTP Traffic**: Multiple endpoints (e.g., 192.168.10.17:123/17) communicate with external NTP servers (e.g., 91.189.91.157:123) via UDP, likely for time synchronization—a normal but security-sensitive activity.  \n\n#### 2. **Traffic Patterns**\n- **High-Volume HTTP/HTTPS Flows**:  \n  - 31.13.71.7:443/6 (Facebook-owned IP) and 185.86.137.17:443/6 show moderate traffic with anomalous flags, suggesting potential unauthorized access or encrypted data transfers.  \n  - Repeated connections to 199.59.88.242:443/6 (Twitter-owned IP) from 192.168.10.17:42105/6 with zero-byte transfers may indicate heartbeat signals or failed authentication attempts.  \n- **Low-Impact Flows**: Short-lived TCP sessions (e.g., 192.168.10.16:50094 → 23.21.56.196:80) with minimal data transfer suggest routine web requests.  \n\n#### 3. **Threat Indicators**\n- **Suspicious Medium-Threat Flows**:  \n  - 28 relationships to 199.244.48.55:443/6 exhibit \"high_packet_size_variance\" (e.g., 192.168.10.16:42050 → 199.244.48.55:443), which could indicate obfuscated payloads or irregular communication patterns.  \n  - Protocol 6 (TCP) dominates anomalous flows, while UDP flows (e.g., DNS/NTP) remain normal.  \n- **Internal Anomalies**: 192.168.10.3:445/6 (SMB) and 192.168.10.3:389/6 (LDAP) show single anomalous flows—critical to investigate for potential lateral movement.  \n\n#### 4. **Recommendations**\n1. Investigate 199.244.48.55:443/6 for potential C2 server activity.  \n2. Audit DNS logs for 192.168.10.3:53/17 to rule out DNS tunneling.  \n3. Monitor NTP traffic for protocol abuse (e.g., amplification attacks).  \n4. Inspect SMB/LDAP endpoints (192.168.10.3) for unauthorized access.  \n\n---\n\n### References  \n1. [KG] Entity: 199.244.48.55:443/6 (./AppDbStore/Friday--DDos)  \n2. [KG] Relationship: 192.168.10.16:42050 → 199.244.48.55:443 (./AppDbStore/Friday--DDos)  \n3. [KG] Entity: 192.168.10.3:53/17 (unknown_source)  \n4. [KG] Relationship: 192.168.10.17:123 → 91.189.91.157:123 (./AppDbStore/Friday--DDos)  \n5. [KG] Entity: 31.13.71.7:443/6 (unknown_source)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me your thoghts about this graph"
     }
   }
 }

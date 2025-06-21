@@ -152,7 +152,7 @@ The ThreatHunting platform follows a modern microservices architecture with the 
 
 ### Environment Configuration
 
-The system supports multiple environment configurations:
+The system supports multiple environment configurations through `.env` files:
 
 #### Development Environment
 ```bash
@@ -163,15 +163,86 @@ cp env.example .env
 nano .env
 ```
 
-#### Key Environment Variables
+#### Production Environment
+```bash
+# Copy and customize for production
+cp env.example .env.prod
 
+# Edit production configuration
+nano .env.prod
+
+# Use production environment
+docker-compose -f docker-compose.prod.yml --env-file .env.prod up -d
+```
+
+#### Environment Variables Reference
+
+| Category | Variable | Description | Default |
+|----------|----------|-------------|---------|
+| **API Configuration** | `OPENROUTER_API_KEY` | OpenRouter API key for LLM access | Required |
+| | `OPENAI_API_KEY` | OpenAI API key (alternative) | Optional |
+| | `ANTHROPIC_API_KEY` | Anthropic API key (alternative) | Optional |
+| **Database** | `DATABASE_URL` | Database connection string | `sqlite:///./AppDbStore/threathunting.db` |
+| | `REDIS_URL` | Redis connection string | `redis://localhost:6379` |
+| **Security** | `SECRET_KEY` | Application secret key | Required |
+| | `JWT_SECRET_KEY` | JWT signing key | Required |
+| **Application** | `DEBUG` | Debug mode | `true` |
+| | `LOG_LEVEL` | Logging level | `INFO` |
+| | `ENVIRONMENT` | Environment name | `development` |
+| **Frontend** | `REACT_APP_API_URL` | Backend API URL | `http://localhost:8000` |
+| | `REACT_APP_ENVIRONMENT` | Frontend environment | `development` |
+| **Knowledge Graph** | `KG_STORAGE_PATH` | KG storage directory | `./custom_kg` |
+| | `KG_CACHE_ENABLED` | Enable KG caching | `true` |
+| **File Upload** | `MAX_FILE_SIZE` | Max file size in bytes | `104857600` (100MB) |
+| | `ALLOWED_FILE_TYPES` | Allowed file extensions | `.csv,.json,.txt,.log,.pcap` |
+| **Rate Limiting** | `RATE_LIMIT_REQUESTS` | Requests per window | `100` |
+| | `RATE_LIMIT_WINDOW` | Rate limit window in seconds | `3600` |
+| **Monitoring** | `ENABLE_METRICS` | Enable metrics collection | `true` |
+| | `METRICS_PORT` | Metrics server port | `9090` |
+
+#### LLM Configuration
 | Variable | Description | Default |
 |----------|-------------|---------|
 | `LLM_BINDING` | LLM provider (ollama/deepseek) | `ollama` |
 | `LLM_MODEL` | Model name | `mistral:latest` |
 | `EMBEDDING_MODEL` | Embedding model | `bge-m3:latest` |
 | `WORKING_DIR` | Data storage directory | `/app` |
-| `LOG_LEVEL` | Logging level | `INFO` |
+
+#### Security Best Practices
+
+1. **Never commit `.env` files to version control**
+   ```bash
+   # .gitignore should include:
+   .env
+   .env.local
+   .env.prod
+   ```
+
+2. **Use strong, unique secrets**
+   ```bash
+   # Generate secure secrets
+   openssl rand -hex 32  # For SECRET_KEY
+   openssl rand -hex 32  # For JWT_SECRET_KEY
+   ```
+
+3. **Environment-specific configurations**
+   ```bash
+   # Development
+   cp env.example .env
+   
+   # Production
+   cp env.example .env.prod
+   # Edit with production values
+   ```
+
+4. **Docker Compose with environment files**
+   ```bash
+   # Development
+   docker-compose -f docker-compose.dev.yml --env-file .env up
+   
+   # Production
+   docker-compose -f docker-compose.prod.yml --env-file .env.prod up -d
+   ```
 
 ---
 
