@@ -55,3 +55,11 @@ export interface GraphData {
 export interface GraphFoldersNamesResponse {
   folders: string[];
 }
+
+
+export interface MTAPlayBook {
+  sample_url: string;
+  malware_name: string | string[];
+  hunt_goal: string;
+  generated_prompt: string
+}

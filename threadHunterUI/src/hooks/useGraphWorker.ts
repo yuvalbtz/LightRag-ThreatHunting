@@ -336,14 +336,18 @@ export function useGraphWorker() {
             },
             physics: {
                 stabilization: {
-                    iterations: 300,
+                    iterations: 400,
                     updateInterval: 25,
-                    fit: true
+                    fit: true,
+                    onlyDynamicEdges: false,
                 },
                 barnesHut: {
                     gravitationalConstant: -2000,
-                    springLength: 200
-                }
+                    avoidOverlap: 0,
+                },
+
+                maxVelocity: 30,     // Lower max to reduce chaotic movements
+                minVelocity: 0.75,   // Stop movement earlier
             },
             interaction: {
                 hover: true,
@@ -372,8 +376,25 @@ export function useGraphWorker() {
             const progress = Math.min(100, Math.round((params.iterations / params.total) * 100));
             updateState({ stabilizationProgress: progress });
         });
+        let isNodeBeingDragged = false;
+        let draggedNodeId = null;
+        network.on("dragStart", (params) => {
+            if (params.nodes.length > 0) {
+                // Enable physics while dragging a node
+                isNodeBeingDragged = true;
+                draggedNodeId = params.nodes[0];
+                network.setOptions({ physics: { enabled: true } });
+            }
+        });
+        network.on("dragEnd", (params) => {
+            if (isNodeBeingDragged) {
+                isNodeBeingDragged = false;
+                draggedNodeId = null;
 
-
+                // Disable physics after dragging
+                network.setOptions({ physics: { enabled: false } });
+            }
+        });
         network.once('stabilizationIterationsDone', () => {
             updateState({ stabilizationProgress: 100, isRendering: false });
             const clusterOptions = {
@@ -397,6 +418,11 @@ export function useGraphWorker() {
             };
 
             network.cluster(clusterOptions);
+            network.setOptions({
+                physics: {
+                    enabled: false
+                }
+            });
         });
 
         network.on('click', (params) => {

@@ -426,13 +426,31 @@
       "original_prompt": "how many ips are using port 80 (http) ?"
     },
     "997c1c98e29fbf11814df22a5c4a7cfb": {
-      "return": "### IP Addresses Using Port 80 (HTTP)\n\nBased on the provided Knowledge Base, **3 unique IP addresses** are using port 80 (HTTP):\n\n1. **104.90.88.218:80/6**  \n   - Type: Web Server  \n   - Behavior: Anomalous  \n\n2. **23.194.142.54:80/6**  \n   - Type: Web Server  \n   - Behavior: Anomalous  \n\n3. **23.195.253.105:80/6**  \n   - Type: Web Server  \n   - Behavior: Anomalous  \n\nThese entries are explicitly identified as web servers with port 80 activity in the Knowledge Base. No other IP-port combinations using HTTP (port 80) are documented in the provided data.\n\n---\n\n### References  \n- [KG] Entity entries 31, 34, 36 in the Knowledge Base  \n- [DC] Flow analysis in `./AppDbStore/Friday-PortScan` (Sources 26, 29, 31)",
+      "return": "### IP Addresses Using Port 80 (HTTP)  \nBased on the provided Knowledge Base:  \n- **1 IP address** is explicitly using port 80:  \n  - `131.253.61.80:80/6` (Web Server, observed in 2 network flows, TCP protocol).  \n\nNo other IP addresses in the dataset are associated with port 80.  \n\n---\n**References**  \n- [KG] Entity ID 27: `131.253.61.80:80/6` (Source: `unknown_source`)",
       "cache_type": "query",
       "embedding": null,
       "embedding_shape": null,
       "embedding_min": null,
       "embedding_max": null,
       "original_prompt": "how many ips are using port 80 (http) ?"
+    },
+    "65541b2d7a1c27129b006e5fbadd8db0": {
+      "return": "{\"high_level_keywords\": [\"Network usage\", \"Port analysis\", \"Internet protocols\"], \"low_level_keywords\": [\"IP addresses\", \"Port 443\", \"HTTPS\", \"HTTP\", \"Network monitoring\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many ips are using port 443 (http) ?"
+    },
+    "06f34ad91cfae38fe2282d004c6bf005": {
+      "return": "### IP Addresses Using Port 443 (HTTPS)\n\nBased on the Knowledge Base, **2 distinct IP addresses** are using port 443 (HTTP/HTTPS):\n\n1. **131.253.61.80:443/6**  \n   - Service Type: Web Server  \n   - Protocol: TCP (6)  \n   - Behavior: Normal  \n\n2. **134.170.115.55:443/6**  \n   - Service Type: Web Server  \n   - Protocol: TCP (6)  \n   - Behavior: Anomalous  \n\nBoth are explicitly identified as web servers in the entity descriptions. No other IP-port combinations using port 443 were found in the provided data.\n\n---\n\n#### References  \n- [KG] Entity 26 (131.253.61.80:443/6)  \n- [KG] Entity 27 (134.170.115.55:443/6)  \n- Source: `unknown_source` for both entities",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many ips are using port 443 (http) ?"
     }
   }
 }

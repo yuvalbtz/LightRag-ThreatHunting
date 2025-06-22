@@ -271,6 +271,240 @@
       "embedding_min": null,
       "embedding_max": null,
       "original_prompt": "what do you think about the graph ?"
+    },
+    "7c33dc959e62725df41b77c58b25541e": {
+      "return": "{\"high_level_keywords\": [\"kg\", \"data generation\"], \"low_level_keywords\": [\"kilograms\", \"generated data\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see the kg that was generated ?"
+    },
+    "3b4a0c290b8391dc1292e42fe24a660e": {
+      "return": "As an AI language model, I don't have access to information about your specific conversation or context. If you'd like me to describe what a kg might look like in general terms, please let me know and I'll do my best to provide some insights based on common knowledge.",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see the kg that was generated ?"
+    },
+    "786dd9f3707f062b85113fb622e7e4be": {
+      "return": "{\"high_level_keywords\": [\"Graph\", \"Data visualization\"], \"low_level_keywords\": [\"Nodes and edges\", \"Visualization tools\", \"Network analysis\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "can you describe me the graph ?"
+    },
+    "875cc6584a0fd36a5c0f9b93854f27fc": {
+      "return": "Sure! I'd be happy to help you with describing a graph. Can you provide more details about what kind of graph it is or what information it contains? For example, are we talking about a bar chart, line graph, scatter plot, or something else entirely? Knowing this will allow me to give a more accurate description.",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "can you describe me the graph ?"
+    },
+    "33d2749172206295957ef296393f24f2": {
+      "return": "{\"high_level_keywords\": [\"Graph\", \"Data visualization\"], \"low_level_keywords\": [\"Nodes and edges\", \"Network analysis\", \"Visualization tools\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about the graph"
+    },
+    "f17bb53119da0c0666da38e6a3c1a908": {
+      "return": "Sure, I'd be happy to help with any questions you have about graphs! Please provide more details or ask specific questions so that I can give you accurate and helpful information.",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about the graph"
+    },
+    "3022048eecc404ba57231f857dd3e697": {
+      "return": "{\"high_level_keywords\": [\"Graph\", \"Data visualization\", \"Information presentation\", \"Graph analysis\"], \"low_level_keywords\": [\"Chart types\", \"Data points\", \"Axes labels\", \"Trends\", \"Visual representation\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about the graph ?"
+    },
+    "acccfaaa12f9e8ac6d3c8f60c754c175": {
+      "return": "### Network Graph Analysis Summary\n\n#### 1. **Key Entities**\n- **Core Components**: Contains 95 entities including:\n  - 72 Network Endpoints (e.g., 192.168.10.16:42170/6)\n  - 7 Web Servers (e.g., 199.244.48.55:443/6 with 272 observed flows)\n  - 1 DNS Server (192.168.10.3:53/17 handling 63 UDP flows)\n- **Protocol Distribution**: TCP (Protocol 6) dominates web traffic, UDP (Protocol 17) used for DNS/NTP\n- **Anomalous Nodes**: \n  - Web Server 199.244.48.55:443/6 (272 flows, marked anomalous)\n  - Network Endpoint 192.168.10.17:57764/6 (anomalous behavior)\n\n#### 2. **Communication Patterns**\n- **High-Volume Flows**:\n  - 192.168.10.16 ↔ 199.244.48.55: 58 packets/23.5MB over 23 seconds\n  - Multiple endpoints connecting to DNS server 192.168.10.3:53 via UDP\n- **Suspicious Patterns**:\n  - Zero-byte transfers between 192.168.10.25 and 121.29.54.141:443\n  - High SYN packets without completion in web server communications\n\n#### 3. **Behavior Analysis**\n- **Normal Operations**:\n  - DNS resolution traffic (192.168.10.3:53 handling 63 flows)\n  - NTP synchronization (123/UDP port usage)\n- **Anomalous Activities**:\n  - Irregular timing patterns in 192.168.10.25 ↔ 17.253.14.125:123 UDP flow\n  - High bandwidth flows (>2MB/sec) flagged for potential data exfiltration\n\n#### 4. **Threat Landscape**\n- **Risk Profile**:\n  - 93% of flows marked LOW threat\n  - 7 anomalous flows (4.6% of total) with medium confidence scores\n- **Key Vulnerabilities**:\n  - Unencrypted HTTP traffic to 23.21.56.196:80\n  - Repeated connection attempts to 31.13.71.7:443 (Facebook IP space)\n\n#### 5. **Temporal Characteristics**\n- Flow durations range from 1ms to 63021 seconds\n- 68% of flows under 1 minute duration\n- Longest sustained connection: 17.5 hours (192.168.10.25 ↔ 17.253.14.125:123)\n\n### References\n1. [KG] unknown_source (Entities)  \n2. [KG] unknown_source (Relationships)  \n3. [KG] ./AppDbStore/Friday--DDos (Flow Analysis 1-40)  \n4. [KG] ./AppDbStore/Friday--DDos (NTP Anomaly)  \n5. [KG] ./AppDbStore/Friday--DDos (DNS Patterns)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about the graph ?"
+    },
+    "08d7c7e18167842c331ef562a14acded": {
+      "return": "{\"high_level_keywords\": [\"Interpersonal relationships\", \"Social dynamics\", \"Contextual significance\"], \"low_level_keywords\": [\"Family bonds\", \"Romantic partnerships\", \"Friendship\", \"Workplace alliances\", \"Diplomatic ties\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see any special relationships ?"
+    },
+    "0e10613837e3c00e47aa9cca111b2ab2": {
+      "return": "### Special Relationships Identified\n\n#### 1. Anomalous Network Flows with Medium Threat  \n- **192.168.10.19:38355/6 → 172.217.10.238:80/6** (Relationship 2):  \n  Displays irregular timing patterns over an extremely long duration (116,038 seconds) with medium threat level.  \n- **192.168.10.16:50350/6 → 172.217.10.238:443/6** (Relationship 3):  \n  Shows irregular timing and SYN-ACK flag mismatches over 101,027 seconds.  \n- **192.168.10.14:57700/6 → 104.97.114.112:80/6** (Relationship 19) and **192.168.10.14:57701/6 → 104.97.114.112:80/6** (Relationship 21):  \n  Both exhibit irregular timing with PSH flags and medium threat levels.  \n\n#### 2. High-Volume Data Transfers  \n- **172.217.10.238:443/6 → 192.168.10.8:9175/6** (Relationship 8):  \n  Extremely high throughput (4,000,000 bytes/sec) over 3ms, though classified as low threat.  \n- **104.97.125.160:443/6 → 192.168.10.5:55144/6** (Relationship 9):  \n  Transfers 37 bytes at 37,000,000 bytes/sec.  \n\n#### 3. DNS Query Patterns  \n- **192.168.10.17 → 192.168.10.3:53/17** (Relationships 1, 30–41):  \n  Repeated DNS queries from multiple source ports (1945, 45041, 19340, etc.) with high throughput (up to 1.1M bytes/sec). All marked normal but frequent.  \n\n#### 4. NTP Communications  \n- **192.168.10.17:123/17 ↔ External NTP Servers** (Relationships 52–54):  \n  Bidirectional NTP traffic with 91.189.89.199, 91.189.91.157, and 171.66.97.126. Low threat but notable for time synchronization.  \n\n### References  \n1. [KG] Relationships 2, 3, 19, 21, 29 (unknown_source)  \n2. [KG] Relationships 8, 9 (unknown_source)  \n3. [KG] Relationships 1, 30–41 (unknown_source)  \n4. [KG] Relationships 52–54 (unknown_source)  \n5. [DC] Sources 2, 3, 19, 21 (./AppDbStore/Friday--DDos)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see any special relationships ?"
+    },
+    "589e9d86fe496c9105bd2cf840c8915c": {
+      "return": "{\"high_level_keywords\": [\"Community groups\", \"Data analysis\", \"Graph visualization\"], \"low_level_keywords\": [\"Count\", \"Graph data\", \"Network structure\", \"Node clusters\", \"Group identification\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many community groups do see in the graph ?"
+    },
+    "a1f28067510bda4fd0e30388b65c15b6": {
+      "return": "The Knowledge Base provided does not contain explicit information about community group detection or clustering analysis within the network graph. The available data focuses on:\n\n1. **Individual network endpoints** (88 entities)\n2. **DNS server interactions** (27 relationships)\n3. **Web server communications** (29 relationships)\n4. **Flow characteristics** including protocol, duration, and threat levels\n\nThere is no indication of:\n- Community detection algorithms being applied\n- Modularity analysis\n- Group/cluster identifiers\n- Node clustering metrics\n\nThe relationships primarily show direct communication patterns rather than community structures. For community group analysis, additional graph computation would be required using metrics like betweenness centrality, modularity classes, or other clustering techniques not present in the provided data.\n\nReferences:  \n[KG] unknown_source (Entities)  \n[KG] unknown_source (Relationships)  \n[DC] ./AppDbStore/Friday--DDos (Sources)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many community groups do see in the graph ?"
+    },
+    "84804517cb827a0b0bb1eef1f1a7786a": {
+      "return": "{\"high_level_keywords\": [\"Internal IPs\", \"Graph\", \"Network structure\"], \"low_level_keywords\": [\"IP addresses\", \"Count\", \"Network graph\", \"Internal network\", \"IP allocation\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many internals ips are in the graph ?"
+    },
+    "86e12f470878c465e30ca06753a30d8b": {
+      "return": "Based on the analysis of entities in the Knowledge Base:\n\n**Internal IP Addresses (10 unique):**  \n1. 192.168.10.1  \n2. 192.168.10.3  \n3. 192.168.10.5  \n4. 192.168.10.9  \n5. 192.168.10.12  \n6. 192.168.10.14  \n7. 192.168.10.16  \n8. 192.168.10.17  \n9. 192.168.10.19  \n10. 192.168.10.25  \n\nThese IPs belong to the private range `192.168.0.0/16` and represent internal network endpoints, DNS servers, and other infrastructure. Public/external IPs (e.g., 199.244.48.55, 121.29.54.141) are excluded from this count.\n\n---\n\n**References**  \n[KG] unknown_source (Entities CSV)  \n[KG] unknown_source (Relationships CSV)  \n[DC] ./AppDbStore/Friday--DDos (Flow Analysis Sources)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many internals ips are in the graph ?"
+    },
+    "8520b20f59221210fd11bd3a10a992f4": {
+      "return": "{\"high_level_keywords\": [\"Graph analysis\", \"Special relationships\", \"Data patterns\"], \"low_level_keywords\": [\"Graph visualization\", \"Correlations\", \"Nodes\", \"Edges\", \"Clusters\", \"Trend lines\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see any special relationships in the graph ?"
+    },
+    "427e722db888bffebdecb0ea1dee4dc6": {
+      "return": "### Special Relationships Analysis\n\n#### 1. **DNS Server Communications**  \nMultiple endpoints (192.168.10.19, 192.168.10.25) exhibit repeated DNS queries to the internal DNS server (192.168.10.3:53/17). These flows are marked as normal but show high bandwidth usage (1.3–2.6 MB/sec) and bidirectional packet exchanges, typical of DNS resolution.  \n\n#### 2. **Anomalous LDAP Activity**  \n- **192.168.10.25:52396/6 → 192.168.10.3:389/6**: A TCP flow to an LDAP server with irregular timing patterns over an extremely long duration (~15 hours). Marked as \"normal\" but flagged for suspicious timing.  \n- **192.168.10.5:52381/6 → 192.168.10.3:389/6**: Asymmetric traffic (4.1 KB sent vs. 1 KB received), suggesting potential data transfer or misconfigured authentication attempts.  \n\n#### 3. **External NTP Server Interactions**  \n**192.168.10.17:123/17** communicates with multiple external NTP servers (e.g., 144.217.164.10, 91.189.89.199, 206.108.0.131). These flows are low-threat but involve geographically diverse servers, which may indicate time synchronization across distributed systems.  \n\n#### 4. **Suspicious Broadcast Traffic**  \n- **192.168.10.16:137/17 → 192.168.10.255:137/17**: High-volume NetBIOS broadcasts (650 bytes in 22ms) typical for local network discovery but flagged for \"high_bandwidth.\"  \n- Similar broadcasts observed from 192.168.10.5, 192.168.10.14, and 192.168.10.50.  \n\n#### 5. **External Web Server Connections**  \n- **192.168.10.8:5001/6 → 205.174.165.73:8080/6**: Outbound TCP traffic to a web server (port 8080) with minimal data transfer (18 bytes received). Behavior is normal but warrants monitoring due to external connectivity.  \n\n### References  \n1. [KG] Relationships 25, 47 (LDAP anomalies)  \n2. [KG] Relationships 1-21, 28 (DNS queries)  \n3. [KG] Relationships 30-40, 58 (NTP interactions)  \n4. [KG] Relationships 23, 45-46, 52-54 (NetBIOS broadcasts)  \n5. [KG] Relationships 42-44 (External web server traffic)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see any special relationships in the graph ?"
+    },
+    "648db82d46ed68c3e2eceb981542dcaa": {
+      "return": "{\"high_level_keywords\": [\"Network usage\", \"HTTP protocol\", \"Network traffic analysis\", \"Port usage monitoring\"], \"low_level_keywords\": [\"Port 80\", \"HTTP\", \"IP addresses\", \"Network scanning\", \"Service monitoring\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many ips are using port 80 (http) ?"
+    },
+    "997c1c98e29fbf11814df22a5c4a7cfb": {
+      "return": "### IP Addresses Using Port 80 (HTTP)  \nBased on the provided Knowledge Base:  \n- **1 IP address** is explicitly using port 80:  \n  - `131.253.61.80:80/6` (Web Server, observed in 2 network flows, TCP protocol).  \n\nNo other IP addresses in the dataset are associated with port 80.  \n\n---\n**References**  \n- [KG] Entity ID 27: `131.253.61.80:80/6` (Source: `unknown_source`)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many ips are using port 80 (http) ?"
+    },
+    "65541b2d7a1c27129b006e5fbadd8db0": {
+      "return": "{\"high_level_keywords\": [\"Network usage\", \"Port analysis\", \"Internet protocols\"], \"low_level_keywords\": [\"IP addresses\", \"Port 443\", \"HTTPS\", \"HTTP\", \"Network monitoring\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many ips are using port 443 (http) ?"
+    },
+    "06f34ad91cfae38fe2282d004c6bf005": {
+      "return": "### IP Addresses Using Port 443 (HTTPS)\n\nBased on the Knowledge Base, **2 distinct IP addresses** are using port 443 (HTTP/HTTPS):\n\n1. **131.253.61.80:443/6**  \n   - Service Type: Web Server  \n   - Protocol: TCP (6)  \n   - Behavior: Normal  \n\n2. **134.170.115.55:443/6**  \n   - Service Type: Web Server  \n   - Protocol: TCP (6)  \n   - Behavior: Anomalous  \n\nBoth are explicitly identified as web servers in the entity descriptions. No other IP-port combinations using port 443 were found in the provided data.\n\n---\n\n#### References  \n- [KG] Entity 26 (131.253.61.80:443/6)  \n- [KG] Entity 27 (134.170.115.55:443/6)  \n- Source: `unknown_source` for both entities",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many ips are using port 443 (http) ?"
+    },
+    "c3f3832911a2d61377f4db44823d388b": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"Flow metrics\", \"Asymmetric ratio\"], \"low_level_keywords\": [\"Packet count\", \"Flow Bytes/s\", \"Down/Up Ratio\", \"Traffic patterns\", \"Network performance\", \"Data transmission efficiency\", \"Bandwidth utilization\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Which flows show low packet count but high Flow Bytes/s and asymmetric Down/Up Ratio?"
+    },
+    "7029f4c39d4e949bce55fdd24794bb35": {
+      "return": "Based on analysis of the Knowledge Base, the following network flows exhibit low packet counts with high bytes-per-second rates and asymmetric downstream/upstream ratios:\n\n**1. Flow 11 (KG Relationship 11)**  \n- **Source**: 192.168.10.8:52374/6 → **Destination**: 23.50.75.27:80/6  \n- **Packets**: 2 forward / 0 backward (total 2 packets)  \n- **Bytes**: 12 forward / 0 backward  \n- **Bytes/sec**: 153,846.15  \n- **Asymmetry**: 100% downstream traffic  \n\n**2. Flow 40 (KG Relationship 40)**  \n- **Source**: 192.168.10.8:52505/6 → **Destination**: 178.255.83.1:80/6  \n- **Packets**: 2 forward / 0 backward (total 2 packets)  \n- **Bytes**: 12 forward / 0 backward  \n- **Bytes/sec**: 101,694.92  \n- **Asymmetry**: Fully downstream  \n\n**3. Flow 28 (KG Relationship 28)**  \n- **Source**: 192.168.10.8:52353/6 → **Destination**: 178.255.83.1:80/6  \n- **Packets**: 3 forward / 4 backward (total 7 packets)  \n- **Bytes**: 442 forward / 872 backward  \n- **Bytes/sec**: 27,739.66  \n- **Asymmetry**: 2:1 downstream/upstream ratio  \n\n**4. Flow 13 (KG Relationship 13)**  \n- **Source**: 192.168.10.8:52476/6 → **Destination**: 72.167.239.239:80/6  \n- **Packets**: 3 forward / 4 backward (total 7 packets)  \n- **Bytes**: 432 forward / 2,280 backward  \n- **Bytes/sec**: 31,418.34  \n- **Asymmetry**: 1:5.3 downstream/upstream ratio  \n\n**Common Characteristics**:  \n- Low packet counts (2–7 total packets)  \n- High throughput (27k–153k bytes/sec)  \n- Strong asymmetry favoring either upstream or downstream traffic  \n\n---\n\n**References**  \n[KG] Relationships 11, 13, 28, 40 (unknown_source)  \n[KG] Entity 178.255.83.1:80/6 (unknown_source)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Which flows show low packet count but high Flow Bytes/s and asymmetric Down/Up Ratio?"
+    },
+    "dcf63655ee08f4eca90fccfbbc693a3c": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"Malicious activity detection\", \"Exploit kit redirections\", \"Malware downloads\", \"Data exfiltration\", \"C2 server communication\", \"Network scanning\", \"Automated exploit delivery\"], \"low_level_keywords\": [\"SYN flag count\", \"ACK flag count\", \"Destination port 80\", \"Down/Up Ratio\", \"Flow Duration\", \"Flow Bytes/s spikes\", \"Total Backward Packets\", \"Fwd Packet Length Mean\", \"Bwd Packet Length Mean\", \"RST Flag Count\", \"Source Ports clusters\", \"Flow Packets/s\", \"Handshake attempts\", \"Payload retrieval\", \"Internal IPs\", \"External IPs\", \"Client-server payloads\", \"Failed connection attempts\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "1. Are there flows with high SYN and ACK flag counts, indicating multiple handshake attempts typical of exploit kit redirections?\\n2. Do any flows to destination port 80 exhibit a high Down/Up Ratio, suggesting large payload downloads like malware?\\n3. Are there short Flow Duration connections (under X seconds) followed by spikes in Flow Bytes/s, indicating quick data exfiltration or payload retrieval?\\n4. Do flows from internal IPs to external IPs on port 80 show elevated Total Backward Packets, signaling potential C2 server responses?\\n5. Are there instances where Fwd Packet Length Mean significantly exceeds Bwd Packet Length Mean, pointing to client requests versus server payloads?\\n6. Do any flows to/from suspicious IPs have RST Flag Counts above baseline, suggesting failed connection attempts post-exploit?\\n7. Are there clusters of flows with similar Source Ports and high Flow Packets/s, indicating scanning or automated exploit delivery?"
+    },
+    "a543970148c16ca4568b0878a1559d7a": {
+      "return": "### Analysis of Network Flow Patterns\n\n#### 1. SYN/ACK Flag Analysis  \nThe data shows limited evidence of multiple handshake attempts. Only **Relationship 44** (192.168.10.8:52650 → 72.21.91.70:443) and **Source 27** (104.88.104.85:443 → 192.168.10.17:35871) exhibit SYN=1 and ACK=1 flags, but these represent isolated instances rather than repeated handshakes. No flows show elevated SYN/ACK counts indicative of exploit kit redirections.\n\n#### 2. Down/Up Ratio on Port 80  \nNo flows to port 80 exhibit significant download payloads. For example:  \n- **Relationship 4** (23.50.75.27:80 → 192.168.10.17:36074) transferred 0 bytes in both directions.  \n- **Relationship 5** (172.217.10.142:80 → 192.168.10.8:52378) shows balanced 6-byte transfers.  \n\n#### 3. Short Durations with High Throughput  \nMultiple flows match this pattern:  \n- **Relationship 1** (66.114.49.26:443 → 192.168.10.8:52417): 4ms duration, 4.5M bytes/sec.  \n- **Relationship 7** (172.217.12.206:443 → 192.168.10.14:63217): 3ms duration, 4M bytes/sec.  \nThese suggest potential quick data transfers or payload retrieval.\n\n#### 4. Backward Packets on Port 80  \nInternal-to-external port 80 flows show minimal backward traffic:  \n- **Relationship 2** (192.168.10.8:52444 → 23.50.75.27:80): 1 backward packet.  \nNo elevated C2-like response patterns were observed.\n\n#### 5. Packet Length Disparities  \n**Relationship 10** (192.168.10.8:52653 → 72.21.91.70:443) shows a backward payload (43 bytes) 7x larger than the forward request (6 bytes). **Relationship 24** (192.168.10.8:52467 → 54.84.115.131:443) similarly has a 37-byte backward payload versus 6-byte forward. This aligns with server response patterns.\n\n#### 6. RST Flag Activity  \nNo flows exceeded baseline RST counts. All relationships reported RST=0.\n\n#### 7. Source Port Clustering  \nNo scanning clusters were identified. While **Source 47** (192.168.10.12:59260 → 23.195.254.217:443) had 48 forward packets, it was an isolated high-volume flow. Most flows used ephemeral ports without repetition.\n\n---\n\n### References  \n1. [KG] Relationship 1 (unknown_source)  \n2. [KG] Relationship 10 (unknown_source)  \n3. [KG] Relationship 24 (unknown_source)  \n4. [KG] Relationship 7 (unknown_source)  \n5. [KG] Source 47 (./AppDbStore/Thursday--Infilteration)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "1. Are there flows with high SYN and ACK flag counts, indicating multiple handshake attempts typical of exploit kit redirections?\\n2. Do any flows to destination port 80 exhibit a high Down/Up Ratio, suggesting large payload downloads like malware?\\n3. Are there short Flow Duration connections (under X seconds) followed by spikes in Flow Bytes/s, indicating quick data exfiltration or payload retrieval?\\n4. Do flows from internal IPs to external IPs on port 80 show elevated Total Backward Packets, signaling potential C2 server responses?\\n5. Are there instances where Fwd Packet Length Mean significantly exceeds Bwd Packet Length Mean, pointing to client requests versus server payloads?\\n6. Do any flows to/from suspicious IPs have RST Flag Counts above baseline, suggesting failed connection attempts post-exploit?\\n7. Are there clusters of flows with similar Source Ports and high Flow Packets/s, indicating scanning or automated exploit delivery?"
+    },
+    "0f6f5ed7d6428763acbcdee7f2179f49": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"Threat detection\", \"Malicious activity\", \"Exploit delivery\", \"Command and control (C2) infrastructure\", \"Traffic distribution\"], \"low_level_keywords\": [\"SYN/RST flags\", \"Flow Duration < 5s\", \"Flow Bytes/s\", \"Flow Packets/s\", \"Destination port 80\", \"Down/Up Ratios (>10:1)\", \"Z.jar/150341.mp3\", \"Source IP connections\", \"Fwd Packet Length Mean\", \"Bwd Packet Length Mean\", \"Active Mean\", \"Total Backward Packets\", \"Protocol clusters\", \"Destination Port consistency\", \"Source Port variation\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Analyze network flows to identify potential Goon EK and Urausy activity using these questions:\\n1. Which flows have high SYN or RST flag counts, indicating scanning or failed connection attempts?\\n2. Are there short-duration flows (Flow Duration < 5s) with high Flow Bytes/s or Flow Packets/s, suggesting exploit payload delivery?\\n3. Do any flows to destination port 80 exhibit unusual Down/Up Ratios (>10:1), indicating large malicious file downloads (e.g., Z.jar/150341.mp3)?\\n4. Are there repeated connections from the same source IP to multiple destination IPs on port 80 with similar Flow Bytes/s patterns, characteristic of EK traffic distribution?\\n5. Which flows to/from port 80 show abnormal Fwd Packet Length Mean vs Bwd Packet Length Mean disparities (small requests, large responses)?\\n6. Do any flows to suspicious destination IPs show low Active Mean but high Total Backward Packets, suggesting C2 heartbeat traffic?\\n7. Are there clusters of flows with identical Protocol and Destination Port but varying Source Ports, indicating callback attempts to C2 infrastructure?"
+    },
+    "a80ec8fa2f9f697a444169adc0d1cc76": {
+      "return": "### Analysis of Potential Goon EK and Urausy Activity\n\n#### 1. **High SYN/RST Flag Activity**\n- No flows with elevated SYN/RST counts were observed. All analyzed flows show:  \n  `SYN:0`, `RST:0` in flag patterns (Relationships 1-54, Sources 1-44).  \n- Example: Flow `192.168.10.8:52444 → 23.50.75.27:80` (Relationship 1) shows only ACK flags.\n\n#### 2. **Short-Duration High-Throughput Flows**\n- Multiple flows under 5 seconds with extreme throughput:  \n  - `172.217.12.206 → 192.168.10.8:52425` (6M bytes/sec over 3ms, Relationship 6)  \n  - `34.198.109.29 → 192.168.10.8:52464` (1.5M bytes/sec over 8ms, Relationship 16)  \n- These match payload delivery patterns but are marked as \"normal\" in the KB.\n\n#### 3. **Port 80 Down/Up Ratios**\n- No flows to port 80 exhibit >10:1 download/upload ratios:  \n  - Flow `192.168.10.17:36045 → 23.50.75.27:80` (Relationship 3) shows 0 bytes transferred in both directions.  \n  - Typical ratios are 1:1 for ACK-dominated traffic.\n\n#### 4. **EK-Style Traffic Distribution**\n- Internal IP `192.168.10.8` connects to multiple external IPs on port 80/443:  \n  - 23.50.75.27:80 (Relationship 1)  \n  - 34.198.109.29:443 (Relationship 16)  \n  - 172.217.3.97:443 (Relationship 22)  \n- Similar flow rates (~1-6M bytes/sec) suggest coordinated traffic (Sources 6,16,22).\n\n#### 5. **Packet Length Disparities**\n- No significant disparities observed:  \n  - Most flows show symmetrical packet sizes (e.g., 6 bytes forward/6 bytes backward in Relationship 1).  \n  - Exception: Flow `192.168.10.14:63242 → 151.101.0.204:443` (Relationship 15) has 0 forward vs. 18 backward bytes.\n\n#### 6. **C2 Heartbeat Patterns**\n- Flow `192.168.10.3 ↔ 192.168.10.9:445` (Relationship 14) shows:  \n  - Long duration (4.1 hours)  \n  - High packet count (43 packets)  \n  - Low throughput (672 bytes/sec)  \n  - Matches low-activity C2 patterns despite being labeled \"normal.\"\n\n#### 7. **Callback Cluster Patterns**\n- Internal IP `192.168.10.8` shows multiple TCP/443 flows to diverse destinations:  \n  - 213.239.195.215:443 (Relationships 28-36)  \n  - 72.21.91.70:443 (Relationship 49)  \n  - All use ephemeral source ports (52550-52573) with similar throughput profiles.\n\n---\n\n### References\n1. [KG] Relationships 1,6,14-16,28-36 – `unknown_source`  \n2. [KG] Sources 6,16,22 – `./AppDbStore/Thursday--Infilteration`  \n3. [KG] Relationship 15 – `./AppDbStore/Thursday--Infilteration`  \n4. [KG] Relationship 14 – `./AppDbStore/Thursday--Infilteration`  \n5. [KG] Relationships 28-36 – `unknown_source`  \n\nKey limitations: KB lacks explicit threat indicators and uses generic \"normal\" labels despite suspicious technical characteristics.",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Analyze network flows to identify potential Goon EK and Urausy activity using these questions:\\n1. Which flows have high SYN or RST flag counts, indicating scanning or failed connection attempts?\\n2. Are there short-duration flows (Flow Duration < 5s) with high Flow Bytes/s or Flow Packets/s, suggesting exploit payload delivery?\\n3. Do any flows to destination port 80 exhibit unusual Down/Up Ratios (>10:1), indicating large malicious file downloads (e.g., Z.jar/150341.mp3)?\\n4. Are there repeated connections from the same source IP to multiple destination IPs on port 80 with similar Flow Bytes/s patterns, characteristic of EK traffic distribution?\\n5. Which flows to/from port 80 show abnormal Fwd Packet Length Mean vs Bwd Packet Length Mean disparities (small requests, large responses)?\\n6. Do any flows to suspicious destination IPs show low Active Mean but high Total Backward Packets, suggesting C2 heartbeat traffic?\\n7. Are there clusters of flows with identical Protocol and Destination Port but varying Source Ports, indicating callback attempts to C2 infrastructure?"
     }
   }
 }

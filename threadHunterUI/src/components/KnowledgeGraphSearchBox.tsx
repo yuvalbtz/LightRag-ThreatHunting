@@ -57,7 +57,7 @@ const KnowledgeGraphSearchBox = () => {
                 setSearchResultsCount(0);
                 setIsSearching(false);
             }
-        }, 300); // 300ms debounce delay
+        }, 400); // 400ms debounce delay
     }, [searchNodes, clearNodeHighlighting]);
 
     // Cleanup timeout on unmount
@@ -107,8 +107,8 @@ const KnowledgeGraphSearchBox = () => {
                                 <XMarkIcon className="w-4 h-4" />
                             </Button>
                         ) : (isSearching || isTyping) ? (
-                            <div className="text-primary">
-                                <div className="animate-spin rounded-full h-4 w-4 border-2 border-current border-t-transparent"></div>
+                            <div className="flex items-center justify-center">
+                                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
                             </div>
                         ) : null
                     }

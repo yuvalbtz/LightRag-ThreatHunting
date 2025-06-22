@@ -156,49 +156,11 @@ async def test_hot_reload():
     }
 
 
-@app.post("/generate-playbooks", response_model=PlaybookResponse)
-async def generate_playbooks(request: PlaybookRequest):
-    try:
-        playbooks = await generate_enriched_playbooks(
-            year=request.year, max_samples=request.max_samples
-        )
-        return PlaybookResponse(playbooks=playbooks)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.post("/fetch-playbooks", response_model=PlaybookResponse)
-async def fetch_playbooks(request: PlaybookRequest):
+@app.get("/fetch-all-playbooks", response_model=List[Dict[str, Any]])
+async def get_all_playbooks(year: str = "2013", max_samples: int = 2):
     """Fetch and process playbooks from malware analysis blog."""
     try:
-        playbooks = await fetch_all_playbooks(
-            year=request.year, max_samples=request.max_samples
-        )
-        return PlaybookResponse(playbooks=playbooks)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.post("/extract-playbook", response_model=ExtractPlaybookResponse)
-async def extract_playbook_endpoint(request: ExtractPlaybookRequest):
-    try:
-        playbook = await extract_playbook(request.url)
-        if not playbook:
-            raise HTTPException(
-                status_code=404, detail="Could not extract playbook from URL"
-            )
-        return ExtractPlaybookResponse(playbook=playbook)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.post("/fetch-sample-links", response_model=SampleLinksResponse)
-async def fetch_links(request: SampleLinksRequest):
-    try:
-        links = await fetch_sample_links(
-            year=request.year, max_samples=request.max_samples
-        )
-        return SampleLinksResponse(links=links)
+        return await fetch_all_playbooks(year=year, max_samples=max_samples)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

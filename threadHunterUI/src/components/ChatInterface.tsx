@@ -27,11 +27,7 @@ export const ChatInterface: React.FC = () => {
             />
             <div className="flex-1 flex overflow-hidden">
                 <KnowledgeGraphContainer />
-                <PlaybooksContainer
-                    isDarkMode={isDarkMode}
-                    onSelectPlaybook={handlePlaybookSelect}
-                    onSearchGraph={handleGraphSearch}
-                />
+                <PlaybooksContainer />
                 <ChatContainer />
             </div>
         </div>

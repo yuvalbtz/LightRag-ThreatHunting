@@ -213,7 +213,7 @@ async def deepseek_model_complete(
 
 
 # Set the current model completion function
-current_model_complete = deepseek_model_complete
+current_model_complete = ollama_model_complete
 
 # Set the current RAG initialization function
 current_initialize_rag_model = initialize_rag_ollama
@@ -299,8 +299,29 @@ async def fetch_sample_links(year: str = "2013", max_samples: int = 5) -> List[s
     return sample_links[:max_samples]
 
 
+FLOW_FEATURES = [
+    "Source IP",
+    "Destination IP",
+    "Source Port",
+    "Destination Port",
+    "Protocol",
+    "Flow Duration",
+    "Flow Bytes/s",
+    "Flow Packets/s",
+    "Total Fwd Packets",
+    "Total Backward Packets",
+    "Fwd Packet Length Mean",
+    "Bwd Packet Length Mean",
+    "SYN Flag Count",
+    "ACK Flag Count",
+    "RST Flag Count",
+    "Idle Mean",
+    "Active Mean",
+    "Down/Up Ratio",
+]
+
+
 async def fetch_playbook_content(url: str) -> Dict[str, Any]:
-    """Fetch and parse content from a single playbook URL."""
     headers = {
         "User-Agent": "Mozilla/5.0",
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
@@ -318,22 +339,33 @@ async def fetch_playbook_content(url: str) -> Dict[str, Any]:
     soup = BeautifulSoup(resp.text, "html.parser")
     content = soup.get_text(separator="\n", strip=True)
 
-    system_prompt = """
-You are a cybersecurity analyst assistant. Given the raw text of a malware blog post, extract and return a structured JSON playbook with the following format:
+    system_prompt = f"""
+You are a cybersecurity analyst assistant.
 
-{
-  "sample_url": "<the blog URL>",
-  "malware_name": "<name of the malware>",
-  "associated_files": ["list of file names (e.g., .zip, .exe, .doc)", ...],
-  "snort_events": ["any Snort rules or alerts mentioned", ...],
-  "infection_chain": ["step-by-step infection process", ...],
-  "associated_domains": ["any suspicious domains or IPs mentioned", ...]
-}
+Given the raw text of a malware blog post and a list of flow-based features,
+your task is to extract the following:
 
-IMPORTANT: Return ONLY the JSON object. Do not include any text before or after the JSON. The response must be valid JSON.
+1. **malware_name**: Name(s) of malware families mentioned (e.g. Simda, Emotet, Dridex)
+2. **hunt_goal**: A 1-sentence summary of the hunting objective (e.g. detect download and C2 behavior of Simda)
+3. **generated_prompt**: A smart investigation prompt using only these flow features:
+
+{", ".join(FLOW_FEATURES)}
+
+This prompt should:
+- Include 5–7 flow-based investigation questions
+- Reference only flow metadata, no payloads, hashes, or domains
+- Be usable as an input to another LLM or analyst
+
+Return your output in the following **valid JSON format only** (no explanation):
+
+{{
+  "malware_name": "...",
+  "hunt_goal": "...",
+  "generated_prompt": "..."
+}}
 """
 
-    user_prompt = f"Blog content:\n{content}\n\nNow extract the playbook as described. Return ONLY the JSON object."
+    user_prompt = f"Blog content:\n{content[:4000]}\n\nExtract the required JSON."
 
     try:
         response = await current_model_complete(
@@ -344,23 +376,25 @@ IMPORTANT: Return ONLY the JSON object. Do not include any text before or after 
             logger.error(f"Empty response from model for {url}")
             return None
 
-        # Clean and parse response
-        response = response.strip()
-        response = response.replace("'", "'").replace(""", '"').replace(""", '"')
-
-        # Try to find JSON in the response if it's wrapped in other text
+        # Extract and clean JSON
         json_start = response.find("{")
         json_end = response.rfind("}") + 1
         if json_start >= 0 and json_end > json_start:
-            response = response[json_start:json_end]
+            json_str = response[json_start:json_end]
+            try:
+                parsed = json.loads(json_str)
+                return {
+                    "sample_url": url,
+                    "malware_name": parsed.get("malware_name", ""),
+                    "hunt_goal": parsed.get("hunt_goal", ""),
+                    "generated_prompt": parsed.get("generated_prompt", ""),
+                }
+            except json.JSONDecodeError as e:
+                logger.error(f"Invalid JSON response for {url}: {str(e)}")
+                return None
 
-        try:
-            parsed = json.loads(response)
-            parsed["sample_url"] = url
-            return parsed
-        except json.JSONDecodeError as e:
-            logger.error(f"Invalid JSON response for {url}: {str(e)}")
-            return None
+        logger.error(f"No JSON object found in model output for {url}")
+        return None
 
     except Exception as e:
         logger.error(f"Error processing {url}: {str(e)}")
@@ -368,7 +402,7 @@ IMPORTANT: Return ONLY the JSON object. Do not include any text before or after 
 
 
 async def fetch_all_playbooks(
-    year: str = "2013", max_samples: int = 5
+    year: str = "2013", max_samples: int = 2
 ) -> List[Dict[str, Any]]:
     """Fetch and process multiple playbooks in parallel."""
     # Get all sample links

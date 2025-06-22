@@ -1,5 +1,5 @@
 import { createAssistantMessage } from '@/context/ChatContext';
-import { GraphData, GraphFoldersNamesResponse, Message, Playbook } from '../types';
+import { GraphData, GraphFoldersNamesResponse, Message, MTAPlayBook, Playbook } from '../types';
 
 
 const API_BASE_URL = '/api';
@@ -136,18 +136,10 @@ export const api = {
 
     // Playbook related API calls
     playbooks: {
-        getAll: async (): Promise<Playbook[]> => {
-            const response = await fetch(`${API_BASE_URL}/playbooks`);
+        getAll: async (year: string, max_samples: number): Promise<MTAPlayBook[]> => {
+            const response = await fetch(`${API_BASE_URL}/fetch-all-playbooks?year=${year}&max_samples=${max_samples}`);
             if (!response.ok) {
                 throw new Error('Failed to fetch playbooks');
-            }
-            return response.json();
-        },
-
-        getById: async (id: string): Promise<Playbook> => {
-            const response = await fetch(`${API_BASE_URL}/playbooks/${id}`);
-            if (!response.ok) {
-                throw new Error('Failed to fetch playbook');
             }
             return response.json();
         }
