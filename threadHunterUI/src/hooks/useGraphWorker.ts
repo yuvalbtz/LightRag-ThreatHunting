@@ -253,21 +253,21 @@ export function useGraphWorker() {
 
         const nodes = state.graphData.nodes.map(node => ({
             id: node.id,
-            color: {
-                background: isDarkMode ? '#4B5563' : '#E5E7EB',
-                border: isDarkMode ? '#6B7280' : '#9CA3AF',
-                highlight: {
-                    background: isDarkMode ? '#60A5FA' : '#3B82F6',
-                    border: isDarkMode ? '#93C5FD' : '#60A5FA'
-                }
-            }
         }));
 
         const nodesDataSet = (state.networkInstance as any).body?.data?.nodes;
         if (nodesDataSet) {
             nodesDataSet.update(nodes);
         }
-    }, [state.networkInstance, state.graphData, isDarkMode]);
+        if (state.networkInstance) {
+            state.networkInstance.fit({
+                animation: {
+                    duration: 1000,
+                    easingFunction: 'easeInOutQuad'
+                }
+            });
+        }
+    }, [state.networkInstance, state.graphData]);
 
     const resetGraph = useCallback(() => {
         if (state.networkInstance) {

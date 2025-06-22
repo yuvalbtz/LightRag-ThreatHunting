@@ -1,7 +1,9 @@
 services:
   # Python Backend API
   backend:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
     ports:
       - "8000:8000"
     volumes:
@@ -24,7 +26,7 @@ services:
   frontend:
     build: 
       context: ./threadHunterUI
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
     ports:
       - "80:80"
     depends_on:

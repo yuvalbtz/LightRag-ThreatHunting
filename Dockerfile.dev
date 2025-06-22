@@ -34,9 +34,9 @@ RUN pip install -r requirements-setup.txt
 # Install uvicorn and watchfiles for development hot reload
 RUN pip install uvicorn[standard] watchfiles
 
-# Copy the development startup script
-COPY dev-start.sh /app/dev-start.sh
-RUN chmod +x /app/dev-start.sh
+# Copy the development watch script
+COPY watch-docker.sh /app/watch-docker.sh
+RUN chmod +x /app/watch-docker.sh
 
 # Create necessary directories
 RUN mkdir -p /app/AppDbStore /app/custom_kg
@@ -48,4 +48,4 @@ EXPOSE 8000
 ENV PYTHONPATH=/app
 
 # Start the development server
-CMD ["/app/dev-start.sh"] 
+CMD ["/app/watch-docker.sh"] 
