@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { Button, Input } from '@heroui/react';
-import PlayBookCard from './PlayBookCard';
+import { Button, Input, Select, SelectItem } from '@heroui/react';
 import PlayBooksListRenderer from './PlayBooksListRenderer';
 import { useTheme } from '../context/ThemeContext';
 import { MTAPlayBook, Playbook } from '@/types';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import MTAPlayBookCard from './MTAPlayBookCard';
+import { api } from '@/services/api';
 
 
 const playbooks: Playbook[] = [
@@ -174,32 +174,57 @@ const playbooks: Playbook[] = [
 type PlaybookType = 'All Types' | 'Malware' | 'Exploits';
 type PlaybookSeverity = 'All Severities' | 'Critical' | 'High' | 'Medium' | 'Low';
 
+
+const DummyMTAPlaybooks: (MTAPlayBook)[] = [
+    {
+        sample_url: "https://www.google.com",
+        malware_name: "Malware 1",
+        hunt_goal: "Hunt goal 1",
+        generated_prompt: "Generated prompt 1"
+    },
+    {
+        sample_url: "https://www.google.com",
+        malware_name: "Malware 2",
+        hunt_goal: "Hunt goal 2",
+        generated_prompt: "Generated prompt 2"
+    },
+    {
+        sample_url: "https://www.google.com",
+        malware_name: "Malware 3",
+        hunt_goal: "Hunt goal 3",
+        generated_prompt: "Generated prompt 3"
+    }
+];
+
+
 export const PlaybooksContainer = () => {
 
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedType, setSelectedType] = useState<PlaybookType>('All Types');
     const [selectedSeverity, setSelectedSeverity] = useState<PlaybookSeverity>('All Severities');
     const { isDarkMode } = useTheme();
+    const [MTAStats, setMTAStats] = useState<{ year: number, max_samples: number }>({ year: 2013, max_samples: 2 });
+    const [playbooks, setPlaybooks] = useState<MTAPlayBook[]>([]);
+    const [loading, setLoading] = useState(false);
+    // const filteredPlaybooks = useMemo(() => {
+    //     return playbooks.filter(playbook => {
+    //         const searchTerms = searchQuery.toLowerCase().split(' ');
+    //         const matchesSearch = searchTerms.every(term =>
+    //             playbook.name.toLowerCase().includes(term) ||
+    //             playbook.description.toLowerCase().includes(term) ||
+    //             playbook.indicators.some(indicator => indicator.toLowerCase().includes(term))
+    //         );
 
-    const filteredPlaybooks = useMemo(() => {
-        return playbooks.filter(playbook => {
-            const searchTerms = searchQuery.toLowerCase().split(' ');
-            const matchesSearch = searchTerms.every(term =>
-                playbook.name.toLowerCase().includes(term) ||
-                playbook.description.toLowerCase().includes(term) ||
-                playbook.indicators.some(indicator => indicator.toLowerCase().includes(term))
-            );
+    //         const matchesType = selectedType === 'All Types' ||
+    //             (selectedType === 'Malware' && playbook.type === 'malware') ||
+    //             (selectedType === 'Exploits' && playbook.type === 'exploit');
 
-            const matchesType = selectedType === 'All Types' ||
-                (selectedType === 'Malware' && playbook.type === 'malware') ||
-                (selectedType === 'Exploits' && playbook.type === 'exploit');
+    //         const matchesSeverity = selectedSeverity === 'All Severities' ||
+    //             playbook.severity === selectedSeverity.toLowerCase();
 
-            const matchesSeverity = selectedSeverity === 'All Severities' ||
-                playbook.severity === selectedSeverity.toLowerCase();
-
-            return matchesSearch && matchesType && matchesSeverity;
-        });
-    }, [searchQuery, selectedType, selectedSeverity]);
+    //         return matchesSearch && matchesType && matchesSeverity;
+    //     });
+    // }, [searchQuery, selectedType, selectedSeverity]);
 
     const handlePlaybookSelect = () => {
         // sendMessage(`Selected playbook: ${playbook.name}`, null);
@@ -210,36 +235,97 @@ export const PlaybooksContainer = () => {
     };
 
 
-    const DummyMTAPlaybooks: (MTAPlayBook & { id: string })[] = [
-        {
-            id: "1",
-            sample_url: "https://www.google.com",
-            malware_name: "Malware 1",
-            hunt_goal: "Hunt goal 1",
-            generated_prompt: "Generated prompt 1"
-        },
-        {
-            id: "2",
-            sample_url: "https://www.google.com",
-            malware_name: "Malware 2",
-            hunt_goal: "Hunt goal 2",
-            generated_prompt: "Generated prompt 2"
-        },
-        {
-            id: "3",
-            sample_url: "https://www.google.com",
-            malware_name: "Malware 3",
-            hunt_goal: "Hunt goal 3",
-            generated_prompt: "Generated prompt 3"
-        }
+
+
+    const Years = [
+        { key: "2013", label: "2013" },
+        { key: "2014", label: "2014" },
+        { key: "2015", label: "2015" },
+        { key: "2016", label: "2016" },
+        { key: "2017", label: "2017" },
+        { key: "2018", label: "2018" },
+        { key: "2019", label: "2019" },
+        { key: "2020", label: "2020" },
+        { key: "2021", label: "2021" },
+        { key: "2022", label: "2022" },
+        { key: "2023", label: "2023" },
+        { key: "2024", label: "2024" },
+        { key: "2025", label: "2025" }
     ];
+
+    const maxSamples = [
+        { key: "1", label: "1" },
+        { key: "2", label: "2" },
+        { key: "3", label: "3" },
+        { key: "4", label: "4" },
+        { key: "5", label: "5" },
+    ]
+
+    const handleGetAllPlaybooks = async () => {
+        setLoading(true);
+        try {
+            const playbooks = await api.playbooks.getAll(MTAStats.year.toString(), MTAStats.max_samples);
+            console.log("playbooks", playbooks);
+            setPlaybooks(playbooks);
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
 
 
     return (
         <div className={`w-1/3 border-r transition-colors duration-200 ${isDarkMode ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-white'}`}>
             <div className="h-full overflow-y-auto">
                 <div className={`p-4 h-full flex flex-col`}>
-                    {/* Search and Filters - Fixed at top */}
+                    <div className='flex gap-2 mb-4'>
+                        <Select
+                            id='mta-year'
+                            size='sm'
+                            variant='underlined'
+                            label="MTA Year"
+                            placeholder="Select MTA Year..."
+                            items={Years}
+                            selectedKeys={[MTAStats.year.toString()]}
+                            onSelectionChange={(keys) => {
+                                const selected = Array.from(keys)[0];
+                                setMTAStats({ ...MTAStats, year: parseInt(selected.toString()) })
+                            }}
+                        >
+                            {Years.map((year) => (
+                                <SelectItem key={year.key}>{year.label}</SelectItem>
+                            ))}
+                        </Select>
+                        <Select
+                            variant='underlined'
+                            id='mta-max-samples'
+                            size='sm'
+                            label="MTA number of blogs"
+                            placeholder="Select MTA number of blogs..."
+                            items={maxSamples}
+                            selectedKeys={[MTAStats.max_samples.toString()]}
+                            onSelectionChange={(keys) => {
+                                const selected = Array.from(keys)[0];
+                                setMTAStats({ ...MTAStats, max_samples: parseInt(selected.toString()) })
+                            }}
+                        >
+                            {(maxSample) => <SelectItem key={maxSample.key}>{maxSample.label}</SelectItem>}
+                        </Select>
+                        <Button
+                            size='lg'
+                            variant='flat'
+                            onPress={handleGetAllPlaybooks}
+                            isLoading={loading}
+                        >
+                            <MagnifyingGlassIcon className='w-5 h-5' />
+                        </Button>
+                    </div>
+
+
+
+                    {/* Search and Filters - Fixed at top
                     <div className="mb-4">
                         <div className="relative mb-4">
                             <Input
@@ -253,7 +339,7 @@ export const PlaybooksContainer = () => {
                             />
                         </div>
 
-                        {/* Type Filters */}
+                        Type Filters
                         <div className="flex gap-2 mb-4">
                             {(['All Types', 'Malware', 'Exploits'] as const).map((type) => (
                                 <Button
@@ -268,7 +354,7 @@ export const PlaybooksContainer = () => {
                             ))}
                         </div>
 
-                        {/* Severity Filters */}
+                        Severity Filters
                         <div className="flex gap-2 mb-4">
                             {(['All Severities', 'Critical', 'High', 'Medium', 'Low'] as const).map((severity) => (
                                 <Button
@@ -282,11 +368,11 @@ export const PlaybooksContainer = () => {
                                 </Button>
                             ))}
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Scrollable Cards Section */}
                     <PlayBooksListRenderer
-                        renderItems={DummyMTAPlaybooks}
+                        renderItems={playbooks}
                         ComponentType={({ item }) => <MTAPlayBookCard playbook={item} onSelectPlaybook={handlePlaybookSelect} handleSearchGraph={handleGraphSearch} />}
                     />
 

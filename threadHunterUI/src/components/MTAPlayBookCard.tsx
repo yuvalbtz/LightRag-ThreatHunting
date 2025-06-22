@@ -25,7 +25,7 @@ const severityColors = {
 
 
 
-const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { playbook: MTAPlayBook & { id: string }, onSelectPlaybook: (playbook: MTAPlayBook) => void, handleSearchGraph: (playbook: MTAPlayBook) => void }) => {
+const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { playbook: MTAPlayBook, onSelectPlaybook: (playbook: MTAPlayBook) => void, handleSearchGraph: (playbook: MTAPlayBook) => void }) => {
     const { isDarkMode } = useTheme();
 
     // Generate a unique key for the card
