@@ -16,7 +16,7 @@
     border: 1px solid #374151 !important;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
     pointer-events: none;
-    z-index: 5;
+    z-index: 1000;
     font-family: 'Inter', sans-serif !important;
 }
 

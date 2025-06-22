@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { createSystemMessage, useChat } from '../context/ChatContext';
 import { useDarkMode } from '../context/ThemeContext';
@@ -7,6 +7,8 @@ import KnowledgeGraphControls from './KnowledgeGraphControls';
 import KnowledgeGraphNetwork from './KnowledgeGraphNetwork';
 import SelectionGraphFolder from './SelectionGraphFolder';
 import KnowledgeGraphRenderingLoader from './KnowledgeGraphRenderingLoader';
+import GraphSearchBox from './KnowledgeGraphSearchBox';
+import KnowledgeGraphSearchBox from './KnowledgeGraphSearchBox';
 
 export const KnowledgeGraphContainer: React.FC = () => {
     const isDarkMode = useDarkMode();
@@ -18,6 +20,8 @@ export const KnowledgeGraphContainer: React.FC = () => {
         buildGraph,
         getGraphData,
         setGraphData,
+        searchNodes,
+        clearNodeHighlighting,
     } = useGraphWorker();
     const { sendMessage } = useChat();
 
@@ -47,7 +51,6 @@ export const KnowledgeGraphContainer: React.FC = () => {
     }, [buildGraph, getGraphData, sendMessage, setGraphData]);
 
 
-
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
         onDrop,
         accept: {
@@ -67,10 +70,17 @@ export const KnowledgeGraphContainer: React.FC = () => {
                     </h2>
                     <SelectionGraphFolder />
                 </div>
+
+
+
                 <div
                     {...getRootProps()}
                     className={`w-full flex-1 border-2 ${isDarkMode ? 'border-gray-700' : 'border-gray-200'} rounded-lg relative overflow-hidden ${graphData ? 'cursor-default' : 'cursor-pointer'}`}
                 >
+                    {/* Search Box - only show when graph data is available */}
+                    {graphData && !isRendering && (
+                        <KnowledgeGraphSearchBox />
+                    )}
                     <input {...getInputProps()} />
                     <KnowledgeGraphNetwork />
 

@@ -182,6 +182,93 @@ export function useGraphWorker() {
         });
     }, [addEventListener, removeEventListener]);
 
+    const searchNodes = useCallback((query: string) => {
+        if (!state.networkInstance || !state.graphData) return [];
+
+        const nodes = state.graphData.nodes;
+        const matchingNodes: string[] = [];
+
+        // Search for nodes that match the query (case-insensitive)
+        nodes.forEach(node => {
+            const label = node.label?.toLowerCase() || '';
+            const title = node.title?.toLowerCase() || '';
+            const queryLower = query.toLowerCase();
+
+            if (label.includes(queryLower) || title.includes(queryLower)) {
+                matchingNodes.push(String(node.id));
+            }
+        });
+
+        // Get the nodes DataSet from the network
+        const nodesDataSet = (state.networkInstance as any).body?.data?.nodes;
+        if (!nodesDataSet) return matchingNodes;
+
+        // Reset all nodes to default color
+        const allNodes = nodes.map(node => ({
+            id: node.id,
+            color: {
+                background: isDarkMode ? '#4B5563' : '#E5E7EB',
+                border: isDarkMode ? '#6B7280' : '#9CA3AF',
+                highlight: {
+                    background: isDarkMode ? '#60A5FA' : '#3B82F6',
+                    border: isDarkMode ? '#93C5FD' : '#60A5FA'
+                }
+            }
+        }));
+
+        // Highlight matching nodes
+        matchingNodes.forEach(nodeId => {
+            const nodeIndex = allNodes.findIndex(n => String(n.id) === nodeId);
+            if (nodeIndex !== -1) {
+                allNodes[nodeIndex].color = {
+                    background: '#EF4444', // Red background for highlighted nodes
+                    border: '#DC2626',
+                    highlight: {
+                        background: '#F87171',
+                        border: '#EF4444'
+                    }
+                };
+            }
+        });
+
+        // Update the network with new colors
+        nodesDataSet.update(allNodes);
+
+        // Fit the view to show all highlighted nodes if any
+        if (matchingNodes.length > 0) {
+            state.networkInstance.fit({
+                nodes: matchingNodes,
+                animation: {
+                    duration: 1000,
+                    easingFunction: 'easeInOutQuad'
+                }
+            });
+        }
+
+        return matchingNodes;
+    }, [state.networkInstance, state.graphData, isDarkMode]);
+
+    const clearNodeHighlighting = useCallback(() => {
+        if (!state.networkInstance || !state.graphData) return;
+
+        const nodes = state.graphData.nodes.map(node => ({
+            id: node.id,
+            color: {
+                background: isDarkMode ? '#4B5563' : '#E5E7EB',
+                border: isDarkMode ? '#6B7280' : '#9CA3AF',
+                highlight: {
+                    background: isDarkMode ? '#60A5FA' : '#3B82F6',
+                    border: isDarkMode ? '#93C5FD' : '#60A5FA'
+                }
+            }
+        }));
+
+        const nodesDataSet = (state.networkInstance as any).body?.data?.nodes;
+        if (nodesDataSet) {
+            nodesDataSet.update(nodes);
+        }
+    }, [state.networkInstance, state.graphData, isDarkMode]);
+
     const resetGraph = useCallback(() => {
         if (state.networkInstance) {
             state.networkInstance.destroy();
@@ -359,6 +446,8 @@ export function useGraphWorker() {
         buildGraph,
         getGraphData,
         searchGraph,
+        searchNodes,
+        clearNodeHighlighting,
         resetGraph,
         setGraphData
     };

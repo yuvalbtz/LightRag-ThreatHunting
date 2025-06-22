@@ -415,6 +415,42 @@
       "embedding_min": null,
       "embedding_max": null,
       "original_prompt": "tell me your thoghts about this graph"
+    },
+    "4b87b366d78a3e9d630d6e767f314ceb": {
+      "return": "{\"high_level_keywords\": [\"Network behavior\", \"System functionality\", \"Operational patterns\"], \"low_level_keywords\": [\"Data transmission\", \"Traffic analysis\", \"Protocols\", \"Node interaction\", \"Bandwidth usage\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me this network what is the main behavior ?"
+    },
+    "6f08578540108e4db540de633438f5b6": {
+      "return": "### Network Behavior Analysis\n\n#### 1. **Primary DNS Activity**  \nThe network shows significant DNS traffic centered around **192.168.10.3:53/17**, handling 63 flows with normal behavior. Internal endpoints like 192.168.10.14, 192.168.10.17, and 192.168.10.19 frequently query this DNS server using UDP (protocol 17). These interactions are low-threat and involve typical DNS resolution patterns.\n\n#### 2. **Web Server Communications**  \nExternal web servers (e.g., 172.217.10.238:80/443, 121.29.54.141:443) receive TCP (protocol 6) traffic from internal endpoints. Notable examples:  \n- **Anomalous HTTPS flows** to 172.217.10.238:443 (Medium threat) with irregular timing patterns.  \n- **Normal HTTP/HTTPS traffic** to services like 23.21.56.196:80 and 104.97.125.160:443, often with low data volumes (e.g., 6-12 bytes/packet).  \n\n#### 3. **Anomalous Endpoints**  \n- **192.168.10.14:57701/6** and **192.168.10.14:57700/6** show medium-threat HTTP flows to 104.97.114.112:80 with irregular timing.  \n- **192.168.10.19:38355/6** exhibits anomalous TCP traffic to 172.217.10.238:80 (Medium threat).  \n\n#### 4. **NTP Synchronization**  \nInternal endpoint 192.168.10.17:123 communicates with external NTP servers (e.g., 129.128.12.20:123, 91.189.91.157:123) via UDP, marked as normal low-threat activity.  \n\n#### 5. **High-Bandwidth Exceptions**  \nA few flows (e.g., 192.168.10.16 ↔ 199.244.48.55:443) show unusually high bandwidth (2.3 MB/sec) but are classified as normal, suggesting authorized bulk data transfers.  \n\n---\n\n### References  \n1. [KG] ./AppDbStore/Friday--DDos (Flow analysis: DNS server dominance)  \n2. [KG] ./AppDbStore/Friday--DDos (Web server interactions)  \n3. [KG] ./AppDbStore/Friday--DDos (Anomalous endpoint details)  \n4. [KG] ./AppDbStore/Friday--DDos (NTP traffic patterns)  \n5. [KG] ./AppDbStore/Friday--DDos (High-bandwidth exceptions)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me this network what is the main behavior ?"
+    },
+    "399ad333fcb71199987f8278a1e1c5ba": {
+      "return": "{\"high_level_keywords\": [\"Anomalous network traffic\", \"Cybersecurity threat\", \"HTTPS traffic analysis\", \"Network behavior anomalies\", \"Threat detection\"], \"low_level_keywords\": [\"172.217.10.238\", \"Port 443\", \"Medium threat level\", \"Irregular timing patterns\", \"Encrypted traffic\", \"Data exfiltration\", \"Malware communication\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Anomalous HTTPS flows\n\nto 172.217.10.238:443 (Medium threat) with irregular timing patterns explain why"
+    },
+    "99f4717f253ebfdd07a87f1f35f52ad3": {
+      "return": "The anomalous HTTPS flows to 172.217.10.238:443 (Google-owned IP) with **medium threat level** and irregular timing patterns exhibit the following characteristics:\n\n1. **Behavioral Anomalies**  \n   These flows show inconsistent timing patterns with extremely long session durations (over 32 hours) and low data transfer rates (157 bytes/sec). This contrasts with typical HTTPS traffic, which usually has shorter, more bursty communication sessions.\n\n2. **Operational Context**  \n   The flows originated from internal endpoint 192.168.10.19:40295 to Google services, which could represent either legitimate encrypted traffic or potential data exfiltration/C2 communication attempts masked as normal web traffic.\n\n3. **Key Suspicious Indicators**  \n   - High packet size variance (1,169 bytes forward / 43,577 bytes backward)  \n   - Low packet frequency (0.4 packets/sec) over prolonged periods  \n   - Absence of normal connection flags (SYN/FIN/RST)  \n\n4. **Threat Considerations**  \n   While classified as MEDIUM threat in the query context, the Knowledge Base actually shows this specific flow was rated **HIGH** threat due to:\n   - Sustained irregular activity patterns\n   - Mismatch between claimed service (web traffic) and observed behavior\n   - Potential for stealthy data leakage given the extended duration\n\nNotably, 172.217.10.238 is a legitimate Google IP address, making this either:\n- Benign but misconfigured automated traffic\n- Compromised system communicating with Google infrastructure\n- TLS-encrypted malicious traffic blending with normal web requests\n\n**References**  \n[KG] ./AppDbStore/Friday--DDos (Source ID 23)  \n[KG] Entity ID 28 in Knowledge Base",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Anomalous HTTPS flows\n\nto 172.217.10.238:443 (Medium threat) with irregular timing patterns explain why"
     }
   }
 }
