@@ -2,6 +2,7 @@ import { Card, CardBody, Button } from '@heroui/react';
 import { Playbook } from '@/types';
 import { SearchIcon } from './icons';
 import { useTheme } from '@heroui/use-theme';
+import { useChatLoading } from '@/context/ChatContext';
 
 const severityColors = {
     critical: {
@@ -27,7 +28,6 @@ const severityColors = {
 const PlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { playbook: Playbook, onSelectPlaybook: (playbook: Playbook) => void, handleSearchGraph: (playbook: Playbook) => void }) => {
     const { theme } = useTheme();
     const isDarkMode = theme === 'dark';
-
     return <Card
         key={playbook.id}
         className={`cursor-pointer transition-all duration-200  ${isDarkMode

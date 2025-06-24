@@ -38,7 +38,7 @@ export const KnowledgeGraphContainer: React.FC = () => {
             await sendMessage(createSystemMessage(`Uploading your file '${file.name}' and building graph...`, false, dir_path), dir_path);
             try {
                 await buildGraph(file);
-                const newGraphData = await getGraphData(`./AppDbStore/${file.name.split('.')[0]}`);
+                const newGraphData = await getGraphData(file.name.split('.')[0]);
                 setGraphData(newGraphData);
                 await sendMessage(createSystemMessage(`Successfully generated graph with ${newGraphData.nodes.length} nodes and ${newGraphData.edges.length} edges.`, false, dir_path), dir_path);
             } catch (error) {

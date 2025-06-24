@@ -38,6 +38,7 @@ services:
       - ./threadHunterUI/tsconfig.json:/app/tsconfig.json
       - ./threadHunterUI/tailwind.config.js:/app/tailwind.config.js
       - ./threadHunterUI/vite.config.ts:/app/vite.config.ts
+      - ./threadHunterUI/index.html:/app/index.html
       - /app/node_modules
     depends_on:
       - backend

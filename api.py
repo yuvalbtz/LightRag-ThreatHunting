@@ -9,7 +9,7 @@ import os
 import re
 import logging
 import sys
-from examples.insert_custom_kg import build_kg, csv_to_json_list
+from examples.insert_custom_kg import build_kg, csv_to_json_list, pcap_to_json_list
 from agent import (
     generate_enriched_playbooks,
     fetch_sample_links,
@@ -158,7 +158,7 @@ async def test_hot_reload():
 
 @app.get("/fetch-all-playbooks", response_model=List[Dict[str, Any]])
 async def get_all_playbooks(year: str = "2013", max_samples: int = 2):
-    """Fetch and process playbooks from malware analysis blog."""
+    """Fetch and process all playbooks from malware analysis blog."""
     try:
         return await fetch_all_playbooks(year=year, max_samples=max_samples)
     except Exception as e:
@@ -219,18 +219,14 @@ async def build_knowledge_graph(
             temp_file_path = temp_file.name
 
         # Initialize RAG
-        rag = await initialize_rag_deepseek(working_dir=working_dir)
+        rag = await initialize_rag_ollama(working_dir=working_dir)
         print(f"working_dir: {working_dir}")
         # Process the file based on its extension
         file_ext = os.path.splitext(file.filename)[1].lower()
         if file_ext == ".csv":
             flows = await csv_to_json_list(temp_file_path, max_rows=200)
         elif file_ext == ".pcap":
-            # TODO: Implement pcap_to_json_list function
-            raise HTTPException(
-                status_code=400,
-                detail="PCAP file processing is not yet implemented. Please upload a CSV file.",
-            )
+            flows = await pcap_to_json_list(temp_file_path, max_rows=2000)
         else:
             raise HTTPException(
                 status_code=400,

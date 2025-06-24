@@ -213,7 +213,7 @@ async def deepseek_model_complete(
 
 
 # Set the current model completion function
-current_model_complete = ollama_model_complete
+current_model_complete = deepseek_model_complete
 
 # Set the current RAG initialization function
 current_initialize_rag_model = initialize_rag_ollama

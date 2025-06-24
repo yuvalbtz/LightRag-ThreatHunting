@@ -1,0 +1,310 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d7" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="d6" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="d5" for="edge" attr.name="description" attr.type="string" />
+  <key id="d4" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d3" for="node" attr.name="source_id" attr.type="string" />
+  <key id="d2" for="node" attr.name="description" attr.type="string" />
+  <key id="d1" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="d0" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="10.12.17.101:60308/dns">
+      <data key="d0">10.12.17.101:60308/dns</data>
+      <data key="d1">DNS Server</data>
+      <data key="d2">DNS Server at 10.12.17.101:60308 using DNS protocol.
+Observed in 2 network flow(s).
+Typical behavior: normal.
+Service type: dns server</data>
+      <data key="d3">chunk-c4423619afd588fc0ee3da984c06b4d6</data>
+    </node>
+    <node id="10.12.17.1:53/dns">
+      <data key="d0">10.12.17.1:53/dns</data>
+      <data key="d1">DNS Server</data>
+      <data key="d2">DNS Server at 10.12.17.1:53 using DNS protocol.
+Observed in 6 network flow(s).
+Typical behavior: normal.
+Service type: dns server</data>
+      <data key="d3">chunk-c4423619afd588fc0ee3da984c06b4d6</data>
+    </node>
+    <node id="10.12.17.101:50119/tcp">
+      <data key="d0">10.12.17.101:50119/tcp</data>
+      <data key="d1">Network Endpoint</data>
+      <data key="d2">Network Endpoint at 10.12.17.101:50119 using TCP protocol.
+Observed in 83 network flow(s).
+Typical behavior: normal.
+Service type: network endpoint</data>
+      <data key="d3">chunk-1d23ff8a36b41e26c2f0533eb57f4d46</data>
+    </node>
+    <node id="34.42.173.126:443/tcp">
+      <data key="d0">34.42.173.126:443/tcp</data>
+      <data key="d1">Web Server</data>
+      <data key="d2">Web Server at 34.42.173.126:443 using TCP protocol.
+Observed in 83 network flow(s).
+Typical behavior: normal.
+Service type: web server</data>
+      <data key="d3">chunk-1d23ff8a36b41e26c2f0533eb57f4d46</data>
+    </node>
+    <node id="10.12.17.101:57033/dns">
+      <data key="d0">10.12.17.101:57033/dns</data>
+      <data key="d1">DNS Server</data>
+      <data key="d2">DNS Server at 10.12.17.101:57033 using DNS protocol.
+Observed in 2 network flow(s).
+Typical behavior: normal.
+Service type: dns server</data>
+      <data key="d3">chunk-1fdb899f2e5a539f0d1efc89c9cd1cb5</data>
+    </node>
+    <node id="10.12.17.101:50973/dns">
+      <data key="d0">10.12.17.101:50973/dns</data>
+      <data key="d1">DNS Server</data>
+      <data key="d2">DNS Server at 10.12.17.101:50973 using DNS protocol.
+Observed in 2 network flow(s).
+Typical behavior: normal.
+Service type: dns server</data>
+      <data key="d3">chunk-19e7c0d0eb7e4f0d0bc088386e6172b9</data>
+    </node>
+    <node id="10.12.17.101:50134/tcp">
+      <data key="d0">10.12.17.101:50134/tcp</data>
+      <data key="d1">Network Endpoint</data>
+      <data key="d2">Network Endpoint at 10.12.17.101:50134 using TCP protocol.
+Observed in 17 network flow(s).
+Typical behavior: normal.
+Service type: network endpoint</data>
+      <data key="d3">chunk-02ce70cbb607c626adb42d4c92926e15</data>
+    </node>
+    <node id="185.33.84.25:443/tcp">
+      <data key="d0">185.33.84.25:443/tcp</data>
+      <data key="d1">Web Server</data>
+      <data key="d2">Web Server at 185.33.84.25:443 using TCP protocol.
+Observed in 1911 network flow(s).
+Typical behavior: normal.
+Service type: web server</data>
+      <data key="d3">chunk-02ce70cbb607c626adb42d4c92926e15</data>
+    </node>
+    <node id="10.12.17.101:50135/tcp">
+      <data key="d0">10.12.17.101:50135/tcp</data>
+      <data key="d1">Network Endpoint</data>
+      <data key="d2">Network Endpoint at 10.12.17.101:50135 using TCP protocol.
+Observed in 17 network flow(s).
+Typical behavior: normal.
+Service type: network endpoint</data>
+      <data key="d3">chunk-fffa3fa5b32e5168dbb9c5b23e9b3ccb</data>
+    </node>
+    <node id="10.12.17.101:50146/tcp">
+      <data key="d0">10.12.17.101:50146/tcp</data>
+      <data key="d1">Network Endpoint</data>
+      <data key="d2">Network Endpoint at 10.12.17.101:50146 using TCP protocol.
+Observed in 1874 network flow(s).
+Typical behavior: normal.
+Service type: network endpoint</data>
+      <data key="d3">chunk-4cd8674960a955490b82b60f50ab6272</data>
+    </node>
+    <node id="10.12.17.101:50164/tcp">
+      <data key="d0">10.12.17.101:50164/tcp</data>
+      <data key="d1">Network Endpoint</data>
+      <data key="d2">Network Endpoint at 10.12.17.101:50164 using TCP protocol.
+Observed in 1 network flow(s).
+Typical behavior: normal.
+Service type: network endpoint</data>
+      <data key="d3">chunk-4b23e99b9ed4c26c8cdfe95a141ee0ec</data>
+    </node>
+    <node id="10.12.17.101:50165/tcp">
+      <data key="d0">10.12.17.101:50165/tcp</data>
+      <data key="d1">Network Endpoint</data>
+      <data key="d2">Network Endpoint at 10.12.17.101:50165 using TCP protocol.
+Observed in 1 network flow(s).
+Typical behavior: normal.
+Service type: network endpoint</data>
+      <data key="d3">chunk-6f93aab24c976f032919821e4b9627c0</data>
+    </node>
+    <node id="10.12.17.101:50166/tcp">
+      <data key="d0">10.12.17.101:50166/tcp</data>
+      <data key="d1">Network Endpoint</data>
+      <data key="d2">Network Endpoint at 10.12.17.101:50166 using TCP protocol.
+Observed in 1 network flow(s).
+Typical behavior: normal.
+Service type: network endpoint</data>
+      <data key="d3">chunk-c36cd97437e7a9a5f648fd3324d9eade</data>
+    </node>
+    <edge source="10.12.17.101:60308/dns" target="10.12.17.1:53/dns">
+      <data key="d4">1.0</data>
+      <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: DNS Server (10.12.17.1:53/dns)
+Destination: DNS Server (10.12.17.101:60308/dns)
+Protocol: DNS
+Ports: 53 → 60308
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 0
+Forward bytes: 92
+Backward bytes: 0
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+      <data key="d6">dns, 53, 60308, 10.12.17.1, 10.12.17.101, dns server, dns server, normal, low</data>
+      <data key="d7">chunk-37f5d08571eeb6ee18cc3d500885f083</data>
+    </edge>
+    <edge source="10.12.17.1:53/dns" target="10.12.17.101:57033/dns">
+      <data key="d4">1.0</data>
+      <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: DNS Server (10.12.17.1:53/dns)
+Destination: DNS Server (10.12.17.101:57033/dns)
+Protocol: DNS
+Ports: 53 → 57033
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 0
+Forward bytes: 90
+Backward bytes: 0
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+      <data key="d6">dns, 53, 57033, 10.12.17.1, 10.12.17.101, dns server, dns server, normal, low</data>
+      <data key="d7">chunk-b87e1d736815db9682ce1cedb0a14f7f</data>
+    </edge>
+    <edge source="10.12.17.1:53/dns" target="10.12.17.101:50973/dns">
+      <data key="d4">1.0</data>
+      <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: DNS Server (10.12.17.1:53/dns)
+Destination: DNS Server (10.12.17.101:50973/dns)
+Protocol: DNS
+Ports: 53 → 50973
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 0
+Forward bytes: 87
+Backward bytes: 0
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+      <data key="d6">dns, 53, 50973, 10.12.17.1, 10.12.17.101, dns server, dns server, normal, low</data>
+      <data key="d7">chunk-a8b37248e82d7d4b9a8c302e4e7c626b</data>
+    </edge>
+    <edge source="10.12.17.101:50119/tcp" target="34.42.173.126:443/tcp">
+      <data key="d4">1.0</data>
+      <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (10.12.17.101:50119/tcp)
+Destination: Web Server (34.42.173.126:443/tcp)
+Protocol: TCP
+Ports: 50119 → 443
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 0
+Forward bytes: 54
+Backward bytes: 0
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+      <data key="d6">tcp, 50119, 443, 10.12.17.101, 34.42.173.126, network endpoint, web server, normal, low</data>
+      <data key="d7">chunk-11cd2496e407677bcec5a83a282c94e8</data>
+    </edge>
+    <edge source="10.12.17.101:50134/tcp" target="185.33.84.25:443/tcp">
+      <data key="d4">1.0</data>
+      <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (10.12.17.101:50134/tcp)
+Destination: Web Server (185.33.84.25:443/tcp)
+Protocol: TCP
+Ports: 50134 → 443
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 0
+Forward bytes: 54
+Backward bytes: 0
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+      <data key="d6">tcp, 50134, 443, 10.12.17.101, 185.33.84.25, network endpoint, web server, normal, low</data>
+      <data key="d7">chunk-b54549fbc9742148d34a5fc4e85d49b1</data>
+    </edge>
+    <edge source="185.33.84.25:443/tcp" target="10.12.17.101:50135/tcp">
+      <data key="d4">1.0</data>
+      <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (10.12.17.101:50135/tcp)
+Destination: Web Server (185.33.84.25:443/tcp)
+Protocol: TCP
+Ports: 50135 → 443
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 0
+Forward bytes: 54
+Backward bytes: 0
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+      <data key="d6">tcp, 50135, 443, 10.12.17.101, 185.33.84.25, network endpoint, web server, normal, low</data>
+      <data key="d7">chunk-a5e1062fe7ee26694fceddf10b41887b</data>
+    </edge>
+    <edge source="185.33.84.25:443/tcp" target="10.12.17.101:50146/tcp">
+      <data key="d4">1.0</data>
+      <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (10.12.17.101:50146/tcp)
+Destination: Web Server (185.33.84.25:443/tcp)
+Protocol: TCP
+Ports: 50146 → 443
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 0
+Forward bytes: 54
+Backward bytes: 0
+SYN: 0, FIN: 0, RST: 0, PSH: 0, ACK: 1</data>
+      <data key="d6">tcp, 50146, 443, 10.12.17.101, 185.33.84.25, network endpoint, web server, normal, low</data>
+      <data key="d7">chunk-a95ac0c1bb2273fcb027edee57ffd7d5</data>
+    </edge>
+    <edge source="185.33.84.25:443/tcp" target="10.12.17.101:50164/tcp">
+      <data key="d4">1.0</data>
+      <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (10.12.17.101:50164/tcp)
+Destination: Web Server (185.33.84.25:443/tcp)
+Protocol: TCP
+Ports: 50164 → 443
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 0
+Forward bytes: 66
+Backward bytes: 0
+SYN: 1, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+      <data key="d6">tcp, 50164, 443, 10.12.17.101, 185.33.84.25, network endpoint, web server, normal, low</data>
+      <data key="d7">chunk-4b23e99b9ed4c26c8cdfe95a141ee0ec</data>
+    </edge>
+    <edge source="185.33.84.25:443/tcp" target="10.12.17.101:50165/tcp">
+      <data key="d4">1.0</data>
+      <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (10.12.17.101:50165/tcp)
+Destination: Web Server (185.33.84.25:443/tcp)
+Protocol: TCP
+Ports: 50165 → 443
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 0
+Forward bytes: 66
+Backward bytes: 0
+SYN: 1, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+      <data key="d6">tcp, 50165, 443, 10.12.17.101, 185.33.84.25, network endpoint, web server, normal, low</data>
+      <data key="d7">chunk-6f93aab24c976f032919821e4b9627c0</data>
+    </edge>
+    <edge source="185.33.84.25:443/tcp" target="10.12.17.101:50166/tcp">
+      <data key="d4">1.0</data>
+      <data key="d5">COMPREHENSIVE FLOW ANALYSIS
+Source: Network Endpoint (10.12.17.101:50166/tcp)
+Destination: Web Server (185.33.84.25:443/tcp)
+Protocol: TCP
+Ports: 50166 → 443
+Behavior: normal
+Threat Level: LOW
+Flow Characteristics:
+Forward packets: 1
+Backward packets: 0
+Forward bytes: 66
+Backward bytes: 0
+SYN: 1, FIN: 0, RST: 0, PSH: 0, ACK: 0</data>
+      <data key="d6">tcp, 50166, 443, 10.12.17.101, 185.33.84.25, network endpoint, web server, normal, low</data>
+      <data key="d7">chunk-c36cd97437e7a9a5f648fd3324d9eade</data>
+    </edge>
+  </graph>
+</graphml>

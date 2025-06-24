@@ -19,6 +19,7 @@ dependencies:
   - tiktoken
   - xlsxwriter>=3.1.0
   - future
+  - scapy
   - pip:
     - smolagents>=0.1.0
     - pipmaster 

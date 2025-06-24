@@ -12,6 +12,15 @@ from typing import List, Dict, Any
 import re
 from agent import initialize_rag_deepseek
 
+# Add scapy import for PCAP file handling
+try:
+    from scapy.all import rdpcap, IP, TCP, UDP, DNS
+
+    SCAPY_AVAILABLE = True
+except ImportError:
+    SCAPY_AVAILABLE = False
+    print("Warning: scapy not available. PCAP files will not be supported.")
+
 #########
 # Uncomment the below two lines if running in a jupyter notebook to handle the async nature of rag.insert()
 # import nest_asyncio
@@ -39,6 +48,509 @@ async def csv_to_json_list(
         return s.strip().replace('"', "").replace("'", "")
 
     json_data = [{clean(k): clean(v) for k, v in row.items()} for row in rows]
+
+    return json_data
+
+
+async def pcap_to_json_list(
+    file_path: str, max_rows: int = None
+) -> List[Dict[str, Any]]:
+    """
+    Asynchronously converts a PCAP file (binary .pcap or CSV format) to a list of cleaned dictionaries.
+
+    Supports:
+    - Binary .pcap files (using scapy)
+    - CSV files exported from Wireshark/tshark
+
+    Expected CSV format:
+    "No.","Time","Source","Destination","Protocol","Length","Info"
+
+    :param file_path: Path to the PCAP file (.pcap or .csv).
+    :param max_rows: Maximum number of rows to process (optional).
+    :return: A list of dictionaries with cleaned PCAP packet data.
+    """
+    file_ext = os.path.splitext(file_path)[1].lower()
+
+    if file_ext == ".pcap" or file_ext == ".pcapng":
+        if not SCAPY_AVAILABLE:
+            raise Exception(
+                "scapy is required to read .pcap files. Install with: pip install scapy"
+            )
+        return await _parse_pcap_file(file_path, max_rows)
+    elif file_ext == ".csv":
+        return await _parse_csv_file(file_path, max_rows)
+    else:
+        raise ValueError(
+            f"Unsupported file format: {file_ext}. Use .pcap, .pcapng, or .csv files"
+        )
+
+
+async def _parse_pcap_file(
+    file_path: str, max_rows: int = None
+) -> List[Dict[str, Any]]:
+    """Parse binary PCAP file using scapy."""
+    try:
+        # Read PCAP file
+        packets = rdpcap(file_path)
+        if max_rows:
+            packets = packets[:max_rows]
+
+        json_data = []
+
+        for i, packet in enumerate(packets):
+            packet_data = {
+                "Packet No.": str(i + 1),
+                "Time": str(packet.time),
+                "Source IP": "0.0.0.0",
+                "Source Port": "0",
+                "Destination IP": "0.0.0.0",
+                "Destination Port": "0",
+                "Protocol": "Unknown",
+                "Length": str(len(packet)),
+                "Info": "",
+                "Flow ID": f"pcap-{i+1}",
+                "Timestamp": float(packet.time),
+                "Flow Duration": 0,
+                "Total Fwd Packets": 1,
+                "Total Backward Packets": 0,
+                "Total Length of Fwd Packets": len(packet),
+                "Total Length of Bwd Packets": 0,
+                "Fwd Packet Length Max": len(packet),
+                "Fwd Packet Length Min": len(packet),
+                "Fwd Packet Length Mean": len(packet),
+                "Fwd Packet Length Std": 0,
+                "Bwd Packet Length Max": 0,
+                "Bwd Packet Length Min": 0,
+                "Bwd Packet Length Mean": 0,
+                "Bwd Packet Length Std": 0,
+                "Flow Bytes/s": 0,
+                "Flow Packets/s": 0,
+                "Flow IAT Mean": 0,
+                "Flow IAT Std": 0,
+                "Flow IAT Max": 0,
+                "Flow IAT Min": 0,
+                "Fwd IAT Total": 0,
+                "Fwd IAT Mean": 0,
+                "Fwd IAT Std": 0,
+                "Fwd IAT Max": 0,
+                "Fwd IAT Min": 0,
+                "Bwd IAT Total": 0,
+                "Bwd IAT Mean": 0,
+                "Bwd IAT Std": 0,
+                "Bwd IAT Max": 0,
+                "Bwd IAT Min": 0,
+                "Fwd PSH Flags": 0,
+                "Bwd PSH Flags": 0,
+                "Fwd URG Flags": 0,
+                "Bwd URG Flags": 0,
+                "Fwd Header Length": 0,
+                "Bwd Header Length": 0,
+                "Fwd Packets/s": 0,
+                "Bwd Packets/s": 0,
+                "Min Packet Length": len(packet),
+                "Max Packet Length": len(packet),
+                "Packet Length Mean": len(packet),
+                "Packet Length Std": 0,
+                "Packet Length Variance": 0,
+                "FIN Flag Count": 0,
+                "SYN Flag Count": 0,
+                "RST Flag Count": 0,
+                "PSH Flag Count": 0,
+                "ACK Flag Count": 0,
+                "URG Flag Count": 0,
+                "CWE Flag Count": 0,
+                "ECE Flag Count": 0,
+                "Down/Up Ratio": 0,
+                "Average Packet Size": len(packet),
+                "Avg Fwd Segment Size": 0,
+                "Avg Bwd Segment Size": 0,
+                "Fwd Avg Bytes/Bulk": 0,
+                "Fwd Avg Packets/Bulk": 0,
+                "Fwd Avg Bulk Rate": 0,
+                "Bwd Avg Bytes/Bulk": 0,
+                "Bwd Avg Packets/Bulk": 0,
+                "Bwd Avg Bulk Rate": 0,
+                "Subflow Fwd Packets": 0,
+                "Subflow Fwd Bytes": 0,
+                "Subflow Bwd Packets": 0,
+                "Subflow Bwd Bytes": 0,
+                "Init_Win_bytes_forward": 0,
+                "Init_Win_bytes_backward": 0,
+                "act_data_pkt_fwd": 0,
+                "min_seg_size_forward": 0,
+                "Active Mean": 0,
+                "Active Std": 0,
+                "Active Max": 0,
+                "Active Min": 0,
+                "Idle Mean": 0,
+                "Idle Std": 0,
+                "Idle Max": 0,
+                "Idle Min": 0,
+                "Label": "normal",
+                "Query Type": None,
+                "Query ID": None,
+                "Domain": None,
+                "Response IP": None,
+                "TCP Flags": "",
+            }
+
+            # Extract IP layer information
+            if IP in packet:
+                packet_data["Source IP"] = packet[IP].src
+                packet_data["Destination IP"] = packet[IP].dst
+
+                # Extract TCP information
+                if TCP in packet:
+                    packet_data["Protocol"] = "TCP"
+                    packet_data["Source Port"] = str(packet[TCP].sport)
+                    packet_data["Destination Port"] = str(packet[TCP].dport)
+                    packet_data["Query Type"] = "TCP_CONNECTION"
+
+                    # Extract TCP flags
+                    flags = []
+                    if packet[TCP].flags & 0x02:  # SYN
+                        flags.append("SYN")
+                        packet_data["SYN Flag Count"] = 1
+                    if packet[TCP].flags & 0x10:  # ACK
+                        flags.append("ACK")
+                        packet_data["ACK Flag Count"] = 1
+                    if packet[TCP].flags & 0x01:  # FIN
+                        flags.append("FIN")
+                        packet_data["FIN Flag Count"] = 1
+                    if packet[TCP].flags & 0x04:  # RST
+                        flags.append("RST")
+                        packet_data["RST Flag Count"] = 1
+                    if packet[TCP].flags & 0x08:  # PSH
+                        flags.append("PSH")
+                        packet_data["PSH Flag Count"] = 1
+                        packet_data["Fwd PSH Flags"] = 1
+                    if packet[TCP].flags & 0x20:  # URG
+                        flags.append("URG")
+                        packet_data["URG Flag Count"] = 1
+                        packet_data["Fwd URG Flags"] = 1
+
+                    packet_data["TCP Flags"] = ", ".join(flags)
+
+                # Extract UDP information
+                elif UDP in packet:
+                    packet_data["Protocol"] = "UDP"
+                    packet_data["Source Port"] = str(packet[UDP].sport)
+                    packet_data["Destination Port"] = str(packet[UDP].dport)
+                    packet_data["Query Type"] = "UDP"
+
+                    # Check for DNS
+                    if packet[UDP].dport == 53 or packet[UDP].sport == 53:
+                        packet_data["Protocol"] = "DNS"
+                        packet_data["Query Type"] = "DNS_QUERY"
+
+                        # Try to extract DNS information
+                        if DNS in packet:
+                            dns = packet[DNS]
+                            if hasattr(dns, "qd") and dns.qd:
+                                qname = dns.qd.qname.decode(
+                                    "utf-8", errors="ignore"
+                                ).rstrip(".")
+                                packet_data["Domain"] = qname
+                                packet_data["Info"] = f"DNS query for {qname}"
+
+            json_data.append(packet_data)
+
+        return json_data
+
+    except Exception as e:
+        raise Exception(f"Error parsing PCAP file: {e}")
+
+
+async def _parse_csv_file(file_path: str, max_rows: int = None) -> List[Dict[str, Any]]:
+    """Parse CSV file exported from Wireshark/tshark."""
+    # Try different encodings to handle various PCAP export formats
+    encodings = ["utf-8", "latin-1", "cp1252", "iso-8859-1"]
+
+    for encoding in encodings:
+        try:
+            with open(file_path, mode="r", encoding=encoding) as f:
+                reader = csv.DictReader(f)
+                if max_rows:
+                    rows = list(reader)[:max_rows]
+                else:
+                    rows = list(reader)
+            print(f"Successfully read file with {encoding} encoding")
+            break
+        except UnicodeDecodeError:
+            print(f"Failed to read with {encoding} encoding, trying next...")
+            continue
+        except Exception as e:
+            print(f"Error reading file with {encoding}: {e}")
+            continue
+    else:
+        # If all encodings fail, try with error handling
+        try:
+            with open(file_path, mode="r", encoding="utf-8", errors="ignore") as f:
+                reader = csv.DictReader(f)
+                if max_rows:
+                    rows = list(reader)[:max_rows]
+                else:
+                    rows = list(reader)
+            print("Successfully read file with utf-8 encoding (ignoring errors)")
+        except Exception as e:
+            raise Exception(f"Failed to read PCAP file with any encoding: {e}")
+
+    def clean(s: str) -> str:
+        """Clean string values by removing quotes and extra whitespace."""
+        if s is None:
+            return ""
+        # Remove any non-printable characters that might cause issues
+        cleaned = s.strip().replace('"', "").replace("'", "")
+        # Remove any control characters except newlines and tabs
+        cleaned = "".join(
+            char for char in cleaned if char.isprintable() or char in "\n\t"
+        )
+        return cleaned
+
+    def parse_info_field(info: str) -> Dict[str, Any]:
+        """Parse the Info field to extract additional packet details."""
+        info_clean = clean(info)
+        parsed_info = {
+            "raw_info": info_clean,
+            "query_type": None,
+            "port_src": None,
+            "port_dst": None,
+            "flags": [],
+            "query_id": None,
+            "domain": None,
+            "response_ip": None,
+        }
+
+        # Parse DNS queries
+        if "Standard query" in info_clean and "response" not in info_clean:
+            # Extract query ID (hex value)
+            query_match = re.search(r"0x([0-9a-fA-F]+)", info_clean)
+            if query_match:
+                parsed_info["query_id"] = query_match.group(1)
+                parsed_info["query_type"] = "DNS_QUERY"
+
+            # Extract domain name
+            domain_match = re.search(r"([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})", info_clean)
+            if domain_match:
+                parsed_info["domain"] = domain_match.group(1)
+
+        # Parse DNS responses
+        elif "Standard query response" in info_clean:
+            parsed_info["query_type"] = "DNS_RESPONSE"
+            # Extract query ID
+            query_match = re.search(r"0x([0-9a-fA-F]+)", info_clean)
+            if query_match:
+                parsed_info["query_id"] = query_match.group(1)
+
+            # Extract domain and response IP
+            domain_match = re.search(r"([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})", info_clean)
+            if domain_match:
+                parsed_info["domain"] = domain_match.group(1)
+
+            ip_match = re.search(
+                r"A\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})", info_clean
+            )
+            if ip_match:
+                parsed_info["response_ip"] = ip_match.group(1)
+
+        # Parse TCP connections
+        elif "TCP" in info_clean or re.search(r"\d+\s*>\s*\d+", info_clean):
+            parsed_info["query_type"] = "TCP_CONNECTION"
+            # Extract ports - fix the regex pattern
+            port_match = re.search(r"(\d+)\s*>\s*(\d+)", info_clean)
+            if port_match:
+                parsed_info["port_src"] = port_match.group(1)
+                parsed_info["port_dst"] = port_match.group(2)
+
+            # Extract TCP flags
+            if "[SYN]" in info_clean:
+                parsed_info["flags"].append("SYN")
+            if "[ACK]" in info_clean:
+                parsed_info["flags"].append("ACK")
+            if "[FIN]" in info_clean:
+                parsed_info["flags"].append("FIN")
+            if "[RST]" in info_clean:
+                parsed_info["flags"].append("RST")
+            if "[PSH]" in info_clean:
+                parsed_info["flags"].append("PSH")
+            if "[URG]" in info_clean:
+                parsed_info["flags"].append("URG")
+
+        # Parse other protocols
+        elif "UDP" in info_clean:
+            parsed_info["query_type"] = "UDP"
+            port_match = re.search(r"(\d+)\s*>\s*(\d+)", info_clean)
+            if port_match:
+                parsed_info["port_src"] = port_match.group(1)
+                parsed_info["port_dst"] = port_match.group(2)
+
+        return parsed_info
+
+    def extract_ports_from_addresses(
+        source: str, destination: str, info_parsed: Dict[str, Any]
+    ) -> tuple:
+        """Extract source and destination ports from addresses and info field."""
+        src_port = None
+        dst_port = None
+
+        # Try to get ports from info field first
+        if info_parsed.get("port_src"):
+            src_port = info_parsed["port_src"]
+        if info_parsed.get("port_dst"):
+            dst_port = info_parsed["port_dst"]
+
+        # If not found in info, try to extract from addresses
+        if not src_port:
+            src_match = re.search(r":(\d+)$", source)
+            if src_match:
+                src_port = src_match.group(1)
+            else:
+                src_port = "0"  # Default port
+
+        if not dst_port:
+            dst_match = re.search(r":(\d+)$", destination)
+            if dst_match:
+                dst_port = dst_match.group(1)
+            else:
+                dst_port = "0"  # Default port
+
+        return src_port, dst_port
+
+    def clean_ip_address(address: str) -> str:
+        """Extract clean IP address from address field."""
+        # Remove port if present
+        ip_match = re.match(r"^([0-9.]+)", address)
+        if ip_match:
+            return ip_match.group(1)
+        return address
+
+    json_data = []
+
+    for row in rows:
+        # Clean basic fields
+        packet_no = clean(row.get("No.", ""))
+        time = clean(row.get("Time", ""))
+        source = clean(row.get("Source", ""))
+        destination = clean(row.get("Destination", ""))
+        protocol = clean(row.get("Protocol", ""))
+        length = clean(row.get("Length", ""))
+        info = clean(row.get("Info", ""))
+
+        # Parse info field for additional details
+        info_parsed = parse_info_field(info)
+
+        # Extract ports
+        src_port, dst_port = extract_ports_from_addresses(
+            source, destination, info_parsed
+        )
+
+        # Clean IP addresses
+        src_ip = clean_ip_address(source)
+        dst_ip = clean_ip_address(destination)
+
+        # Create packet record
+        packet_data = {
+            "Packet No.": packet_no,
+            "Time": time,
+            "Source IP": src_ip,
+            "Source Port": src_port,
+            "Destination IP": dst_ip,
+            "Destination Port": dst_port,
+            "Protocol": protocol,
+            "Length": length,
+            "Info": info,
+            "Flow ID": f"pcap-{packet_no}",
+            "Timestamp": (
+                float(time) if time.replace(".", "").replace("-", "").isdigit() else 0.0
+            ),
+            "Flow Duration": 0,  # PCAP doesn't provide flow duration
+            "Total Fwd Packets": 1,  # Each packet is counted as 1
+            "Total Backward Packets": 0,
+            "Total Length of Fwd Packets": int(length) if length.isdigit() else 0,
+            "Total Length of Bwd Packets": 0,
+            "Fwd Packet Length Max": int(length) if length.isdigit() else 0,
+            "Fwd Packet Length Min": int(length) if length.isdigit() else 0,
+            "Fwd Packet Length Mean": int(length) if length.isdigit() else 0,
+            "Fwd Packet Length Std": 0,
+            "Bwd Packet Length Max": 0,
+            "Bwd Packet Length Min": 0,
+            "Bwd Packet Length Mean": 0,
+            "Bwd Packet Length Std": 0,
+            "Flow Bytes/s": 0,
+            "Flow Packets/s": 0,
+            "Flow IAT Mean": 0,
+            "Flow IAT Std": 0,
+            "Flow IAT Max": 0,
+            "Flow IAT Min": 0,
+            "Fwd IAT Total": 0,
+            "Fwd IAT Mean": 0,
+            "Fwd IAT Std": 0,
+            "Fwd IAT Max": 0,
+            "Fwd IAT Min": 0,
+            "Bwd IAT Total": 0,
+            "Bwd IAT Mean": 0,
+            "Bwd IAT Std": 0,
+            "Bwd IAT Max": 0,
+            "Bwd IAT Min": 0,
+            "Fwd PSH Flags": 1 if "PSH" in info_parsed["flags"] else 0,
+            "Bwd PSH Flags": 0,
+            "Fwd URG Flags": 1 if "URG" in info_parsed["flags"] else 0,
+            "Bwd URG Flags": 0,
+            "Fwd Header Length": 0,
+            "Bwd Header Length": 0,
+            "Fwd Packets/s": 0,
+            "Bwd Packets/s": 0,
+            "Min Packet Length": int(length) if length.isdigit() else 0,
+            "Max Packet Length": int(length) if length.isdigit() else 0,
+            "Packet Length Mean": int(length) if length.isdigit() else 0,
+            "Packet Length Std": 0,
+            "Packet Length Variance": 0,
+            "FIN Flag Count": 1 if "FIN" in info_parsed["flags"] else 0,
+            "SYN Flag Count": 1 if "SYN" in info_parsed["flags"] else 0,
+            "RST Flag Count": 1 if "RST" in info_parsed["flags"] else 0,
+            "PSH Flag Count": 1 if "PSH" in info_parsed["flags"] else 0,
+            "ACK Flag Count": 1 if "ACK" in info_parsed["flags"] else 0,
+            "URG Flag Count": 1 if "URG" in info_parsed["flags"] else 0,
+            "CWE Flag Count": 0,
+            "ECE Flag Count": 0,
+            "Down/Up Ratio": 0,
+            "Average Packet Size": int(length) if length.isdigit() else 0,
+            "Avg Fwd Segment Size": 0,
+            "Avg Bwd Segment Size": 0,
+            "Fwd Avg Bytes/Bulk": 0,
+            "Fwd Avg Packets/Bulk": 0,
+            "Fwd Avg Bulk Rate": 0,
+            "Bwd Avg Bytes/Bulk": 0,
+            "Bwd Avg Packets/Bulk": 0,
+            "Bwd Avg Bulk Rate": 0,
+            "Subflow Fwd Packets": 0,
+            "Subflow Fwd Bytes": 0,
+            "Subflow Bwd Packets": 0,
+            "Subflow Bwd Bytes": 0,
+            "Init_Win_bytes_forward": 0,
+            "Init_Win_bytes_backward": 0,
+            "act_data_pkt_fwd": 0,
+            "min_seg_size_forward": 0,
+            "Active Mean": 0,
+            "Active Std": 0,
+            "Active Max": 0,
+            "Active Min": 0,
+            "Idle Mean": 0,
+            "Idle Std": 0,
+            "Idle Max": 0,
+            "Idle Min": 0,
+            "Label": "normal",  # Default label
+            # Additional PCAP-specific fields
+            "Query Type": info_parsed.get("query_type"),
+            "Query ID": info_parsed.get("query_id"),
+            "Domain": info_parsed.get("domain"),
+            "Response IP": info_parsed.get("response_ip"),
+            "TCP Flags": (
+                ", ".join(info_parsed["flags"]) if info_parsed["flags"] else ""
+            ),
+        }
+
+        json_data.append(packet_data)
 
     return json_data
 
@@ -170,7 +682,6 @@ async def build_kg(
         "Average Packet Size",
         "Avg Fwd Segment Size",
         "Avg Bwd Segment Size",
-        "Fwd Header Length",
         "Fwd Avg Bytes/Bulk",
         "Fwd Avg Packets/Bulk",
         "Fwd Avg Bulk Rate",
@@ -418,9 +929,9 @@ async def build_kg(
             entity_type = get_entity_type(ip, port, protocol)
 
             return (
-                f"{entity_type} at {ip}:{port} using {protocol} protocol. "
-                f"Observed in {flow_count} network flow(s). "
-                f"Typical behavior: {avg_behavior}. "
+                f"{entity_type} at {ip}:{port} using {protocol} protocol.\n"
+                f"Observed in {flow_count} network flow(s).\n"
+                f"Typical behavior: {avg_behavior}.\n"
                 f"Service type: {entity_type.lower()}"
             )
         except Exception:
@@ -979,30 +1490,106 @@ def main():
     rag = asyncio.run(initialize_rag_deepseek())
 
     if is_folder_missing_or_empty(WORKING_DIR):
-        flows = asyncio.run(csv_to_json_list("Skype.csv"))
+        # Use PCAP data (supports both .pcap and .csv files)
+        flows = asyncio.run(pcap_to_json_list("your_pcap_file.pcap"))
         asyncio.run(
             build_kg(
                 flows=flows,
                 rag=rag,
-                source_column="Src IP",
-                target_column="Dst IP",
+                source_column="Source IP",
+                target_column="Destination IP",
                 relationship_columns=[
                     "Protocol",
                     "Length",
                     "Time",
-                    "duration",
-                    "total_fiat",
-                    "total_biat",
-                    "mean_fiat",
-                    "mean_biat",
-                    "flowPktsPerSecond",
-                    "flowBytesPerSecond",
-                    "std_idle",
+                    "Timestamp",
+                    "Flow Duration",
+                    "Total Fwd Packets",
+                    "Total Backward Packets",
+                    "Total Length of Fwd Packets",
+                    "Total Length of Bwd Packets",
+                    "Fwd Packet Length Max",
+                    "Fwd Packet Length Min",
+                    "Fwd Packet Length Mean",
+                    "Fwd Packet Length Std",
+                    "Bwd Packet Length Max",
+                    "Bwd Packet Length Min",
+                    "Bwd Packet Length Mean",
+                    "Bwd Packet Length Std",
+                    "Flow Bytes/s",
+                    "Flow Packets/s",
+                    "Flow IAT Mean",
+                    "Flow IAT Std",
+                    "Flow IAT Max",
+                    "Flow IAT Min",
+                    "Fwd IAT Total",
+                    "Fwd IAT Mean",
+                    "Fwd IAT Std",
+                    "Fwd IAT Max",
+                    "Fwd IAT Min",
+                    "Bwd IAT Total",
+                    "Bwd IAT Mean",
+                    "Bwd IAT Std",
+                    "Bwd IAT Max",
+                    "Bwd IAT Min",
+                    "Fwd PSH Flags",
+                    "Bwd PSH Flags",
+                    "Fwd URG Flags",
+                    "Bwd URG Flags",
+                    "Fwd Header Length",
+                    "Bwd Header Length",
+                    "Fwd Packets/s",
+                    "Bwd Packets/s",
+                    "Min Packet Length",
+                    "Max Packet Length",
+                    "Packet Length Mean",
+                    "Packet Length Std",
+                    "Packet Length Variance",
+                    "FIN Flag Count",
+                    "SYN Flag Count",
+                    "RST Flag Count",
+                    "PSH Flag Count",
+                    "ACK Flag Count",
+                    "URG Flag Count",
+                    "CWE Flag Count",
+                    "ECE Flag Count",
+                    "Down/Up Ratio",
+                    "Average Packet Size",
+                    "Avg Fwd Segment Size",
+                    "Avg Bwd Segment Size",
+                    "Fwd Avg Bytes/Bulk",
+                    "Fwd Avg Packets/Bulk",
+                    "Fwd Avg Bulk Rate",
+                    "Bwd Avg Bytes/Bulk",
+                    "Bwd Avg Packets/Bulk",
+                    "Bwd Avg Bulk Rate",
+                    "Subflow Fwd Packets",
+                    "Subflow Fwd Bytes",
+                    "Subflow Bwd Packets",
+                    "Subflow Bwd Bytes",
+                    "Init_Win_bytes_forward",
+                    "Init_Win_bytes_backward",
+                    "act_data_pkt_fwd",
+                    "min_seg_size_forward",
+                    "Active Mean",
+                    "Active Std",
+                    "Active Max",
+                    "Active Min",
+                    "Idle Mean",
+                    "Idle Std",
+                    "Idle Max",
+                    "Idle Min",
+                    "Label",
+                    "Query Type",
+                    "Query ID",
+                    "Domain",
+                    "Response IP",
+                    "TCP Flags",
                 ],
             )
         )
 
-    print("Custom knowledge graph inserted successfully.")
+    print("PCAP-based knowledge graph inserted successfully.")
     print("Entities, relationships, and chunks have been added to the knowledge graph.")
 
     # Start interactive chat

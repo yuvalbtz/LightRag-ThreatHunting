@@ -204,7 +204,20 @@ export const PlaybooksContainer = () => {
     const [selectedSeverity, setSelectedSeverity] = useState<PlaybookSeverity>('All Severities');
     const { isDarkMode } = useTheme();
     const [MTAStats, setMTAStats] = useState<{ year: number, max_samples: number }>({ year: 2013, max_samples: 2 });
-    const [playbooks, setPlaybooks] = useState<MTAPlayBook[]>([]);
+    const [playbooks, setPlaybooks] = useState<MTAPlayBook[]>([
+        {
+            "sample_url": "https://www.malware-traffic-analysis.net/2013/12/27/index.html",
+            "malware_name": "Simda",
+            "hunt_goal": "Detect download and command-and-control (C2) communication patterns associated with Simda malware delivered via the Styx exploit kit.",
+            "generated_prompt": "1. Are there flows with high Down/Up Ratio values, indicating significant download activity consistent with malware payload retrieval?\n2. Do any flows to destination port 80 exhibit elevated Flow Bytes/s and Flow Packets/s, suggesting malicious file transfers?\n3. Are there multiple short-duration flows (low Flow Duration) from the same source IP to new destination IPs, indicative of C2 beaconing?\n4. Do flows show SYN and ACK flag counts consistent with successful TCP handshakes followed by abrupt RST flag terminations, signaling exploit-driven connections?\n5. Are there deviations in Fwd Packet Length Mean and Bwd Packet Length Mean between initial exploit traffic and subsequent C2 communication?\n6. Do flows from internal IPs to external IPs on port 80 with high Total Backward Packets suggest repeated server responses during payload staging?\n7. Are there clusters of flows with similar Active Mean and Idle Mean values, indicating periodic communication patterns to C2 infrastructure?"
+        },
+        {
+            "sample_url": "https://www.malware-traffic-analysis.net/2013/12/26/index.html",
+            "malware_name": "Goon Exploit Kit, Urausy",
+            "hunt_goal": "Detect Goon EK exploit delivery and Urausy ransomware callback activity using flow metadata.",
+            "generated_prompt": "1. Are there flows with high SYN Flag Count and low Flow Duration, indicating rapid connection attempts to potential exploit servers?\n2. Identify flows where Down/Up Ratio exceeds 10:1, suggesting large malicious payload downloads (e.g., Z.jar) from external IPs.\n3. Find bidirectional flows with Protocol 6 (TCP) where Fwd Packet Length Mean differs significantly from Bwd Packet Length Mean, indicating asymmetric C2 communication patterns.\n4. Detect flows to multiple destination IPs from the same source port within 60 seconds, matching exploit kit multi-stage delivery patterns.\n5. Identify flows with elevated RST Flag Count and ACK Flag Count combinations, potentially showing failed C2 connection attempts post-exploitation.\n6. Are there clusters of flows with similar Flow Bytes/s and Flow Packets/s values to 85.17.95.243, indicating Urausy callback traffic patterns?\n7. Find short-lived flows (Active Mean < 1s) with Total Fwd Packets > 50, matching Java exploit delivery characteristics observed in Goon EK."
+        }
+    ]);
     const [loading, setLoading] = useState(false);
     // const filteredPlaybooks = useMemo(() => {
     //     return playbooks.filter(playbook => {
@@ -375,7 +388,23 @@ export const PlaybooksContainer = () => {
                         renderItems={playbooks}
                         ComponentType={({ item }) => <MTAPlayBookCard playbook={item} onSelectPlaybook={handlePlaybookSelect} handleSearchGraph={handleGraphSearch} />}
                     />
+                    {/* image of playbooks */}
+                    {playbooks.length === 0 && (
+                        <div className="flex justify-center items-center h-full">
+                            <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" strokeWidth="10" />
+                                <path d="M100 10 L100 90" stroke="currentColor" strokeWidth="10" />
+                                <path d="M100 10 L100 90" stroke="currentColor" strokeWidth="10" />
+                                <path d="M100 10 L100 90" stroke="currentColor" strokeWidth="10" />
+                            </svg>
+                        </div>
+                    )}
 
+                    {playbooks.length === 0 && (
+                        <div className="flex justify-center items-center h-full">
+                            <p className="text-gray-500">No playbooks found for the selected year and number of blogs</p>
+                        </div>
+                    )}
                 </div >
             </div>
         </div>

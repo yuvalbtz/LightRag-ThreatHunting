@@ -1,0 +1,76 @@
+{
+  "hybrid": {
+    "34db8e3d60e9065c1ca6e11bfc6b4501": {
+      "return": "{\"high_level_keywords\": [\"Data visualization\", \"Graph analysis\", \"Information interpretation\"], \"low_level_keywords\": [\"Chart types\", \"Data points\", \"Axes labels\", \"Trends\", \"Statistical data\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about this graph ?"
+    },
+    "4c02e0ffa0b5ae6e8ce1926b08799296": {
+      "return": "### Network Graph Analysis Summary\n\n#### Key Entities\n1. **Web Servers**  \n   - `185.33.84.25:443/tcp`: High-activity server observed in 111 network flows.  \n   - `34.42.173.126:443/tcp`: Moderate-activity server observed in 83 flows.  \n\n2. **DNS Servers**  \n   - `10.12.17.1:53/dns`: Primary DNS server with 6 observed flows.  \n   - Multiple client DNS endpoints (e.g., `10.12.17.101:57033/dns`) initiating queries.  \n\n3. **Network Endpoints**  \n   - `10.12.17.101` hosts multiple TCP endpoints (e.g., `50134/tcp`, `50146/tcp`) communicating with external web servers.  \n\n---\n\n#### Communication Patterns\n- **Web Traffic**  \n  Network endpoints from `10.12.17.101` consistently connect to:  \n  - `185.33.84.25:443/tcp` via ports `50134`, `50135`, and `50146` (TCP/443).  \n  - `34.42.173.126:443/tcp` via port `50119` (TCP/443).  \n  All flows show **normal behavior** with low threat levels.  \n\n- **DNS Activity**  \n  DNS server `10.12.17.1:53` responds to queries from client ports `57033`, `60308`, and `50973` on `10.12.17.101`.  \n  Typical DNS packet sizes: 87–92 bytes (forward), 71–76 bytes (reverse).  \n\n---\n\n#### Behavioral Analysis\n- **Threat Indicators**: No anomalies or suspicious patterns detected.  \n- **Flow Characteristics**:  \n  - **TCP**: Single-packet flows with ACK flags (no SYN/FIN/RST).  \n  - **DNS**: Unidirectional queries (forward packets only).  \n- **Traffic Volume**:  \n  - Web server flows: 54–66 bytes per connection.  \n  - DNS flows: 71–92 bytes per query.  \n\n---\n\n#### Data Characteristics\n- **Temporal Consistency**: All relationships marked as \"normal\" with identical timestamps (`2025-06-23 20:02:58` or `UNKNOWN`).  \n- **Source Reliability**: Data derived from packet captures (e.g., `pcap-123`, `pcap-200`) stored in `./AppDbStore/2024-12-17-flows`.  \n\n---\n\n### References  \n1. [KG] `./AppDbStore/2024-12-17-flows` (Source IDs 1–14)  \n2. [KG] Entity definitions (IDs 1–20)  \n3. [KG] Relationship mappings (IDs 1–21)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about this graph ?"
+    },
+    "809e76229fa2d980eb70d1b076ccac60": {
+      "return": "{\"high_level_keywords\": [\"Special behavior\", \"Behavior analysis\", \"Anomaly detection\"], \"low_level_keywords\": [\"Unusual activity\", \"Abnormal patterns\", \"Outliers\", \"System monitoring\", \"Data deviations\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see any special behavior ?"
+    },
+    "ae5a1fe34e6ca888bad0b094c352b582": {
+      "return": "### Network Behavior Analysis  \nBased on the provided data, no special or suspicious behavior was observed in the network activity. All recorded flows demonstrate **normal operational patterns** with low threat levels (LOW). Key observations:  \n\n1. **DNS Communications**:  \n   - Multiple DNS servers (10.12.17.1:53 and 10.12.17.101 variants) exchanged small data packets (71–92 bytes) with typical DNS query/response patterns.  \n   - No abnormal flag patterns (SYN/FIN/RST/PSH/ACK) observed.  \n\n2. **Web Server Interactions**:  \n   - Network endpoints (10.12.17.101:50119/tcp, 50134-50146/tcp) communicated with web servers (185.33.84.25:443, 34.42.173.126:443) over HTTPS.  \n   - Flows showed standard TCP acknowledgment (ACK=1) behavior with minimal data transfer (54–66 bytes per flow).  \n\n3. **Traffic Characteristics**:  \n   - All flows had **0 anomaly scores** and no documented suspicious patterns.  \n   - Consistent low throughput (0.00 bytes/sec and packets/sec) across interactions.  \n\n### References  \n[KG] ./AppDbStore/2024-12-17-flows (Flow IDs: pcap-2, pcap-46, pcap-123)  \n[KG] ./AppDbStore/2024-12-17-flows (Flow IDs: pcap-200, pcap-95)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see any special behavior ?"
+    },
+    "86ce11846371224250b3605a59126f1e": {
+      "return": "{\"high_level_keywords\": [\"Graph analysis\", \"Data visualization\", \"Information interpretation\"], \"low_level_keywords\": [\"Chart types\", \"Data trends\", \"Axes labels\", \"Data points\", \"Graph legends\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about this graph"
+    },
+    "afdcf6f3e67e66f48aa446723c905eff": {
+      "return": "Based on the provided Knowledge Base, here is an analysis of the network graph structure and relationships:\n\n### Web Server Communications\n1. **Primary Web Server (185.33.84.25:443)**  \n   - Handled 1911 network flows, making it the most active service  \n   - Received connections from multiple endpoints at 10.12.17.101 (ports 50134-50166) via TCP  \n   - All interactions show normal behavior with low threat levels  \n   - Flow characteristics include both SYN-initiated connections (66-byte packets) and ACK responses (54-byte packets)\n\n2. **Secondary Web Server (34.42.173.126:443)**  \n   - Involved in 83 network flows  \n   - Connected to endpoint 10.12.17.101:50119/tcp  \n   - Similar low-risk profile with normal ACK responses  \n\n### DNS Infrastructure\n1. **DNS Server (10.12.17.1:53)**  \n   - Acted as central DNS resolver  \n   - Communicated with multiple endpoints at 10.12.17.101 (ports 50973-60308)  \n   - Transferred 87-92 byte DNS packets in 2-6 flows  \n\n2. **Endpoint DNS Activity**  \n   - Multiple ephemeral DNS ports (50973, 57033, 60308) observed  \n   - All DNS queries showed normal resolution patterns  \n\n### Behavioral Analysis\n- **Normal Baseline**: No suspicious patterns or threat indicators detected  \n- **Flow Characteristics**:  \n  - TCP connections predominantly single-packet with either SYN (66B) or ACK (54B)  \n  - DNS transactions consisted of single-packet exchanges (71-92B)  \n- **Security Posture**: All services maintained LOW threat levels with zero anomaly scores  \n\n### Traffic Patterns\n- Heavy asymmetry in web server traffic:  \n  - 185.33.84.25 received 1911 flows vs 34.42.173.126's 83 flows  \n  - No bidirectional communication observed in any flows  \n\n---\n\n**References**  \n[KG] ./AppDbStore/2024-12-17-flows (Sources 1-17)  \n[KG] unknown_source (Entities 1-26)  \n[KG] unknown_source (Relationships 1-27)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what can you tell me about this graph"
+    },
+    "f2ba90c2234528513a7cbbc62e3efa3b": {
+      "return": "{\"high_level_keywords\": [\"Simda malware\", \"Styx exploit kit\", \"C2 communication patterns\", \"Download activity\", \"Network traffic analysis\", \"Malware detection\", \"Exploit-driven connections\"], \"low_level_keywords\": [\"Down/Up Ratio\", \"Port 80\", \"Flow Bytes/s\", \"Flow Packets/s\", \"Flow Duration\", \"SYN/ACK flags\", \"RST flag\", \"Fwd Packet Length Mean\", \"Bwd Packet Length Mean\", \"Total Backward Packets\", \"Active Mean\", \"Idle Mean\", \"Source IP\", \"Destination IPs\", \"Beaconing\", \"Payload retrieval\", \"Malicious file transfers\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Detect download and command-and-control (C2) communication patterns associated with Simda malware delivered via the Styx exploit kit.\n\nfollow the next instructions:\n\n- 1. Are there flows with high Down/Up Ratio values, indicating significant download activity consistent with malware payload retrieval?\n- 2. Do any flows to destination port 80 exhibit elevated Flow Bytes/s and Flow Packets/s, suggesting malicious file transfers?\n- 3. Are there multiple short-duration flows (low Flow Duration) from the same source IP to new destination IPs, indicative of C2 beaconing?\n- 4. Do flows show SYN and ACK flag counts consistent with successful TCP handshakes followed by abrupt RST flag terminations, signaling exploit-driven connections?\n- 5. Are there deviations in Fwd Packet Length Mean and Bwd Packet Length Mean between initial exploit traffic and subsequent C2 communication?\n- 6. Do flows from internal IPs to external IPs on port 80 with high Total Backward Packets suggest repeated server responses during payload staging?\n- 7. Are there clusters of flows with similar Active Mean and Idle Mean values, indicating periodic communication patterns to C2 infrastructure?"
+    },
+    "563c8d9aa1e447243f0bd1647458d5ab": {
+      "return": "### Analysis of Simda Malware Communication Patterns via Styx Exploit Kit\n\n#### 1. High Down/Up Ratio  \nThe dataset shows **asymmetric traffic patterns** to 188.116.34.246:80/tcp (observed in 1,868 flows). For example:  \n- Flow ID 7 (KG) shows a 566-byte download response to a 54-byte request (10:1 ratio)  \n- Most other flows exhibit 1:0 backward/forward ratios (e.g., Flow ID 1-6)  \nThis matches malware payload retrieval patterns where small requests trigger larger downloads.\n\n#### 2. Port 80 Transfer Characteristics  \nAll flows to port 80 show:  \n- Fixed 54-byte requests from internal IP 192.168.1.138  \n- **0.00 bytes/sec rates** due to single-packet transmissions (Sources 1-15)  \n- Exception: Flow ID 7 shows a 566-byte server response packet (PSH+ACK flags)  \nThis matches staged payload delivery but lacks sustained high-throughput transfers.\n\n#### 3. Beaconing Patterns  \nThe internal host 192.168.1.138 demonstrates:  \n- **15 distinct ephemeral ports** (49212-49234) connecting to 8 external IPs  \n- All flows show **0ms duration** and single-packet transmissions  \n- Connections to multiple web servers (74.220.203.53, 194.116.187.24, etc.)  \nThis matches C2 beaconing behavior through short-lived, diverse connections.\n\n#### 4. TCP Flag Analysis  \nFlag patterns show anomalies:  \n- Initial flows use **SYN=1** (Sources 19-44) without completion handshakes  \n- Subsequent flows show **ACK=1** without prior SYN-ACK (Relationships 1-30)  \n- No RST flags observed in any flows  \nThis suggests incomplete handshakes or connection reuse rather than exploit-driven terminations.\n\n#### 5. Packet Length Deviations  \nDistinct phases observed:  \n- Initial requests: 66-byte SYN packets (Sources 19-44)  \n- Follow-up traffic: 54-byte ACK packets (Relationships 1-30)  \n- Server responses: 566-byte PSH+ACK packets (Flow ID 7)  \nThis matches exploit kit staging (small triggers → larger payload responses).\n\n#### 6. Backward Packet Analysis  \nOnly Flow ID 7/48 show server responses (1 backward packet). Most flows (1868/188.116.34.246:80) demonstrate **request-only patterns**, inconsistent with repeated payload staging.\n\n#### 7. Temporal Patterns  \nNo Active Mean/Idle Mean metrics are recorded in the dataset. Flow timestamps are uniformly marked as 0ms duration, preventing periodicity analysis.\n\n---\n\n**Key Indicators**  \n1. Asymmetric port 80 traffic matching payload retrieval  \n2. Beacon-like patterns from 192.168.1.138 to multiple IPs  \n3. Staged packet length changes in TCP streams  \n\n**References**  \n[KG] Relationships 7,48 (Flow ID 7 payload response)  \n[KG] Entity 2 (188.116.34.246:80 web server)  \n[KG] Relationships 1-30 (ACK-only patterns)  \n[KG] Sources 19-44 (SYN-initiated flows)  \n[KG] Entity 46 (High-activity endpoint 192.168.1.138:49234)  \n*All references from file path: ./AppDbStore/2013-12-27-Styx-traffic*",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Detect download and command-and-control (C2) communication patterns associated with Simda malware delivered via the Styx exploit kit.\n\nfollow the next instructions:\n\n- 1. Are there flows with high Down/Up Ratio values, indicating significant download activity consistent with malware payload retrieval?\n- 2. Do any flows to destination port 80 exhibit elevated Flow Bytes/s and Flow Packets/s, suggesting malicious file transfers?\n- 3. Are there multiple short-duration flows (low Flow Duration) from the same source IP to new destination IPs, indicative of C2 beaconing?\n- 4. Do flows show SYN and ACK flag counts consistent with successful TCP handshakes followed by abrupt RST flag terminations, signaling exploit-driven connections?\n- 5. Are there deviations in Fwd Packet Length Mean and Bwd Packet Length Mean between initial exploit traffic and subsequent C2 communication?\n- 6. Do flows from internal IPs to external IPs on port 80 with high Total Backward Packets suggest repeated server responses during payload staging?\n- 7. Are there clusters of flows with similar Active Mean and Idle Mean values, indicating periodic communication patterns to C2 infrastructure?"
+    }
+  }
+}

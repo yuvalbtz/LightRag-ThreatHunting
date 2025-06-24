@@ -3,6 +3,10 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { MTAPlayBook } from "@/types";
 import { useTheme } from "@/context/ThemeContext";
 import { SearchIcon } from './icons';
+import { api } from "@/services/api";
+import { createUserMessage, useChat, useChatLoading } from "@/context/ChatContext";
+import { useGraphWorker } from "@/hooks/useGraphWorker";
+import { useState } from "react";
 
 const severityColors = {
     critical: {
@@ -27,7 +31,26 @@ const severityColors = {
 
 const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { playbook: MTAPlayBook, onSelectPlaybook: (playbook: MTAPlayBook) => void, handleSearchGraph: (playbook: MTAPlayBook) => void }) => {
     const { isDarkMode } = useTheme();
+    const { sendMessage } = useChat();
+    const { dir_path } = useGraphWorker()
+    const [loading, setLoading] = useState(false);
+    const isChatLoading = useChatLoading();
 
+    const sendPlaybookToAgent = async (playbook: MTAPlayBook) => {
+        setLoading(true);
+        try {
+            const prompt = playbook.generated_prompt.split('\n').map(line => {
+                return `- ${line}`;
+            }).join('\n');
+            const fullMessage = `${playbook.hunt_goal}\n\nfollow the next instructions:\n\n${prompt}`
+            await sendMessage(createUserMessage(fullMessage, dir_path), dir_path);
+
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    }
     // Generate a unique key for the card
     const cardKey = `${playbook.sample_url}-${Array.isArray(playbook.malware_name) ? playbook.malware_name.join('-') : playbook.malware_name}`;
 
@@ -40,7 +63,7 @@ const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { pl
             ? 'bg-gray-700 hover:bg-gray-600'
             : 'bg-white hover:bg-gray-50'
             }`}
-        onClick={() => onSelectPlaybook(playbook)}
+        onPress={() => onSelectPlaybook(playbook)}
     >
         <CardBody>
             <div className="flex justify-between items-start">
@@ -68,6 +91,8 @@ const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { pl
                         Medium
                     </span>
                     <Button
+                        isLoading={loading}
+                        isDisabled={isChatLoading}
                         isIconOnly
                         size="sm"
                         variant="light"
@@ -75,10 +100,7 @@ const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { pl
                             ? 'text-gray-400 hover:text-white hover:bg-gray-600'
                             : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
                             }`}
-                        onPress={(e: any) => {
-                            e.stopPropagation();
-                            handleSearchGraph(playbook);
-                        }}
+                        onPress={(e: any) => sendPlaybookToAgent(playbook)}
                     >
                         <SearchIcon className="w-4 h-4" />
                     </Button>

@@ -1,0 +1,4 @@
+"No.","Time","Source","Destination","Protocol","Length","Info"
+"1","0.000000","10.12.17.101","10.12.17.1","DNS","76","Standard query 0x5e1c A banks-canada.com"
+"2","0.026218","10.12.17.1","10.12.17.101","DNS","92","Standard query response 0x5e1c A banks-canada.com A 34.42.173.126"
+"3","0.027192","10.12.17.101","34.42.173.126","TCP","66","50119  >  443 [SYN] Seq=0 Certificate" 
