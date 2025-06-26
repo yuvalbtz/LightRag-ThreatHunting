@@ -25,17 +25,3 @@ else
     docker compose -f docker-compose.dev.yml --env-file .env --profile llm up
 fi
 
-
-
-# # function to print the logs of the containers
-# function print_logs() {
-#     echo "🐳 Starting Docker Compose with hot reload..."
-#     echo "✅ Development environment started!"
-#     echo "🌐 Frontend: http://localhost:3000"
-#     echo "🔧 Backend: http://localhost:8000"
-#     echo "📚 API Docs: http://localhost:8000/docs"
-#     echo ""
-#     echo "💡 Note: Frontend runs on port 3000 (not 5173) in development mode" 
-# }
-
-

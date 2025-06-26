@@ -451,6 +451,46 @@
       "embedding_min": null,
       "embedding_max": null,
       "original_prompt": "how many ips are using port 443 (http) ?"
+    },
+    "a18c706818b854d3af0e9b32b3a761c4": {
+      "return": "{\"high_level_keywords\": [\"Activity monitoring\", \"Anomaly detection\", \"Security surveillance\"], \"low_level_keywords\": [\"Special activity\", \"Unusual events\", \"Suspicious behavior\", \"Surveillance systems\", \"Security alerts\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see any special activity ?",
+      "timestamp": "2025-06-26T22:17:58.662588"
+    },
+    "afc8f3b110c0f6bc40fa21cea69ac150": {
+      "return": "### Special Activity Analysis  \n\n#### 1. **Anomalous Network Endpoints**  \n- **192.168.10.50:42144/6** (TCP) and **134.170.115.55:443/6** (HTTPS) exhibit anomalous behavior. Both are flagged for irregular timing patterns and elevated threat levels (MEDIUM for the HTTPS flow).  \n- **External IP 17.253.14.125:123/17** (UDP) and multicast address **224.0.0.251:5353/17** (UDP) show anomalous activity, likely related to time synchronization (NTP) and multicast DNS.  \n\n#### 2. **DNS Server Activity**  \n- **192.168.10.3:53/17** (DNS server) is highly active, handling 44 UDP flows from multiple internal endpoints (e.g., 192.168.10.5, 192.168.10.9, 192.168.10.14). All flows are marked \"normal\" with low threat levels, suggesting routine DNS resolution.  \n\n#### 3. **Suspicious TCP Connections**  \n- **192.168.10.3:389/6** (LDAP) received a long-duration TCP flow from **192.168.10.50:42144/6** (112,740 seconds) with irregular timing, though classified as \"normal.\"  \n- Multiple anomalous flows to **192.168.10.3:135/6** (RPC) and **192.168.10.3:445/6** (SMB) from endpoints like **192.168.10.14:49412/6** and **192.168.10.5:49159/6** were observed, though labeled low-risk.  \n\n#### 4. **Unusual Broadcast/Multicast Traffic**  \n- UDP broadcasts to **192.168.10.255:138/17** (NetBIOS) and multicast traffic to **224.0.0.252:5355/17** (LLMNR) were flagged as anomalous but may reflect normal network service discovery.  \n\n#### 5. **External Communication**  \n- A medium-threat HTTPS flow to **134.170.115.55:443/6** (likely Microsoft-related) from **192.168.10.5:49176/6** showed irregular timing but no explicit threats.  \n\n### References  \n1. [KG] Relationships entries 26, 32, 45, 47, 58 (file: `unknown_source`)  \n2. [KG] Entity entries 28, 32, 33, 34, 42 (file: `unknown_source`)  \n3. [DC] Source entries 24, 25, 26, 35, 45 (file: `./AppDbStore/Friday-WorkingHours`)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see any special activity ?",
+      "timestamp": "2025-06-26T22:17:58.662588"
+    },
+    "f5015e3e8a241ce0b14ade3bfce01caa": {
+      "return": "{\"high_level_keywords\": [\"Network anomaly\", \"IP addresses\", \"Network protocols\"], \"low_level_keywords\": [\"192.168.10.50:42144/6\", \"134.170.115.55:443/6\", \"Port numbers\", \"HTTPS (443)\", \"Anomaly detection\", \"Network traffic analysis\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "explain why 192.168.10.50:42144/6 and 134.170.115.55:443/6 anomaly ?",
+      "timestamp": "2025-06-26T22:17:58.662588"
+    },
+    "64947ed20350412096fe5eb3523b1f02": {
+      "return": "### Anomaly Analysis for 192.168.10.50:42144/6 and 134.170.115.55:443/6\n\n#### 1. **192.168.10.50:42144/6 (Network Endpoint)**\n- **Anomalous Behavior**:  \n  This endpoint exhibits **irregular timing patterns** in its communication with `192.168.10.3:389/6` (LDAP service). A flow lasting **112,740,560 ms (~31 hours)** transferred only **11,504 bytes** at an extremely low rate of **102.04 bytes/sec**, inconsistent with typical LDAP interactions.  \n  - **Suspicious Patterns**:  \n    - Unusually long duration for minimal data exchange.  \n    - Low throughput suggests potential stealthy data exfiltration or persistent unauthorized access.  \n\n#### 2. **134.170.115.55:443/6 (Web Server)**  \n- **Anomalous Behavior**:  \n  Classified as a web server (HTTPS), this external endpoint engaged in a **79593267 ms (~22-hour) connection** with `192.168.10.5:49176/6`, transferring **6,945 bytes** at **87.26 bytes/sec**.  \n  - **Suspicious Patterns**:  \n    - Prolonged connection duration with minimal data activity.  \n    - Irregular timing inconsistent with standard HTTPS traffic (typically short-lived, higher-throughput sessions).  \n  - **Context**:  \n    External web servers communicating with internal endpoints over extended periods may indicate command-and-control (C2) activity or beaconing.  \n\n---\n\n### References  \n1. [KG] Entity: `192.168.10.50:42144/6` (Knowledge Base Entities CSV)  \n2. [KG] Relationship: Flow to `192.168.10.3:389/6` (Knowledge Base Relationships CSV, ID 40)  \n3. [KG] Entity: `134.170.115.55:443/6` (Knowledge Base Entities CSV)  \n4. [KG] Relationship: Flow from `192.168.10.5:49176/6` (Knowledge Base Sources CSV, ID 27)  \n5. [KG] General anomaly classification (Knowledge Base Entities CSV, \"Typical behavior\" field)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "explain why 192.168.10.50:42144/6 and 134.170.115.55:443/6 anomaly ?",
+      "timestamp": "2025-06-26T22:17:58.662588"
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Button, Card, CardBody } from "@heroui/react";
+import { Button, Card, CardBody, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@heroui/react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { MTAPlayBook } from "@/types";
 import { useTheme } from "@/context/ThemeContext";
@@ -35,7 +35,7 @@ const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { pl
     const { dir_path } = useGraphWorker()
     const [loading, setLoading] = useState(false);
     const isChatLoading = useChatLoading();
-
+    const { isOpen, onOpen, onClose } = useDisclosure();
     const sendPlaybookToAgent = async (playbook: MTAPlayBook) => {
         setLoading(true);
         try {
@@ -127,17 +127,38 @@ const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { pl
                             : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
                             } px-3 py-1 rounded-full text-xs font-medium shadow-none border-none ml-2`}
                         onPress={(e: any) => {
-                            e.stopPropagation();
-                            alert(`View details for: ${malwareName}`);
+                            onOpen();
                         }}
                     >
                         View Details
                     </Button>
+                    <Modal backdrop={"blur"} size="5xl" isOpen={isOpen} onClose={onClose}>
+                        <ModalContent>
+                            {(onClose) => (
+                                <>
+                                    <ModalHeader className="flex flex-col gap-1">
+                                        <h3 className={`text-lg font-semibold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                                            }`}>
+                                            {malwareName}
+                                        </h3>
+                                    </ModalHeader>
+                                    <ModalBody>
+                                        <iframe src={playbook.sample_url} className="w-full h-full min-h-[70vh]"></iframe>
+                                    </ModalBody>
+                                    <ModalFooter>
+                                        <Button color="danger" variant="light" onPress={onClose}>
+                                            Close
+                                        </Button>
+                                    </ModalFooter>
+                                </>
+                            )}
+                        </ModalContent>
+                    </Modal>
 
                 </div>
             </div>
         </CardBody>
-    </Card>
+    </Card >
 };
 
 export default MTAPlayBookCard;
