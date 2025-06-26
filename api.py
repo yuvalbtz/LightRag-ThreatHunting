@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Form, HTTPException, Header, UploadFile, File, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel
 from typing import Annotated, List, Optional, Dict, Any
 import asyncio
@@ -14,6 +14,7 @@ from agent import (
     generate_enriched_playbooks,
     fetch_sample_links,
     generate_visual_graph,
+    get_graph_llm_conversations,
     initialize_rag_deepseek,
     fetch_all_playbooks,
     current_model_complete,
@@ -171,6 +172,53 @@ async def get_graph_folders_names():
     try:
         folders = await fetch_graph_folders_names_from_os()
         return GraphFoldersNamesResponse(folders=folders)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/graph-llm-conversations")
+async def fetch_graph_llm_conversations(dir_path: str = "custom_kg"):
+    try:
+        raw_data = await get_graph_llm_conversations(dir_path=dir_path)
+        hybrid_data = raw_data.get("hybrid", {})
+
+        ordered_messages: List[Dict[str, Any]] = []
+
+        for obj_id, entry in hybrid_data.items():
+            if entry.get("cache_type") == "query":
+                timestamp = entry.get("timestamp", "UNKNOWN")
+
+                prompt = entry.get("original_prompt", "")
+                response = entry.get("return", "")
+
+                # Append user message
+                if prompt:
+                    ordered_messages.append(
+                        {
+                            "id": f"{obj_id}-prompt",
+                            "content": prompt,
+                            "role": "user",
+                            "timestamp": timestamp,
+                            "graph_dir_path": dir_path,
+                            "isError": False,
+                        }
+                    )
+
+                # Append assistant message
+                if response:
+                    ordered_messages.append(
+                        {
+                            "id": obj_id,
+                            "content": response,
+                            "role": "assistant",
+                            "timestamp": timestamp,
+                            "graph_dir_path": dir_path,
+                            "isError": False,
+                        }
+                    )
+
+        return JSONResponse(content=ordered_messages)
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

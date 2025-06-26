@@ -10,6 +10,7 @@ from typing import List, Dict, Any
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from dotenv import load_dotenv
+from examples.utils import read_json_file
 from lightrag.kg.shared_storage import initialize_pipeline_status
 from lightrag.lightrag import LightRAG
 from lightrag.utils import EmbeddingFunc
@@ -217,6 +218,20 @@ current_model_complete = deepseek_model_complete
 
 # Set the current RAG initialization function
 current_initialize_rag_model = initialize_rag_ollama
+
+
+async def get_graph_llm_conversations(
+    dir_path: str = "custom_kg",
+) -> List[Dict[str, Any]]:
+    """Get graph LLM conversations for a given directory."""
+    try:
+        conversations_data = await read_json_file(
+            f"./AppDbStore/{dir_path}/kv_store_llm_response_cache.json"
+        )
+        return conversations_data
+    except Exception as e:
+        logger.error(f"Failed to get graph LLM conversations: {str(e)}")
+        raise
 
 
 async def generate_visual_graph(dir_path: str = "./custom_kg") -> Dict[str, Any]:

@@ -7,6 +7,7 @@ interface ChatContextType {
     messages: Message[];
     sendMessage: (message: Message, dir_path: string) => Promise<void>;
     isLoading: boolean;
+    fetchGraphLLMConversations: (dir_path: string) => Promise<void>;
 }
 
 const ChatContext = createContext<ChatContextType | null>(null);
@@ -60,6 +61,19 @@ export const useSendMessage = () => {
 export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [messages, setMessages] = useState<Message[]>([]);
     const [isLoading, setIsLoading] = useState(false);
+
+
+    const fetchGraphLLMConversations = useCallback(async (dir_path: string) => {
+        try {
+            const conversations = await api.chat.getGraphLLMConversations(dir_path);
+            setMessages(prev => [...prev, ...conversations]);
+        } catch (error) {
+            console.error('Error fetching graph LLM conversations:', error);
+        }
+    }, []);
+
+
+
     const sendMessage = useCallback(async (message: Message, dir_path: string) => {
         setIsLoading(true);
         console.log("dir_path", dir_path);
@@ -82,7 +96,7 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }, []);
 
     return (
-        <ChatContext.Provider value={{ messages, sendMessage, isLoading }}>
+        <ChatContext.Provider value={{ messages, sendMessage, isLoading, fetchGraphLLMConversations }}>
             {children}
         </ChatContext.Provider>
     );

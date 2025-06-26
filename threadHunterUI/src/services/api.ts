@@ -131,6 +131,19 @@ export const api = {
                 timestamp: new Date(),
                 graph_dir_path: dir_path
             };
+        },
+
+        getGraphLLMConversations: async (dir_path: string): Promise<Message[]> => {
+            try {
+                const response = await fetch(`${API_BASE_URL}/graph-llm-conversations?dir_path=${dir_path}`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch graph LLM conversations');
+                }
+                return response.json();
+            } catch (error) {
+                console.error('Error fetching graph LLM conversations:', error);
+                throw error;
+            }
         }
     },
 

@@ -53,6 +53,26 @@
       "embedding_min": null,
       "embedding_max": null,
       "original_prompt": "what can you tell me about this graph"
+    },
+    "158d3cc120c16f5a80bac8c9dfe00579": {
+      "return": "{\"high_level_keywords\": [\"Data analysis\", \"Graph interpretation\", \"Data visualization\"], \"low_level_keywords\": [\"Data trends\", \"Statistical insights\", \"Chart types\", \"Axes labels\", \"Datasets\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me about this graph deeply",
+      "timestamp": "2025-06-26T20:27:41.925715"
+    },
+    "dde9e3b1ed059218eacbe62bc2adc952": {
+      "return": "### Network Graph Deep Analysis\n\n#### Key Entities Overview\nThe graph primarily consists of **network endpoints** (10.12.17.101 on multiple ports) and **web/DNS servers**, with two external web servers:\n1. **185.33.84.25:443/tcp** (1911 observed flows, rank 6)\n2. **34.42.173.126:443/tcp** (83 observed flows, rank 1)\n\nLocal DNS infrastructure centers around **10.12.17.1:53/dns** (6 flows, rank 3), interacting with multiple ephemeral DNS clients on 10.12.17.101.\n\n---\n\n#### Traffic Patterns\n1. **TCP Web Traffic**  \n   - High-volume connections from 10.12.17.101:50146/tcp to 185.33.84.25:443 (1,874 flows)  \n   - Short-lived SYN attempts from ports 50164-50166 to 185.33.84.25 (1 flow each)  \n   - Bidirectional ACK patterns suggesting established connections (e.g., 50134→443: ACK=1, 0 backward packets)\n\n2. **DNS Activity**  \n   - Standard DNS resolution flows between 10.12.17.1:53 and client ports (50973, 57033, 60308)  \n   - Small payloads (71-92 bytes), typical of DNS queries/responses  \n\n---\n\n#### Behavioral Characteristics\n- **Normalized Threat Profile**: All flows marked **LOW** threat level  \n- **Flow Asymmetry**:  \n  - Web traffic shows **1→0 packet directionality** in 54-byte ACK flows  \n  - DNS exhibits **1→0 packet unidirectionality** (server→client responses)  \n- **Port Dynamics**:  \n  - Ephemeral ports 501xx used for outbound web traffic  \n  - Fixed port 443 for inbound web server access  \n\n---\n\n#### Anomaly Indicators\n- **High SYN Concentration**: Ports 50164-50166 show SYN=1 initiation attempts without completion  \n- **Single-Packet Flows**: 97% of TCP flows contain only 1 packet, suggesting:  \n  - Keep-alive packets  \n  - Aborted connection attempts  \n  - Protocol handshake fragments  \n\n---\n\n#### Infrastructure Relationships\n```mermaid\ngraph LR\n    A[10.12.17.101] -->|50134-50166/tcp| B(185.33.84.25:443)\n    A -->|50119/tcp| C(34.42.173.126:443)\n    A -->|50973/57033/60308/dns| D[10.12.17.1:53]\n```\n\n---\n\n### References\n1. [KG] Entity: 185.33.84.25:443/tcp (./AppDbStore/2024-12-17-flows)  \n2. [KG] Relationship: 10.12.17.101:50146→185.33.84.25:443 (Flow ID pcap-1997)  \n3. [KG] DNS Flow: 10.12.17.1:53→10.12.17.101:60308 (Flow ID pcap-2)  \n4. [KG] Entity: 34.42.173.126:443/tcp (./AppDbStore/2024-12-17-flows)  \n5. [KG] SYN Attempt: 10.12.17.101:50164→185.33.84.25:443 (Flow ID pcap-1998)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me about this graph deeply",
+      "timestamp": "2025-06-26T20:27:41.925715"
     }
   }
 }

@@ -1,12 +1,11 @@
 import { useTheme } from '@/context/ThemeContext';
-import { FolderIcon, PaperAirplaneIcon } from '@heroicons/react/24/outline';
-import { Button } from '@heroui/button';
+import { FolderIcon } from '@heroicons/react/24/outline';
 import { Card } from '@heroui/card';
-import { Textarea } from '@heroui/input';
 import { Chip } from '@heroui/react';
 import React, { useEffect, useRef, useState } from 'react';
 import { createUserMessage, useChatLoading, useMessages, useSendMessage } from '../context/ChatContext';
 import { useGraphWorker } from '../hooks/useGraphWorker';
+import ChatFormPrompt from './ChatFormPrompt';
 
 const formatMessage = (content: string) => {
     // If content is too short or doesn't contain expected patterns, return simple formatting
@@ -381,40 +380,7 @@ export const ChatContainer = () => {
                 <div ref={messagesEndRef} />
             </div>
 
-            <form onSubmit={handleSubmit} className={`p-4 border-t transition-colors duration-200 ${isDarkMode ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-white'}`}>
-                <div className="flex space-x-4 items-end">
-                    <Textarea
-                        value={input}
-                        minRows={1}
-                        maxRows={10}
-                        onChange={(e) => setInput(e.target.value)}
-                        placeholder={state.graphData ? "Ask about potential threats..." : "Upload a file to enable chat..."}
-                        className={`flex-1 transition-colors duration-200 focus:outline-violet-500 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
-                        variant='underlined'
-                        disabled={isLoading || !state.graphData}
-                    />
-                    <Button
-                        type="submit"
-                        isIconOnly
-                        spinner={<div className="flex items-center justify-center">
-                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                        </div>}
-                        isLoading={isLoading}
-                        disabled={!input.trim() || isLoading || !state.graphData}
-                        className={`min-w-[40px] h-10 transition-colors duration-200 ${!input.trim() || isLoading || !state.graphData
-                            ? isDarkMode
-                                ? 'bg-gray-600 text-gray-400 cursor-not-allowed opacity-50'
-                                : 'bg-gray-300 text-gray-500 cursor-not-allowed opacity-50'
-                            : isDarkMode
-                                ? 'bg-gray-700 text-white hover:bg-gray-600'
-                                : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
-                            }`}
-                        title={state.graphData ? "Send message" : "Upload a file to enable chat"}
-                    >
-                        <PaperAirplaneIcon className="h-5 w-5" />
-                    </Button>
-                </div>
-            </form>
+            <ChatFormPrompt />
         </div>
     );
 }; 
