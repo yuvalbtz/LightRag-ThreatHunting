@@ -108,7 +108,10 @@ const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { pl
                         }`}>
                         {playbook.hunt_goal}
                     </p>
-                    <span
+                    
+                </div>
+               <div className="flex justify-between items-center w-full">
+               <span
                         className={`px-2 py-1 rounded-full text-xs font-medium ${isDarkMode
                             ? 'bg-gray-600 text-gray-200'
                             : 'bg-gray-100 text-gray-700'
@@ -116,8 +119,7 @@ const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { pl
                     >
                         {playbook.sample_url}
                     </span>
-                </div>
-                <Button
+               <Button
                     size="sm"
                     variant="light"
                     className={`${isDarkMode
@@ -131,6 +133,8 @@ const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { pl
                 >
                     View Details
                 </Button>
+
+               </div>
             </div>
         </CardBody>
     </Card>

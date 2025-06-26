@@ -330,6 +330,7 @@ export const PlaybooksContainer = () => {
                         </Select>
                         <Button
                             size='lg'
+                            fullWidth
                             variant='flat'
                             onPress={handleGetAllPlaybooks}
                             isLoading={loading}
