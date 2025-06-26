@@ -1,7 +1,7 @@
 services:
   # Python Backend API with hot reload
   backend:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile.dev
     ports:
@@ -25,7 +25,7 @@ services:
 
   # React Frontend with hot reload
   frontend:
-    build: 
+    build:
       context: ./threadHunterUI
       dockerfile: Dockerfile.dev
     ports:
@@ -58,9 +58,11 @@ services:
       - "11435:11434"
     volumes:
       - ollama_data:/root/.ollama
+      - ./run_ollama.sh:/run_ollama.sh
     restart: unless-stopped
     profiles:
       - llm
+    entrypoint: ["/bin/bash", "/run_ollama.sh"]
 
 volumes:
-  ollama_data: 
+  ollama_data:

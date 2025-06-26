@@ -20,11 +20,11 @@ fi
 if [ "$1" == "build" ]; then
     echo "🔨 Building containers..."
     print_logs
-    docker-compose -f docker-compose.dev.yml --env-file .env up --build
+    docker-compose -f docker-compose.dev.yml --env-file .env --profile llm up --build
 else
     echo "🐳 Running containers..."
     print_logs
-    docker-compose -f docker-compose.dev.yml --env-file .env up
+    docker-compose -f docker-compose.dev.yml --env-file .env --profile llm up
 fi
 
 

@@ -72,10 +72,6 @@ const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { pl
                         }`}>
                         {malwareName}
                     </h3>
-                    <p className={`text-sm mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                        }`}>
-                        {playbook.hunt_goal}
-                    </p>
                 </div>
                 <div className="flex items-center gap-2">
                     <span className={`px-2 py-1 rounded-full text-xs font-medium ${isDarkMode
@@ -108,6 +104,10 @@ const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { pl
             </div>
             <div className="flex flex-wrap items-center gap-2 justify-between mt-2">
                 <div className="flex flex-wrap gap-2">
+                     <p className={`text-sm mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                        }`}>
+                        {playbook.hunt_goal}
+                    </p>
                     <span
                         className={`px-2 py-1 rounded-full text-xs font-medium ${isDarkMode
                             ? 'bg-gray-600 text-gray-200'

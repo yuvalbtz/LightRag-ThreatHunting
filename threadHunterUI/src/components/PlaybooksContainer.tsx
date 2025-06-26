@@ -299,6 +299,7 @@ export const PlaybooksContainer = () => {
                             size='sm'
                             variant='underlined'
                             label="MTA Year"
+                            className='w-32'
                             placeholder="Select MTA Year..."
                             items={Years}
                             selectedKeys={[MTAStats.year.toString()]}
@@ -315,7 +316,8 @@ export const PlaybooksContainer = () => {
                             variant='underlined'
                             id='mta-max-samples'
                             size='sm'
-                            label="MTA number of blogs"
+                            label="count"
+                            className='w-16'
                             placeholder="Select MTA number of blogs..."
                             items={maxSamples}
                             selectedKeys={[MTAStats.max_samples.toString()]}
@@ -331,8 +333,10 @@ export const PlaybooksContainer = () => {
                             variant='flat'
                             onPress={handleGetAllPlaybooks}
                             isLoading={loading}
+                            startContent={<MagnifyingGlassIcon className='w-5 h-5' />}
+                            className='flex items-center gap-2'
                         >
-                            <MagnifyingGlassIcon className='w-5 h-5' />
+                            Get Playbooks
                         </Button>
                     </div>
 

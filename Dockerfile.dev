@@ -48,4 +48,4 @@ EXPOSE 8000
 ENV PYTHONPATH=/app
 
 # Start the development server
-CMD ["/app/watch-docker.sh"] 
+CMD ["conda", "run", "--no-capture-output", "-n", "lightrag_env", "/bin/bash", "/app/watch-docker.sh"]

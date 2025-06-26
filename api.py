@@ -337,7 +337,7 @@ async def query_stream(request: ChatRequest):
     try:
         logger.info("Initializing RAG with Ollama...")
         # Initialize RAG with Ollama instead of DeepSeek
-        rag = await initialize_rag_deepseek(working_dir=request.dir_path)
+        rag = await initialize_rag_ollama(working_dir=request.dir_path)
         logger.info("RAG initialization completed successfully")
 
         logger.info("Executing query with RAG...")
