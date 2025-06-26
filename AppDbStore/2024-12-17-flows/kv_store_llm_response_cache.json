@@ -53,60 +53,6 @@
       "embedding_min": null,
       "embedding_max": null,
       "original_prompt": "what can you tell me about this graph"
-    },
-    "cbd3736a5fd56007fbe8ff7f778284c7": {
-      "return": "{\"high_level_keywords\": [\"Data visualization\", \"Graph interpretation\", \"Information presentation\"], \"low_level_keywords\": [\"Data points\", \"Axis labels\", \"Trends\", \"Chart type\", \"Variables\"]}",
-      "cache_type": "keywords",
-      "embedding": null,
-      "embedding_shape": null,
-      "embedding_min": null,
-      "embedding_max": null,
-      "original_prompt": "TELL ME ABPUT THIS GRAPH"
-    },
-    "7dcdd02985482b850ce0cb92389e0c83": {
-      "return": "The knowledge graph reveals network communications between various endpoints and servers, primarily focusing on web traffic and DNS activity. Here's the analysis:\n\n### Web Server Communications\n1. **Primary Web Server**  \n   - `185.33.84.25:443/tcp` (Rank 6) handled **1,911 flows**  \n   - Connected to multiple endpoints from `10.12.17.101` on ports 50134-50166 via TCP  \n   - All flows show **normal behavior** with low threat levels  \n   - Traffic characteristics:  \n     - Single-packet flows (54-66 bytes)  \n     - Mix of SYN (connection initiation) and ACK (acknowledgment) flags  \n\n2. **Secondary Web Server**  \n   - `34.42.173.126:443/tcp` (Rank 1) handled **83 flows**  \n   - Connected to `10.12.17.101:50119/tcp`  \n   - Similar low-risk profile with ACK-flagged single-packet flows  \n\n### Network Endpoints\n- **Host `10.12.17.101`** shows varied activity:  \n  - High-volume TCP ports:  \n    - `50146/tcp`: 1,874 flows  \n    - `50134-50135/tcp`: 17 flows each  \n  - Ephemeral ports (`50164-50166/tcp`): Single-flow connections  \n\n### DNS Activity\n- Internal DNS communications between:  \n  - Primary DNS: `10.12.17.1:53/dns` (Rank 3)  \n  - Client DNS ports:  \n    - `60308/dns`  \n    - `57033/dns`  \n    - `50973/dns`  \n- All DNS flows show:  \n  - Single-packet transfers (71-92 bytes)  \n  - No TCP handshake flags (typical for DNS over TCP)  \n\n### Flow Characteristics\n- **Temporal Pattern**: All flows show 0ms duration, suggesting isolated packet exchanges rather than sustained connections  \n- **Threat Profile**: Uniformly classified as **LOW risk** with no observed anomalies  \n\n---\n\n**References**  \n1. [KG] `./AppDbStore/2024-12-17-flows` (Flow IDs: pcap-123, pcap-109, pcap-1998)  \n2. [KG] `./AppDbStore/2024-12-17-flows` (DNS Flows: pcap-2, pcap-46)  \n3. [KG] `unknown_source` (Entity Rank 6: 185.33.84.25:443/tcp)  \n4. [KG] `unknown_source` (Relationship ID 16-17: 34.42.173.126 flows)  \n5. [KG] `./AppDbStore/2024-12-17-flows` (High-volume port 50146: pcap-124)",
-      "cache_type": "query",
-      "embedding": null,
-      "embedding_shape": null,
-      "embedding_min": null,
-      "embedding_max": null,
-      "original_prompt": "TELL ME ABPUT THIS GRAPH"
-    },
-    "bf64c269ac1816bc778d9670adca03e6": {
-      "return": "{\"high_level_keywords\": [\"Graph interpretation\", \"Data analysis\", \"Critical thinking\"], \"low_level_keywords\": [\"Visualization style\", \"Color coding\", \"Symbol representation\"]}",
-      "cache_type": "keywords",
-      "embedding": null,
-      "embedding_shape": null,
-      "embedding_min": null,
-      "embedding_max": null,
-      "original_prompt": "what do you think about this graph ?"
-    },
-    "b207be32dbfae689e24fb4bf29b97d50": {
-      "return": "As an AI language model, I don't have the capability to see or visualize graphs. Please provide more information or a specific question about the graph that you want me to answer.",
-      "cache_type": "query",
-      "embedding": null,
-      "embedding_shape": null,
-      "embedding_min": null,
-      "embedding_max": null,
-      "original_prompt": "what do you think about this graph ?"
-    },
-    "f2ba90c2234528513a7cbbc62e3efa3b": {
-      "return": "{\"high_level_keywords\": [\"Malware detection\", \"Simda malware\", \"Styx exploit kit\"], \"low_level_keywords\": [\"Fileless execution\", \"Payload delivery\", \"Command and control (C2)\", \"Stealthy download mechanism\", \"Exploit kit behavior\"]}",
-      "cache_type": "keywords",
-      "embedding": null,
-      "embedding_shape": null,
-      "embedding_min": null,
-      "embedding_max": null,
-      "original_prompt": "Detect download and command-and-control (C2) communication patterns associated with Simda malware delivered via the Styx exploit kit.\n\nfollow the next instructions:\n\n- 1. Are there flows with high Down/Up Ratio values, indicating significant download activity consistent with malware payload retrieval?\n- 2. Do any flows to destination port 80 exhibit elevated Flow Bytes/s and Flow Packets/s, suggesting malicious file transfers?\n- 3. Are there multiple short-duration flows (low Flow Duration) from the same source IP to new destination IPs, indicative of C2 beaconing?\n- 4. Do flows show SYN and ACK flag counts consistent with successful TCP handshakes followed by abrupt RST flag terminations, signaling exploit-driven connections?\n- 5. Are there deviations in Fwd Packet Length Mean and Bwd Packet Length Mean between initial exploit traffic and subsequent C2 communication?\n- 6. Do flows from internal IPs to external IPs on port 80 with high Total Backward Packets suggest repeated server responses during payload staging?\n- 7. Are there clusters of flows with similar Active Mean and Idle Mean values, indicating periodic communication patterns to C2 infrastructure?"
-    },
-    "563c8d9aa1e447243f0bd1647458d5ab": {
-      "return": "To detect download and command-and-control (C2) communication patterns associated with Simda malware delivered via the Styx exploit kit, we can analyze network traffic data using a combination of machine learning techniques and statistical analysis. Below are the steps and methods that could be employed:\n\n### 1. High Down/Up Ratio Flows\n- **Analysis:** Look for flows where the download (Down) portion significantly exceeds the upload (Up). These indicate high download activity likely associated with malware payload retrieval.\n- **Tools & Techniques:** Use anomaly detection algorithms like ZAPR (Zero Anomaly-Prediction-Ratio) to identify such flows.\n\n### 2. Flow Bytes/s and Flow Packets/s\n- **Analysis:** Examine flow-based metrics such as bytes per second (Bytes/s) and packets per second (Packets/s). Flows with elevated rates suggest malicious file transfers.\n- **Tools & Techniques:** Utilize anomaly detection algorithms on the total packet data to identify flows exhibiting abnormal behavior.\n\n### 3. Short-Duration Flows\n- **Analysis:** Identify flows that exhibit short durations (<10 seconds) from multiple sources back to new destination IPs, indicating C2 beaconing activity.\n- **Tools & Techniques:** Apply time-series anomaly detection methods or network flow analysis tools to identify these types of short-duration traffic.\n\n### 4. TCP Handshake and RST Flag Analysis\n- **Analysis:** Look for TCP handshake (SYN/ACK) counts consistent with successful connections followed by abrupt RST flag terminations, suggesting exploit-driven connections.\n- **Tools & Techniques:** Employ network flow analysis tools that can detect and analyze flow states and flags.\n\n### 5. Forward Packet Length Mean and Backward Packet Length Mean\n- **Analysis:** Compare the mean of forward packet lengths (Forward Packet Length Mean) with backward packet lengths (Backward Packet Length Mean). Deviations indicate potential changes in communication patterns.\n- **Tools & Techniques:** Use statistical methods like Z-score calculations to identify significant deviations between initial exploit traffic and subsequent C2 communication.\n\n### 6. Server Responses on Port 80\n- **Analysis:** Identify flows from internal IPs to external ports (typically 80) with high Total Backward Packets, suggesting repeated responses during payload staging.\n- **Tools & Techniques:** Apply statistical anomaly detection methods or network flow analysis tools that can identify and flag such traffic.\n\n### 7. Periodic Communication Patterns\n- **Analysis:** Look for clusters of flows with similar Active Mean and Idle Mean values, indicating periodic communication patterns to C2 infrastructure.\n- **Tools & Techniques:** Use time-series analysis techniques on the data collected over a period to detect patterns and anomalies.\n\n### Example Flow-Based Analysis\n\n1. **High Down/Up Ratio Flows:**\n   - Analyze network traffic for flows where Down > Up by more than 30%.\n   \n2. **Flow Bytes/s/Packets/s:**\n   - Examine flow data on a per-second basis to find those with high bytes or packets transferred.\n   \n3. **Short-Duration Flows:**\n   - Use network flow tools to filter and analyze flows from the same source IP back to new destination IPs within 10 seconds.\n\n4. **TCP Handshake Analysis:**\n   - Look for consistent SYN/ACK flag counts followed by RST flags, indicating exploit-driven connections.\n   \n5. **Packet Length Mean Deviation:**\n   - Compare Forward Packet Length Mean with Backward Packets Mean and identify significant deviations.\n   \n6. **Server Responses on Port 80:**\n   - Identify flows from internal IPs to external ports (80) with high total backward packets, indicating repeated server responses.\n\n7. **Periodic Communication Patterns:**\n   - Use time-series analysis tools to detect periodic patterns in the collected data over a week/month.\n\n### Tools & Technologies\n\n- **Network Analysis Tools:** Snort/ESP/Sysdig\n- **Anomaly Detection Algorithms:** ZAPR, Autoencoder-based anomaly detection (e.g., DeepSecure)\n- **Statistical Analysis Libraries:** NumPy/SciPy for statistical calculations\n\nBy integrating these methods and tools, you can effectively detect Simda malware's download patterns and C2 communication flows.",
-      "cache_type": "query",
-      "embedding": null,
-      "embedding_shape": null,
-      "embedding_min": null,
-      "embedding_max": null,
-      "original_prompt": "Detect download and command-and-control (C2) communication patterns associated with Simda malware delivered via the Styx exploit kit.\n\nfollow the next instructions:\n\n- 1. Are there flows with high Down/Up Ratio values, indicating significant download activity consistent with malware payload retrieval?\n- 2. Do any flows to destination port 80 exhibit elevated Flow Bytes/s and Flow Packets/s, suggesting malicious file transfers?\n- 3. Are there multiple short-duration flows (low Flow Duration) from the same source IP to new destination IPs, indicative of C2 beaconing?\n- 4. Do flows show SYN and ACK flag counts consistent with successful TCP handshakes followed by abrupt RST flag terminations, signaling exploit-driven connections?\n- 5. Are there deviations in Fwd Packet Length Mean and Bwd Packet Length Mean between initial exploit traffic and subsequent C2 communication?\n- 6. Do flows from internal IPs to external IPs on port 80 with high Total Backward Packets suggest repeated server responses during payload staging?\n- 7. Are there clusters of flows with similar Active Mean and Idle Mean values, indicating periodic communication patterns to C2 infrastructure?"
     }
   }
 }

@@ -317,7 +317,7 @@ export const PlaybooksContainer = () => {
                             id='mta-max-samples'
                             size='sm'
                             label="count"
-                            className='w-16'
+                            className='w-24'
                             placeholder="Select MTA number of blogs..."
                             items={maxSamples}
                             selectedKeys={[MTAStats.max_samples.toString()]}
@@ -337,7 +337,7 @@ export const PlaybooksContainer = () => {
                             startContent={<MagnifyingGlassIcon className='w-5 h-5' />}
                             className='flex items-center gap-2'
                         >
-                            Get Playbooks
+                            Generate Playbooks
                         </Button>
                     </div>
 
