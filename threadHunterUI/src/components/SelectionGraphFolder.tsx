@@ -11,7 +11,7 @@ const GraphFoldersNamesSelection = () => {
     const [folders, setFolders] = useState<{ key: string, label: string }[]>([]);
     const { fetchGraphLLMConversations } = useChat();
     const isDarkMode = useDarkMode();
-    const { getGraphData, dir_path } = useGraphWorker();
+    const { getGraphData, dir_path, isRendering } = useGraphWorker();
     const [isLoading, setIsLoading] = useState(false);
 
     const updateCurrentFolderAndGetFolders = useMemo(() => {
@@ -24,7 +24,6 @@ const GraphFoldersNamesSelection = () => {
         return dir_path ? [dir_path] : [];
     }, [dir_path]);
 
-
     const handleSelectionChange = async (keys: SharedSelection) => {
         try {
             const selectedFolder = Array.from(keys)[0];
@@ -35,12 +34,6 @@ const GraphFoldersNamesSelection = () => {
         }
     }
 
-
-
-
-
-
-
     return (<Select
         startContent={<FolderIcon className="w-5 h-5" />}
         aria-label="Graph Folder"
@@ -48,10 +41,13 @@ const GraphFoldersNamesSelection = () => {
         isLoading={isLoading}
         onSelectionChange={handleSelectionChange}
         listboxProps={{ emptyContent: 'No graph folders found' }}
-        classNames={{ popoverContent: isDarkMode ? 'bg-gray-800/80 text-white' : '' }}
+        classNames={{
+            popoverContent: isDarkMode ? 'bg-gray-800/80 text-white' : ''
+        }}
         className={`w-[300px] ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
         variant="underlined"
         size="sm"
+        isDisabled={isRendering}
         placeholder="Select a Graph folder"
     >
         {folders.map((folder) => (
