@@ -7,8 +7,6 @@ import { useGraphWorker } from '../hooks/useGraphWorker';
 import ChatFormPrompt from './ChatFormPrompt';
 import { formatMessage } from './formatMessage';
 
-
-
 export const ChatContainer = () => {
     const messages = useMessages();
     const isLoading = useChatLoading();
@@ -118,7 +116,7 @@ export const ChatContainer = () => {
                                     {message.role === 'user' ? 'You' : 'ThreatHunter AI'}
                                 </div>
                                 <div className="prose prose-sm max-w-none">
-                                    {message.role !== 'user' ? formatMessage(message.content) : message.content}
+                                    {formatMessage(message.content)}
                                 </div>
                                 <div className={`text-xs mt-1 opacity-70 transition-colors duration-200 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'
                                     }`}>
