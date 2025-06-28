@@ -1,14 +1,15 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { createSystemMessage, useChat } from '../context/ChatContext';
 import { useDarkMode } from '../context/ThemeContext';
 import { useGraphWorker } from '../hooks/useGraphWorker';
 import KnowledgeGraphControls from './KnowledgeGraphControls';
 import KnowledgeGraphNetwork from './KnowledgeGraphNetwork';
-import SelectionGraphFolder from './SelectionGraphFolder';
 import KnowledgeGraphRenderingLoader from './KnowledgeGraphRenderingLoader';
-import GraphSearchBox from './KnowledgeGraphSearchBox';
 import KnowledgeGraphSearchBox from './KnowledgeGraphSearchBox';
+import SelectionGraphFolder from './SelectionGraphFolder';
+import { Select, SelectItem, SharedSelection } from '@heroui/react';
+import { KGSettings } from '@/types';
 
 export const KnowledgeGraphContainer: React.FC = () => {
     const isDarkMode = useDarkMode();
@@ -20,10 +21,9 @@ export const KnowledgeGraphContainer: React.FC = () => {
         buildGraph,
         getGraphData,
         setGraphData,
-        searchNodes,
-        clearNodeHighlighting,
     } = useGraphWorker();
     const { sendMessage } = useChat();
+    const [kg_settings, setKgSettings] = useState<KGSettings>({ max_rows: 2000 });
 
     const onDrop = useCallback(async (acceptedFiles: File[]) => {
         const file = acceptedFiles[0];
@@ -37,7 +37,7 @@ export const KnowledgeGraphContainer: React.FC = () => {
         try {
             await sendMessage(createSystemMessage(`Uploading your file '${file.name}' and building graph...`, false, dir_path), dir_path);
             try {
-                await buildGraph(file);
+                await buildGraph(file, kg_settings);
                 const newGraphData = await getGraphData(file.name.split('.')[0]);
                 setGraphData(newGraphData);
                 await sendMessage(createSystemMessage(`Successfully generated graph with ${newGraphData.nodes.length} nodes and ${newGraphData.edges.length} edges.`, false, dir_path), dir_path);
@@ -48,7 +48,7 @@ export const KnowledgeGraphContainer: React.FC = () => {
             sendMessage(createSystemMessage(`Error: ${error instanceof Error ? error.message : 'Failed to process file'}`, true, dir_path), dir_path);
         } finally {
         }
-    }, [buildGraph, getGraphData, sendMessage, setGraphData]);
+    }, [buildGraph, getGraphData, sendMessage, setGraphData, kg_settings]);
 
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -124,13 +124,35 @@ export const KnowledgeGraphContainer: React.FC = () => {
                                             Drop your file here...
                                         </p>
                                     ) : (
-                                        <div>
+                                        <div className="flex flex-col items-center justify-center">
                                             <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                                                 Drag and drop your file here
                                             </p>
                                             <p className={`text-sm mt-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                                                 Supported formats: CSV, PCAP
                                             </p>
+                                            <div className="flex flex-row items-center justify-between gap-5 mt-2">
+                                                <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                                                    Max of rows to process
+                                                </p>
+                                                <Select
+                                                    aria-label="KG Settings"
+                                                    selectedKeys={[kg_settings.max_rows.toString()]}
+                                                    classNames={{
+                                                        trigger: isDarkMode ? 'bg-gray-800/80' : 'bg-gray-50/80',
+                                                        popoverContent: isDarkMode ? 'bg-gray-800/80 text-white' : '',
+                                                    }}
+                                                    onSelectionChange={(value: SharedSelection) => setKgSettings({ ...kg_settings, max_rows: Number(value.currentKey?.toString()) })}
+                                                    className={`w-28 m-auto ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
+                                                    variant="flat"
+                                                    size="sm"
+                                                    placeholder="Number of rows to process"
+                                                >
+                                                    {["100", "200", "500", "1000", "2000", "3000", "4000", "5000", "10000", "20000", "50000", "100000"].map((row_count) => (
+                                                        <SelectItem key={row_count}>{row_count}</SelectItem>
+                                                    ))}
+                                                </Select>
+                                            </div>
                                         </div>
                                     )}
                                 </div>

@@ -5,6 +5,11 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
 };
 
+export interface KGSettings {
+  max_rows: number;
+}
+
+
 export interface Message {
   id: string;
   content: string;

@@ -27,8 +27,10 @@ const GraphFoldersNamesSelection = () => {
     const handleSelectionChange = async (keys: SharedSelection) => {
         try {
             const selectedFolder = Array.from(keys)[0];
-            await fetchGraphLLMConversations(selectedFolder.toString());
-            await getGraphData(selectedFolder.toString());
+            await Promise.all([
+                fetchGraphLLMConversations(selectedFolder.toString()),
+                getGraphData(selectedFolder.toString())
+            ]);
         } catch (error) {
             console.error('Error fetching graph LLM conversations:', error);
         }

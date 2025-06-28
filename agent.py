@@ -225,6 +225,11 @@ async def get_graph_llm_conversations(
 ) -> List[Dict[str, Any]]:
     """Get graph LLM conversations for a given directory."""
     try:
+        if not os.path.exists(
+            f"./AppDbStore/{dir_path}/kv_store_llm_response_cache.json"
+        ):
+            return []
+
         conversations_data = await read_json_file(
             f"./AppDbStore/{dir_path}/kv_store_llm_response_cache.json"
         )

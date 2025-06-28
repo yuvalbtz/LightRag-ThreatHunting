@@ -6,25 +6,25 @@ from typing import Annotated, List, Optional, Dict, Any
 import asyncio
 import tempfile
 import os
-import re
 import logging
 import sys
+from examples.build_kg_helpers import (
+    determine_entity_type,
+    fetch_graph_folders_names_from_os,
+)
 from examples.insert_custom_kg import build_kg, csv_to_json_list, pcap_to_json_list
 from agent import (
-    generate_enriched_playbooks,
-    fetch_sample_links,
     generate_visual_graph,
     get_graph_llm_conversations,
     initialize_rag_deepseek,
     fetch_all_playbooks,
-    current_model_complete,
     initialize_rag_ollama,
 )
 import json
 import time
 from datetime import datetime
 
-from lightrag import LightRAG, QueryParam
+from lightrag import QueryParam
 
 # Configure comprehensive logging
 logging.basicConfig(
@@ -40,31 +40,6 @@ logger = logging.getLogger(__name__)
 logger.info("Starting Threat Hunting API server...")
 logger.info(f"Python version: {sys.version}")
 logger.info(f"Working directory: {os.getcwd()}")
-
-
-async def fetch_graph_folders_names_from_os():
-    """Fetch the names of the folders in the custom_kg directory."""
-    return os.listdir("./AppDbStore")
-
-
-async def determine_entity_type(
-    value: str, available_columns: List[str], flow: Dict[str, Any]
-) -> str:
-    """Automatically determine the entity type based on the value and available data."""
-    if re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", value):
-        return "IP Address"
-    if value.isdigit() and 0 <= int(value) <= 65535:
-        return "Port"
-    if "Protocol" in flow and value == flow["Protocol"]:
-        return "Protocol"
-    if "Service" in flow and value == flow["Service"]:
-        return "Service"
-    if re.match(r"^[a-zA-Z0-9][a-zA-Z0-9-]*(\.[a-zA-Z0-9][a-zA-Z0-9-]*)*$", value):
-        return "Hostname"
-    if "class" in value.lower() or "type" in value.lower():
-        return "Traffic Class"
-    return "Network Entity"
-
 
 app = FastAPI(
     title="Threat Hunting API",
@@ -143,6 +118,10 @@ class GraphDataRequest(BaseModel):
     dir_path: str = "./custom_kg"
 
 
+class KGSettings(BaseModel):
+    max_rows: int = 2000
+
+
 @app.get("/")
 async def root():
     return {"message": "Welcome to the Threat Hunting API"}
@@ -180,6 +159,8 @@ async def get_graph_folders_names():
 async def fetch_graph_llm_conversations(dir_path: str = "custom_kg"):
     try:
         raw_data = await get_graph_llm_conversations(dir_path=dir_path)
+        if not raw_data:
+            return JSONResponse(content=[])
         hybrid_data = raw_data.get("hybrid", {})
 
         ordered_messages: List[Dict[str, Any]] = []
@@ -243,6 +224,7 @@ async def build_knowledge_graph(
     target_column: Annotated[str, Form()] = "Destination IP",
     relationship_columns: Annotated[Optional[List[str]], Form()] = None,
     working_dir: Annotated[str, Form()] = "./custom_kg",
+    max_rows: Annotated[int, Form()] = 2000,
 ):
     """
     Build a knowledge graph from an uploaded CSV or PCAP file.
@@ -254,7 +236,9 @@ async def build_knowledge_graph(
         relationship_columns: Optional list of columns to include in relationships
         working_dir: Directory to store the knowledge graph data
     """
+
     try:
+        logger.info(f"Building knowledge graph with max_rows: {max_rows}")
         # Create working directory if it doesn't exist
         os.makedirs(working_dir, exist_ok=True)
 
@@ -272,9 +256,9 @@ async def build_knowledge_graph(
         # Process the file based on its extension
         file_ext = os.path.splitext(file.filename)[1].lower()
         if file_ext == ".csv":
-            flows = await csv_to_json_list(temp_file_path, max_rows=200)
+            flows = await csv_to_json_list(temp_file_path, max_rows=max_rows)
         elif file_ext == ".pcap":
-            flows = await pcap_to_json_list(temp_file_path, max_rows=2000)
+            flows = await pcap_to_json_list(temp_file_path, max_rows=max_rows)
         else:
             raise HTTPException(
                 status_code=400,
@@ -298,9 +282,7 @@ async def build_knowledge_graph(
         for flow in flows:
             for endpoint in [flow.get(source_column), flow.get(target_column)]:
                 if endpoint:
-                    entity_type = await determine_entity_type(
-                        endpoint, list(flow.keys()), flow
-                    )
+                    entity_type = await determine_entity_type(endpoint, flow)
                     entity_types.add(entity_type)
 
         return BuildKGResponse(
@@ -383,8 +365,8 @@ async def query_stream(request: ChatRequest):
     )
 
     try:
-        logger.info("Initializing RAG with Ollama...")
-        # Initialize RAG with Ollama instead of DeepSeek
+        logger.info("Initializing RAG with DeepSeek...")
+        # Initialize RAG with DeepSeek instead of Ollama
         rag = await initialize_rag_deepseek(working_dir=request.dir_path)
         logger.info("RAG initialization completed successfully")
 

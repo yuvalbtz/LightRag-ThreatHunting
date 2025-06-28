@@ -27,7 +27,7 @@ const ChatFormPrompt = () => {
                     minRows={1}
                     maxRows={10}
                     onChange={(e) => setInput(e.target.value)}
-                    placeholder={state.graphData ? "Ask about potential threats..." : "Upload a file to enable chat..."}
+                    placeholder={state.graphData ? "Ask about potential threats..." : "Upload a file or select a graph to enable chat..."}
                     className={`flex-1 transition-colors duration-200 focus:outline-violet-500 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
                     variant='underlined'
                     disabled={isLoading || !state.graphData}

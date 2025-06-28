@@ -17,6 +17,7 @@ self.onmessage = async (e: MessageEvent) => {
             try {
                 const formData = new FormData();
                 formData.append('file', data.file);
+                formData.append('max_rows', data.kg_settings.max_rows.toString());
                 formData.append('source_column', 'Source IP');
                 formData.append('target_column', 'Destination IP');
                 formData.append('working_dir', './AppDbStore/' + data.file.name?.split('.')[0]);

@@ -1,7 +1,7 @@
 import { useDarkMode } from '@/context/ThemeContext';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { DataSet, Edge, Network, Node, Options } from 'vis-network/standalone';
-import { GraphData } from '../types';
+import { GraphData, KGSettings } from '../types';
 
 interface GraphWorkerState {
     graphData: GraphData | null;
@@ -91,7 +91,7 @@ export function useGraphWorker() {
         eventListeners.get(type)?.delete(handler);
     }, []);
 
-    const buildGraph = useCallback(async (file: File): Promise<{ entity_count: number; relationship_count: number }> => {
+    const buildGraph = useCallback(async (file: File, kg_settings: KGSettings = { max_rows: 2000 }): Promise<{ entity_count: number; relationship_count: number }> => {
         updateState({ isLoading: true, error: null, dir_path: './AppDbStore/' + file.name.split('.')[0] });
 
         return new Promise((resolve, reject) => {
@@ -115,7 +115,7 @@ export function useGraphWorker() {
             addEventListener('GRAPH_BUILD_ERROR', handler);
             workerInstance.postMessage({
                 type: 'BUILD_GRAPH',
-                data: { file }
+                data: { file, kg_settings }
             });
         });
     }, [addEventListener, removeEventListener]);
