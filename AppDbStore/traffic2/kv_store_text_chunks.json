@@ -1,0 +1,848 @@
+{
+  "chunk-5c7cacff13bdc7464801ff473425249f": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS KNOWLEDGE GRAPH\n\nThis knowledge graph contains detailed network flow characteristics for advanced threat analysis:\n- ENTITIES: Network endpoints (IP:Port/Protocol) with behavioral classifications\n- RELATIONSHIPS: Detailed flow characteristics including packet statistics, timing, and behavioral patterns\n- BEHAVIORAL ANALYSIS: Packet size distributions, inter-arrival times, flag patterns, and bulk transfer characteristics\n- THREAT INDICATORS: Anomalous patterns, suspicious timing, unusual packet distributions\n- PERFORMANCE METRICS: Flow rates, window sizes, segment sizes, and connection efficiency\n\nQUERY EXAMPLES:\n- 'Show flows with unusual packet size distributions'\n- 'Find connections with high SYN flag counts (potential port scanning)'\n- 'Identify flows with abnormal inter-arrival times'\n- 'List high-volume data transfers with bulk characteristics'\n- 'Show flows with unusual flag patterns'\n- 'Find connections with suspicious timing patterns'\n- 'Identify potential DDoS attacks based on flow characteristics'\n- 'Show flows with unusual window size patterns'",
+    "source_id": "overview",
+    "tokens": 217,
+    "chunk_order_index": 0,
+    "full_doc_id": "overview",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-601f4bf558c8ab74d1413163c339eaf0": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 9a2612dc-ef6d-4d0d-a086-55c07fd7e47c\nSource: Network Endpoint (10.9.21.103:59888/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 59888 → 53\nDuration: 0ms\nData Transfer: 268 bytes (3 packets)\nFlow Rate: 521.41 bytes/sec, 5.84 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-9a2612dc-ef6d-4d0d-a086-55c07fd7e47c",
+    "tokens": 169,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-9a2612dc-ef6d-4d0d-a086-55c07fd7e47c",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-67ab5f79bfeb1826168c9e18fc3e8ca4": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: d170704b-3d9c-4e4c-8fab-feb0f608ba12\nSource: Network Endpoint (10.9.21.103:49279/6)\nDestination: Web Server (65.181.125.193:80/6)\nProtocol: 6\nPorts: 49279 → 80\nDuration: 19ms\nData Transfer: 1333 bytes (12 packets)\nFlow Rate: 67.82 bytes/sec, 0.61 packets/sec\nFlag Pattern: SYN:3 FIN:2 RST:0 PSH:3 ACK:10\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-d170704b-3d9c-4e4c-8fab-feb0f608ba12",
+    "tokens": 168,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-d170704b-3d9c-4e4c-8fab-feb0f608ba12",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-2cd4e3d9e2a727211c02cfaa0eb5ab73": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 0db1bda5-b212-47a2-a7f8-3aaf289cbd75\nSource: Network Endpoint (10.9.21.103:52743/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 52743 → 53\nDuration: 0ms\nData Transfer: 214 bytes (3 packets)\nFlow Rate: 582.02 bytes/sec, 8.16 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-0db1bda5-b212-47a2-a7f8-3aaf289cbd75",
+    "tokens": 168,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-0db1bda5-b212-47a2-a7f8-3aaf289cbd75",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-f09a019ef169e694cb53a63e555d5cc1": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 130c53fc-e353-43aa-a7a0-5f22f127a939\nSource: Network Endpoint (10.9.21.103:49281/6)\nDestination: Web Server (216.58.202.14:443/6)\nProtocol: 6\nPorts: 49281 → 443\nDuration: 18ms\nData Transfer: 5347 bytes (17 packets)\nFlow Rate: 289.41 bytes/sec, 0.92 packets/sec\nFlag Pattern: SYN:3 FIN:0 RST:1 PSH:6 ACK:15\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-130c53fc-e353-43aa-a7a0-5f22f127a939",
+    "tokens": 166,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-130c53fc-e353-43aa-a7a0-5f22f127a939",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-5bf1bb29f960066e55a305432d117c74": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: f1189b67-13f7-4ef5-971e-7dae7412343a\nSource: Network Endpoint (10.9.21.103:49282/6)\nDestination: Web Server (216.58.202.14:443/6)\nProtocol: 6\nPorts: 49282 → 443\nDuration: 18ms\nData Transfer: 6814 bytes (20 packets)\nFlow Rate: 368.81 bytes/sec, 1.08 packets/sec\nFlag Pattern: SYN:3 FIN:0 RST:1 PSH:8 ACK:18\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-f1189b67-13f7-4ef5-971e-7dae7412343a",
+    "tokens": 167,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-f1189b67-13f7-4ef5-971e-7dae7412343a",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-fa3dc1e565d90b9dee78a934308503c6": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: df9878af-70ef-49b2-8a6c-43989aca024f\nSource: Network Endpoint (10.9.21.103:60973/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 60973 → 53\nDuration: 0ms\nData Transfer: 369 bytes (3 packets)\nFlow Rate: 1953.15 bytes/sec, 15.88 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-df9878af-70ef-49b2-8a6c-43989aca024f",
+    "tokens": 166,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-df9878af-70ef-49b2-8a6c-43989aca024f",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-1bde55b702ee68ea286aaaa8a5f1cbf4": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 686d3af9-109e-4abc-a839-0996b6743c04\nSource: Network Endpoint (10.9.21.103:49283/6)\nDestination: Web Server (199.101.134.238:443/6)\nProtocol: 6\nPorts: 49283 → 443\nDuration: 17ms\nData Transfer: 7872 bytes (21 packets)\nFlow Rate: 453.84 bytes/sec, 1.21 packets/sec\nFlag Pattern: SYN:3 FIN:0 RST:1 PSH:7 ACK:19\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-686d3af9-109e-4abc-a839-0996b6743c04",
+    "tokens": 166,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-686d3af9-109e-4abc-a839-0996b6743c04",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-5f270e6dc9364cb8d913abb9149859aa": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 826a6362-f192-4d82-a28a-a6be0f5faeff\nSource: Network Endpoint (10.9.21.103:49284/6)\nDestination: Web Server (199.101.134.238:443/6)\nProtocol: 6\nPorts: 49284 → 443\nDuration: 17ms\nData Transfer: 6674 bytes (17 packets)\nFlow Rate: 384.77 bytes/sec, 0.98 packets/sec\nFlag Pattern: SYN:3 FIN:0 RST:1 PSH:7 ACK:15\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-826a6362-f192-4d82-a28a-a6be0f5faeff",
+    "tokens": 166,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-826a6362-f192-4d82-a28a-a6be0f5faeff",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-47b23d7387a596982fd729f52af3daa3": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: b8b677fe-f5b7-46ed-970e-32dc5a16ca26\nSource: Network Endpoint (10.9.21.103:52788/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 52788 → 53\nDuration: 0ms\nData Transfer: 247 bytes (3 packets)\nFlow Rate: 1350.04 bytes/sec, 16.40 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-b8b677fe-f5b7-46ed-970e-32dc5a16ca26",
+    "tokens": 167,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-b8b677fe-f5b7-46ed-970e-32dc5a16ca26",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-900dc3ebf8431d8cc30feafac0febd99": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 610a66d5-53cb-41f5-b5a9-59e97f262a68\nSource: Network Endpoint (10.9.21.103:49285/6)\nDestination: Web Server (204.155.149.53:80/6)\nProtocol: 6\nPorts: 49285 → 80\nDuration: 15ms\nData Transfer: 2765 bytes (11 packets)\nFlow Rate: 173.48 bytes/sec, 0.69 packets/sec\nFlag Pattern: SYN:3 FIN:0 RST:1 PSH:3 ACK:9\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-610a66d5-53cb-41f5-b5a9-59e97f262a68",
+    "tokens": 169,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-610a66d5-53cb-41f5-b5a9-59e97f262a68",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-adfc1f05773bfd6718dcce1e7f976f59": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 4dc02a4e-4e02-4c7b-8d14-60551b565619\nSource: Network Endpoint (10.9.21.103:49287/6)\nDestination: Web Server (65.181.125.193:80/6)\nProtocol: 6\nPorts: 49287 → 80\nDuration: 16ms\nData Transfer: 121960 bytes (133 packets)\nFlow Rate: 7464.67 bytes/sec, 8.14 packets/sec\nFlag Pattern: SYN:4 FIN:2 RST:0 PSH:79 ACK:130\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-4dc02a4e-4e02-4c7b-8d14-60551b565619",
+    "tokens": 171,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-4dc02a4e-4e02-4c7b-8d14-60551b565619",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-dc22411e446140fdbdeec4f7d3564c8b": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 91b32c32-f568-4a24-ac83-7d71d5d4a190\nSource: Network Endpoint (10.9.21.103:55548/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 55548 → 53\nDuration: 0ms\nData Transfer: 253 bytes (3 packets)\nFlow Rate: 574.03 bytes/sec, 6.81 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-91b32c32-f568-4a24-ac83-7d71d5d4a190",
+    "tokens": 167,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-91b32c32-f568-4a24-ac83-7d71d5d4a190",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-96b518c3d8c210c9a4d76e0d69179482": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 4b49cbd5-77a6-49e0-9cfd-eff9b4b1ae90\nSource: Network Endpoint (10.9.21.103:49288/6)\nDestination: Web Server (65.181.113.187:80/6)\nProtocol: 6\nPorts: 49288 → 80\nDuration: 15ms\nData Transfer: 3567 bytes (25 packets)\nFlow Rate: 233.80 bytes/sec, 1.64 packets/sec\nFlag Pattern: SYN:3 FIN:2 RST:0 PSH:12 ACK:23\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-4b49cbd5-77a6-49e0-9cfd-eff9b4b1ae90",
+    "tokens": 171,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-4b49cbd5-77a6-49e0-9cfd-eff9b4b1ae90",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-b96fff79ae98da6b6cfa5ca2638a97f3": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: a775c7dd-2d77-4029-acb3-db09f7bc2a69\nSource: Network Endpoint (10.9.21.103:49289/6)\nDestination: Web Server (65.181.125.193:80/6)\nProtocol: 6\nPorts: 49289 → 80\nDuration: 111ms\nData Transfer: 1653947 bytes (1694 packets)\nFlow Rate: 14890.59 bytes/sec, 15.25 packets/sec\nFlag Pattern: SYN:3 FIN:2 RST:0 PSH:1041 ACK:1692\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-a775c7dd-2d77-4029-acb3-db09f7bc2a69",
+    "tokens": 172,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-a775c7dd-2d77-4029-acb3-db09f7bc2a69",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-6b9ac35f629e813d5ac14e2ae34bb74e": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 07df1ade-396b-438e-9132-926e880bec06\nSource: Network Endpoint (10.9.21.103:49290/6)\nDestination: Web Server (65.181.113.187:80/6)\nProtocol: 6\nPorts: 49290 → 80\nDuration: 29ms\nData Transfer: 5517 bytes (37 packets)\nFlow Rate: 188.86 bytes/sec, 1.27 packets/sec\nFlag Pattern: SYN:3 FIN:2 RST:0 PSH:18 ACK:35\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-07df1ade-396b-438e-9132-926e880bec06",
+    "tokens": 164,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-07df1ade-396b-438e-9132-926e880bec06",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-4f4eeb0bbfdcb98c5f2751d62243614a": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: c654f4ce-a51f-43d0-aa1d-3e1c31f748e5\nSource: Network Endpoint (10.9.21.103:49294/6)\nDestination: Web Server (65.181.113.187:80/6)\nProtocol: 6\nPorts: 49294 → 80\nDuration: 31ms\nData Transfer: 2791 bytes (13 packets)\nFlow Rate: 88.76 bytes/sec, 0.41 packets/sec\nFlag Pattern: SYN:3 FIN:2 RST:0 PSH:4 ACK:11\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-c654f4ce-a51f-43d0-aa1d-3e1c31f748e5",
+    "tokens": 169,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-c654f4ce-a51f-43d0-aa1d-3e1c31f748e5",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-c0f9a83203d94c67f629a3058d9ad428": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 9028a714-95e4-4c2c-8140-4cd3cd9e2621\nSource: Network Endpoint (10.9.21.103:49297/6)\nDestination: Web Server (65.181.113.187:80/6)\nProtocol: 6\nPorts: 49297 → 80\nDuration: 92ms\nData Transfer: 2731 bytes (12 packets)\nFlow Rate: 29.67 bytes/sec, 0.13 packets/sec\nFlag Pattern: SYN:3 FIN:1 RST:1 PSH:4 ACK:10\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-9028a714-95e4-4c2c-8140-4cd3cd9e2621",
+    "tokens": 170,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-9028a714-95e4-4c2c-8140-4cd3cd9e2621",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-5dd879cc9531ae49bbe02c849d8e5d5f": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 6e863b19-7198-4a0d-8a22-ebbc90a09b91\nSource: Network Endpoint (10.9.21.103:51593/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 51593 → 53\nDuration: 0ms\nData Transfer: 253 bytes (3 packets)\nFlow Rate: 798.38 bytes/sec, 9.47 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-6e863b19-7198-4a0d-8a22-ebbc90a09b91",
+    "tokens": 168,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-6e863b19-7198-4a0d-8a22-ebbc90a09b91",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-f47ca3ab169188fcca4b00aa6fcaa384": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: d22e1d79-721f-451c-85e7-5046b8a6dac3\nSource: Network Endpoint (10.9.21.103:49301/6)\nDestination: Web Server (65.181.113.187:80/6)\nProtocol: 6\nPorts: 49301 → 80\nDuration: 22ms\nData Transfer: 1388 bytes (13 packets)\nFlow Rate: 62.50 bytes/sec, 0.59 packets/sec\nFlag Pattern: SYN:3 FIN:2 RST:0 PSH:4 ACK:11\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-d22e1d79-721f-451c-85e7-5046b8a6dac3",
+    "tokens": 169,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-d22e1d79-721f-451c-85e7-5046b8a6dac3",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-573d41e1a5ac462f3e6d233bbc734241": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 34e7d19a-29bb-4dab-a115-a735d322a709\nSource: Network Endpoint (10.9.21.103:53816/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 53816 → 53\nDuration: 0ms\nData Transfer: 250 bytes (3 packets)\nFlow Rate: 933.03 bytes/sec, 11.20 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-34e7d19a-29bb-4dab-a115-a735d322a709",
+    "tokens": 164,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-34e7d19a-29bb-4dab-a115-a735d322a709",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-ffece026b58e1b61d54eb04c62a7e9b0": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 8ee94b36-c7a6-4853-a7ec-74759cf16d97\nSource: Network Endpoint (10.9.21.103:54576/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 54576 → 53\nDuration: 7ms\nData Transfer: 747 bytes (9 packets)\nFlow Rate: 101.35 bytes/sec, 1.22 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-8ee94b36-c7a6-4853-a7ec-74759cf16d97",
+    "tokens": 166,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-8ee94b36-c7a6-4853-a7ec-74759cf16d97",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-1d6234e87b2abf6ccf9a76d4bd8cf312": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 78c29df4-8af3-48e4-ba2c-d270f56f2e05\nSource: Network Endpoint (10.9.21.103:49304/6)\nDestination: Web Server (65.181.113.187:80/6)\nProtocol: 6\nPorts: 49304 → 80\nDuration: 1ms\nData Transfer: 1479 bytes (13 packets)\nFlow Rate: 1030.75 bytes/sec, 9.06 packets/sec\nFlag Pattern: SYN:3 FIN:0 RST:1 PSH:5 ACK:11\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-78c29df4-8af3-48e4-ba2c-d270f56f2e05",
+    "tokens": 170,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-78c29df4-8af3-48e4-ba2c-d270f56f2e05",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-7fbc948888d8fbcb56d6b0c58ad65c6b": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: e7884dc5-7ba9-4d1d-96af-7904fa736a19\nSource: Network Endpoint (10.9.21.103:60353/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 60353 → 53\nDuration: 0ms\nData Transfer: 249 bytes (3 packets)\nFlow Rate: 317.80 bytes/sec, 3.83 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-e7884dc5-7ba9-4d1d-96af-7904fa736a19",
+    "tokens": 167,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-e7884dc5-7ba9-4d1d-96af-7904fa736a19",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-63a9a1534e56ca1c6414fdcd9a501a11": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 5add1dc5-8a39-4795-a4a6-47965d991bd3\nSource: Network Endpoint (10.9.21.103:58825/17)\nDestination: Network Endpoint (224.0.0.252:5355/17)\nProtocol: 17\nPorts: 58825 → 5355\nDuration: 0ms\nData Transfer: 213 bytes (3 packets)\nFlow Rate: 2276.32 bytes/sec, 32.06 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-5add1dc5-8a39-4795-a4a6-47965d991bd3",
+    "tokens": 170,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-5add1dc5-8a39-4795-a4a6-47965d991bd3",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-569e5cb6226a97ffb6acc378420d1111": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 11e2930c-8abb-4fe2-ba75-b63160675273\nSource: Network Endpoint (10.9.21.103:60668/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 60668 → 53\nDuration: 0ms\nData Transfer: 253 bytes (3 packets)\nFlow Rate: 1073.29 bytes/sec, 12.73 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-11e2930c-8abb-4fe2-ba75-b63160675273",
+    "tokens": 164,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-11e2930c-8abb-4fe2-ba75-b63160675273",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-f6d7856819a90ab98bd658d802f93096": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 5d0d5beb-6eb5-4062-8fad-25d8a1958954\nSource: Network Endpoint (10.9.21.103:49157/6)\nDestination: Web Server (65.181.113.187:80/6)\nProtocol: 6\nPorts: 49157 → 80\nDuration: 7ms\nData Transfer: 1397 bytes (13 packets)\nFlow Rate: 195.44 bytes/sec, 1.82 packets/sec\nFlag Pattern: SYN:3 FIN:2 RST:0 PSH:4 ACK:11\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-5d0d5beb-6eb5-4062-8fad-25d8a1958954",
+    "tokens": 169,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-5d0d5beb-6eb5-4062-8fad-25d8a1958954",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-676f916ab75f2d6472fcdbdfcaeaa951": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 36412fa2-b690-4e93-a118-422f93a8058e\nSource: Network Endpoint (10.9.21.103:54189/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 54189 → 53\nDuration: 0ms\nData Transfer: 250 bytes (3 packets)\nFlow Rate: 628.26 bytes/sec, 7.54 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-36412fa2-b690-4e93-a118-422f93a8058e",
+    "tokens": 164,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-36412fa2-b690-4e93-a118-422f93a8058e",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-72f96c521d8b9cb053f5aaddae9ecfe5": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 87bd3c96-f106-4f54-a543-8e404600655e\nSource: Network Endpoint (10.9.21.103:63198/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 63198 → 53\nDuration: 12ms\nData Transfer: 913 bytes (11 packets)\nFlow Rate: 72.66 bytes/sec, 0.88 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-87bd3c96-f106-4f54-a543-8e404600655e",
+    "tokens": 164,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-87bd3c96-f106-4f54-a543-8e404600655e",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-7c3d4ee8dd66d6ad0b31510187d0eeeb": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 1e38bcae-fbff-4d99-8939-ecf6cab7ed31\nSource: Network Endpoint (10.9.21.103:49161/6)\nDestination: Web Server (65.181.113.187:80/6)\nProtocol: 6\nPorts: 49161 → 80\nDuration: 100ms\nData Transfer: 1235 bytes (13 packets)\nFlow Rate: 12.26 bytes/sec, 0.13 packets/sec\nFlag Pattern: SYN:3 FIN:2 RST:0 PSH:4 ACK:11\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-1e38bcae-fbff-4d99-8939-ecf6cab7ed31",
+    "tokens": 169,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-1e38bcae-fbff-4d99-8939-ecf6cab7ed31",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-de1ac4f430aa9877367ddd8014981eee": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: c1619640-97da-4b44-9d45-c0f8e242ca00\nSource: Network Endpoint (10.9.21.103:53516/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 53516 → 53\nDuration: 0ms\nData Transfer: 249 bytes (3 packets)\nFlow Rate: 462825.28 bytes/sec, 5576.21 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-c1619640-97da-4b44-9d45-c0f8e242ca00",
+    "tokens": 168,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-c1619640-97da-4b44-9d45-c0f8e242ca00",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-23a220304bdbc20e029a4c45b783c119": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 10ad7b6a-3249-4187-9b9a-391e077b0ef6\nSource: Network Endpoint (10.9.21.103:57562/17)\nDestination: Network Endpoint (224.0.0.252:5355/17)\nProtocol: 17\nPorts: 57562 → 5355\nDuration: 0ms\nData Transfer: 213 bytes (3 packets)\nFlow Rate: 2115.57 bytes/sec, 29.80 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-10ad7b6a-3249-4187-9b9a-391e077b0ef6",
+    "tokens": 172,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-10ad7b6a-3249-4187-9b9a-391e077b0ef6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-0f8a3ae5dc42ed7bca544a0cbdf6ccb0": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 3826264e-fbba-4ac6-aada-83fb1c00c860\nSource: Network Endpoint (10.9.21.103:57323/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 57323 → 53\nDuration: 7ms\nData Transfer: 756 bytes (9 packets)\nFlow Rate: 102.16 bytes/sec, 1.22 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-3826264e-fbba-4ac6-aada-83fb1c00c860",
+    "tokens": 165,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-3826264e-fbba-4ac6-aada-83fb1c00c860",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-efa167be976fb72c75764b0b4e31b4f5": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: a8e7dd01-677d-4f5f-bda6-8d62482b94cf\nSource: Network Endpoint (10.9.21.103:62842/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 62842 → 53\nDuration: 43ms\nData Transfer: 847 bytes (11 packets)\nFlow Rate: 19.49 bytes/sec, 0.25 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-a8e7dd01-677d-4f5f-bda6-8d62482b94cf",
+    "tokens": 168,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-a8e7dd01-677d-4f5f-bda6-8d62482b94cf",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-1f4c0969e07e3a335371399181e11769": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: a295d324-d925-4d19-8dbb-f0fb3d8256b3\nSource: Network Endpoint (10.9.21.103:59789/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 59789 → 53\nDuration: 50ms\nData Transfer: 913 bytes (11 packets)\nFlow Rate: 18.01 bytes/sec, 0.22 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-a295d324-d925-4d19-8dbb-f0fb3d8256b3",
+    "tokens": 166,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-a295d324-d925-4d19-8dbb-f0fb3d8256b3",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-cbfe11ae3fd27246eea07530c382daa9": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 91039ca3-6280-4e1c-b378-16ca5f8d6a2d\nSource: Network Endpoint (10.9.21.103:58309/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 58309 → 53\nDuration: 25ms\nData Transfer: 902 bytes (11 packets)\nFlow Rate: 35.63 bytes/sec, 0.43 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-91039ca3-6280-4e1c-b378-16ca5f8d6a2d",
+    "tokens": 169,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-91039ca3-6280-4e1c-b378-16ca5f8d6a2d",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-939aedb3e80aa3fbde9d3c098703810f": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 684d9a66-25f4-41b8-ae9b-a741b5733f6c\nSource: Network Endpoint (10.9.21.103:51329/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 51329 → 53\nDuration: 48ms\nData Transfer: 935 bytes (11 packets)\nFlow Rate: 19.39 bytes/sec, 0.23 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-684d9a66-25f4-41b8-ae9b-a741b5733f6c",
+    "tokens": 169,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-684d9a66-25f4-41b8-ae9b-a741b5733f6c",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-bf460b57167182b2f43d3ff70edd51c3": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 065adccc-8287-4843-9437-b4b2a1524197\nSource: Network Endpoint (10.9.21.103:63723/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 63723 → 53\nDuration: 7ms\nData Transfer: 765 bytes (9 packets)\nFlow Rate: 101.06 bytes/sec, 1.19 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 2\nSuspicious Patterns: high_bulk_transfer\nThreat Indicators: None",
+    "source_id": "flow-065adccc-8287-4843-9437-b4b2a1524197",
+    "tokens": 166,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-065adccc-8287-4843-9437-b4b2a1524197",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-e46a5160778f8d7455e92607291a65b3": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 333e02b1-2330-4d07-9426-fc930c699716\nSource: Network Endpoint (10.9.21.103:54951/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 54951 → 53\nDuration: 0ms\nData Transfer: 274 bytes (3 packets)\nFlow Rate: 492.43 bytes/sec, 5.39 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-333e02b1-2330-4d07-9426-fc930c699716",
+    "tokens": 165,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-333e02b1-2330-4d07-9426-fc930c699716",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-fdbde5daafb24d15d70545b3aeb5fc58": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 15de4ed3-672a-4f40-8c8b-6b5b23264fed\nSource: Network Endpoint (10.9.21.103:53433/17)\nDestination: DNS Server (10.9.21.1:53/17)\nProtocol: 17\nPorts: 53433 → 53\nDuration: 0ms\nData Transfer: 262 bytes (3 packets)\nFlow Rate: 802.14 bytes/sec, 9.18 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-15de4ed3-672a-4f40-8c8b-6b5b23264fed",
+    "tokens": 169,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-15de4ed3-672a-4f40-8c8b-6b5b23264fed",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-282530b28c850151afbd9a67458f4896": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: f59ad5c8-f5e6-4697-9e90-26faec939cca\nSource: Network Endpoint (10.9.21.103:49163/6)\nDestination: Web Server (65.181.113.204:443/6)\nProtocol: 6\nPorts: 49163 → 443\nDuration: 63ms\nData Transfer: 5537 bytes (32 packets)\nFlow Rate: 87.76 bytes/sec, 0.51 packets/sec\nFlag Pattern: SYN:3 FIN:0 RST:0 PSH:16 ACK:30\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-f59ad5c8-f5e6-4697-9e90-26faec939cca",
+    "tokens": 167,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-f59ad5c8-f5e6-4697-9e90-26faec939cca",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-9e5c331d1e785fcea3c03fbff02e0294": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:59888/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:59888 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 59888\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:59888/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:59888/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-2e194a5bec03d10089ae9ea769785f5a": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.1:53/17\nType: DNS Server\nAverage Behavior: normal\nAverage Anomaly Score: 0.10\nDescription: DNS Server at 10.9.21.1:53 using 17 protocol.\nObserved in 21 network flow(s).\nTypical behavior: normal.\nService type: dns server\nIP Address: 10.9.21.1\nPort: 53\nProtocol: 17\nFlow Count: 21\nBehavioral Notes: normal endpoint with 21 observed flows",
+    "source_id": "entity-10.9.21.1:53/17",
+    "tokens": 119,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.1:53/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-3a6162fd2b324a4ba237356a116387b7": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49279/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49279 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49279\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49279/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49279/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-f225a1bb22124fe930f445f689701d7e": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 65.181.125.193:80/6\nType: Web Server\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Web Server at 65.181.125.193:80 using 6 protocol.\nObserved in 3 network flow(s).\nTypical behavior: normal.\nService type: web server\nIP Address: 65.181.125.193\nPort: 80\nProtocol: 6\nFlow Count: 3\nBehavioral Notes: normal endpoint with 3 observed flows",
+    "source_id": "entity-65.181.125.193:80/6",
+    "tokens": 119,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-65.181.125.193:80/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-bd9f964050edc4481b1a9b173a6c6941": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:52743/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:52743 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 52743\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:52743/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:52743/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-c5e5f94198e8955b13c66ed32149595f": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49281/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49281 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49281\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49281/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49281/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-7326c56b372a148190ec08f7f5b9a5d2": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 216.58.202.14:443/6\nType: Web Server\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Web Server at 216.58.202.14:443 using 6 protocol.\nObserved in 2 network flow(s).\nTypical behavior: normal.\nService type: web server\nIP Address: 216.58.202.14\nPort: 443\nProtocol: 6\nFlow Count: 2\nBehavioral Notes: normal endpoint with 2 observed flows",
+    "source_id": "entity-216.58.202.14:443/6",
+    "tokens": 119,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-216.58.202.14:443/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-524d72122067a7fca9afcecb2defc0c1": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49282/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49282 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49282\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49282/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49282/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-a7b4055cfa2ec63bfe71882a4ae5e96e": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:60973/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:60973 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 60973\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:60973/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:60973/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-348e167e304ba5ecd72b7ff574e3302c": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49283/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49283 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49283\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49283/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49283/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-5b7085155d30ed8c92360d4663732f31": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 199.101.134.238:443/6\nType: Web Server\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Web Server at 199.101.134.238:443 using 6 protocol.\nObserved in 2 network flow(s).\nTypical behavior: normal.\nService type: web server\nIP Address: 199.101.134.238\nPort: 443\nProtocol: 6\nFlow Count: 2\nBehavioral Notes: normal endpoint with 2 observed flows",
+    "source_id": "entity-199.101.134.238:443/6",
+    "tokens": 119,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-199.101.134.238:443/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-5264b1f53f3be7dbac18cc9c10797450": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49284/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49284 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49284\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49284/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49284/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-6e58a91d4feda56833ec557873c48e60": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:52788/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:52788 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 52788\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:52788/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:52788/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-c70301bd5a14373dc685b7dbfe6d6c4e": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49285/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49285 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49285\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49285/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49285/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-7d3bf5f51feaab6672e8cbb183a961e9": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 204.155.149.53:80/6\nType: Web Server\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Web Server at 204.155.149.53:80 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: web server\nIP Address: 204.155.149.53\nPort: 80\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-204.155.149.53:80/6",
+    "tokens": 119,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-204.155.149.53:80/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-c7df02e55443e3acf778fdd46c511558": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49287/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49287 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49287\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49287/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49287/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-a02350b8838aae67b29db22c6f886de0": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:55548/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:55548 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 55548\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:55548/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:55548/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-82be746fa6ccdb4acb3a8b6910934c6d": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49288/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49288 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49288\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49288/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49288/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-070e9817c027167d36dadbba67aefee5": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 65.181.113.187:80/6\nType: Web Server\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Web Server at 65.181.113.187:80 using 6 protocol.\nObserved in 8 network flow(s).\nTypical behavior: normal.\nService type: web server\nIP Address: 65.181.113.187\nPort: 80\nProtocol: 6\nFlow Count: 8\nBehavioral Notes: normal endpoint with 8 observed flows",
+    "source_id": "entity-65.181.113.187:80/6",
+    "tokens": 119,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-65.181.113.187:80/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-8671e9b2e8ed12d8b30670438aec2816": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49289/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49289 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49289\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49289/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49289/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-c3e0e7dc5c22e155282248578e77e8e4": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49290/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49290 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49290\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49290/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49290/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-ddedc5ee008cbbc5c2e702b84997865e": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49294/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49294 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49294\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49294/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49294/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-1e106bfffb5817b44dbd36aee43fb140": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49297/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49297 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49297\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49297/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49297/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-33c06eee99c4a1bd5eabd965382eda82": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:51593/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:51593 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 51593\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:51593/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:51593/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-4182111443baf4c8a9e8bf7513038aca": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49301/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49301 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49301\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49301/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49301/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-d6ba66ce9e32fd534304565a9ec18ad9": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:53816/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:53816 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 53816\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:53816/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:53816/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-cce2757c055865790d97d43716ccf079": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:54576/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:54576 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 54576\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:54576/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:54576/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-9031c8061840ca20391c47c613a3375e": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49304/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49304 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49304\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49304/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49304/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-cdfc9096a2427fb8318bf81936a6e956": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:60353/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:60353 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 60353\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:60353/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:60353/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-cbadc317ac2de69d8e91e1e94dc0c95a": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:58825/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:58825 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 58825\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:58825/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:58825/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-48445f3d05eb4bdc4c0502316d454b9c": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 224.0.0.252:5355/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 224.0.0.252:5355 using 17 protocol.\nObserved in 2 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 224.0.0.252\nPort: 5355\nProtocol: 17\nFlow Count: 2\nBehavioral Notes: normal endpoint with 2 observed flows",
+    "source_id": "entity-224.0.0.252:5355/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-224.0.0.252:5355/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-3e15c86fae2b583f57ee1809edf07950": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:60668/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:60668 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 60668\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:60668/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:60668/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-2c6b22c0ca7bdd0ad1c3af7f8123ef80": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49157/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49157 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49157\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49157/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49157/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-1fa125ba11294db0c314bc3efccfbfa3": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:54189/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:54189 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 54189\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:54189/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:54189/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-f0a9189e32fed46138fefaa8ab956ba4": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:63198/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:63198 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 63198\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:63198/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:63198/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-c9cf196d95401039748d336e076d2e5b": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49161/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49161 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49161\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49161/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49161/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-5a5bad156f5e6c39bf84e09b2b877448": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:53516/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:53516 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 53516\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:53516/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:53516/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-3ae4db3e7a22775749337e466f53f8db": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:57562/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:57562 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 57562\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:57562/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:57562/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-9fba37f270802277794866209b8f6f63": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:57323/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:57323 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 57323\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:57323/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:57323/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-38d2282ce3d326af9bb1279617c79650": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:62842/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:62842 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 62842\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:62842/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:62842/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-a46f1ddfe39b4a6cf62474597c6efd82": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:59789/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:59789 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 59789\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:59789/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:59789/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-ad6db4793f242f461f240089649c6345": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:58309/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:58309 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 58309\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:58309/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:58309/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-de13262274d3b75f5b06a3a963030d4b": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:51329/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:51329 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 51329\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:51329/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:51329/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-6e51cc92c5b86e6533a5501c5ea7766e": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:63723/17\nType: Network Endpoint\nAverage Behavior: anomalous\nAverage Anomaly Score: 2.00\nDescription: Network Endpoint at 10.9.21.103:63723 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: anomalous.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 63723\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: anomalous endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:63723/17",
+    "tokens": 125,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:63723/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-477e6e15fb51148b5897c539f0b8b24e": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:54951/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:54951 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 54951\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:54951/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:54951/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-f3bf1c1b9f4cf7d25ef7e03047ed8f4f": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:53433/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:53433 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 53433\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:53433/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:53433/17",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-c01adc6840361f6d54893cc48b99b927": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.9.21.103:49163/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.9.21.103:49163 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.9.21.103\nPort: 49163\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.9.21.103:49163/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.9.21.103:49163/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-0da4b3d4f0fe0495dda2e6470b44e6ec": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 65.181.113.204:443/6\nType: Web Server\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Web Server at 65.181.113.204:443 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: web server\nIP Address: 65.181.113.204\nPort: 443\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-65.181.113.204:443/6",
+    "tokens": 119,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-65.181.113.204:443/6",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-36ba73826c085356da22b2742a1cb65e": {
+    "content": "TRAFFIC PATTERN ANALYSIS\nPattern: 17 traffic to port 53\nService Type: DNS Server\nTotal Flows: 21\nUnique Sources: 1\nUnique Destinations: 1\nTotal Forward Packets: 71\nTotal Backward Packets: 50\nTotal Forward Bytes: 5778\nTotal Backward Bytes: 4391\nAverage Anomaly Score: 0.10\nAverage Forward Packets per Flow: 3\nAverage Backward Packets per Flow: 2",
+    "source_id": "pattern-17:53",
+    "tokens": 107,
+    "chunk_order_index": 0,
+    "full_doc_id": "pattern-17:53",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-3d5093d4ad46db9a221ed2c51ee125e2": {
+    "content": "TRAFFIC PATTERN ANALYSIS\nPattern: 6 traffic to port 80\nService Type: Web Server\nTotal Flows: 12\nUnique Sources: 1\nUnique Destinations: 3\nTotal Forward Packets: 661\nTotal Backward Packets: 1328\nTotal Forward Bytes: 45064\nTotal Backward Bytes: 1755046\nAverage Anomaly Score: 0.00\nAverage Forward Packets per Flow: 55\nAverage Backward Packets per Flow: 110",
+    "source_id": "pattern-6:80",
+    "tokens": 109,
+    "chunk_order_index": 0,
+    "full_doc_id": "pattern-6:80",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-23d0b7c8aa83aea03c4c0059ca8f587c": {
+    "content": "TRAFFIC PATTERN ANALYSIS\nPattern: 6 traffic to port 443\nService Type: Web Server\nTotal Flows: 5\nUnique Sources: 1\nUnique Destinations: 3\nTotal Forward Packets: 56\nTotal Backward Packets: 51\nTotal Forward Bytes: 5455\nTotal Backward Bytes: 26789\nAverage Anomaly Score: 0.00\nAverage Forward Packets per Flow: 11\nAverage Backward Packets per Flow: 10",
+    "source_id": "pattern-6:443",
+    "tokens": 107,
+    "chunk_order_index": 0,
+    "full_doc_id": "pattern-6:443",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-50672131652cc68b645f1fd0afb4d997": {
+    "content": "TRAFFIC PATTERN ANALYSIS\nPattern: 17 traffic to port 5355\nService Type: Network Endpoint\nTotal Flows: 2\nUnique Sources: 1\nUnique Destinations: 1\nTotal Forward Packets: 6\nTotal Backward Packets: 0\nTotal Forward Bytes: 426\nTotal Backward Bytes: 0\nAverage Anomaly Score: 0.00\nAverage Forward Packets per Flow: 3\nAverage Backward Packets per Flow: 0",
+    "source_id": "pattern-17:5355",
+    "tokens": 106,
+    "chunk_order_index": 0,
+    "full_doc_id": "pattern-17:5355",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  },
+  "chunk-023ede18a28132a71dd724c8da9ada1c": {
+    "content": "COMPREHENSIVE THREAT ANALYSIS SUMMARY\nTotal Entities: 48\nSuspicious Entities: 0\nAnomalous Entities: 1\nNormal Entities: 47\nTotal Flows: 40\nHigh Threat Flows: 0\nMedium Threat Flows: 0\nLow Threat Flows: 40\nUnique Protocols: 2\nTraffic Patterns: 4 unique patterns\n\nSECURITY RECOMMENDATIONS:\n- Investigate 0 suspicious endpoints\n- Monitor 1 anomalous entities\n- Review 0 high-threat flows\n- Analyze 4 traffic patterns for anomalies\n- Focus on entities with high anomaly scores",
+    "source_id": "threat-summary",
+    "tokens": 132,
+    "chunk_order_index": 0,
+    "full_doc_id": "threat-summary",
+    "file_path": "./AppDbStore/traffic2",
+    "status": "processed"
+  }
+}

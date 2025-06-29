@@ -12,6 +12,7 @@ from examples.build_kg_helpers import (
     determine_entity_type,
     fetch_graph_folders_names_from_os,
 )
+from examples.cicflowmeter_helpers import pcap_to_flows
 from examples.insert_custom_kg import build_kg, csv_to_json_list, pcap_to_json_list
 from agent import (
     generate_visual_graph,
@@ -25,6 +26,7 @@ import time
 from datetime import datetime
 
 from lightrag import QueryParam
+
 
 # Configure comprehensive logging
 logging.basicConfig(
@@ -258,7 +260,9 @@ async def build_knowledge_graph(
         if file_ext == ".csv":
             flows = await csv_to_json_list(temp_file_path, max_rows=max_rows)
         elif file_ext == ".pcap":
-            flows = await pcap_to_json_list(temp_file_path, max_rows=max_rows)
+            flows = await pcap_to_flows(
+                temp_file_path, use_standard_format=False, max_flows=max_rows
+            )
         else:
             raise HTTPException(
                 status_code=400,

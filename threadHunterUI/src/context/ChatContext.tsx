@@ -65,6 +65,7 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const fetchGraphLLMConversations = useCallback(async (dir_path: string) => {
         try {
+            setMessages([]);
             const conversations = await api.chat.getGraphLLMConversations(dir_path);
             setMessages(prev => [...prev, ...conversations]);
         } catch (error) {
