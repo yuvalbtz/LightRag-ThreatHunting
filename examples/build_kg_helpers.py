@@ -716,5 +716,9 @@ async def _parse_csv_file(file_path: str, max_rows: int = None) -> List[Dict[str
 
 
 async def fetch_graph_folders_names_from_os():
-    """Fetch the names of the folders in the custom_kg directory."""
-    return os.listdir("./AppDbStore")
+    """Fetch the names of the folders in the ./AppDbStore directory. and sort them by creation date."""
+    folders = os.listdir("./AppDbStore")
+    folders.sort(
+        key=lambda x: os.path.getctime(os.path.join("./AppDbStore", x)), reverse=True
+    )
+    return folders

@@ -17,6 +17,7 @@ try:
     from cicflowmeter.flow_session import FlowSession
     from cicflowmeter.sniffer import create_sniffer
     from cicflowmeter.writer import CSVWriter, output_writer_factory
+    from cicflowmeter.constants import EXPIRED_UPDATE, PACKETS_PER_GC
 
     CICFLOWMETER_AVAILABLE = True
 except ImportError as e:
@@ -421,14 +422,19 @@ async def pcap_to_flows_using_local_library(
             input_interface=None,
             output_mode="csv",
             output=csv_path,
-            verbose=False,
+            verbose=True,  # Enable verbose to see more details
         )
 
         # Process the PCAP file
+        print("Starting packet processing...")
         sniffer.start()
+
+        # Wait for processing to complete
+        print("Waiting for processing to complete...")
         sniffer.join()
 
         # Flush remaining flows
+        print("Flushing remaining flows...")
         session.flush_flows()
 
         # Check if CSV file was created and has content
@@ -459,6 +465,8 @@ async def pcap_to_flows_using_local_library(
         with open(csv_path, "r", encoding="utf-8") as f:
             reader = csv.DictReader(f)
             for i, row in enumerate(reader):
+                if max_flows is not None and i >= max_flows:
+                    break
                 print(f"[DEBUG] Processing row {i+1}")
                 # Convert all values to appropriate types
                 flow_data = {}
@@ -523,7 +531,10 @@ async def pcap_to_flows_using_local_library(
 
 
 async def pcap_to_flows(
-    pcap_file_path: str, max_flows: int = None, use_standard_format: bool = True
+    pcap_file_path: str,
+    max_flows: int = None,
+    use_standard_format: bool = True,
+    use_custom_params: bool = True,
 ) -> List[Dict[str, Any]]:
     """
     Convert PCAP file to flow data using cicflowmeter and return as list of dictionaries.
@@ -533,6 +544,7 @@ async def pcap_to_flows(
         pcap_file_path: Path to the input PCAP file
         max_flows: Maximum number of flows to process (optional)
         use_standard_format: If True, return data in standard format, else in cicflowmeter format
+        use_custom_params: If True, use custom parameters for better flow capture (default: True)
 
     Returns:
         List[Dict[str, Any]]: List of flow dictionaries with flow attributes
@@ -540,9 +552,15 @@ async def pcap_to_flows(
     try:
         # Try to use local library first
         if CICFLOWMETER_AVAILABLE:
-            return await pcap_to_flows_using_local_library(
-                pcap_file_path, max_flows, use_standard_format
-            )
+            if use_custom_params:
+                print("Using custom cicflowmeter parameters for better flow capture...")
+                return await pcap_to_flows_using_custom_library(
+                    pcap_file_path, max_flows, use_standard_format
+                )
+            else:
+                return await pcap_to_flows_using_local_library(
+                    pcap_file_path, max_flows, use_standard_format
+                )
         else:
             # Fall back to command-line tool if local library not available
             print(
@@ -649,7 +667,6 @@ async def pcap_to_flows_using_command_line(
             print("Data returned in standard format")
         else:
             print("Data returned in cicflowmeter format")
-
         return flows
 
     except Exception as e:
@@ -785,3 +802,248 @@ def test_mapping_with_sample_data():
 
     print("=" * 50)
     return True
+
+
+class CustomFlowSession(FlowSession):
+    """Custom FlowSession with better flow capture parameters."""
+
+    def __init__(
+        self,
+        output_mode=None,
+        output=None,
+        fields=None,
+        verbose=False,
+        expired_update=120,
+        packets_per_gc=100,
+        *args,
+        **kwargs,
+    ):
+        # Override the constants for better flow capture
+        self.EXPIRED_UPDATE = expired_update
+        self.PACKETS_PER_GC = packets_per_gc
+
+        super().__init__(
+            output_mode=output_mode,
+            output=output,
+            fields=fields,
+            verbose=verbose,
+            *args,
+            **kwargs,
+        )
+
+    def garbage_collect(self, latest_time) -> None:
+        # Custom garbage collection with more lenient parameters
+        for k in list(self.flows.keys()):
+            flow = self.flows.get(k)
+
+            if not flow or (
+                latest_time is not None
+                and latest_time - flow.latest_timestamp < self.EXPIRED_UPDATE
+                and flow.duration < 300  # Increased from 90 to 300 seconds
+            ):
+                continue
+
+            self.output_writer.write(flow.get_data(self.fields))
+            del self.flows[k]
+            self.logger.debug(f"Flow Collected! Remain Flows = {len(self.flows)}")
+
+
+def create_custom_sniffer(
+    input_file,
+    input_interface,
+    output_mode,
+    output,
+    fields=None,
+    verbose=False,
+    expired_update=120,
+    packets_per_gc=100,
+):
+    """Create a sniffer with custom flow session parameters."""
+    from scapy.sendrecv import AsyncSniffer
+
+    assert (input_file is None) ^ (
+        input_interface is None
+    ), "Either provide interface input or file input not both"
+    if fields is not None:
+        fields = fields.split(",")
+
+    # Pass config to CustomFlowSession constructor
+    session = CustomFlowSession(
+        output_mode=output_mode,
+        output=output,
+        fields=fields,
+        verbose=verbose,
+        expired_update=expired_update,
+        packets_per_gc=packets_per_gc,
+    )
+
+    if input_file:
+        sniffer = AsyncSniffer(
+            offline=input_file,
+            filter="ip and (tcp or udp)",
+            prn=session.process,
+            store=False,
+        )
+    else:
+        sniffer = AsyncSniffer(
+            iface=input_interface,
+            filter="ip and (tcp or udp)",
+            prn=session.process,
+            store=False,
+        )
+    return sniffer, session
+
+
+async def pcap_to_flows_using_custom_library(
+    pcap_file_path: str,
+    max_flows: int = None,
+    use_standard_format: bool = True,
+    expired_update: int = 60,
+    packets_per_gc: int = 50,
+) -> List[Dict[str, Any]]:
+    """
+    Convert PCAP file to flow data using custom cicflowmeter parameters for better flow capture.
+
+    Args:
+        pcap_file_path: Path to the input PCAP file
+        max_flows: Maximum number of flows to process (optional)
+        use_standard_format: If True, return data in standard format, else in cicflowmeter format
+        expired_update: Flow timeout in seconds (default: 60, lower = more flows)
+        packets_per_gc: Garbage collection frequency (default: 50, lower = more frequent GC)
+
+    Returns:
+        List[Dict[str, Any]]: List of flow dictionaries with flow attributes
+    """
+    if not CICFLOWMETER_AVAILABLE:
+        raise Exception("Local cicflowmeter library is not available")
+
+    if not os.path.exists(pcap_file_path):
+        raise Exception(f"PCAP file not found: {pcap_file_path}")
+
+    csv_path = None
+    try:
+        # Create temporary CSV file
+        temp_file = tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False)
+        csv_path = temp_file.name
+        temp_file.close()
+
+        print(f"Processing PCAP file: {pcap_file_path}")
+        print(f"Output CSV: {csv_path}")
+        print(
+            f"Using custom parameters: expired_update={expired_update}s, packets_per_gc={packets_per_gc}"
+        )
+
+        # Create custom sniffer with better parameters
+        sniffer, session = create_custom_sniffer(
+            input_file=pcap_file_path,
+            input_interface=None,
+            output_mode="csv",
+            output=csv_path,
+            verbose=True,  # Enable verbose to see more details
+            expired_update=expired_update,
+            packets_per_gc=packets_per_gc,
+        )
+
+        # Process the PCAP file
+        print("Starting packet processing with custom parameters...")
+        sniffer.start()
+
+        # Wait for processing to complete
+        print("Waiting for processing to complete...")
+        sniffer.join()
+
+        # Flush remaining flows
+        print("Flushing remaining flows...")
+        session.flush_flows()
+
+        # Check if CSV file was created and has content
+        if not os.path.exists(csv_path):
+            raise Exception("CSV file was not created")
+
+        print(f"CSV file created: {csv_path}")
+        print(f"CSV file size: {os.path.getsize(csv_path)} bytes")
+
+        # If CSV is empty, return empty list
+        if os.path.getsize(csv_path) == 0:
+            print("CSV file is empty - no flows generated from PCAP")
+            return []
+
+        # Read and print the CSV headers first
+        with open(csv_path, "r", encoding="utf-8") as f:
+            first_line = f.readline().strip()
+            if first_line:
+                headers = first_line.split(",")
+                print(f"[DEBUG] CSV headers: {headers}")
+                print(f"[DEBUG] Number of headers: {len(headers)}")
+            else:
+                print("CSV file is empty - no flows generated from PCAP")
+                return []
+
+        # Read the generated CSV file
+        flows = []
+        with open(csv_path, "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for i, row in enumerate(reader):
+                if max_flows is not None and i >= max_flows:
+                    break
+                print(f"[DEBUG] Processing row {i+1}")
+                # Convert all values to appropriate types
+                flow_data = {}
+                for key, value in row.items():
+                    # Skip empty values
+                    if not value or value.strip() == "":
+                        flow_data[key] = None
+                        continue
+
+                    # Try to convert to numeric types, but preserve strings for non-numeric data
+                    try:
+                        # Check if it's a float (contains decimal point)
+                        if (
+                            "." in value
+                            and value.replace(".", "")
+                            .replace("-", "")
+                            .replace("e", "")
+                            .replace("E", "")
+                            .isdigit()
+                        ):
+                            flow_data[key] = float(value)
+                        # Check if it's an integer
+                        elif value.replace("-", "").isdigit():
+                            flow_data[key] = int(value)
+                        else:
+                            # Keep as string for non-numeric data (IPs, protocols, etc.)
+                            flow_data[key] = value
+                    except (ValueError, TypeError):
+                        # If conversion fails, keep as string
+                        flow_data[key] = value
+                if use_standard_format:
+                    flow_data = transform_cicflowmeter_to_standard(flow_data)
+                flows.append(flow_data)
+
+        # Keep the CSV file for inspection
+        print(f"Successfully converted {len(flows)} flows from PCAP file")
+        print(f"CSV file kept for inspection: {csv_path}")
+        if use_standard_format:
+            print("Data returned in standard format")
+        else:
+            print("Data returned in cicflowmeter format")
+
+        return flows
+
+    except Exception as e:
+        print(f"Error occurred: {str(e)}")
+        if csv_path and os.path.exists(csv_path):
+            print(f"CSV file exists: {csv_path}")
+            print(f"CSV file size: {os.path.getsize(csv_path)} bytes")
+            try:
+                with open(csv_path, "r", encoding="utf-8") as f:
+                    content = f.read()
+                    print(f"CSV content (first 500 chars): {content[:500]}")
+            except Exception as read_error:
+                print(f"Could not read CSV file: {read_error}")
+        else:
+            print(f"CSV file does not exist: {csv_path}")
+
+        # Keep the CSV file for inspection even on error
+        print(f"CSV file kept for inspection: {csv_path}")
+        raise Exception(f"Error converting PCAP to flows: {str(e)}")

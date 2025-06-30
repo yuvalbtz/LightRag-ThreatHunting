@@ -132,7 +132,26 @@ const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { pl
                     >
                         View Details
                     </Button>
-                    <Modal backdrop={"blur"} size="5xl" isOpen={isOpen} onClose={onClose}>
+                    <Modal motionProps={{
+                        variants: {
+                            enter: {
+                                y: 0,
+                                opacity: 1,
+                                transition: {
+                                    duration: 0.3,
+                                    ease: "easeOut",
+                                },
+                            },
+                            exit: {
+                                y: 60,
+                                opacity: 0,
+                                transition: {
+                                    duration: 0.2,
+                                    ease: "easeIn",
+                                },
+                            },
+                        },
+                    }} backdrop={"blur"} size="5xl" isOpen={isOpen} onClose={onClose}>
                         <ModalContent>
                             {(onClose) => (
                                 <>
