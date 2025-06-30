@@ -1,11 +1,12 @@
-import React, { useState, useMemo } from 'react';
-import { Button, Input, Select, SelectItem } from '@heroui/react';
+import React, { useState, useMemo, Key, useEffect } from 'react';
+import { Button, Input, Select, SelectItem, Tab, Tabs } from '@heroui/react';
 import PlayBooksListRenderer from './PlayBooksListRenderer';
 import { useTheme } from '../context/ThemeContext';
 import { MTAPlayBook, Playbook } from '@/types';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import MTAPlayBookCard from './MTAPlayBookCard';
 import { api } from '@/services/api';
+import { motion } from 'framer-motion';
 
 
 const playbooks: Playbook[] = [
@@ -203,7 +204,13 @@ export const PlaybooksContainer = () => {
     const [selectedType, setSelectedType] = useState<PlaybookType>('All Types');
     const [selectedSeverity, setSelectedSeverity] = useState<PlaybookSeverity>('All Severities');
     const { isDarkMode } = useTheme();
+    const [linkInvalidMessage, setLinkInvalidMessage] = useState<string>("");
+    const [link, setLink] = useState<string>("");
     const [MTAStats, setMTAStats] = useState<{ year: number, max_samples: number }>({ year: 2013, max_samples: 2 });
+    const [state, setState] = useState<{ type: "link" | "yearAndCount", queryParamsString: string }>({
+        type: "link",
+        queryParamsString: `link=${link}`
+    });
     const [playbooks, setPlaybooks] = useState<MTAPlayBook[]>([
         {
             "sample_url": "https://www.malware-traffic-analysis.net/2013/12/27/index.html",
@@ -277,7 +284,7 @@ export const PlaybooksContainer = () => {
     const handleGetAllPlaybooks = async () => {
         setLoading(true);
         try {
-            const playbooks = await api.playbooks.getAll(MTAStats.year.toString(), MTAStats.max_samples);
+            const playbooks = await api.playbooks.getAll(state);
             console.log("playbooks", playbooks);
             setPlaybooks(playbooks);
         } catch (error) {
@@ -288,59 +295,99 @@ export const PlaybooksContainer = () => {
     }
 
 
+    const checkLinkValidity = (link: string) => {
+        if (link === "") {
+            return true;
+        }
+        // in this pattern https://www.malware-traffic-analysis.net/2019/12/27/index.html
+        const regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+        return regex.test(link) && link.includes("index.html");
+    }
+
+    const handleSelectionChange = (key: Key) => {
+        if (key === "link") {
+            setState({ ...state, type: key.toString() as "link" | "yearAndCount", queryParamsString: `link=${link}` });
+        }
+        if (key === "yearAndCount") {
+            setState({ ...state, type: key.toString() as "link" | "yearAndCount", queryParamsString: `year=${MTAStats.year}&max_samples=${MTAStats.max_samples}` });
+        }
+    }
+
+
+    const handleLinkChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setLink(e.target.value);
+        setState({ ...state, type: "link", queryParamsString: `link=${e.target.value}` });
+    }
+
 
     return (
         <div className={`w-1/3 border-r transition-colors duration-200 ${isDarkMode ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-white'}`}>
             <div className="h-full overflow-y-auto">
                 <div className={`p-4 h-full flex flex-col`}>
-                    <div className='flex gap-2 mb-4'>
-                        <Select
-                            id='mta-year'
-                            size='sm'
-                            variant='underlined'
-                            label="MTA Year"
-                            className='w-32'
-                            placeholder="Select MTA Year..."
-                            items={Years}
-                            selectedKeys={[MTAStats.year.toString()]}
-                            onSelectionChange={(keys) => {
-                                const selected = Array.from(keys)[0];
-                                setMTAStats({ ...MTAStats, year: parseInt(selected.toString()) })
-                            }}
-                        >
-                            {Years.map((year) => (
-                                <SelectItem key={year.key}>{year.label}</SelectItem>
-                            ))}
-                        </Select>
-                        <Select
-                            variant='underlined'
-                            id='mta-max-samples'
-                            size='sm'
-                            label="count"
-                            className='w-24'
-                            placeholder="Select MTA number of blogs..."
-                            items={maxSamples}
-                            selectedKeys={[MTAStats.max_samples.toString()]}
-                            onSelectionChange={(keys) => {
-                                const selected = Array.from(keys)[0];
-                                setMTAStats({ ...MTAStats, max_samples: parseInt(selected.toString()) })
-                            }}
-                        >
-                            {(maxSample) => <SelectItem key={maxSample.key}>{maxSample.label}</SelectItem>}
-                        </Select>
-                        <Button
-                            size='lg'
-                            fullWidth
-                            variant='flat'
-                            onPress={handleGetAllPlaybooks}
-                            isLoading={loading}
-                            startContent={<MagnifyingGlassIcon className='w-5 h-5' />}
-                            className='flex items-center gap-2'
-                        >
-                            Generate Playbooks
-                        </Button>
-                    </div>
-
+                    <Tabs isDisabled={loading} classNames={{
+                        base: "bg-transparent",
+                        panel: "bg-transparent",
+                        tabList: "bg-transparent",
+                        tabWrapper: "bg-transparent",
+                        cursor: "w-full bg-blue-500/50",
+                        tab: "w-full h-full bg-transparent",
+                    }} onSelectionChange={handleSelectionChange} size='md' className='w-full flex-1 mb-4' aria-label="Options" isVertical={true} fullWidth>
+                        <Tab className='w-full h-full' key="link" title="MTA Blog Link">
+                            <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3, type: "tween" }} className='flex gap-2 items-center justify-center h-full w-full'>
+                                <Input value={link} onChange={handleLinkChange} errorMessage={checkLinkValidity(link) ? "" : "link is not valid"} isInvalid={!checkLinkValidity(link)} fullWidth className='h-full' size='sm' variant='underlined' placeholder='Enter MTA blog link...' />
+                            </motion.div >
+                        </Tab>
+                        <Tab className='w-full' key="yearAndCount" title="MTA Year & Count">
+                            <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3, type: "tween" }} className='flex gap-2 items-center justify-center h-full w-full'>
+                                <Select
+                                    fullWidth
+                                    id='mta-year'
+                                    size='sm'
+                                    variant='underlined'
+                                    label="MTA Year"
+                                    placeholder="Select MTA Year..."
+                                    items={Years}
+                                    selectedKeys={[MTAStats.year.toString()]}
+                                    onSelectionChange={(keys) => {
+                                        const selected = Array.from(keys)[0];
+                                        setMTAStats({ ...MTAStats, year: parseInt(selected.toString()) })
+                                    }}
+                                >
+                                    {Years.map((year) => (
+                                        <SelectItem key={year.key}>{year.label}</SelectItem>
+                                    ))}
+                                </Select>
+                                <Select
+                                    fullWidth
+                                    variant='underlined'
+                                    id='mta-max-samples'
+                                    size='sm'
+                                    label="Count"
+                                    placeholder="Select MTA number of blogs..."
+                                    items={maxSamples}
+                                    selectedKeys={[MTAStats.max_samples.toString()]}
+                                    onSelectionChange={(keys) => {
+                                        const selected = Array.from(keys)[0];
+                                        setMTAStats({ ...MTAStats, max_samples: parseInt(selected.toString()) })
+                                    }}
+                                >
+                                    {(maxSample) => <SelectItem key={maxSample.key}>{maxSample.label}</SelectItem>}
+                                </Select>
+                            </motion.div>
+                        </Tab>
+                    </Tabs>
+                    <Button
+                        size='lg'
+                        fullWidth
+                        isDisabled={!checkLinkValidity(link) || (link === "" && state.type === "link")}
+                        variant='flat'
+                        onPress={handleGetAllPlaybooks}
+                        isLoading={loading}
+                        startContent={<MagnifyingGlassIcon className='w-5 h-5' />}
+                        className='flex items-center gap-2 mb-4'
+                    >
+                        Generate Playbooks
+                    </Button>
 
 
                     {/* Search and Filters - Fixed at top

@@ -149,8 +149,8 @@ export const api = {
 
     // Playbook related API calls
     playbooks: {
-        getAll: async (year: string, max_samples: number): Promise<MTAPlayBook[]> => {
-            const response = await fetch(`${API_BASE_URL}/fetch-all-playbooks?year=${year}&max_samples=${max_samples}`);
+        getAll: async (state: { type: "link" | "yearAndCount", queryParamsString: string }): Promise<MTAPlayBook[]> => {
+            const response = await fetch(`${API_BASE_URL}/fetch-all-playbooks?type=${state.type}&${state.queryParamsString}`);
             if (!response.ok) {
                 throw new Error('Failed to fetch playbooks');
             }

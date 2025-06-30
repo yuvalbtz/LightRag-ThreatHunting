@@ -22,5 +22,26 @@
         "malware_name": "TA577, Pikabot, Cobalt Strike",
         "hunt_goal": "Detect TA577 Pikabot infection stages and Cobalt Strike C2 communication patterns using flow metadata.",
         "generated_prompt": "Investigate network flows for TA577 Pikabot and Cobalt Strike activity using the following questions:\n- Are there flows with unusually short Flow Duration but high Flow Bytes/s, indicating potential malicious payload downloads?\n- Do any flows show SYN Flag Counts disproportionate to ACK Flag Counts, suggesting incomplete handshakes or scanning behavior?\n- Are there persistent flows with a high Down/Up Ratio, signaling potential data exfiltration patterns?\n- Are Fwd Packet Length Mean and Bwd Packet Length Mean significantly asymmetric, hinting at C2 command/response behavior?\n- Do flows to non-standard ports (Destination Port) exhibit elevated RST Flag Counts, suggesting failed C2 connection attempts?\n- Are there recurring Protocol types (e.g., TCP) with low Total Fwd/Backward Packets but consistent Active Mean times, indicating heartbeat communications?\n- Do any Source IPs show simultaneous high Flow Packets/s across multiple Destination IPs, reflecting botnet-like propagation?"
+    },
+    {
+        "sample_url": "https://www.malware-traffic-analysis.net/2025/01/30/index.html",
+        "malware_name": [
+            "XLoader",
+            "Formbook"
+        ],
+        "hunt_goal": "Detect network traffic patterns associated with XLoader (Formbook) post-infection activities, including C2 communication and data exfiltration.",
+        "generated_prompt": "1. Identify flows with high Down/Up Ratio (>10:1) that may indicate data exfiltration. \n2. Are there multiple short-lived TCP flows (low Flow Duration) to distinct Destination IPs on ports 80/443 with elevated SYN Flag Count? \n3. Detect flows with low Fwd Packet Length Mean (<100 bytes) but high Total Fwd Packets (>50), suggesting C2 heartbeat signals. \n4. Find clusters of flows with similar Flow Bytes/s and Flow Packets/s values across multiple Destination IPs, indicating coordinated C2 infrastructure. \n5. Are there TCP flows with RST Flag Count >3 combined with high ACK Flag Count, suggesting failed connection attempts to dead C2 nodes? \n6. Identify flows where Protocol=TCP and Idle Mean exceeds Active Mean by 300%, potentially indicating beaconing behavior. \n7. Detect flows with Bwd Packet Length Mean significantly larger than Fwd Packet Length Mean (>5x difference), possibly indicating exfiltrated data chunks."
+    },
+    {
+        "sample_url": "https://www.malware-traffic-analysis.net/2025/05/12/index.html",
+        "malware_name": "PureLogs",
+        "hunt_goal": "Detect command and control (C2) communication and data exfiltration activities associated with PureLogs malware.",
+        "generated_prompt": "1. Are there any flows with Destination IP 176.65.144.169 and Destination Port 7702 using TCP, indicating potential C2 communication?\n2. Do any flows exhibit a high Flow Bytes/s combined with a large Total Fwd Packets or Total Backward Packets, suggesting substantial data transfer?\n3. Are there flows where the Fwd Packet Length Mean and Bwd Packet Length Mean are consistently high, which could indicate encrypted/encoded payloads?\n4. Are there TCP flows with elevated ACK Flag Counts and minimal RST Flag Counts, indicating sustained successful connections?\n5. Do any flows show a Down/Up Ratio significantly less than 1, implying more data uploaded (exfiltration) than downloaded?\n6. Are there flows with low Idle Mean and high Active Mean durations, suggesting prolonged active data exchange sessions?\n7. Are there recurring Source Ports used for outbound connections that could indicate malware-originated traffic patterns?"
+    },
+    {
+        "sample_url": "https://www.malware-traffic-analysis.net/2025/05/06/index.html",
+        "malware_name": "Raspberry Robin",
+        "hunt_goal": "Detect network traffic associated with Raspberry Robin's WebDAV-based CAB file retrieval and subsequent C2 communication.",
+        "generated_prompt": "1. Are there flows with a high Down/Up Ratio, indicating potential large file downloads (e.g., CAB files) from external servers?\n2. Do any flows to destination port 80/443 (HTTP/HTTPS) show unusual SYN/ACK/RST flag patterns, suggesting WebDAV server interactions or C2 handshakes?\n3. Are there short-lived flows (low Flow Duration) with high Flow Bytes/s or Flow Packets/s, indicative of rapid data exfiltration or command execution?\n4. Do flows with Protocol 6 (TCP) exhibit asymmetric packet counts (Total Fwd vs. Total Backward Packets) consistent with beaconing or C2 traffic?\n5. Are there flows with low Fwd Packet Length Mean but high Bwd Packet Length Mean, signaling small outbound requests followed by larger inbound payloads?\n6. Do flows to uncommon destination ports show elevated Idle Mean or Active Mean values, suggesting prolonged C2 sessions or delayed command execution?\n7. Are there clusters of flows with similar Source IPs but varying Destination IPs, indicating potential lateral movement or multi-stage payload retrieval?"
     }
 ]

@@ -15,6 +15,7 @@ from examples.build_kg_helpers import (
 from examples.cicflowmeter_helpers import pcap_to_flows
 from examples.insert_custom_kg import build_kg, csv_to_json_list, pcap_to_json_list
 from agent import (
+    fetch_playbook_content,
     generate_visual_graph,
     get_graph_llm_conversations,
     initialize_rag_deepseek,
@@ -139,10 +140,21 @@ async def test_hot_reload():
 
 
 @app.get("/fetch-all-playbooks", response_model=List[Dict[str, Any]])
-async def get_all_playbooks(year: str = "2013", max_samples: int = 2):
+async def get_all_playbooks(
+    year: str = "2013", max_samples: int = 2, link: str = "", type: str = "link"
+):
     """Fetch and process all playbooks from malware analysis blog."""
     try:
-        return await fetch_all_playbooks(year=year, max_samples=max_samples)
+        if type == "link":
+            playbook = await fetch_playbook_content(url=link)
+            if playbook:
+                return [playbook]
+            else:
+                raise HTTPException(status_code=400, detail="Invalid link")
+        elif type == "yearAndCount":
+            return await fetch_all_playbooks(year=year, max_samples=max_samples)
+        else:
+            raise HTTPException(status_code=400, detail="Invalid type")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

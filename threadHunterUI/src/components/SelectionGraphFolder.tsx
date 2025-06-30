@@ -37,6 +37,7 @@ const GraphFoldersNamesSelection = () => {
     }
 
     return (<Select
+
         startContent={<FolderIcon className="w-5 h-5" />}
         aria-label="Graph Folder"
         selectedKeys={updateCurrentFolderAndGetFolders}
