@@ -252,7 +252,7 @@ async def generate_visual_graph(dir_path: str = "./custom_kg") -> Dict[str, Any]
 
     # Load the GraphML file
     G = nx.read_graphml(f"./AppDbStore/{dir_path}/graph_chunk_entity_relation.graphml")
-
+    G = nx.MultiDiGraph(G)
     # Create a Pyvis network
     net = Network(height="100vh", notebook=True)
 

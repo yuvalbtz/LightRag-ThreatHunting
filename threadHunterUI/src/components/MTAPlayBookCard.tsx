@@ -132,7 +132,7 @@ const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { pl
                     >
                         View Details
                     </Button>
-                    <Modal motionProps={{
+                    <Modal className={`${isDarkMode ? 'bg-blue-900/10' : 'bg-blue-100'}`} motionProps={{
                         variants: {
                             enter: {
                                 y: 0,

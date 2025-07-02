@@ -273,7 +273,10 @@ async def build_knowledge_graph(
             flows = await csv_to_json_list(temp_file_path, max_rows=max_rows)
         elif file_ext == ".pcap":
             flows = await pcap_to_flows(
-                temp_file_path, use_standard_format=False, max_flows=max_rows
+                temp_file_path,
+                use_standard_format=False,
+                max_flows=max_rows,
+                high_volume=True,
             )
         else:
             raise HTTPException(
