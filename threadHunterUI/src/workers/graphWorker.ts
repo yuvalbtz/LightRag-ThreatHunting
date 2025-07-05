@@ -20,7 +20,7 @@ self.onmessage = async (e: MessageEvent) => {
                 formData.append('max_rows', data.kg_settings.max_rows.toString());
                 formData.append('source_column', 'Source IP');
                 formData.append('target_column', 'Destination IP');
-                formData.append('working_dir', './AppDbStore/' + data.file.name?.split('.')[0]);
+                formData.append('working_dir', data.file.name?.split('.')[0]);
 
                 const response = await fetch(`${API_BASE_URL}/build-kg`, {
                     method: 'POST',

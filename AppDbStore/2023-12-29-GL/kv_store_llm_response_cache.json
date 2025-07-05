@@ -19,6 +19,26 @@
       "embedding_max": null,
       "original_prompt": "Detect download and command-and-control (C2) communication patterns associated with GootLoader infections using flow metadata.\n\nfollow the next instructions:\n\n- 1. Identify flows with a high Down/Up Ratio and elevated Flow Bytes/s to detect potential malicious file downloads (e.g., zip archives).\n- 2. Look for repeated connections to multiple destination IPs on ports 80/443 with similar Flow Duration and Flow Packets/s, indicating C2 server rotation.\n- 3. Analyze flows with SYN Flag Count = 1, ACK Flag Count = 1, and low Total Fwd/Backward Packets to identify beaconing behavior.\n- 4. Detect asymmetric traffic patterns where Fwd Packet Length Mean significantly exceeds Bwd Packet Length Mean, suggesting data exfiltration.\n- 5. Flag flows with high Active Mean and low Idle Mean values that maintain persistent connections to uncommon destinations.\n- 6. Investigate flows with abrupt RST Flag Count spikes followed by new destination IP connections, indicating failed C2 handshakes.\n- 7. Identify clusters of flows with consistent Protocol usage and Total Fwd Packets > Total Backward Packets, suggesting command channel activity.",
       "timestamp": "2025-06-30T08:04:26.581996"
+    },
+    "f994f81019287d48c669f275d4a5f822": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"Threat detection\", \"Malware communication patterns\", \"Data exfiltration\", \"C2 infrastructure\"], \"low_level_keywords\": [\"Flow metadata\", \"Down/Up Ratio\", \"Destination IPs\", \"Ports 80/443\", \"SYN/ACK flags\", \"Packet length metrics\", \"Active/Idle time\", \"RST flags\", \"Protocol clustering\", \"GootLoader infections\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "summerize your answer",
+      "timestamp": "2025-07-05T21:03:31.885472"
+    },
+    "1def8b2d6c8de6c85b93b08efe2dbfa1": {
+      "return": "### Summary of GootLoader Infection Pattern Analysis\n\n#### 1. Malicious File Downloads  \n- **Flow 18** ([KG] unknown_source): 10.12.29.101:51317 → 185.84.28.15:80 shows **11.7:1 download ratio** (46,403B down vs 3,969B up)  \n- **Flow 20** ([KG] unknown_source): 10.12.29.101:51322 → 185.84.28.15:80 demonstrates **38:1 ratio** (224,478B down vs 5,864B up)  \n\n#### 2. C2 Server Rotation  \nRepeated TLS connections to **74.208.236.120:443** from multiple source ports (51350, 51390, 51376, 51387) exhibit:  \n- Consistent 3-5ms durations  \n- Similar packet rates (3.43-4.90 packets/sec)  \n- Uniform flag patterns (SYN=3, FIN=1, RST=1)  \n\n#### 3. Beaconing Behavior  \n**Flow 23** ([KG] unknown_source): 10.12.29.101:51320 → 185.84.28.15:80 shows anomalous characteristics:  \n- SYN=3, ACK=24 flags  \n- High packet rate (19.26 packets/sec) despite 1ms duration  \n\n#### 4. Asymmetric Traffic  \n**Flow 20** ([KG] unknown_source) displays significant backward dominance:  \n- Mean backward packet length: 1,327.7 bytes vs forward: 106.6 bytes  \n- 12.5:1 backward/forward ratio  \n\n#### 5. Persistent Connections  \n**Flow 24** ([KG] ./AppDbStore/2023-12-29-GL): 10.12.29.101:51340 → 185.68.16.114:443 maintains:  \n- 99ms active duration (99% of flow lifetime)  \n- Low throughput (79.41 bytes/sec)  \n\n#### 7. Command Channel Clustering  \nTCP protocol 6 flows to **74.208.236.120:443** show:  \n- Consistent protocol usage across 8+ flows  \n- Forward packet dominance in flows like **13** (8 forward vs 7 backward packets)  \n\n**No evidence found for**:  \n- RST flag spikes (all flows show RST ≤ 1)  \n\n---\n\n**References**  \n1. [KG] unknown_source - Relationship 18 (High download ratio)  \n2. [KG] unknown_source - Relationship 20 (Asymmetric traffic)  \n3. [KG] unknown_source - Relationship 23 (Beacon-like behavior)  \n4. [KG] ./AppDbStore/2023-12-29-GL - Source 24 (Persistent connection)  \n5. [KG] unknown_source - Relationships 9-17 (C2 rotation patterns)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "summerize your answer",
+      "timestamp": "2025-07-05T21:03:31.885472"
     }
   }
 }

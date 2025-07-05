@@ -1,0 +1,104 @@
+{
+  "hybrid": {
+    "14670169697d6765aa97612e8ee3ef6f": {
+      "return": "{\"high_level_keywords\": [\"C2 communication patterns\", \"malicious file downloads\", \"traffic asymmetry\", \"beaconing behavior\", \"network security monitoring\", \"data exfiltration\", \"persistent connections\", \"command channel activity\"], \"low_level_keywords\": [\"Down/Up Ratio\", \"Flow Bytes/s\", \"ports 80/443\", \"Flow Duration\", \"Flow Packets/s\", \"SYN Flag Count\", \"ACK Flag Count\", \"Total Fwd/Backward Packets\", \"Fwd Packet Length Mean\", \"Bwd Packet Length Mean\", \"Active Mean\", \"Idle Mean\", \"RST Flag Count\", \"Total Fwd Packets\", \"Total Backward Packets\", \"zip archives\", \"destination IP rotation\", \"failed C2 handshakes\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Detect download and command-and-control (C2) communication patterns associated with GootLoader infections using flow metadata.\n\nfollow the next instructions:\n\n- 1. Identify flows with a high Down/Up Ratio and elevated Flow Bytes/s to detect potential malicious file downloads (e.g., zip archives).\n- 2. Look for repeated connections to multiple destination IPs on ports 80/443 with similar Flow Duration and Flow Packets/s, indicating C2 server rotation.\n- 3. Analyze flows with SYN Flag Count = 1, ACK Flag Count = 1, and low Total Fwd/Backward Packets to identify beaconing behavior.\n- 4. Detect asymmetric traffic patterns where Fwd Packet Length Mean significantly exceeds Bwd Packet Length Mean, suggesting data exfiltration.\n- 5. Flag flows with high Active Mean and low Idle Mean values that maintain persistent connections to uncommon destinations.\n- 6. Investigate flows with abrupt RST Flag Count spikes followed by new destination IP connections, indicating failed C2 handshakes.\n- 7. Identify clusters of flows with consistent Protocol usage and Total Fwd Packets > Total Backward Packets, suggesting command channel activity.",
+      "timestamp": "2025-06-30T08:04:26.581996"
+    },
+    "032df0cc6bde59db0da962b9f5746e9f": {
+      "return": "### Analysis of GootLoader Infection Patterns in Network Flows\n\n#### 1. Malicious File Download Detection  \nTwo flows exhibit high download/upload ratios characteristic of archive fetching:  \n- Flow 31 ([KG] unknown_source): 10.12.29.101:51317 → 185.84.28.15:80 shows **11.7:1 download ratio** (46,403B down vs 3,969B up) with sustained 1,558.24 bytes/sec  \n- Flow 59 ([KG] unknown_source): 10.12.29.101:51322 → 185.84.28.15:80 demonstrates **38:1 ratio** (224,478B down vs 5,864B up) at 7,417.82 bytes/sec  \n\n#### 2. C2 Server Rotation Patterns  \nRepeated TLS connections to 74.208.236.120:443 from multiple source ports (51350, 51390, 51376, 51387) show:  \n- Consistent 3-5ms durations  \n- Similar packet rates (3.43-4.90 packets/sec)  \n- Uniform TLS handshake patterns (SYN=3, FIN=1, RST=1)  \n\n#### 3. Beaconing Behavior  \nNo clear matches for classic beaconing (SYN=1/ACK=1). However, flow 24 ([KG] ./AppDbStore/2023-12-29-GL) shows suspicious periodic characteristics:  \n- 10.12.29.101:51320 → 185.84.28.15:80  \n- SYN=3, ACK=24 with 19.26 packets/sec burst  \n- Low 1ms duration despite 26 packets  \n\n#### 4. Asymmetric Traffic Patterns  \nFlow 59 ([KG] unknown_source) exhibits extreme forward/backward disparity:  \n- Mean forward packet length: 106.6 bytes  \n- Mean backward packet length: 1,327.7 bytes  \n- 12.5:1 backward dominance suggests large payload deliveries  \n\n#### 5. Persistent Connection Patterns  \nFlow 35 ([KG] ./AppDbStore/2023-12-29-GL) to 185.68.16.114:443 demonstrates:  \n- 100ms active duration (99% of flow lifetime)  \n- Low 31.46 bytes/sec throughput  \n- Uncommon destination (1 occurrence in dataset)  \n\n#### 7. Command Channel Clustering  \nTCP protocol 6 flows to 74.208.236.120:443 cluster shows:  \n- Consistent protocol usage across 8 flows  \n- Forward packet dominance in flows 54-55 (8 vs 7 packets)  \n- Synchronized PSH/ACK flag patterns (PSH=4-6, ACK=13-15)  \n\n**No evidence found for**:  \n- RST flag spikes (all flows show RST ≤ 1)  \n- Clear active/idle time metrics in provided data  \n\n---\n\n**References**  \n1. [KG] unknown_source - Flow 31 (High download ratio)  \n2. [KG] unknown_source - Flow 59 (Asymmetric traffic)  \n3. [KG] ./AppDbStore/2023-12-29-GL - Source 24 (Beacon-like behavior)  \n4. [KG] ./AppDbStore/2023-12-29-GL - Source 35 (Persistent connection)  \n5. [KG] unknown_source - Relationships 54-55 (Command channel clustering)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Detect download and command-and-control (C2) communication patterns associated with GootLoader infections using flow metadata.\n\nfollow the next instructions:\n\n- 1. Identify flows with a high Down/Up Ratio and elevated Flow Bytes/s to detect potential malicious file downloads (e.g., zip archives).\n- 2. Look for repeated connections to multiple destination IPs on ports 80/443 with similar Flow Duration and Flow Packets/s, indicating C2 server rotation.\n- 3. Analyze flows with SYN Flag Count = 1, ACK Flag Count = 1, and low Total Fwd/Backward Packets to identify beaconing behavior.\n- 4. Detect asymmetric traffic patterns where Fwd Packet Length Mean significantly exceeds Bwd Packet Length Mean, suggesting data exfiltration.\n- 5. Flag flows with high Active Mean and low Idle Mean values that maintain persistent connections to uncommon destinations.\n- 6. Investigate flows with abrupt RST Flag Count spikes followed by new destination IP connections, indicating failed C2 handshakes.\n- 7. Identify clusters of flows with consistent Protocol usage and Total Fwd Packets > Total Backward Packets, suggesting command channel activity.",
+      "timestamp": "2025-06-30T08:04:26.581996"
+    },
+    "f994f81019287d48c669f275d4a5f822": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"Threat detection\", \"Malware communication patterns\", \"Data exfiltration\", \"C2 infrastructure\"], \"low_level_keywords\": [\"Flow metadata\", \"Down/Up Ratio\", \"Destination IPs\", \"Ports 80/443\", \"SYN/ACK flags\", \"Packet length metrics\", \"Active/Idle time\", \"RST flags\", \"Protocol clustering\", \"GootLoader infections\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "summerize your answer",
+      "timestamp": "2025-07-05T21:03:31.885472"
+    },
+    "1def8b2d6c8de6c85b93b08efe2dbfa1": {
+      "return": "### Summary of GootLoader Infection Pattern Analysis\n\n#### 1. Malicious File Downloads  \n- **Flow 18** ([KG] unknown_source): 10.12.29.101:51317 → 185.84.28.15:80 shows **11.7:1 download ratio** (46,403B down vs 3,969B up)  \n- **Flow 20** ([KG] unknown_source): 10.12.29.101:51322 → 185.84.28.15:80 demonstrates **38:1 ratio** (224,478B down vs 5,864B up)  \n\n#### 2. C2 Server Rotation  \nRepeated TLS connections to **74.208.236.120:443** from multiple source ports (51350, 51390, 51376, 51387) exhibit:  \n- Consistent 3-5ms durations  \n- Similar packet rates (3.43-4.90 packets/sec)  \n- Uniform flag patterns (SYN=3, FIN=1, RST=1)  \n\n#### 3. Beaconing Behavior  \n**Flow 23** ([KG] unknown_source): 10.12.29.101:51320 → 185.84.28.15:80 shows anomalous characteristics:  \n- SYN=3, ACK=24 flags  \n- High packet rate (19.26 packets/sec) despite 1ms duration  \n\n#### 4. Asymmetric Traffic  \n**Flow 20** ([KG] unknown_source) displays significant backward dominance:  \n- Mean backward packet length: 1,327.7 bytes vs forward: 106.6 bytes  \n- 12.5:1 backward/forward ratio  \n\n#### 5. Persistent Connections  \n**Flow 24** ([KG] ./AppDbStore/2023-12-29-GL): 10.12.29.101:51340 → 185.68.16.114:443 maintains:  \n- 99ms active duration (99% of flow lifetime)  \n- Low throughput (79.41 bytes/sec)  \n\n#### 7. Command Channel Clustering  \nTCP protocol 6 flows to **74.208.236.120:443** show:  \n- Consistent protocol usage across 8+ flows  \n- Forward packet dominance in flows like **13** (8 forward vs 7 backward packets)  \n\n**No evidence found for**:  \n- RST flag spikes (all flows show RST ≤ 1)  \n\n---\n\n**References**  \n1. [KG] unknown_source - Relationship 18 (High download ratio)  \n2. [KG] unknown_source - Relationship 20 (Asymmetric traffic)  \n3. [KG] unknown_source - Relationship 23 (Beacon-like behavior)  \n4. [KG] ./AppDbStore/2023-12-29-GL - Source 24 (Persistent connection)  \n5. [KG] unknown_source - Relationships 9-17 (C2 rotation patterns)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "summerize your answer",
+      "timestamp": "2025-07-05T21:03:31.885472"
+    },
+    "ecabd96983489e87f17ca12d4652f0dc": {
+      "return": "{\"high_level_keywords\": [\"Bumblebee botnet\", \"C2 communication patterns\", \"HTTPS traffic\", \"Network flow characteristics\", \"Malware detection\", \"Traffic analysis\"], \"low_level_keywords\": [\"Destination Port 443\", \"IPs 193.200.16.175\", \"IPs 64.44.97.58\", \"Flow Bytes/s\", \"Flow Packets/s\", \"Flow Duration\", \"SYN/ACK Flag Count\", \"Total Backward Packets\", \"Bwd Packet Length Mean\", \"Down/Up Ratios\", \"Active Mean\", \"Idle Mean\", \"RST Flag Count\", \"Protocol 6\", \"Fwd Packet Length Mean\", \"Data exfiltration\", \"Beaconing behavior\", \"C2 servers\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Detect and analyze Bumblebee botnet C2 communication patterns through HTTPS traffic and network flow characteristics.\n\nfollow the next instructions:\n\n- 1. Are there flows with Destination Port 443 (HTTPS) to IPs 193.200.16.175 or 64.44.97.58, and what are their Flow Bytes/s and Flow Packets/s values?\n- 2. Do flows to these IPs exhibit high Flow Duration (>60s) or consistent SYN/ACK Flag Count ratios indicative of persistent C2 connections?\n- 3. Are there spikes in Total Backward Packets or Bwd Packet Length Mean values suggesting command-and-control data exfiltration?\n- 4. Are there unusual Down/Up Ratios (>10:1) in flows to external IPs, indicating potential data exfiltration or download activity?\n- 5. Do flows to unknown external IPs on port 443 show low Active Mean and high Idle Mean times, suggesting beaconing behavior?\n- 6. Are there multiple short-lived RST Flag Count spikes from the same Source IP, indicating failed connection attempts to potential C2 servers?\n- 7. Do any flows combine Protocol 6 (TCP) with high Fwd Packet Length Mean values (>1000 bytes) to non-standard HTTPS destinations?\n\nDetermine if the malware was detected by the network traffic in the graph or not according the malware patterns.",
+      "timestamp": "2025-07-05T21:03:31.885472"
+    },
+    "db959193722ba0628cf0c20bfbe5b569": {
+      "return": "### Analysis of Bumblebee Botnet C2 Patterns in Network Traffic\n\n#### 1. HTTPS Flows to Suspect IPs\nMultiple flows exist to 193.200.16.175:443 (e.g., Relationships 1-5, 35-53) and 64.44.97.58:443 (Relationships 55-64). Flow rates show:\n- Typical example: 1,492 bytes transferred in 34ms = **43,882 bytes/sec**  \n- Packet rates: 24 packets in 34ms = **705 packets/sec**  \nThese values indicate high-throughput HTTPS sessions but lack explicit confirmation of malicious patterns.\n\n#### 2. Connection Persistence Analysis\n- **Flow Duration**: All observed flows last ≤35ms (e.g., Relationship 36: 34ms, Relationship 42: 28ms)  \n- **SYN/ACK Ratios**: Consistent 3:22 SYN:ACK ratios observed (e.g., Relationship 36), matching normal TCP handshakes rather than persistent C2 channels.\n\n#### 3. Data Exfiltration Indicators\n- **Backward Packet Spikes**: Multiple flows to 193.200.16.175 show backward bytes exceeding forward bytes (e.g., Relationship 36: 1,492B forward vs 2,342B backward)  \n- **Bulk Transfer Patterns**: Tagged as \"high_bulk_transfer\" in Relationships 26-28,30,32-34 but without temporal spikes.\n\n#### 4. Down/Up Ratios\nNo flows exhibit >10:1 ratios. Example ratios:  \n- Relationship 36: ~1:1.57 (forward:backward)  \n- Relationship 30: ~1:2.45 (6,524B vs 15,965B)  \n\n#### 5. Beaconing Behavior\nNo data available in KB for Active/Idle Mean metrics. Short flow durations (≤35ms) contradict typical beaconing intervals.\n\n#### 6. RST Flag Analysis\nMinimal RST activity observed (e.g., Relationship 22: 1 RST flag). No repeated failed connection attempts detected.\n\n#### 7. TCP Packet Characteristics\n- **Fwd Packet Length**: Average ~135B/packet (Relationship 36: 1,492B/11 packets)  \n- No instances of >1,000B/packet observed in documented flows.\n\n### Conclusion: Malware Detection Status\n**No definitive Bumblebee C2 patterns detected** based on analyzed criteria. While high-throughput HTTPS flows to 193.200.16.175 and 64.44.97.58 exist, they lack:  \n1) Long-duration connections  \n2) Beaconing temporal patterns  \n3) Anomalous packet size/ratio thresholds  \n4) Failed connection signatures  \n\nThe \"high_bulk_transfer\" tag (Relationships 26-28,30,32-34) warrants further investigation but doesn't conclusively indicate Bumblebee activity.\n\n---\n\n**References**  \n[KG] Relationships 1-5,35-53 (193.200.16.175 flows)  \n[KG] Relationships 55-64 (64.44.97.58 flows)  \n[KG] Relationship 30 (40.126.28.19 high_bulk_transfer)  \n[KG] Source 45 (40.126.28.19 behavioral analysis)  \n[KG] Source 65 (52.109.8.45 anomalous web server)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Detect and analyze Bumblebee botnet C2 communication patterns through HTTPS traffic and network flow characteristics.\n\nfollow the next instructions:\n\n- 1. Are there flows with Destination Port 443 (HTTPS) to IPs 193.200.16.175 or 64.44.97.58, and what are their Flow Bytes/s and Flow Packets/s values?\n- 2. Do flows to these IPs exhibit high Flow Duration (>60s) or consistent SYN/ACK Flag Count ratios indicative of persistent C2 connections?\n- 3. Are there spikes in Total Backward Packets or Bwd Packet Length Mean values suggesting command-and-control data exfiltration?\n- 4. Are there unusual Down/Up Ratios (>10:1) in flows to external IPs, indicating potential data exfiltration or download activity?\n- 5. Do flows to unknown external IPs on port 443 show low Active Mean and high Idle Mean times, suggesting beaconing behavior?\n- 6. Are there multiple short-lived RST Flag Count spikes from the same Source IP, indicating failed connection attempts to potential C2 servers?\n- 7. Do any flows combine Protocol 6 (TCP) with high Fwd Packet Length Mean values (>1000 bytes) to non-standard HTTPS destinations?\n\nDetermine if the malware was detected by the network traffic in the graph or not according the malware patterns.",
+      "timestamp": "2025-07-05T21:03:31.885472"
+    },
+    "51306a8244bb599b9bf907e56a553ad8": {
+      "return": "{\"high_level_keywords\": [\"Bumblebee botnet detection\", \"C2 communication patterns\", \"HTTPS traffic analysis\", \"Network flow characteristics\", \"Data exfiltration\", \"Malware detection status\"], \"low_level_keywords\": [\"193.200.16.175\", \"64.44.97.58\", \"Port 443\", \"Flow Bytes/s\", \"Flow Packets/s\", \"Flow Duration\", \"SYN/ACK Flag Count\", \"Total Backward Packets\", \"Bwd Packet Length Mean\", \"Down/Up Ratios\", \"Active Mean\", \"Idle Mean\", \"RST Flag Count\", \"Protocol 6 (TCP)\", \"high_bulk_transfer\", \"Non-standard HTTPS destinations\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what patterns did you found ?",
+      "timestamp": "2025-07-05T21:03:31.885472"
+    },
+    "5cee38d77cff773d46f05ab8af205684": {
+      "return": "### Bumblebee Botnet C2 Pattern Analysis  \n\n#### 1. HTTPS Traffic to Suspect IPs  \n- **193.200.16.175:443**: Observed in 541 flows (e.g., Relationships 1-7, 36-64) with TCP protocol 6  \n- **64.44.97.58:443**: Not present in the provided data (no relationships or entities match this IP)  \n- **Flow Rates**: Typical example (Relationship 36):  \n  - 1,492 bytes transferred in 34ms = **43,882 bytes/sec**  \n  - 24 packets exchanged = **705 packets/sec**  \n\n#### 2. Connection Characteristics  \n- **Duration**: All flows ≤35ms (e.g., Relationship 36: 34ms, Relationship 42: 28ms)  \n- **SYN/ACK Ratios**: Consistent 3:22 ratios observed (SYN=3, ACK=22 in Relationship 36), matching standard TLS handshakes  \n\n#### 3. Data Transfer Patterns  \n- **Backward Dominance**: Multiple flows show backward bytes > forward bytes (e.g., Relationship 36: 2,342B backward vs 1,492B forward)  \n- **No High-Ratio Downloads**: Maximum observed forward:backward ratio ≈ 1:1.57 (Relationship 36), below 10:1 threshold  \n\n#### 4. Protocol Usage  \n- **TCP Protocol 6**: Exclusive usage for all HTTPS flows to 193.200.16.175  \n- **Packet Sizes**: Average forward packet length ~135 bytes (Relationship 36: 1,492B/11 packets)  \n\n#### 5. Behavioral Anomalies  \n- **High Bulk Transfers**: Tagged in Relationships 26-28,30,32-34 (no explicit link to C2)  \n- **Anomalous Endpoints**: 20.42.65.84:443 and 40.74.98.195:443 flagged as anomalous (Sources 40,60)  \n\n**No Confirmed Bumblebee Indicators**:  \n- Absence of long-lived connections (>60s)  \n- No beaconing patterns (all flows <35ms duration)  \n- No RST flag spikes (max RST=2 in Relationship 35)  \n- No command-like large forward packets (>1000B)  \n\n---\n\n**References**  \n1. [KG] Relationships 36,42 (193.200.16.175 flow metrics)  \n2. [KG] Source 37 (193.200.16.175 behavioral analysis)  \n3. [KG] Relationships 26-28,30,32-34 (high_bulk_transfer tags)  \n4. [KG] Source 40 (20.42.65.84 anomalies)  \n5. [KG] Source 60 (40.74.98.195 anomalies)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what patterns did you found ?",
+      "timestamp": "2025-07-05T21:03:31.885472"
+    },
+    "3d044eccafb7ab581f0cbe7618c307a2": {
+      "return": "{\"high_level_keywords\": [\"C2 communication patterns\", \"Network traffic analysis\", \"Threat detection\", \"HTTPS traffic\", \"Bumblebee botnet\"], \"low_level_keywords\": [\"64.44.97.58:443\", \"Port 443\", \"IP address 64.44.97.58\", \"TCP protocol 6\", \"Data exfiltration\", \"Connection attempts\", \"Absence in data\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what do you think about 64.44.97.58:443 ?",
+      "timestamp": "2025-07-05T21:03:31.885472"
+    },
+    "cfb53144ec48d9e65616dcaed20b5a11": {
+      "return": "### Analysis of 64.44.97.58:443  \n\n#### Key Findings  \n1. **Absence in Observed Traffic**:  \n   - The IP address **64.44.97.58:443** does not appear in any entities, relationships, or behavioral analyses within the provided Knowledge Base.  \n   - No flows, traffic patterns, or behavioral metadata are documented for this endpoint.  \n\n2. **Contextual Comparison**:  \n   - Unlike other HTTPS destinations like **193.200.16.175:443** (observed in 541 flows) or **40.74.98.195:443** (flagged as anomalous), there is no evidence of communication with **64.44.97.58:443** in the network data.  \n\n3. **Operational Implications**:  \n   - The absence suggests this IP was not involved in observed activities such as C2 communication, data exfiltration, or bulk transfers documented in the KB.  \n   - No SYN/RST anomalies, duration patterns, or packet-size irregularities are associated with this endpoint.  \n\n#### Conclusion  \n**No actionable intelligence exists in the provided data** about 64.44.97.58:443. Further investigation would require external threat intelligence or additional network telemetry not included in the current Knowledge Base.  \n\n---  \n**References**  \n*No relevant references found in the Knowledge Base for 64.44.97.58:443*",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what do you think about 64.44.97.58:443 ?",
+      "timestamp": "2025-07-05T21:03:31.885472"
+    }
+  }
+}
