@@ -26,6 +26,7 @@ import json
 import time
 from datetime import datetime
 
+from agent import get_conversation_history
 from lightrag import QueryParam
 
 
@@ -385,16 +386,33 @@ async def query_stream(request: ChatRequest):
 
     try:
         logger.info("Initializing RAG with DeepSeek...")
+        logger.info(
+            f"Request dir_path type: {type(request.dir_path)}, value: {request.dir_path}"
+        )
+
+        # Ensure dir_path is a string
+        if not isinstance(request.dir_path, str):
+            logger.error(
+                f"dir_path must be a string, got {type(request.dir_path)}: {request.dir_path}"
+            )
+            raise HTTPException(
+                status_code=400,
+                detail=f"dir_path must be a string, got {type(request.dir_path)}",
+            )
+
         # Initialize RAG with DeepSeek instead of Ollama
         rag = await initialize_rag_deepseek(working_dir=request.dir_path)
         logger.info("RAG initialization completed successfully")
-
+        logger.info(f"fetching Conversation history: {request.dir_path}")
+        history_conversation = await get_conversation_history(dir_path=request.dir_path)
+        logger.info(f"Conversation history length: {len(history_conversation)}")
         logger.info("Executing query with RAG...")
-        # Query using RAG with global mode
+        # Query using RAG with hybrid mode and conversation history
         response = await rag.aquery(
             request.query,
             param=QueryParam(
-                mode="hybrid", conversation_history=request.conversation_history
+                mode="hybrid",
+                conversation_history=history_conversation,
             ),
         )
 

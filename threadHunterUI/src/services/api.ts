@@ -68,7 +68,7 @@ export const api = {
                 },
                 body: JSON.stringify({
                     query: message,
-                    dir_path: './AppDbStore/' + dir_path,
+                    dir_path: dir_path,
                     conversation_history: []
                 }),
             });

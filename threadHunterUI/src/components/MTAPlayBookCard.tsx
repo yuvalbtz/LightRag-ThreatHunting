@@ -42,7 +42,7 @@ const MTAPlayBookCard = ({ playbook, onSelectPlaybook, handleSearchGraph }: { pl
             const prompt = playbook.generated_prompt.split('\n').map(line => {
                 return `- ${line}`;
             }).join('\n');
-            const fullMessage = `${playbook.hunt_goal}\n\nfollow the next instructions:\n\n${prompt}`
+            const fullMessage = `${playbook.hunt_goal}\n\nfollow the next instructions:\n\n${prompt}\n\nDetermine if the malware was detected by the network traffic in the graph or not according the malware patterns.`
             await sendMessage(createUserMessage(fullMessage, dir_path), dir_path);
 
         } catch (error) {

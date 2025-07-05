@@ -1,5 +1,6 @@
 import os
 import re
+from fastapi import HTTPException
 import requests
 import asyncio
 import logging
@@ -11,6 +12,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from dotenv import load_dotenv
 from examples.utils import read_json_file
+
 from lightrag.kg.shared_storage import initialize_pipeline_status
 from lightrag.lightrag import LightRAG
 from lightrag.utils import EmbeddingFunc
@@ -67,13 +69,14 @@ def retry_on_failure(max_retries: int = MAX_RETRIES, delay: int = RETRY_DELAY):
 
 @lru_cache(maxsize=128)
 def get_rag_instance(
-    model_type: str = "ollama", working_dir: str = "./custom_kg"
+    model_type: str = "ollama",
+    working_dir: str = "custom_kg",
 ) -> LightRAG:
     """Get or create a cached RAG instance."""
     if model_type == "ollama":
         print(f"get_rag_instance-ollama-working_dir: {working_dir}")
         return LightRAG(
-            working_dir=working_dir,
+            working_dir=f"./AppDbStore/{working_dir}",
             llm_model_func=ollama_model_complete,
             llm_model_name=OLLAMA_MODEL,
             llm_model_max_token_size=32768,
@@ -96,7 +99,7 @@ def get_rag_instance(
         )
     else:
         return LightRAG(
-            working_dir=working_dir,
+            working_dir=f"./AppDbStore/{working_dir}",
             llm_model_func=deepseek_model_complete,
             llm_model_name=DEEPSEEK_MODEL,
             llm_model_max_token_size=164000,
@@ -114,10 +117,33 @@ def get_rag_instance(
         )
 
 
-async def initialize_rag_deepseek(working_dir: str = "./custom_kg"):
+async def initialize_rag_deepseek(working_dir: str = "custom_kg"):
     """Initialize RAG with DeepSeek model."""
     try:
-        rag = get_rag_instance("deepseek", working_dir=working_dir)
+        # Debug: Check the type and value of working_dir
+        logger.info(
+            f"Initializing RAG with DeepSeek - working_dir type: {type(working_dir)}, value: {working_dir}"
+        )
+
+        # Ensure working_dir is a string
+        if not isinstance(working_dir, str):
+            logger.error(
+                f"working_dir must be a string, got {type(working_dir)}: {working_dir}"
+            )
+            raise ValueError(f"working_dir must be a string, got {type(working_dir)}")
+
+        # Get conversation history
+        history_messages = await get_conversation_history(dir_path=working_dir)
+        logger.info(f"Loaded {len(history_messages)} conversation history messages")
+
+        # Create RAG instance with conversation history in model kwargs
+        rag = get_rag_instance(
+            model_type="deepseek",
+            working_dir=working_dir,
+        )
+
+        # Update the model kwargs to include conversation history
+        rag.llm_model_kwargs["conversation_history"] = history_messages
         await rag.initialize_storages()
         await initialize_pipeline_status()
         logger.info("Successfully initialized RAG with DeepSeek model")
@@ -130,7 +156,15 @@ async def initialize_rag_deepseek(working_dir: str = "./custom_kg"):
 async def initialize_rag_ollama(working_dir: str = "./custom_kg"):
     """Initialize RAG with Ollama model."""
     try:
+        # Get conversation history
+        history_messages = await get_conversation_history(dir_path=working_dir)
+        logger.info(f"Loaded {len(history_messages)} conversation history messages")
+
+        # Create RAG instance with conversation history in model kwargs
         rag = get_rag_instance("ollama", working_dir=working_dir)
+
+        # Update the model kwargs to include conversation history
+        rag.llm_model_kwargs["conversation_history"] = history_messages
         await rag.initialize_storages()
         await initialize_pipeline_status()
         logger.info("Successfully initialized RAG with Ollama model")
@@ -182,9 +216,14 @@ async def deepseek_model_complete(
     """Complete text using DeepSeek model with retry logic."""
     import aiohttp
 
+    # Build messages array with conversation history
     messages = []
+
+    # Add system prompt if provided
     if system_prompt:
         messages.append({"role": "system", "content": system_prompt})
+
+    # Add current prompt
     messages.append({"role": "user", "content": prompt})
 
     async with aiohttp.ClientSession() as session:
@@ -375,6 +414,7 @@ This prompt should:
 - Include 5–7 flow-based investigation questions
 - Reference only flow metadata, no payloads, hashes, or domains
 - Be usable as an input to another LLM or analyst
+- Write in a way that is easy to understand and use
 
 Return your output in the following **valid JSON format only** (no explanation):
 
@@ -480,6 +520,49 @@ Example output format:
         raise
 
 
+# Stores past conversation history to maintain context.
+# Format: [{"role": "user/assistant", "content": "message"}]
+# from kv_store_llm_response_cache.json
+async def get_conversation_history(
+    dir_path: str = "custom_kg",
+) -> List[Dict[str, Any]]:
+    try:
+        raw_data = await get_graph_llm_conversations(dir_path=dir_path)
+        if not raw_data:
+            return []
+        hybrid_data = raw_data.get("hybrid", {})
+
+        history_messages: List[Dict[str, Any]] = []
+
+        for _, entry in hybrid_data.items():
+            if entry.get("cache_type") == "query":
+                prompt = entry.get("original_prompt", "")
+                response = entry.get("return", "")
+
+                # Append user message
+                if prompt:
+                    history_messages.append(
+                        {
+                            "content": prompt,
+                            "role": "user",
+                        }
+                    )
+
+                # Append assistant message
+                if response:
+                    history_messages.append(
+                        {
+                            "content": response,
+                            "role": "assistant",
+                        }
+                    )
+
+        return history_messages
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 async def generate_enriched_playbooks(
     year: str = "2013", max_samples: int = 3
 ) -> List[Dict[str, Any]]:
@@ -522,7 +605,9 @@ async def generate_enriched_playbooks(
 
 
 if __name__ == "__main__":
-    playbooks = asyncio.run(fetch_all_playbooks(year="2014", max_samples=1))
-    print("playbook", playbooks)
-    graph_prompt = asyncio.run(playbook_to_graph_prompt(playbooks[0]))
-    print("graph promt", graph_prompt)
+    # playbooks = asyncio.run(fetch_all_playbooks(year="2014", max_samples=1))
+    # print("playbook", playbooks)
+    # graph_prompt = asyncio.run(playbook_to_graph_prompt(playbooks[0]))
+    # print("graph promt", graph_prompt)
+    history_messages = asyncio.run(get_conversation_history(dir_path="Friday-PortScan"))
+    print("history messages", history_messages)

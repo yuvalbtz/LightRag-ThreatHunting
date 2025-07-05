@@ -1,0 +1,209 @@
+{
+  "chunk-5c7cacff13bdc7464801ff473425249f": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS KNOWLEDGE GRAPH\n\nThis knowledge graph contains detailed network flow characteristics for advanced threat analysis:\n- ENTITIES: Network endpoints (IP:Port/Protocol) with behavioral classifications\n- RELATIONSHIPS: Detailed flow characteristics including packet statistics, timing, and behavioral patterns\n- BEHAVIORAL ANALYSIS: Packet size distributions, inter-arrival times, flag patterns, and bulk transfer characteristics\n- THREAT INDICATORS: Anomalous patterns, suspicious timing, unusual packet distributions\n- PERFORMANCE METRICS: Flow rates, window sizes, segment sizes, and connection efficiency\n\nQUERY EXAMPLES:\n- 'Show flows with unusual packet size distributions'\n- 'Find connections with high SYN flag counts (potential port scanning)'\n- 'Identify flows with abnormal inter-arrival times'\n- 'List high-volume data transfers with bulk characteristics'\n- 'Show flows with unusual flag patterns'\n- 'Find connections with suspicious timing patterns'\n- 'Identify potential DDoS attacks based on flow characteristics'\n- 'Show flows with unusual window size patterns'",
+    "source_id": "overview",
+    "tokens": 217,
+    "chunk_order_index": 0,
+    "full_doc_id": "overview",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-572c8d44a52cc10f1a7e4e0d60f498f2": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 1c98a750-0589-4c3f-9849-94b219d6e7c0\nSource: Network Endpoint (10.5.27.101:62829/17)\nDestination: DNS Server (10.5.27.1:53/17)\nProtocol: 17\nPorts: 62829 → 53\nDuration: 0ms\nData Transfer: 616 bytes (5 packets)\nFlow Rate: 886.37 bytes/sec, 7.19 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-1c98a750-0589-4c3f-9849-94b219d6e7c0",
+    "tokens": 170,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-1c98a750-0589-4c3f-9849-94b219d6e7c0",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-e0978b8b9a42baa0ebe0c22f925ed03c": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 78a6280d-08d0-4f5a-ae31-76a005cb6a68\nSource: Network Endpoint (10.5.27.101:54820/6)\nDestination: Web Server (104.21.64.1:443/6)\nProtocol: 6\nPorts: 54820 → 443\nDuration: 102ms\nData Transfer: 18257 bytes (43 packets)\nFlow Rate: 177.98 bytes/sec, 0.42 packets/sec\nFlag Pattern: SYN:3 FIN:2 RST:0 PSH:22 ACK:41\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-78a6280d-08d0-4f5a-ae31-76a005cb6a68",
+    "tokens": 170,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-78a6280d-08d0-4f5a-ae31-76a005cb6a68",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-0a59a4ee8570a0a8195d7e5e363667a7": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 63c8797b-1b0b-46fd-93f4-161747c9ed63\nSource: Network Endpoint (10.5.27.101:49282/17)\nDestination: DNS Server (10.5.27.1:53/17)\nProtocol: 17\nPorts: 49282 → 53\nDuration: 6ms\nData Transfer: 442 bytes (5 packets)\nFlow Rate: 67.20 bytes/sec, 0.76 packets/sec\nFlag Pattern: SYN:0 FIN:0 RST:0 PSH:0 ACK:0\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-63c8797b-1b0b-46fd-93f4-161747c9ed63",
+    "tokens": 168,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-63c8797b-1b0b-46fd-93f4-161747c9ed63",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-f43b275a47b037e69ae33c1088427b28": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 0866bcab-2b9b-4306-b81c-f2a7ef6e8e43\nSource: Network Endpoint (10.5.27.101:54821/6)\nDestination: Web Server (149.154.167.220:443/6)\nProtocol: 6\nPorts: 54821 → 443\nDuration: 100ms\nData Transfer: 8216 bytes (23 packets)\nFlow Rate: 81.44 bytes/sec, 0.23 packets/sec\nFlag Pattern: SYN:3 FIN:2 RST:0 PSH:7 ACK:21\nBehavior: normal\nThreat Level: MEDIUM\nAnomaly Score: 2\nSuspicious Patterns: high_bulk_transfer\nThreat Indicators: None",
+    "source_id": "flow-0866bcab-2b9b-4306-b81c-f2a7ef6e8e43",
+    "tokens": 173,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-0866bcab-2b9b-4306-b81c-f2a7ef6e8e43",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-8cab9c35232cdc85cdc247d05b97e5fb": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: c38a8ab7-8794-48d5-8161-f0ea136c8a6f\nSource: Network Endpoint (10.5.27.101:54819/6)\nDestination: Web Server (132.226.247.73:80/6)\nProtocol: 6\nPorts: 54819 → 80\nDuration: 122ms\nData Transfer: 6500 bytes (43 packets)\nFlow Rate: 53.24 bytes/sec, 0.35 packets/sec\nFlag Pattern: SYN:3 FIN:7 RST:1 PSH:20 ACK:41\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 0\nSuspicious Patterns: None\nThreat Indicators: None",
+    "source_id": "flow-c38a8ab7-8794-48d5-8161-f0ea136c8a6f",
+    "tokens": 169,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-c38a8ab7-8794-48d5-8161-f0ea136c8a6f",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-02023067be2c37664250bbddefba1203": {
+    "content": "COMPREHENSIVE NETWORK FLOW ANALYSIS\nFlow ID: 0cc78e68-adf4-4739-bdfe-29039bb19c0d\nSource: Network Endpoint (10.5.27.101:54825/6)\nDestination: Mail Server (5.2.84.41:587/6)\nProtocol: 6\nPorts: 54825 → 587\nDuration: 100ms\nData Transfer: 3760 bytes (36 packets)\nFlow Rate: 37.45 bytes/sec, 0.36 packets/sec\nFlag Pattern: SYN:3 FIN:2 RST:0 PSH:20 ACK:34\nBehavior: normal\nThreat Level: LOW\nAnomaly Score: 2\nSuspicious Patterns: high_bulk_transfer\nThreat Indicators: None",
+    "source_id": "flow-0cc78e68-adf4-4739-bdfe-29039bb19c0d",
+    "tokens": 169,
+    "chunk_order_index": 0,
+    "full_doc_id": "flow-0cc78e68-adf4-4739-bdfe-29039bb19c0d",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-a06e887fb4e7fb8233a64a46133de73b": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.5.27.101:62829/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.5.27.101:62829 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.5.27.101\nPort: 62829\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.5.27.101:62829/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.5.27.101:62829/17",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-f06568cd88e3cfefaa81df69cc8e7c88": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.5.27.1:53/17\nType: DNS Server\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: DNS Server at 10.5.27.1:53 using 17 protocol.\nObserved in 2 network flow(s).\nTypical behavior: normal.\nService type: dns server\nIP Address: 10.5.27.1\nPort: 53\nProtocol: 17\nFlow Count: 2\nBehavioral Notes: normal endpoint with 2 observed flows",
+    "source_id": "entity-10.5.27.1:53/17",
+    "tokens": 119,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.5.27.1:53/17",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-723cb3d2042e06bfd1003149c4490995": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.5.27.101:54820/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.5.27.101:54820 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.5.27.101\nPort: 54820\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.5.27.101:54820/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.5.27.101:54820/6",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-7ff41ddf2c4534450c2ea18f9b713e81": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 104.21.64.1:443/6\nType: Web Server\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Web Server at 104.21.64.1:443 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: web server\nIP Address: 104.21.64.1\nPort: 443\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-104.21.64.1:443/6",
+    "tokens": 119,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-104.21.64.1:443/6",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-d7489c03835dd7328a8c153f784a5ddf": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.5.27.101:49282/17\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.5.27.101:49282 using 17 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.5.27.101\nPort: 49282\nProtocol: 17\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.5.27.101:49282/17",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.5.27.101:49282/17",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-3837e6c845b63cfe9bfcd42d47ca2cb5": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.5.27.101:54821/6\nType: Network Endpoint\nAverage Behavior: anomalous\nAverage Anomaly Score: 2.00\nDescription: Network Endpoint at 10.5.27.101:54821 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: anomalous.\nService type: network endpoint\nIP Address: 10.5.27.101\nPort: 54821\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: anomalous endpoint with 1 observed flows",
+    "source_id": "entity-10.5.27.101:54821/6",
+    "tokens": 125,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.5.27.101:54821/6",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-3d885e6a4177aea3b233a0c23dcdb0d4": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 149.154.167.220:443/6\nType: Web Server\nAverage Behavior: anomalous\nAverage Anomaly Score: 2.00\nDescription: Web Server at 149.154.167.220:443 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: anomalous.\nService type: web server\nIP Address: 149.154.167.220\nPort: 443\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: anomalous endpoint with 1 observed flows",
+    "source_id": "entity-149.154.167.220:443/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-149.154.167.220:443/6",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-84044272e3a78870248b7d97fbc86760": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.5.27.101:54819/6\nType: Network Endpoint\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Network Endpoint at 10.5.27.101:54819 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: network endpoint\nIP Address: 10.5.27.101\nPort: 54819\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-10.5.27.101:54819/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.5.27.101:54819/6",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-d1ee50dfcb32bf5a059e25f75eb55813": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 132.226.247.73:80/6\nType: Web Server\nAverage Behavior: normal\nAverage Anomaly Score: 0.00\nDescription: Web Server at 132.226.247.73:80 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: normal.\nService type: web server\nIP Address: 132.226.247.73\nPort: 80\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: normal endpoint with 1 observed flows",
+    "source_id": "entity-132.226.247.73:80/6",
+    "tokens": 119,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-132.226.247.73:80/6",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-bfddfdd0e637432918d656ec5e80ebf4": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 10.5.27.101:54825/6\nType: Network Endpoint\nAverage Behavior: anomalous\nAverage Anomaly Score: 2.00\nDescription: Network Endpoint at 10.5.27.101:54825 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: anomalous.\nService type: network endpoint\nIP Address: 10.5.27.101\nPort: 54825\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: anomalous endpoint with 1 observed flows",
+    "source_id": "entity-10.5.27.101:54825/6",
+    "tokens": 125,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-10.5.27.101:54825/6",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-6da6c21af89d6204286581e395c8abc2": {
+    "content": "ENTITY BEHAVIORAL ANALYSIS: 5.2.84.41:587/6\nType: Mail Server\nAverage Behavior: anomalous\nAverage Anomaly Score: 2.00\nDescription: Mail Server at 5.2.84.41:587 using 6 protocol.\nObserved in 1 network flow(s).\nTypical behavior: anomalous.\nService type: mail server\nIP Address: 5.2.84.41\nPort: 587\nProtocol: 6\nFlow Count: 1\nBehavioral Notes: anomalous endpoint with 1 observed flows",
+    "source_id": "entity-5.2.84.41:587/6",
+    "tokens": 122,
+    "chunk_order_index": 0,
+    "full_doc_id": "entity-5.2.84.41:587/6",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-09eaa86e2fc1e5bedeaf5ed41192ac3e": {
+    "content": "TRAFFIC PATTERN ANALYSIS\nPattern: 17 traffic to port 53\nService Type: DNS Server\nTotal Flows: 2\nUnique Sources: 1\nUnique Destinations: 1\nTotal Forward Packets: 6\nTotal Backward Packets: 4\nTotal Forward Bytes: 471\nTotal Backward Bytes: 587\nAverage Anomaly Score: 0.00\nAverage Forward Packets per Flow: 3\nAverage Backward Packets per Flow: 2",
+    "source_id": "pattern-17:53",
+    "tokens": 105,
+    "chunk_order_index": 0,
+    "full_doc_id": "pattern-17:53",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-3e4dcf29d76873b50356209bf4891ec3": {
+    "content": "TRAFFIC PATTERN ANALYSIS\nPattern: 6 traffic to port 443\nService Type: Web Server\nTotal Flows: 2\nUnique Sources: 1\nUnique Destinations: 2\nTotal Forward Packets: 38\nTotal Backward Packets: 28\nTotal Forward Bytes: 4364\nTotal Backward Bytes: 22109\nAverage Anomaly Score: 1.00\nAverage Forward Packets per Flow: 19\nAverage Backward Packets per Flow: 14",
+    "source_id": "pattern-6:443",
+    "tokens": 107,
+    "chunk_order_index": 0,
+    "full_doc_id": "pattern-6:443",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-237d6972d495dacb90c69a8b1e1423c1": {
+    "content": "TRAFFIC PATTERN ANALYSIS\nPattern: 6 traffic to port 80\nService Type: Web Server\nTotal Flows: 1\nUnique Sources: 1\nUnique Destinations: 1\nTotal Forward Packets: 30\nTotal Backward Packets: 13\nTotal Forward Bytes: 3046\nTotal Backward Bytes: 3454\nAverage Anomaly Score: 0.00\nAverage Forward Packets per Flow: 30\nAverage Backward Packets per Flow: 13",
+    "source_id": "pattern-6:80",
+    "tokens": 107,
+    "chunk_order_index": 0,
+    "full_doc_id": "pattern-6:80",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-73c3f4a3a31c4f147aefa764f52c18b2": {
+    "content": "TRAFFIC PATTERN ANALYSIS\nPattern: 6 traffic to port 587\nService Type: Mail Server\nTotal Flows: 1\nUnique Sources: 1\nUnique Destinations: 1\nTotal Forward Packets: 18\nTotal Backward Packets: 18\nTotal Forward Bytes: 2173\nTotal Backward Bytes: 1587\nAverage Anomaly Score: 2.00\nAverage Forward Packets per Flow: 18\nAverage Backward Packets per Flow: 18",
+    "source_id": "pattern-6:587",
+    "tokens": 107,
+    "chunk_order_index": 0,
+    "full_doc_id": "pattern-6:587",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  },
+  "chunk-e733db46e786bbea72e21467f5ec2242": {
+    "content": "COMPREHENSIVE THREAT ANALYSIS SUMMARY\nTotal Entities: 11\nSuspicious Entities: 0\nAnomalous Entities: 4\nNormal Entities: 7\nTotal Flows: 6\nHigh Threat Flows: 0\nMedium Threat Flows: 1\nLow Threat Flows: 5\nUnique Protocols: 2\nTraffic Patterns: 4 unique patterns\n\nSECURITY RECOMMENDATIONS:\n- Investigate 0 suspicious endpoints\n- Monitor 4 anomalous entities\n- Review 0 high-threat flows\n- Analyze 4 traffic patterns for anomalies\n- Focus on entities with high anomaly scores",
+    "source_id": "threat-summary",
+    "tokens": 132,
+    "chunk_order_index": 0,
+    "full_doc_id": "threat-summary",
+    "file_path": "./AppDbStore/2025-05-27-VIP-recovery-infection-traffic",
+    "status": "processed"
+  }
+}

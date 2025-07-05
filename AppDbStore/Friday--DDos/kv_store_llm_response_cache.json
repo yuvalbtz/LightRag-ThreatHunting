@@ -93,6 +93,66 @@
       "embedding_max": null,
       "original_prompt": "can you verify that is a ddos attack ?",
       "timestamp": "2025-06-26T20:27:41.925715"
+    },
+    "61a7d24b9ca981b86f6b119c97f5a17c": {
+      "return": "{\"high_level_keywords\": [\"Conversation history\", \"User inquiry\", \"Query tracking\"], \"low_level_keywords\": [\"Last question\", \"DDoS attack analysis\", \"Previous interaction\", \"Dialogue context\", \"Request verification\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what was my last question ?",
+      "timestamp": "2025-07-05T12:50:25.846115"
+    },
+    "f5ed4b75afab9282bae4664214f03846": {
+      "return": "Your last question was:  \n**\"can you verify that is a ddos attack?\"**  \n\nThis followed our previous discussion about analyzing network traffic patterns and server communications in the provided graph data.  \n\n---  \n**References**  \n[KG] unknown_source (Relationships 1-50)  \n[KG] ./AppDbStore/Friday--DDos (Sources 1-45)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what was my last question ?",
+      "timestamp": "2025-07-05T12:50:25.846115"
+    },
+    "671301ad359828b5969b38a0cf76ae79": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"DDoS attack verification\", \"Cybersecurity threats\"], \"low_level_keywords\": [\"185.33.84.25:443\", \"34.42.173.126:443\", \"10.12.17.1:53\", \"SYN attempts\", \"Traffic patterns\", \"DNS activity\", \"Threat levels\", \"KG relationships\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "about what was our discussion ?",
+      "timestamp": "2025-07-05T12:50:25.846115"
+    },
+    "65162d902a01ad58e87a38267f473967": {
+      "return": "### Discussion Summary\n\n#### 1. **Initial Network Analysis**  \nWe examined a network graph showing communication between internal endpoints (192.168.10.0/24 hosts) and external web servers (e.g., 199.244.48.55:443). Key observations included:  \n- High-volume TCP flows from 192.168.10.16 to 199.244.48.55:443 (272 flows, medium threat level)  \n- Normal DNS activity via 192.168.10.3:53 (63 flows)  \n- Anomalies like port exhaustion patterns and high packet size variance  \n\n#### 2. **DDoS Investigation**  \nYour follow-up question about a potential DDoS attack was analyzed using:  \n- Concentrated traffic from 192.168.10.16 using 20+ source ports to 199.244.48.55:443  \n- Sustained bandwidth (~700KB/sec) and long-duration flows (e.g., 31,000+ seconds)  \n- Normal DNS activity contrasted with suspicious TCP patterns  \n\n#### 3. **Last Query Clarification**  \nYour most recent question prior to this was:  \n**\"can you verify that is a ddos attack?\"**  \nThe analysis concluded there were DDoS indicators but insufficient evidence for confirmation, recommending deeper packet inspection and baseline comparisons.\n\n---\n\n### References  \n1. [KG] Entity: 199.244.48.55:443/6 (unknown_source)  \n2. [KG] Relationships 1-5: 192.168.10.16→199.244.48.55 flows (unknown_source)  \n3. [KG] Entity: 192.168.10.3:53/17 (unknown_source)  \n4. [DC] Network flow analysis: ./AppDbStore/Friday--DDos (Sources 1-5)  \n5. [KG] Relationship 26: 104.97.125.160→192.168.10.5 flow (unknown_source)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "about what was our discussion ?",
+      "timestamp": "2025-07-05T12:50:25.846115"
+    },
+    "050ae626e999244bbfc11d8e1befa498": {
+      "return": "{\"high_level_keywords\": [\"First question identification\", \"Conversation history\", \"DDoS attack verification\"], \"low_level_keywords\": [\"DDoS attack verification\", \"Network flow data\", \"192.168.10.16\", \"199.244.48.55:443\", \"Port exhaustion\", \"KG entities\", \"Traffic patterns\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what was my first question in the converstionan ?",
+      "timestamp": "2025-07-05T12:50:25.846115"
+    },
+    "2bd555772e8d68b5575f5f473a108155": {
+      "return": "### Your First Question  \nYour initial question in this conversation was:  \n**\"can you verify that is a ddos attack ?\"**  \n\nThis inquiry initiated our analysis of network traffic patterns between internal endpoints (e.g., 192.168.10.16) and the external web server 199.244.48.55:443, focusing on identifying potential DDoS indicators such as high-volume flows, port exhaustion, and packet anomalies.  \n\n---\n\n### References  \n1. [KG] Entity: 199.244.48.55:443/6 (unknown_source)  \n2. [KG] Relationships 1-50: TCP flows from 192.168.10.16 (unknown_source)  \n3. [DC] Network flow analysis: ./AppDbStore/Friday--DDos (Sources 1-45)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what was my first question in the converstionan ?",
+      "timestamp": "2025-07-05T12:50:25.846115"
     }
   }
 }

@@ -238,7 +238,7 @@ def get_entity_description(
         return (
             f"{entity_type} at {ip}:{port} using {protocol} protocol.\n"
             f"Observed in {flow_count} network flow(s).\n"
-            f"Typical behavior: {avg_behavior}.\n"
+            # f"Typical behavior: {avg_behavior}.\n"
             f"Service type: {entity_type.lower()}"
         )
     except Exception:

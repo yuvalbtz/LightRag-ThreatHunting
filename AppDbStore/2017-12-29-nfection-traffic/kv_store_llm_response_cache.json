@@ -59,6 +59,26 @@
       "embedding_max": null,
       "original_prompt": "Detect download and command-and-control (C2) communication patterns associated with Simda malware delivered via the Styx exploit kit.\n\nfollow the next instructions:\n\n- 1. Are there flows with high Down/Up Ratio values, indicating significant download activity consistent with malware payload retrieval?\n- 2. Do any flows to destination port 80 exhibit elevated Flow Bytes/s and Flow Packets/s, suggesting malicious file transfers?\n- 3. Are there multiple short-duration flows (low Flow Duration) from the same source IP to new destination IPs, indicative of C2 beaconing?\n- 4. Do flows show SYN and ACK flag counts consistent with successful TCP handshakes followed by abrupt RST flag terminations, signaling exploit-driven connections?\n- 5. Are there deviations in Fwd Packet Length Mean and Bwd Packet Length Mean between initial exploit traffic and subsequent C2 communication?\n- 6. Do flows from internal IPs to external IPs on port 80 with high Total Backward Packets suggest repeated server responses during payload staging?\n- 7. Are there clusters of flows with similar Active Mean and Idle Mean values, indicating periodic communication patterns to C2 infrastructure?",
       "timestamp": "2025-06-27T15:04:48.358189"
+    },
+    "521d3bbb3a03cf6d3498023f17f2cef8": {
+      "return": "{\"high_level_keywords\": [\"Conversation analysis\", \"Question count\", \"Communication patterns\"], \"low_level_keywords\": [\"Numbered instructions\", \"User queries\", \"Malware detection\", \"C2 communication\", \"Traffic analysis\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many questions exists in this conversation ?",
+      "timestamp": "2025-07-05T13:14:08.788325"
+    },
+    "abaffe39610af8f94a3f4bb66e92cb64": {
+      "return": "### Question Count Analysis  \n\nThis conversation contains **16 distinct questions** across 3 user queries:  \n\n1. **Initial Dreambot Analysis (7 questions)**  \n   - 7 numbered sub-questions about infection patterns  \n\n2. **Follow-up Dreambot Query (1 question)**  \n   - \"do you see ant related behaviors related to Dreambot Infection?\"  \n\n3. **Simda Malware Analysis (7 questions)**  \n   - 7 numbered sub-questions about C2/download patterns  \n\n4. **Current Meta-Question (1 question)**  \n   - \"how many questions exists in this conversation?\"  \n\nTotal = 7 + 1 + 7 + 1 = **16 questions**  \n\n---\n\n### References  \n1. [KG] `./AppDbStore/2017-12-29-nfection-traffic` (Conversation history analysis)  \n2. [KG] `./AppDbStore/2017-12-29-nfection-traffic` (Message structure verification)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many questions exists in this conversation ?",
+      "timestamp": "2025-07-05T13:14:08.788325"
     }
   }
 }

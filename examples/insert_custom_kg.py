@@ -422,8 +422,6 @@ async def build_kg(
                 f"Destination: {dst_type} ({dst_entity})\n"
                 f"Protocol: {protocol}\n"
                 f"Ports: {src_port} → {dst_port}\n"
-                f"Behavior: {behavior['behavior_type']}\n"
-                f"Threat Level: {threat_level}\n"
                 f"Flow Characteristics:\n{relationship_text}"
             )
 
@@ -482,11 +480,7 @@ async def build_kg(
                 f"Data Transfer: {total_fwd_bytes + total_bwd_bytes} bytes ({total_fwd_packets + total_bwd_packets} packets)\n"
                 f"Flow Rate: {flow_bytes_per_sec:.2f} bytes/sec, {flow_packets_per_sec:.2f} packets/sec\n"
                 f"Flag Pattern: SYN:{syn_count} FIN:{fin_count} RST:{rst_count} PSH:{psh_count} ACK:{ack_count}\n"
-                f"Behavior: {behavior['behavior_type']}\n"
-                f"Threat Level: {threat_level}\n"
-                f"Anomaly Score: {behavior['anomaly_score']}\n"
-                f"Suspicious Patterns: {', '.join(behavior['suspicious_patterns']) if behavior['suspicious_patterns'] else 'None'}\n"
-                f"Threat Indicators: {', '.join(behavior['threat_indicators']) if behavior['threat_indicators'] else 'None'}"
+                f"Behavior: {behavior['behavior_type']}"
             )
 
             chunks.append(
@@ -500,7 +494,7 @@ async def build_kg(
         # Add entity-specific chunks with behavioral analysis
         for entity_id, entity in entity_map.items():
             behaviors = entity_behaviors.get(entity_id, [])
-            avg_anomaly = entity["metadata"]["avg_anomaly_score"]
+            avg_anomaly = entity["metadata"].get("avg_anomaly_score", 0)
             avg_behavior = entity["metadata"]["avg_behavior"]
 
             entity_chunk = (
@@ -519,7 +513,9 @@ async def build_kg(
             chunks.append(
                 {
                     "content": entity_chunk,
-                    "source_id": f"entity-{entity_id}",
+                    "source_id": entity[
+                        "source_id"
+                    ],  # Reference the entity's source_id
                     "source_chunk_index": 0,
                 }
             )
@@ -535,72 +531,103 @@ async def build_kg(
                 else 0
             )
 
+            # Find relationships that match this pattern
+            pattern_relationships = [
+                r
+                for r in relationships
+                if r["metadata"]["protocol"] == protocol
+                and r["metadata"]["dst_port"] == port
+            ]
+
+            # Use the first relationship's source_id, or create a pattern-specific one
+            pattern_source_id = (
+                pattern_relationships[0]["source_id"]
+                if pattern_relationships
+                else f"pattern-{pattern_key}"
+            )
+
             pattern_chunk = (
-                f"TRAFFIC PATTERN ANALYSIS\n"
+                f"NETWORK TRAFFIC PATTERN ANALYSIS\n"
                 f"Pattern: {protocol.upper()} traffic to port {port}\n"
                 f"Service Type: {entity_type}\n"
-                f"Total Flows: {pattern_data['count']}\n"
-                f"Unique Sources: {len(pattern_data['sources'])}\n"
-                f"Unique Destinations: {len(pattern_data['destinations'])}\n"
-                f"Total Forward Packets: {pattern_data['total_fwd_packets']}\n"
-                f"Total Backward Packets: {pattern_data['total_bwd_packets']}\n"
-                f"Total Forward Bytes: {pattern_data['total_fwd_bytes']}\n"
-                f"Total Backward Bytes: {pattern_data['total_bwd_bytes']}\n"
-                f"Average Anomaly Score: {avg_anomaly:.2f}\n"
+                f"Network Activity: {pattern_data['count']} total flows\n"
+                f"Source Diversity: {len(pattern_data['sources'])} unique sources\n"
+                f"Destination Diversity: {len(pattern_data['destinations'])} unique destinations\n"
+                f"Traffic Volume: {pattern_data['total_fwd_packets']} forward packets, {pattern_data['total_bwd_packets']} backward packets\n"
+                f"Data Transfer: {pattern_data['total_fwd_bytes']} forward bytes, {pattern_data['total_bwd_bytes']} backward bytes\n"
+                f"Network Behavior Score: {avg_anomaly:.2f}\n"
                 f"Average Forward Packets per Flow: {pattern_data['total_fwd_packets'] // pattern_data['count'] if pattern_data['count'] > 0 else 0}\n"
-                f"Average Backward Packets per Flow: {pattern_data['total_bwd_packets'] // pattern_data['count'] if pattern_data['count'] > 0 else 0}"
+                f"Average Backward Packets per Flow: {pattern_data['total_bwd_packets'] // pattern_data['count'] if pattern_data['count'] > 0 else 0}\n"
+                f"Network Characteristics: This pattern represents typical {protocol.upper()} network behavior with {pattern_data['count']} flows across {len(pattern_data['sources'])} sources"
             )
 
             chunks.append(
                 {
                     "content": pattern_chunk,
-                    "source_id": f"pattern-{pattern_key}",
+                    "source_id": pattern_source_id,  # Reference the relationship's source_id
                     "source_chunk_index": 0,
                 }
             )
 
-        # Add comprehensive threat analysis summary
-        suspicious_entities = [
-            e
-            for e in entity_map.values()
-            if e["metadata"]["avg_behavior"] == "suspicious"
-        ]
-        anomalous_entities = [
-            e
-            for e in entity_map.values()
-            if e["metadata"]["avg_behavior"] == "anomalous"
-        ]
-        high_threat_flows = [
-            r for r in relationships if r["metadata"]["threat_level"] == "HIGH"
-        ]
-        medium_threat_flows = [
-            r for r in relationships if r["metadata"]["threat_level"] == "MEDIUM"
-        ]
+        # Calculate pattern statistics
+        total_pattern_flows = sum(
+            pattern_data["count"] for pattern_data in traffic_patterns.values()
+        )
+        avg_pattern_anomaly = (
+            sum(
+                sum(pattern_data["anomaly_scores"])
+                / len(pattern_data["anomaly_scores"])
+                for pattern_data in traffic_patterns.values()
+                if pattern_data["anomaly_scores"]
+            )
+            / len(traffic_patterns)
+            if traffic_patterns
+            else 0
+        )
 
-        threat_summary = (
-            f"COMPREHENSIVE THREAT ANALYSIS SUMMARY\n"
-            f"Total Entities: {len(entity_map)}\n"
-            f"Suspicious Entities: {len(suspicious_entities)}\n"
-            f"Anomalous Entities: {len(anomalous_entities)}\n"
-            f"Normal Entities: {len(entity_map) - len(suspicious_entities) - len(anomalous_entities)}\n"
-            f"Total Flows: {len(flows)}\n"
-            f"High Threat Flows: {len(high_threat_flows)}\n"
-            f"Medium Threat Flows: {len(medium_threat_flows)}\n"
-            f"Low Threat Flows: {len(flows) - len(high_threat_flows) - len(medium_threat_flows)}\n"
-            f"Unique Protocols: {len(set(r['metadata']['protocol'] for r in relationships))}\n"
-            f"Traffic Patterns: {len(traffic_patterns)} unique patterns\n\n"
-            f"SECURITY RECOMMENDATIONS:\n"
-            f"- Investigate {len(suspicious_entities)} suspicious endpoints\n"
-            f"- Monitor {len(anomalous_entities)} anomalous entities\n"
-            f"- Review {len(high_threat_flows)} high-threat flows\n"
-            f"- Analyze {len(traffic_patterns)} traffic patterns for anomalies\n"
-            f"- Focus on entities with high anomaly scores"
+        # Get top patterns by flow count
+        top_patterns = sorted(
+            traffic_patterns.items(), key=lambda x: x[1]["count"], reverse=True
+        )[:5]
+
+        pattern_summary = (
+            f"NETWORK TRAFFIC PATTERN ANALYSIS SUMMARY\n"
+            f"Total Network Entities: {len(entity_map)}\n"
+            f"Total Network Flows: {len(flows)}\n"
+            f"Unique Traffic Patterns: {len(traffic_patterns)}\n"
+            f"Total Pattern Flows: {total_pattern_flows}\n"
+            f"Average Pattern Anomaly Score: {avg_pattern_anomaly:.2f}\n"
+            f"Unique Protocols Observed: {len(set(r['metadata']['protocol'] for r in relationships))}\n\n"
+            f"TOP TRAFFIC PATTERNS:\n"
+        )
+
+        for i, (pattern_key, pattern_data) in enumerate(top_patterns, 1):
+            protocol, port = pattern_key.split(":", 1)
+            pattern_summary += (
+                f"{i}. {protocol.upper()} traffic to port {port}: "
+                f"{pattern_data['count']} flows, "
+                f"{len(pattern_data['sources'])} sources, "
+                f"{len(pattern_data['destinations'])} destinations\n"
+            )
+
+        pattern_summary += (
+            f"\nPATTERN ANALYSIS INSIGHTS:\n"
+            f"- Most common protocol: {max(set(r['metadata']['protocol'] for r in relationships), key=lambda x: len([r for r in relationships if r['metadata']['protocol'] == x]))}\n"
+            f"- Average flows per pattern: {total_pattern_flows // len(traffic_patterns) if traffic_patterns else 0}\n"
+            f"- Pattern diversity: {len(traffic_patterns)} unique patterns across {len(flows)} total flows\n"
+            f"- Network behavior analysis: {len(entity_map)} entities with varying traffic patterns\n"
+            f"- Flow characteristics: Detailed packet and byte statistics available for each pattern"
+        )
+
+        # Find a representative relationship source_id for the summary
+        summary_source_id = (
+            relationships[0]["source_id"] if relationships else "pattern-summary"
         )
 
         chunks.append(
             {
-                "content": threat_summary,
-                "source_id": "threat-summary",
+                "content": pattern_summary,
+                "source_id": summary_source_id,  # Reference a relationship's source_id
                 "source_chunk_index": 0,
             }
         )
@@ -619,19 +646,47 @@ async def build_kg(
     try:
         await rag.ainsert_custom_kg(custom_kg=custom_kg, file_path=rag.working_dir)
         print(
-            f"✅ Comprehensive Knowledge Graph inserted: {len(entity_map)} entities, {len(relationships)} relationships, {len(chunks)} chunks."
+            f"✅ Network Pattern Knowledge Graph inserted: {len(entity_map)} entities, {len(relationships)} relationships, {len(chunks)} chunks."
         )
         print(f"📊 Entity types: {set(e['entity_type'] for e in entity_map.values())}")
         print(f"🔗 Protocols: {set(r['metadata']['protocol'] for r in relationships)}")
         print(
-            f"⚠️  Threat levels: {set(r['metadata']['threat_level'] for r in relationships)}"
-        )
-        print(
             f"🎭 Behavior types: {set(r['metadata']['behavior_type'] for r in relationships)}"
         )
         print(f"📈 Traffic patterns: {len(traffic_patterns)} unique patterns")
-        print(f"🔍 Suspicious entities: {len(suspicious_entities)}")
-        print(f"⚠️  High threat flows: {len(high_threat_flows)}")
+        print(f"🌐 Network entities: {len(entity_map)} total entities")
+        print(f"📊 Pattern diversity: {len(traffic_patterns)} unique traffic patterns")
+
+        # Debug: Show source_id relationships
+        unique_source_ids = set()
+        for entity in entity_map.values():
+            unique_source_ids.add(entity["source_id"])
+        for relationship in relationships:
+            unique_source_ids.add(relationship["source_id"])
+        print(
+            f"🔗 Unique source IDs: {len(unique_source_ids)} (entities and relationships)"
+        )
+        print(f"📄 Chunks created: {len(chunks)} with proper source_id references")
+
+        # Validate source_id references
+        entity_source_ids = {entity["source_id"] for entity in entity_map.values()}
+        relationship_source_ids = {rel["source_id"] for rel in relationships}
+        chunk_source_ids = {chunk["source_id"] for chunk in chunks}
+
+        # Check if chunk source_ids reference valid entity/relationship source_ids
+        valid_source_ids = entity_source_ids.union(relationship_source_ids)
+        invalid_chunk_sources = chunk_source_ids - valid_source_ids
+
+        if invalid_chunk_sources:
+            print(
+                f"⚠️  Warning: {len(invalid_chunk_sources)} chunks have source_ids not found in entities/relationships"
+            )
+            print(f"   Invalid source_ids: {invalid_chunk_sources}")
+        else:
+            print(
+                f"✅ All chunks have valid source_id references to entities/relationships"
+            )
+
     except Exception as e:
         print(f"❌ Failed to insert knowledge graph: {e}")
         raise
