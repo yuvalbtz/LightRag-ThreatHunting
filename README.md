@@ -32,1373 +32,859 @@
 
 </div>
 
-## 🎉 News
+# 🕵️‍♂️ LightRag ThreatHunting
 
-- [X] [2025.03.18]🎯📢LightRAG now supports citation functionality.
-- [X] [2025.02.05]🎯📢Our team has released [VideoRAG](https://github.com/HKUDS/VideoRAG) understanding extremely long-context videos.
-- [X] [2025.01.13]🎯📢Our team has released [MiniRAG](https://github.com/HKUDS/MiniRAG) making RAG simpler with small models.
-- [X] [2025.01.06]🎯📢You can now [use PostgreSQL for Storage](#using-postgresql-for-storage).
-- [X] [2024.12.31]🎯📢LightRAG now supports [deletion by document ID](https://github.com/HKUDS/LightRAG?tab=readme-ov-file#delete).
-- [X] [2024.11.25]🎯📢LightRAG now supports seamless integration of [custom knowledge graphs](https://github.com/HKUDS/LightRAG?tab=readme-ov-file#insert-custom-kg), empowering users to enhance the system with their own domain expertise.
-- [X] [2024.11.19]🎯📢A comprehensive guide to LightRAG is now available on [LearnOpenCV](https://learnopencv.com/lightrag). Many thanks to the blog author.
-- [X] [2024.11.12]🎯📢LightRAG now supports [Oracle Database 23ai for all storage types (KV, vector, and graph)](https://github.com/HKUDS/LightRAG/blob/main/examples/lightrag_oracle_demo.py).
-- [X] [2024.11.11]🎯📢LightRAG now supports [deleting entities by their names](https://github.com/HKUDS/LightRAG?tab=readme-ov-file#delete).
-- [X] [2024.11.09]🎯📢Introducing the [LightRAG Gui](https://lightrag-gui.streamlit.app), which allows you to insert, query, visualize, and download LightRAG knowledge.
-- [X] [2024.11.04]🎯📢You can now [use Neo4J for Storage](https://github.com/HKUDS/LightRAG?tab=readme-ov-file#using-neo4j-for-storage).
-- [X] [2024.10.29]🎯📢LightRAG now supports multiple file types, including PDF, DOC, PPT, and CSV via `textract`.
-- [X] [2024.10.20]🎯📢We've added a new feature to LightRAG: Graph Visualization.
-- [X] [2024.10.18]🎯📢We've added a link to a [LightRAG Introduction Video](https://youtu.be/oageL-1I0GE). Thanks to the author!
-- [X] [2024.10.17]🎯📢We have created a [Discord channel](https://discord.gg/yF2MmDJyGJ)! Welcome to join for sharing and discussions! 🎉🎉
-- [X] [2024.10.16]🎯📢LightRAG now supports [Ollama models](https://github.com/HKUDS/LightRAG?tab=readme-ov-file#quick-start)!
-- [X] [2024.10.15]🎯📢LightRAG now supports [Hugging Face models](https://github.com/HKUDS/LightRAG?tab=readme-ov-file#quick-start)!
+<div align="center">
 
-<details>
-  <summary style="font-size: 1.4em; font-weight: bold; cursor: pointer; display: list-item;">
-    Algorithm Flowchart
-  </summary>
+![ThreatHunting Logo](https://img.shields.io/badge/ThreatHunting-Advanced%20RAG%20System-blue?style=for-the-badge&logo=shield)
+![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green?style=for-the-badge&logo=fastapi)
+![React](https://img.shields.io/badge/React-18+-blue?style=for-the-badge&logo=react)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue?style=for-the-badge&logo=docker)
 
-![LightRAG Indexing Flowchart](https://learnopencv.com/wp-content/uploads/2024/11/LightRAG-VectorDB-Json-KV-Store-Indexing-Flowchart-scaled.jpg)
-*Figure 1: LightRAG Indexing Flowchart - Img Caption : [Source](https://learnopencv.com/lightrag/)*
-![LightRAG Retrieval and Querying Flowchart](https://learnopencv.com/wp-content/uploads/2024/11/LightRAG-Querying-Flowchart-Dual-Level-Retrieval-Generation-Knowledge-Graphs-scaled.jpg)
-*Figure 2: LightRAG Retrieval and Querying Flowchart - Img Caption : [Source](https://learnopencv.com/lightrag/)*
+**Advanced Threat Hunting and Malware Analysis Platform powered by LightRAG**
 
-</details>
+_A comprehensive system for building knowledge graphs from network flows, analyzing threat patterns, and providing intelligent threat hunting capabilities through Retrieval-Augmented Generation (RAG)._
 
-## Installation
+</div>
 
-### Install  LightRAG Core
+---
 
-* Install from source (Recommend)
+## 📋 Table of Contents
+
+- [🎯 Overview](#-overview)
+- [🏗️ Architecture](#️-architecture)
+- [🚀 Features](#-features)
+- [📦 Installation](#-installation)
+- [🔧 Configuration](#-configuration)
+- [💻 Usage](#-usage)
+- [🔍 API Reference](#-api-reference)
+- [🎨 Frontend Components](#-frontend-components)
+- [🔄 Development](#-development)
+- [📊 Knowledge Graph Structure](#-knowledge-graph-structure)
+- [🔐 Security](#-security)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+
+---
+
+## 🎯 Overview
+
+**LightRag ThreatHunting** is an advanced cybersecurity platform that combines the power of **LightRAG** (Retrieval-Augmented Generation) with sophisticated threat hunting capabilities. The system transforms network flow data, malware analysis reports, and security playbooks into intelligent knowledge graphs that enable automated threat detection, analysis, and response.
+
+### 🎯 Key Capabilities
+
+- **📊 Network Flow Analysis**: Convert CSV/PCAP files into rich knowledge graphs
+- **🧠 Intelligent Threat Detection**: AI-powered analysis of network patterns and behaviors
+- **📚 Playbook Integration**: Automatic extraction and processing of security playbooks
+- **🔍 Real-time Querying**: Natural language queries with streaming responses
+- **🎨 Interactive Visualization**: Dynamic graph visualization with real-time updates
+- **🔄 Hot Reload Development**: Full development environment with live code updates
+
+---
+
+## 🏗️ Architecture
+
+The ThreatHunting platform follows a modern microservices architecture with the following components:
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Frontend      │    │   Backend API   │    │   LightRAG      │
+│   (React/Vite)  │◄──►│   (FastAPI)     │◄──►│   Engine        │
+│                 │    │                 │    │                 │
+│ • Graph Viz     │    │ • REST API      │    │ • Knowledge     │
+│ • Chat Interface│    │ • Streaming     │    │   Graph         │
+│ • File Upload   │    │ • File Processing│   │ • Vector DB     │
+│ • Real-time UI  │    │ • Hot Reload    │    │ • LLM Integration│
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         │                       │                       │
+         ▼                       ▼                       ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Nginx Proxy   │    │   Docker Compose│    │   Storage       │
+│                 │    │                 │    │                 │
+│ • Static Files  │    │ • Container     │    │ • AppDbStore    │
+│ • API Routing   │    │   Orchestration │    │ • Custom KG     │
+│ • CORS Handling │    │ • Environment   │    │ • RAG Storage   │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
+
+### 🔧 Technology Stack
+
+| Component            | Technology                   | Purpose                         |
+| -------------------- | ---------------------------- | ------------------------------- |
+| **Frontend**         | React 18 + TypeScript + Vite | Modern UI with hot reload       |
+| **Backend**          | FastAPI + Python 3.10+       | High-performance API            |
+| **RAG Engine**       | LightRAG                     | Knowledge graph and retrieval   |
+| **LLM**              | Ollama/DeepSeek              | Natural language processing     |
+| **Embeddings**       | BGE-M3                       | Vector embeddings               |
+| **Storage**          | JSON + NetworkX              | Knowledge graph storage         |
+| **Containerization** | Docker + Docker Compose      | Deployment and isolation        |
+| **Proxy**            | Nginx                        | Static file serving and routing |
+
+---
+
+## 🚀 Features
+
+### 🔍 **Advanced Threat Analysis**
+
+- **Network Flow Processing**: Convert CSV/PCAP files into structured knowledge graphs
+- **Entity Recognition**: Automatic identification of IPs, ports, protocols, and services
+- **Behavioral Analysis**: Pattern detection for suspicious activities
+- **Threat Intelligence**: Integration with security playbooks and malware reports
+
+### 🧠 **Intelligent RAG System**
+
+- **Multi-Modal Retrieval**: Combines vector search and knowledge graph traversal
+- **Context-Aware Queries**: Understands threat hunting context and terminology
+- **Streaming Responses**: Real-time AI responses with progressive disclosure
+- **Conversation Memory**: Maintains context across multiple queries
+
+### 🎨 **Interactive Visualization**
+
+- **Dynamic Graph Rendering**: Real-time network topology visualization
+- **Interactive Nodes**: Click to explore entity details and relationships
+- **Search and Filter**: Find specific entities or patterns in the graph
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+
+### 🔄 **Development Experience**
+
+- **Hot Reload**: Instant updates for both frontend and backend changes
+- **Docker Integration**: Consistent development environment
+- **Environment Management**: Flexible configuration for different deployment scenarios
+- **Comprehensive Logging**: Detailed logs for debugging and monitoring
+
+---
+
+## 📦 Installation
+
+### Prerequisites
+
+- **Docker & Docker Compose**: For containerized deployment
+- **Python 3.10+**: For local development
+- **Node.js 18+**: For frontend development
+- **Git**: For version control
+
+### Quick Start
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone <repository-url>
+   cd LightRag-ThreatHunting
+   ```
+
+2. **Development Environment**
+
+   ```bash
+   # Start with hot reload (recommended for development)
+   ./dev-sudo.sh
+
+   # Or use regular development mode
+   ./dev.sh
+   ```
+
+3. **Production Environment**
+   ```bash
+   # Start production environment
+   ./prod.sh
+   ```
+
+### Environment Configuration
+
+The system supports multiple environment configurations through `.env` files:
+
+#### Development Environment
 
 ```bash
-cd LightRAG
-pip install -e .
+# Copy development template
+cp env.example .env
+
+# Edit configuration
+nano .env
 ```
 
-* Install from PyPI
+#### Production Environment
 
 ```bash
-pip install lightrag-hku
+# Copy and customize for production
+cp env.example .env.prod
+
+# Edit production configuration
+nano .env.prod
+
+# Use production environment
+docker-compose -f docker-compose.prod.yml --env-file .env.prod up -d
 ```
 
-### Install LightRAG Server
-
-The LightRAG Server is designed to provide Web UI and API support. The Web UI facilitates document indexing, knowledge graph exploration, and a simple RAG query interface. LightRAG Server also provide an Ollama compatible interfaces, aiming to emulate LightRAG as an Ollama chat model. This allows AI chat bot, such as Open WebUI, to access LightRAG easily.
-
-* Install from PyPI
-
-```bash
-pip install "lightrag-hku[api]"
-```
-
-* Installation from Source
-
-```bash
-# create a Python virtual enviroment if neccesary
-# Install in editable mode with API support
-pip install -e ".[api]"
-```
-
-**For more information about LightRAG Server, please refer to [LightRAG Server](./lightrag/api/README.md).**
-
-## Quick Start
-
-* [Video demo](https://www.youtube.com/watch?v=g21royNJ4fw) of running LightRAG locally.
-* All the code can be found in the `examples`.
-* Set OpenAI API key in environment if using OpenAI models: `export OPENAI_API_KEY="sk-...".`
-* Download the demo text "A Christmas Carol by Charles Dickens":
-
-```bash
-curl https://raw.githubusercontent.com/gusye1234/nano-graphrag/main/tests/mock_data.txt > ./book.txt
-```
-
-## Query
-
-Use the below Python snippet (in a script) to initialize LightRAG and perform queries:
-
-```python
-import os
-import asyncio
-from lightrag import LightRAG, QueryParam
-from lightrag.llm.openai import gpt_4o_mini_complete, gpt_4o_complete, openai_embed
-from lightrag.kg.shared_storage import initialize_pipeline_status
-from lightrag.utils import setup_logger
-
-setup_logger("lightrag", level="INFO")
-
-async def initialize_rag():
-    rag = LightRAG(
-        working_dir="your/path",
-        embedding_func=openai_embed,
-        llm_model_func=gpt_4o_mini_complete
-    )
-
-    await rag.initialize_storages()
-    await initialize_pipeline_status()
-
-    return rag
-
-def main():
-    # Initialize RAG instance
-    rag = asyncio.run(initialize_rag())
-    # Insert text
-    rag.insert("Your text")
-
-    # Perform naive search
-    mode="naive"
-    # Perform local search
-    mode="local"
-    # Perform global search
-    mode="global"
-    # Perform hybrid search
-    mode="hybrid"
-    # Mix mode Integrates knowledge graph and vector retrieval.
-    mode="mix"
-
-    rag.query(
-        "What are the top themes in this story?",
-        param=QueryParam(mode=mode)
-    )
-
-if __name__ == "__main__":
-    main()
-```
-
-### Query Param
-
-```python
-class QueryParam:
-    mode: Literal["local", "global", "hybrid", "naive", "mix"] = "global"
-    """Specifies the retrieval mode:
-    - "local": Focuses on context-dependent information.
-    - "global": Utilizes global knowledge.
-    - "hybrid": Combines local and global retrieval methods.
-    - "naive": Performs a basic search without advanced techniques.
-    - "mix": Integrates knowledge graph and vector retrieval. Mix mode combines knowledge graph and vector search:
-        - Uses both structured (KG) and unstructured (vector) information
-        - Provides comprehensive answers by analyzing relationships and context
-        - Supports image content through HTML img tags
-        - Allows control over retrieval depth via top_k parameter
-    """
-    only_need_context: bool = False
-    """If True, only returns the retrieved context without generating a response."""
-    response_type: str = "Multiple Paragraphs"
-    """Defines the response format. Examples: 'Multiple Paragraphs', 'Single Paragraph', 'Bullet Points'."""
-    top_k: int = 60
-    """Number of top items to retrieve. Represents entities in 'local' mode and relationships in 'global' mode."""
-    max_token_for_text_unit: int = 4000
-    """Maximum number of tokens allowed for each retrieved text chunk."""
-    max_token_for_global_context: int = 4000
-    """Maximum number of tokens allocated for relationship descriptions in global retrieval."""
-    max_token_for_local_context: int = 4000
-    """Maximum number of tokens allocated for entity descriptions in local retrieval."""
-    ids: list[str] | None = None # ONLY SUPPORTED FOR PG VECTOR DBs
-    """List of ids to filter the RAG."""
-    model_func: Callable[..., object] | None = None
-    """Optional override for the LLM model function to use for this specific query.
-    If provided, this will be used instead of the global model function.
-    This allows using different models for different query modes.
-    """
-    ...
-```
-
-> default value of Top_k can be change by environment  variables  TOP_K.
-
-### LLM and Embedding Injection
-
-LightRAG requires the utilization of LLM and Embedding models to accomplish document indexing and querying tasks. During the initialization phase, it is necessary to inject the invocation methods of the relevant models into LightRAG：
-
-<details>
-<summary> <b>Using Open AI-like APIs</b> </summary>
-
-* LightRAG also supports Open AI-like chat/embeddings APIs:
-
-```python
-async def llm_model_func(
-    prompt, system_prompt=None, history_messages=[], keyword_extraction=False, **kwargs
-) -> str:
-    return await openai_complete_if_cache(
-        "solar-mini",
-        prompt,
-        system_prompt=system_prompt,
-        history_messages=history_messages,
-        api_key=os.getenv("UPSTAGE_API_KEY"),
-        base_url="https://api.upstage.ai/v1/solar",
-        **kwargs
-    )
-
-async def embedding_func(texts: list[str]) -> np.ndarray:
-    return await openai_embed(
-        texts,
-        model="solar-embedding-1-large-query",
-        api_key=os.getenv("UPSTAGE_API_KEY"),
-        base_url="https://api.upstage.ai/v1/solar"
-    )
-
-async def initialize_rag():
-    rag = LightRAG(
-        working_dir=WORKING_DIR,
-        llm_model_func=llm_model_func,
-        embedding_func=EmbeddingFunc(
-            embedding_dim=4096,
-            max_token_size=8192,
-            func=embedding_func
-        )
-    )
-
-    await rag.initialize_storages()
-    await initialize_pipeline_status()
-
-    return rag
-```
-
-</details>
-
-<details>
-<summary> <b>Using Hugging Face Models</b> </summary>
-
-* If you want to use Hugging Face models, you only need to set LightRAG as follows:
-
-See `lightrag_hf_demo.py`
-
-```python
-# Initialize LightRAG with Hugging Face model
-rag = LightRAG(
-    working_dir=WORKING_DIR,
-    llm_model_func=hf_model_complete,  # Use Hugging Face model for text generation
-    llm_model_name='meta-llama/Llama-3.1-8B-Instruct',  # Model name from Hugging Face
-    # Use Hugging Face embedding function
-    embedding_func=EmbeddingFunc(
-        embedding_dim=384,
-        max_token_size=5000,
-        func=lambda texts: hf_embed(
-            texts,
-            tokenizer=AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2"),
-            embed_model=AutoModel.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
-        )
-    ),
-)
-```
-
-</details>
-
-<details>
-<summary> <b>Using Ollama Models</b> </summary>
-**Overview**
-
-If you want to use Ollama models, you need to pull model you plan to use and embedding model, for example `nomic-embed-text`.
-
-Then you only need to set LightRAG as follows:
-
-```python
-# Initialize LightRAG with Ollama model
-rag = LightRAG(
-    working_dir=WORKING_DIR,
-    llm_model_func=ollama_model_complete,  # Use Ollama model for text generation
-    llm_model_name='your_model_name', # Your model name
-    # Use Ollama embedding function
-    embedding_func=EmbeddingFunc(
-        embedding_dim=768,
-        max_token_size=8192,
-        func=lambda texts: ollama_embed(
-            texts,
-            embed_model="nomic-embed-text"
-        )
-    ),
-)
-```
-
-* **Increasing context size**
-
-In order for LightRAG to work context should be at least 32k tokens. By default Ollama models have context size of 8k. You can achieve this using one of two ways:
-
-* **Increasing the `num_ctx` parameter in Modelfile**
-
-1. Pull the model:
-
-```bash
-ollama pull qwen2
-```
-
-2. Display the model file:
-
-```bash
-ollama show --modelfile qwen2 > Modelfile
-```
-
-3. Edit the Modelfile by adding the following line:
-
-```bash
-PARAMETER num_ctx 32768
-```
-
-4. Create the modified model:
-
-```bash
-ollama create -f Modelfile qwen2m
-```
-
-* **Setup `num_ctx` via Ollama API**
-
-Tiy can use `llm_model_kwargs` param to configure ollama:
-
-```python
-rag = LightRAG(
-    working_dir=WORKING_DIR,
-    llm_model_func=ollama_model_complete,  # Use Ollama model for text generation
-    llm_model_name='your_model_name', # Your model name
-    llm_model_kwargs={"options": {"num_ctx": 32768}},
-    # Use Ollama embedding function
-    embedding_func=EmbeddingFunc(
-        embedding_dim=768,
-        max_token_size=8192,
-        func=lambda texts: ollama_embedding(
-            texts,
-            embed_model="nomic-embed-text"
-        )
-    ),
-)
-```
-
-* **Low RAM GPUs**
-
-In order to run this experiment on low RAM GPU you should select small model and tune context window (increasing context increase memory consumption). For example, running this ollama example on repurposed mining GPU with 6Gb of RAM required to set context size to 26k while using `gemma2:2b`. It was able to find 197 entities and 19 relations on `book.txt`.
-
-</details>
-<details>
-<summary> <b>LlamaIndex</b> </summary>
-
-LightRAG supports integration with LlamaIndex (`llm/llama_index_impl.py`):
-
-- Integrates with OpenAI and other providers through LlamaIndex
-- See [LlamaIndex Documentation](lightrag/llm/Readme.md) for detailed setup and examples
-
-**Example Usage**
-
-```python
-# Using LlamaIndex with direct OpenAI access
-import asyncio
-from lightrag import LightRAG
-from lightrag.llm.llama_index_impl import llama_index_complete_if_cache, llama_index_embed
-from llama_index.embeddings.openai import OpenAIEmbedding
-from llama_index.llms.openai import OpenAI
-from lightrag.kg.shared_storage import initialize_pipeline_status
-from lightrag.utils import setup_logger
-
-# Setup log handler for LightRAG
-setup_logger("lightrag", level="INFO")
-
-async def initialize_rag():
-    rag = LightRAG(
-        working_dir="your/path",
-        llm_model_func=llama_index_complete_if_cache,  # LlamaIndex-compatible completion function
-        embedding_func=EmbeddingFunc(    # LlamaIndex-compatible embedding function
-            embedding_dim=1536,
-            max_token_size=8192,
-            func=lambda texts: llama_index_embed(texts, embed_model=embed_model)
-        ),
-    )
-
-    await rag.initialize_storages()
-    await initialize_pipeline_status()
-
-    return rag
-
-def main():
-    # Initialize RAG instance
-    rag = asyncio.run(initialize_rag())
-
-    with open("./book.txt", "r", encoding="utf-8") as f:
-        rag.insert(f.read())
-
-    # Perform naive search
-    print(
-        rag.query("What are the top themes in this story?", param=QueryParam(mode="naive"))
-    )
-
-    # Perform local search
-    print(
-        rag.query("What are the top themes in this story?", param=QueryParam(mode="local"))
-    )
-
-    # Perform global search
-    print(
-        rag.query("What are the top themes in this story?", param=QueryParam(mode="global"))
-    )
-
-    # Perform hybrid search
-    print(
-        rag.query("What are the top themes in this story?", param=QueryParam(mode="hybrid"))
-    )
-
-if __name__ == "__main__":
-    main()
-```
-
-**For detailed documentation and examples, see:**
-
-- [LlamaIndex Documentation](lightrag/llm/Readme.md)
-- [Direct OpenAI Example](examples/lightrag_llamaindex_direct_demo.py)
-- [LiteLLM Proxy Example](examples/lightrag_llamaindex_litellm_demo.py)
-
-### Conversation History Support
-
-
-LightRAG now supports multi-turn dialogue through the conversation history feature. Here's how to use it:
-
-```python
-# Create conversation history
-conversation_history = [
-    {"role": "user", "content": "What is the main character's attitude towards Christmas?"},
-    {"role": "assistant", "content": "At the beginning of the story, Ebenezer Scrooge has a very negative attitude towards Christmas..."},
-    {"role": "user", "content": "How does his attitude change?"}
-]
-
-# Create query parameters with conversation history
-query_param = QueryParam(
-    mode="mix",  # or any other mode: "local", "global", "hybrid"
-    conversation_history=conversation_history,  # Add the conversation history
-    history_turns=3  # Number of recent conversation turns to consider
-)
-
-# Make a query that takes into account the conversation history
-response = rag.query(
-    "What causes this change in his character?",
-    param=query_param
-)
-```
-
-### Custom Prompt Support
-
-LightRAG now supports custom prompts for fine-tuned control over the system's behavior. Here's how to use it:
-
-```python
-# Create query parameters
-query_param = QueryParam(
-    mode="hybrid",  # or other mode: "local", "global", "hybrid", "mix" and "naive"
-)
-
-# Example 1: Using the default system prompt
-response_default = rag.query(
-    "What are the primary benefits of renewable energy?",
-    param=query_param
-)
-print(response_default)
-
-# Example 2: Using a custom prompt
-custom_prompt = """
-You are an expert assistant in environmental science. Provide detailed and structured answers with examples.
----Conversation History---
-{history}
-
----Knowledge Base---
-{context_data}
-
----Response Rules---
-
-- Target format and length: {response_type}
-"""
-response_custom = rag.query(
-    "What are the primary benefits of renewable energy?",
-    param=query_param,
-    system_prompt=custom_prompt  # Pass the custom prompt
-)
-print(response_custom)
-```
-
-### Separate Keyword Extraction
-
-We've introduced a new function `query_with_separate_keyword_extraction` to enhance the keyword extraction capabilities. This function separates the keyword extraction process from the user's prompt, focusing solely on the query to improve the relevance of extracted keywords.
-
-**How It Works?**
-
-The function operates by dividing the input into two parts:
-
-- `User Query`
-- `Prompt`
-
-It then performs keyword extraction exclusively on the `user query`. This separation ensures that the extraction process is focused and relevant, unaffected by any additional language in the `prompt`. It also allows the `prompt` to serve purely for response formatting, maintaining the intent and clarity of the user's original question.
-
-**Usage Example**
-
-This `example` shows how to tailor the function for educational content, focusing on detailed explanations for older students.
-
-```python
-rag.query_with_separate_keyword_extraction(
-    query="Explain the law of gravity",
-    prompt="Provide a detailed explanation suitable for high school students studying physics.",
-    param=QueryParam(mode="hybrid")
-)
-```
-
-### Insert Custom KG
-
-```python
-custom_kg = {
-    "chunks": [
-        {
-            "content": "Alice and Bob are collaborating on quantum computing research.",
-            "source_id": "doc-1"
-        }
-    ],
-    "entities": [
-        {
-            "entity_name": "Alice",
-            "entity_type": "person",
-            "description": "Alice is a researcher specializing in quantum physics.",
-            "source_id": "doc-1"
-        },
-        {
-            "entity_name": "Bob",
-            "entity_type": "person",
-            "description": "Bob is a mathematician.",
-            "source_id": "doc-1"
-        },
-        {
-            "entity_name": "Quantum Computing",
-            "entity_type": "technology",
-            "description": "Quantum computing utilizes quantum mechanical phenomena for computation.",
-            "source_id": "doc-1"
-        }
-    ],
-    "relationships": [
-        {
-            "src_id": "Alice",
-            "tgt_id": "Bob",
-            "description": "Alice and Bob are research partners.",
-            "keywords": "collaboration research",
-            "weight": 1.0,
-            "source_id": "doc-1"
-        },
-        {
-            "src_id": "Alice",
-            "tgt_id": "Quantum Computing",
-            "description": "Alice conducts research on quantum computing.",
-            "keywords": "research expertise",
-            "weight": 1.0,
-            "source_id": "doc-1"
-        },
-        {
-            "src_id": "Bob",
-            "tgt_id": "Quantum Computing",
-            "description": "Bob researches quantum computing.",
-            "keywords": "research application",
-            "weight": 1.0,
-            "source_id": "doc-1"
-        }
-    ]
-}
-
-rag.insert_custom_kg(custom_kg)
-```
-
-</details>
-
-## Insert
-
-<details>
-  <summary> <b> Basic Insert </b></summary>
-
-```python
-# Basic Insert
-rag.insert("Text")
-```
-
-</details>
-
-<details>
-  <summary> <b> Batch Insert </b></summary>
-
-```python
-# Basic Batch Insert: Insert multiple texts at once
-rag.insert(["TEXT1", "TEXT2",...])
-
-# Batch Insert with custom batch size configuration
-rag = LightRAG(
-    working_dir=WORKING_DIR,
-    addon_params={
-        "insert_batch_size": 4  # Process 4 documents per batch
-    }
-)
-
-rag.insert(["TEXT1", "TEXT2", "TEXT3", ...])  # Documents will be processed in batches of 4
-```
-
-The `insert_batch_size` parameter in `addon_params` controls how many documents are processed in each batch during insertion. This is useful for:
-
-- Managing memory usage with large document collections
-- Optimizing processing speed
-- Providing better progress tracking
-- Default value is 10 if not specified
-
-</details>
-
-<details>
-  <summary> <b> Insert with ID </b></summary>
-
-If you want to provide your own IDs for your documents, number of documents and number of IDs must be the same.
-
-```python
-# Insert single text, and provide ID for it
-rag.insert("TEXT1", ids=["ID_FOR_TEXT1"])
-
-# Insert multiple texts, and provide IDs for them
-rag.insert(["TEXT1", "TEXT2",...], ids=["ID_FOR_TEXT1", "ID_FOR_TEXT2"])
-```
-
-</details>
-
-<details>
-  <summary><b>Insert using Pipeline</b></summary>
-
-The `apipeline_enqueue_documents` and `apipeline_process_enqueue_documents` functions allow you to perform incremental insertion of documents into the graph.
-
-This is useful for scenarios where you want to process documents in the background while still allowing the main thread to continue executing.
-
-And using a routine to process news documents.
-
-```python
-rag = LightRAG(..)
-
-await rag.apipeline_enqueue_documents(input)
-# Your routine in loop
-await rag.apipeline_process_enqueue_documents(input)
-```
-
-</details>
-
-<details>
-  <summary><b>Insert Multi-file Type Support</b></summary>
-
-The `textract` supports reading file types such as TXT, DOCX, PPTX, CSV, and PDF.
-
-```python
-import textract
-
-file_path = 'TEXT.pdf'
-text_content = textract.process(file_path)
-
-rag.insert(text_content.decode('utf-8'))
-```
-
-</details>
-
-<details>
-  <summary><b>Citation Functionality</b></summary>
-
-By providing file paths, the system ensures that sources can be traced back to their original documents.
-
-```python
-# Define documents and their file paths
-documents = ["Document content 1", "Document content 2"]
-file_paths = ["path/to/doc1.txt", "path/to/doc2.txt"]
-
-# Insert documents with file paths
-rag.insert(documents, file_paths=file_paths)
-```
-
-</details>
-
-## Storage
-
-<details>
-<summary> <b>Using Neo4J for Storage</b> </summary>
-
-* For production level scenarios you will most likely want to leverage an enterprise solution
-* for KG storage. Running Neo4J in Docker is recommended for seamless local testing.
-* See: https://hub.docker.com/_/neo4j
-
-```python
-export NEO4J_URI="neo4j://localhost:7687"
-export NEO4J_USERNAME="neo4j"
-export NEO4J_PASSWORD="password"
-
-# Setup logger for LightRAG
-setup_logger("lightrag", level="INFO")
-
-# When you launch the project be sure to override the default KG: NetworkX
-# by specifying kg="Neo4JStorage".
-
-# Note: Default settings use NetworkX
-# Initialize LightRAG with Neo4J implementation.
-async def initialize_rag():
-    rag = LightRAG(
-        working_dir=WORKING_DIR,
-        llm_model_func=gpt_4o_mini_complete,  # Use gpt_4o_mini_complete LLM model
-        graph_storage="Neo4JStorage", #<-----------override KG default
-    )
-
-    # Initialize database connections
-    await rag.initialize_storages()
-    # Initialize pipeline status for document processing
-    await initialize_pipeline_status()
-
-    return rag
-```
-
-see test_neo4j.py for a working example.
-
-</details>
-
-<details>
-<summary> <b>Using PostgreSQL for Storage</b> </summary>
-
-For production level scenarios you will most likely want to leverage an enterprise solution. PostgreSQL can provide a one-stop solution for you as KV store, VectorDB (pgvector) and GraphDB (apache AGE).
-
-* PostgreSQL is lightweight,the whole binary distribution including all necessary plugins can be zipped to 40MB: Ref to [Windows Release](https://github.com/ShanGor/apache-age-windows/releases/tag/PG17%2Fv1.5.0-rc0) as it is easy to install for Linux/Mac.
-* If you prefer docker, please start with this image if you are a beginner to avoid hiccups (DO read the overview): https://hub.docker.com/r/shangor/postgres-for-rag
-* How to start? Ref to: [examples/lightrag_zhipu_postgres_demo.py](https://github.com/HKUDS/LightRAG/blob/main/examples/lightrag_zhipu_postgres_demo.py)
-* Create index for AGE example: (Change below `dickens` to your graph name if necessary)
-  ```sql
-  load 'age';
-  SET search_path = ag_catalog, "$user", public;
-  CREATE INDEX CONCURRENTLY entity_p_idx ON dickens."Entity" (id);
-  CREATE INDEX CONCURRENTLY vertex_p_idx ON dickens."_ag_label_vertex" (id);
-  CREATE INDEX CONCURRENTLY directed_p_idx ON dickens."DIRECTED" (id);
-  CREATE INDEX CONCURRENTLY directed_eid_idx ON dickens."DIRECTED" (end_id);
-  CREATE INDEX CONCURRENTLY directed_sid_idx ON dickens."DIRECTED" (start_id);
-  CREATE INDEX CONCURRENTLY directed_seid_idx ON dickens."DIRECTED" (start_id,end_id);
-  CREATE INDEX CONCURRENTLY edge_p_idx ON dickens."_ag_label_edge" (id);
-  CREATE INDEX CONCURRENTLY edge_sid_idx ON dickens."_ag_label_edge" (start_id);
-  CREATE INDEX CONCURRENTLY edge_eid_idx ON dickens."_ag_label_edge" (end_id);
-  CREATE INDEX CONCURRENTLY edge_seid_idx ON dickens."_ag_label_edge" (start_id,end_id);
-  create INDEX CONCURRENTLY vertex_idx_node_id ON dickens."_ag_label_vertex" (ag_catalog.agtype_access_operator(properties, '"node_id"'::agtype));
-  create INDEX CONCURRENTLY entity_idx_node_id ON dickens."Entity" (ag_catalog.agtype_access_operator(properties, '"node_id"'::agtype));
-  CREATE INDEX CONCURRENTLY entity_node_id_gin_idx ON dickens."Entity" using gin(properties);
-  ALTER TABLE dickens."DIRECTED" CLUSTER ON directed_sid_idx;
-
-  -- drop if necessary
-  drop INDEX entity_p_idx;
-  drop INDEX vertex_p_idx;
-  drop INDEX directed_p_idx;
-  drop INDEX directed_eid_idx;
-  drop INDEX directed_sid_idx;
-  drop INDEX directed_seid_idx;
-  drop INDEX edge_p_idx;
-  drop INDEX edge_sid_idx;
-  drop INDEX edge_eid_idx;
-  drop INDEX edge_seid_idx;
-  drop INDEX vertex_idx_node_id;
-  drop INDEX entity_idx_node_id;
-  drop INDEX entity_node_id_gin_idx;
-  ```
-* Known issue of the Apache AGE: The released versions got below issue:
-  > You might find that the properties of the nodes/edges are empty.
-  > It is a known issue of the release version: https://github.com/apache/age/pull/1721
-  >
-  > You can Compile the AGE from source code and fix it.
-  >
-
-</details>
-
-<details>
-<summary> <b>Using Faiss for Storage</b> </summary>
-
-- Install the required dependencies:
-
-```
-pip install faiss-cpu
-```
-
-You can also install `faiss-gpu` if you have GPU support.
-
-- Here we are using `sentence-transformers` but you can also use `OpenAIEmbedding` model with `3072` dimensions.
-
-```python
-async def embedding_func(texts: list[str]) -> np.ndarray:
-    model = SentenceTransformer('all-MiniLM-L6-v2')
-    embeddings = model.encode(texts, convert_to_numpy=True)
-    return embeddings
-
-# Initialize LightRAG with the LLM model function and embedding function
-rag = LightRAG(
-    working_dir=WORKING_DIR,
-    llm_model_func=llm_model_func,
-    embedding_func=EmbeddingFunc(
-        embedding_dim=384,
-        max_token_size=8192,
-        func=embedding_func,
-    ),
-    vector_storage="FaissVectorDBStorage",
-    vector_db_storage_cls_kwargs={
-        "cosine_better_than_threshold": 0.3  # Your desired threshold
-    }
-)
-```
-
-</details>
-
-## Delete
-
-```python
-#  Delete Entity: Deleting entities by their names
-rag.delete_by_entity("Project Gutenberg")
-
-#  Delete Document: Deleting entities and relationships associated with the document by doc id
-rag.delete_by_doc_id("doc_id")
-```
-
-## Edit Entities and Relations
-
-LightRAG now supports comprehensive knowledge graph management capabilities, allowing you to create, edit, and delete entities and relationships within your knowledge graph.
-
-### Create Entities and Relations
-
-```python
-# Create new entity
-entity = rag.create_entity("Google", {
-    "description": "Google is a multinational technology company specializing in internet-related services and products.",
-    "entity_type": "company"
-})
-
-# Create another entity
-product = rag.create_entity("Gmail", {
-    "description": "Gmail is an email service developed by Google.",
-    "entity_type": "product"
-})
-
-# Create relation between entities
-relation = rag.create_relation("Google", "Gmail", {
-    "description": "Google develops and operates Gmail.",
-    "keywords": "develops operates service",
-    "weight": 2.0
-})
-```
-
-### Edit Entities and Relations
-
-```python
-# Edit an existing entity
-updated_entity = rag.edit_entity("Google", {
-    "description": "Google is a subsidiary of Alphabet Inc., founded in 1998.",
-    "entity_type": "tech_company"
-})
-
-# Rename an entity (with all its relationships properly migrated)
-renamed_entity = rag.edit_entity("Gmail", {
-    "entity_name": "Google Mail",
-    "description": "Google Mail (formerly Gmail) is an email service."
-})
-
-# Edit a relation between entities
-updated_relation = rag.edit_relation("Google", "Google Mail", {
-    "description": "Google created and maintains Google Mail service.",
-    "keywords": "creates maintains email service",
-    "weight": 3.0
-})
-```
-
-All operations are available in both synchronous and asynchronous versions. The asynchronous versions have the prefix "a" (e.g., `acreate_entity`, `aedit_relation`).
-
-#### Entity Operations
-
-- **create_entity**: Creates a new entity with specified attributes
-- **edit_entity**: Updates an existing entity's attributes or renames it
-
-#### Relation Operations
-
-- **create_relation**: Creates a new relation between existing entities
-- **edit_relation**: Updates an existing relation's attributes
-
-These operations maintain data consistency across both the graph database and vector database components, ensuring your knowledge graph remains coherent.
-
-## Data Export Functions
-
-### Overview
-
-LightRAG allows you to export your knowledge graph data in various formats for analysis, sharing, and backup purposes. The system supports exporting entities, relations, and relationship data.
-
-### Export Functions
-
-#### Basic Usage
-
-```python
-# Basic CSV export (default format)
-rag.export_data("knowledge_graph.csv")
-
-# Specify any format
-rag.export_data("output.xlsx", file_format="excel")
-```
-
-#### Different File Formats supported
-
-```python
-#Export data in CSV format
-rag.export_data("graph_data.csv", file_format="csv")
-
-# Export data in Excel sheet
-rag.export_data("graph_data.xlsx", file_format="excel")
-
-# Export data in markdown format
-rag.export_data("graph_data.md", file_format="md")
-
-# Export data in Text
-rag.export_data("graph_data.txt", file_format="txt")
-```
-#### Additional Options
-
-Include vector embeddings in the export (optional):
-
-```python
-rag.export_data("complete_data.csv", include_vector_data=True)
-```
-### Data Included in Export
-
-All exports include:
-
-* Entity information (names, IDs, metadata)
-* Relation data (connections between entities)
-* Relationship information from vector database
-
-
-## Entity Merging
-
-<details>
-<summary> <b>Merge Entities and Their Relationships</b> </summary>
-
-LightRAG now supports merging multiple entities into a single entity, automatically handling all relationships:
-
-```python
-# Basic entity merging
-rag.merge_entities(
-    source_entities=["Artificial Intelligence", "AI", "Machine Intelligence"],
-    target_entity="AI Technology"
-)
-```
-
-With custom merge strategy:
-
-```python
-# Define custom merge strategy for different fields
-rag.merge_entities(
-    source_entities=["John Smith", "Dr. Smith", "J. Smith"],
-    target_entity="John Smith",
-    merge_strategy={
-        "description": "concatenate",  # Combine all descriptions
-        "entity_type": "keep_first",   # Keep the entity type from the first entity
-        "source_id": "join_unique"     # Combine all unique source IDs
-    }
-)
-```
-
-With custom target entity data:
-
-```python
-# Specify exact values for the merged entity
-rag.merge_entities(
-    source_entities=["New York", "NYC", "Big Apple"],
-    target_entity="New York City",
-    target_entity_data={
-        "entity_type": "LOCATION",
-        "description": "New York City is the most populous city in the United States.",
-    }
-)
-```
-
-Advanced usage combining both approaches:
-
-```python
-# Merge company entities with both strategy and custom data
-rag.merge_entities(
-    source_entities=["Microsoft Corp", "Microsoft Corporation", "MSFT"],
-    target_entity="Microsoft",
-    merge_strategy={
-        "description": "concatenate",  # Combine all descriptions
-        "source_id": "join_unique"     # Combine source IDs
+#### Environment Variables Reference
+
+| Category              | Variable                | Description                       | Default                                   |
+| --------------------- | ----------------------- | --------------------------------- | ----------------------------------------- |
+| **API Configuration** | `OPENROUTER_API_KEY`    | OpenRouter API key for LLM access | Required                                  |
+|                       | `OPENAI_API_KEY`        | OpenAI API key (alternative)      | Optional                                  |
+|                       | `ANTHROPIC_API_KEY`     | Anthropic API key (alternative)   | Optional                                  |
+| **Database**          | `DATABASE_URL`          | Database connection string        | `sqlite:///./AppDbStore/threathunting.db` |
+|                       | `REDIS_URL`             | Redis connection string           | `redis://localhost:6379`                  |
+| **Security**          | `SECRET_KEY`            | Application secret key            | Required                                  |
+|                       | `JWT_SECRET_KEY`        | JWT signing key                   | Required                                  |
+| **Application**       | `DEBUG`                 | Debug mode                        | `true`                                    |
+|                       | `LOG_LEVEL`             | Logging level                     | `INFO`                                    |
+|                       | `ENVIRONMENT`           | Environment name                  | `development`                             |
+| **Frontend**          | `REACT_APP_API_URL`     | Backend API URL                   | `http://localhost:8000`                   |
+|                       | `REACT_APP_ENVIRONMENT` | Frontend environment              | `development`                             |
+| **Knowledge Graph**   | `KG_STORAGE_PATH`       | KG storage directory              | `./custom_kg`                             |
+|                       | `KG_CACHE_ENABLED`      | Enable KG caching                 | `true`                                    |
+| **File Upload**       | `MAX_FILE_SIZE`         | Max file size in bytes            | `104857600` (100MB)                       |
+|                       | `ALLOWED_FILE_TYPES`    | Allowed file extensions           | `.csv,.json,.txt,.log,.pcap`              |
+| **Rate Limiting**     | `RATE_LIMIT_REQUESTS`   | Requests per window               | `100`                                     |
+|                       | `RATE_LIMIT_WINDOW`     | Rate limit window in seconds      | `3600`                                    |
+| **Monitoring**        | `ENABLE_METRICS`        | Enable metrics collection         | `true`                                    |
+|                       | `METRICS_PORT`          | Metrics server port               | `9090`                                    |
+
+#### LLM Configuration
+
+| Variable          | Description                    | Default          |
+| ----------------- | ------------------------------ | ---------------- |
+| `LLM_BINDING`     | LLM provider (ollama/deepseek) | `ollama`         |
+| `LLM_MODEL`       | Model name                     | `mistral:latest` |
+| `EMBEDDING_MODEL` | Embedding model                | `bge-m3:latest`  |
+| `WORKING_DIR`     | Data storage directory         | `/app`           |
+
+#### Security Best Practices
+
+1. **Never commit `.env` files to version control**
+
+   ```bash
+   # .gitignore should include:
+   .env
+   .env.local
+   .env.prod
+   ```
+
+2. **Use strong, unique secrets**
+
+   ```bash
+   # Generate secure secrets
+   openssl rand -hex 32  # For SECRET_KEY
+   openssl rand -hex 32  # For JWT_SECRET_KEY
+   ```
+
+3. **Environment-specific configurations**
+
+   ```bash
+   # Development
+   cp env.example .env
+
+   # Production
+   cp env.example .env.prod
+   # Edit with production values
+   ```
+
+4. **Docker Compose with environment files**
+
+   ```bash
+   # Development
+   docker-compose -f docker-compose.dev.yml --env-file .env up
+
+   # Production
+   docker-compose -f docker-compose.prod.yml --env-file .env.prod up -d
+   ```
+
+---
+
+## 🔧 Configuration
+
+### Backend Configuration
+
+The backend API (`api.py`) provides the following key endpoints:
+
+#### Core Endpoints
+
+- `GET /` - Health check and API information
+- `POST /build-kg` - Build knowledge graph from uploaded files
+- `GET /graph-data` - Retrieve graph data for visualization
+- `POST /query/stream` - Streaming chat interface
+- `GET /graph-folders-names` - List available knowledge graphs
+
+#### Playbook Integration
+
+- `POST /generate-playbooks` - Generate enriched security playbooks
+- `POST /fetch-playbooks` - Fetch playbooks from external sources
+- `POST /extract-playbook` - Extract playbook from URL
+
+### Frontend Configuration
+
+The React frontend (`threadHunterUI/`) includes:
+
+#### Key Components
+
+- **KnowledgeGraphContainer**: Main graph visualization
+- **ChatContainer**: AI chat interface
+- **FileUpload**: Drag-and-drop file upload
+- **GraphControls**: Graph manipulation controls
+
+#### Development Configuration
+
+```typescript
+// vite.config.ts
+export default defineConfig({
+  server: {
+    port: 3000,
+    host: "0.0.0.0",
+    proxy: {
+      "/api": {
+        target: "http://backend:8000",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
     },
-    target_entity_data={
-        "entity_type": "ORGANIZATION",
-    }
-)
+  },
+});
 ```
 
-When merging entities:
+---
 
-* All relationships from source entities are redirected to the target entity
-* Duplicate relationships are intelligently merged
-* Self-relationships (loops) are prevented
-* Source entities are removed after merging
-* Relationship weights and attributes are preserved
+## 💻 Usage
 
-</details>
+### 1. **Building Knowledge Graphs**
 
-## Cache
+#### Upload Network Flow Data
 
-<details>
-  <summary> <b>Clear Cache</b> </summary>
+1. Navigate to the web interface at `http://localhost:3000`
+2. Drag and drop a CSV file containing network flow data
+3. The system will automatically:
+   - Parse the CSV structure
+   - Identify entities (IPs, ports, protocols)
+   - Build relationships between entities
+   - Create a knowledge graph
 
-You can clear the LLM response cache with different modes:
+#### Supported File Formats
 
-```python
-# Clear all cache
-await rag.aclear_cache()
+- **CSV**: Network flow data with columns like Source IP, Destination IP, Protocol, etc.
+- **PCAP**: Packet capture files (planned feature)
 
-# Clear local mode cache
-await rag.aclear_cache(modes=["local"])
+### 2. **Querying the Knowledge Graph**
 
-# Clear extraction cache
-await rag.aclear_cache(modes=["default"])
+#### Natural Language Queries
 
-# Clear multiple modes
-await rag.aclear_cache(modes=["local", "global", "hybrid"])
+Use the chat interface to ask questions like:
 
-# Synchronous version
-rag.clear_cache(modes=["local"])
-```
+- "What are the most active IP addresses in the network?"
+- "Show me all connections to external IPs"
+- "Identify potential data exfiltration patterns"
+- "What services are running on port 443?"
 
-Valid modes are:
+#### Advanced Queries
 
-- `"default"`: Extraction cache
-- `"naive"`: Naive search cache
-- `"local"`: Local search cache
-- `"global"`: Global search cache
-- `"hybrid"`: Hybrid search cache
-- `"mix"`: Mix search cache
+- **Entity Analysis**: "Analyze the behavior of IP 192.168.1.100"
+- **Pattern Detection**: "Find unusual connection patterns"
+- **Threat Assessment**: "Assess the security posture of this network"
 
-</details>
+### 3. **Visualizing the Network**
 
-## LightRAG init parameters
+#### Interactive Graph Features
 
-<details>
-<summary> Parameters </summary>
+- **Zoom and Pan**: Navigate through large networks
+- **Node Selection**: Click nodes to see detailed information
+- **Edge Inspection**: Hover over connections to see relationship details
+- **Search**: Find specific entities by name or IP
 
-| **Parameter** | **Type** | **Explanation** | **Default** |
-|--------------|----------|-----------------|-------------|
-| **working_dir** | `str` | Directory where the cache will be stored | `lightrag_cache+timestamp` |
-| **kv_storage** | `str` | Storage type for documents and text chunks. Supported types: `JsonKVStorage`, `OracleKVStorage` | `JsonKVStorage` |
-| **vector_storage** | `str` | Storage type for embedding vectors. Supported types: `NanoVectorDBStorage`, `OracleVectorDBStorage` | `NanoVectorDBStorage` |
-| **graph_storage** | `str` | Storage type for graph edges and nodes. Supported types: `NetworkXStorage`, `Neo4JStorage`, `OracleGraphStorage` | `NetworkXStorage` |
-| **chunk_token_size** | `int` | Maximum token size per chunk when splitting documents | `1200` |
-| **chunk_overlap_token_size** | `int` | Overlap token size between two chunks when splitting documents | `100` |
-| **tiktoken_model_name** | `str` | Model name for the Tiktoken encoder used to calculate token numbers | `gpt-4o-mini` |
-| **entity_extract_max_gleaning** | `int` | Number of loops in the entity extraction process, appending history messages | `1` |
-| **entity_summary_to_max_tokens** | `int` | Maximum token size for each entity summary | `500` |
-| **node_embedding_algorithm** | `str` | Algorithm for node embedding (currently not used) | `node2vec` |
-| **node2vec_params** | `dict` | Parameters for node embedding | `{"dimensions": 1536,"num_walks": 10,"walk_length": 40,"window_size": 2,"iterations": 3,"random_seed": 3,}` |
-| **embedding_func** | `EmbeddingFunc` | Function to generate embedding vectors from text | `openai_embed` |
-| **embedding_batch_num** | `int` | Maximum batch size for embedding processes (multiple texts sent per batch) | `32` |
-| **embedding_func_max_async** | `int` | Maximum number of concurrent asynchronous embedding processes | `16` |
-| **llm_model_func** | `callable` | Function for LLM generation | `gpt_4o_mini_complete` |
-| **llm_model_name** | `str` | LLM model name for generation | `meta-llama/Llama-3.2-1B-Instruct` |
-| **llm_model_max_token_size** | `int` | Maximum token size for LLM generation (affects entity relation summaries) | `32768`（default value changed by env var MAX_TOKENS) |
-| **llm_model_max_async** | `int` | Maximum number of concurrent asynchronous LLM processes | `4`（default value changed by env var MAX_ASYNC) |
-| **llm_model_kwargs** | `dict` | Additional parameters for LLM generation | |
-| **vector_db_storage_cls_kwargs** | `dict` | Additional parameters for vector database, like setting the threshold for nodes and relations retrieval | cosine_better_than_threshold: 0.2（default value changed by env var COSINE_THRESHOLD) |
-| **enable_llm_cache** | `bool` | If `TRUE`, stores LLM results in cache; repeated prompts return cached responses | `TRUE` |
-| **enable_llm_cache_for_entity_extract** | `bool` | If `TRUE`, stores LLM results in cache for entity extraction; Good for beginners to debug your application | `TRUE` |
-| **addon_params** | `dict` | Additional parameters, e.g., `{"example_number": 1, "language": "Simplified Chinese", "entity_types": ["organization", "person", "geo", "event"], "insert_batch_size": 10}`: sets example limit, output language, and batch size for document processing | `example_number: all examples, language: English, insert_batch_size: 10` |
-| **convert_response_to_json_func** | `callable` | Not used | `convert_response_to_json` |
-| **embedding_cache_config** | `dict` | Configuration for question-answer caching. Contains three parameters: `enabled`: Boolean value to enable/disable cache lookup functionality. When enabled, the system will check cached responses before generating new answers. `similarity_threshold`: Float value (0-1), similarity threshold. When a new question's similarity with a cached question exceeds this threshold, the cached answer will be returned directly without calling the LLM. `use_llm_check`: Boolean value to enable/disable LLM similarity verification. When enabled, LLM will be used as a secondary check to verify the similarity between questions before returning cached answers. | Default: `{"enabled": False, "similarity_threshold": 0.95, "use_llm_check": False}` |
+#### Graph Controls
 
-</details>
+- **Layout Algorithms**: Choose between different graph layouts
+- **Clustering**: Group related entities together
+- **Filtering**: Show/hide specific entity types
+- **Export**: Save graph visualizations
 
-## Error Handling
+### 4. **Security Playbook Integration**
 
-<details>
-<summary>Click to view error handling details</summary>
+#### Automatic Playbook Processing
 
-The API includes comprehensive error handling:
+The system can:
 
-- File not found errors (404)
-- Processing errors (500)
-- Supports multiple file encodings (UTF-8 and GBK)
+- Fetch playbooks from security blogs and repositories
+- Extract threat indicators and procedures
+- Integrate playbook knowledge into the RAG system
+- Provide context-aware threat hunting guidance
 
-</details>
+---
 
-## LightRAG API
+## 🔍 API Reference
 
-The LightRAG Server is designed to provide Web UI and API support.  **For more information about LightRAG Server, please refer to [LightRAG Server](./lightrag/api/README.md).**
+### Core API Endpoints
 
-## Graph Visualization
+#### Knowledge Graph Management
 
-The LightRAG Server offers a comprehensive knowledge graph visualization feature. It supports various gravity layouts, node queries, subgraph filtering, and more. **For more information about LightRAG Server, please refer to [LightRAG Server](./lightrag/api/README.md).**
+**POST** `/api/build-kg`
+Build a knowledge graph from uploaded file data.
 
-![iShot_2025-03-23_12.40.08](./README.assets/iShot_2025-03-23_12.40.08.png)
-
-## Evaluation
-
-### Dataset
-
-The dataset used in LightRAG can be downloaded from [TommyChien/UltraDomain](https://huggingface.co/datasets/TommyChien/UltraDomain).
-
-### Generate Query
-
-LightRAG uses the following prompt to generate high-level queries, with the corresponding code in `example/generate_query.py`.
-
-<details>
-<summary> Prompt </summary>
-
-```python
-Given the following description of a dataset:
-
-{description}
-
-Please identify 5 potential users who would engage with this dataset. For each user, list 5 tasks they would perform with this dataset. Then, for each (user, task) combination, generate 5 questions that require a high-level understanding of the entire dataset.
-
-Output the results in the following structure:
-- User 1: [user description]
-    - Task 1: [task description]
-        - Question 1:
-        - Question 2:
-        - Question 3:
-        - Question 4:
-        - Question 5:
-    - Task 2: [task description]
-        ...
-    - Task 5: [task description]
-- User 2: [user description]
-    ...
-- User 5: [user description]
-    ...
-```
-
-</details>
-
-### Batch Eval
-
-To evaluate the performance of two RAG systems on high-level queries, LightRAG uses the following prompt, with the specific code available in `example/batch_eval.py`.
-
-<details>
-<summary> Prompt </summary>
-
-```python
----Role---
-You are an expert tasked with evaluating two answers to the same question based on three criteria: **Comprehensiveness**, **Diversity**, and **Empowerment**.
----Goal---
-You will evaluate two answers to the same question based on three criteria: **Comprehensiveness**, **Diversity**, and **Empowerment**.
-
-- **Comprehensiveness**: How much detail does the answer provide to cover all aspects and details of the question?
-- **Diversity**: How varied and rich is the answer in providing different perspectives and insights on the question?
-- **Empowerment**: How well does the answer help the reader understand and make informed judgments about the topic?
-
-For each criterion, choose the better answer (either Answer 1 or Answer 2) and explain why. Then, select an overall winner based on these three categories.
-
-Here is the question:
-{query}
-
-Here are the two answers:
-
-**Answer 1:**
-{answer1}
-
-**Answer 2:**
-{answer2}
-
-Evaluate both answers using the three criteria listed above and provide detailed explanations for each criterion.
-
-Output your evaluation in the following JSON format:
-
-{{
-    "Comprehensiveness": {{
-        "Winner": "[Answer 1 or Answer 2]",
-        "Explanation": "[Provide explanation here]"
-    }},
-    "Empowerment": {{
-        "Winner": "[Answer 1 or Answer 2]",
-        "Explanation": "[Provide explanation here]"
-    }},
-    "Overall Winner": {{
-        "Winner": "[Answer 1 or Answer 2]",
-        "Explanation": "[Summarize why this answer is the overall winner based on the three criteria]"
-    }}
-}}
-```
-
-</details>
-
-### Overall Performance Table
-
-|                      |**Agriculture**|            |**CS**|            |**Legal**|            |**Mix**|            |
-|----------------------|---------------|------------|------|------------|---------|------------|-------|------------|
-|                      |NaiveRAG|**LightRAG**|NaiveRAG|**LightRAG**|NaiveRAG|**LightRAG**|NaiveRAG|**LightRAG**|
-|**Comprehensiveness**|32.4%|**67.6%**|38.4%|**61.6%**|16.4%|**83.6%**|38.8%|**61.2%**|
-|**Diversity**|23.6%|**76.4%**|38.0%|**62.0%**|13.6%|**86.4%**|32.4%|**67.6%**|
-|**Empowerment**|32.4%|**67.6%**|38.8%|**61.2%**|16.4%|**83.6%**|42.8%|**57.2%**|
-|**Overall**|32.4%|**67.6%**|38.8%|**61.2%**|15.2%|**84.8%**|40.0%|**60.0%**|
-|                      |RQ-RAG|**LightRAG**|RQ-RAG|**LightRAG**|RQ-RAG|**LightRAG**|RQ-RAG|**LightRAG**|
-|**Comprehensiveness**|31.6%|**68.4%**|38.8%|**61.2%**|15.2%|**84.8%**|39.2%|**60.8%**|
-|**Diversity**|29.2%|**70.8%**|39.2%|**60.8%**|11.6%|**88.4%**|30.8%|**69.2%**|
-|**Empowerment**|31.6%|**68.4%**|36.4%|**63.6%**|15.2%|**84.8%**|42.4%|**57.6%**|
-|**Overall**|32.4%|**67.6%**|38.0%|**62.0%**|14.4%|**85.6%**|40.0%|**60.0%**|
-|                      |HyDE|**LightRAG**|HyDE|**LightRAG**|HyDE|**LightRAG**|HyDE|**LightRAG**|
-|**Comprehensiveness**|26.0%|**74.0%**|41.6%|**58.4%**|26.8%|**73.2%**|40.4%|**59.6%**|
-|**Diversity**|24.0%|**76.0%**|38.8%|**61.2%**|20.0%|**80.0%**|32.4%|**67.6%**|
-|**Empowerment**|25.2%|**74.8%**|40.8%|**59.2%**|26.0%|**74.0%**|46.0%|**54.0%**|
-|**Overall**|24.8%|**75.2%**|41.6%|**58.4%**|26.4%|**73.6%**|42.4%|**57.6%**|
-|                      |GraphRAG|**LightRAG**|GraphRAG|**LightRAG**|GraphRAG|**LightRAG**|GraphRAG|**LightRAG**|
-|**Comprehensiveness**|45.6%|**54.4%**|48.4%|**51.6%**|48.4%|**51.6%**|**50.4%**|49.6%|
-|**Diversity**|22.8%|**77.2%**|40.8%|**59.2%**|26.4%|**73.6%**|36.0%|**64.0%**|
-|**Empowerment**|41.2%|**58.8%**|45.2%|**54.8%**|43.6%|**56.4%**|**50.8%**|49.2%|
-|**Overall**|45.2%|**54.8%**|48.0%|**52.0%**|47.2%|**52.8%**|**50.4%**|49.6%|
-
-## Reproduce
-
-All the code can be found in the `./reproduce` directory.
-
-### Step-0 Extract Unique Contexts
-
-First, we need to extract unique contexts in the datasets.
-
-<details>
-<summary> Code </summary>
-
-```python
-def extract_unique_contexts(input_directory, output_directory):
-
-    os.makedirs(output_directory, exist_ok=True)
-
-    jsonl_files = glob.glob(os.path.join(input_directory, '*.jsonl'))
-    print(f"Found {len(jsonl_files)} JSONL files.")
-
-    for file_path in jsonl_files:
-        filename = os.path.basename(file_path)
-        name, ext = os.path.splitext(filename)
-        output_filename = f"{name}_unique_contexts.json"
-        output_path = os.path.join(output_directory, output_filename)
-
-        unique_contexts_dict = {}
-
-        print(f"Processing file: {filename}")
-
-        try:
-            with open(file_path, 'r', encoding='utf-8') as infile:
-                for line_number, line in enumerate(infile, start=1):
-                    line = line.strip()
-                    if not line:
-                        continue
-                    try:
-                        json_obj = json.loads(line)
-                        context = json_obj.get('context')
-                        if context and context not in unique_contexts_dict:
-                            unique_contexts_dict[context] = None
-                    except json.JSONDecodeError as e:
-                        print(f"JSON decoding error in file {filename} at line {line_number}: {e}")
-        except FileNotFoundError:
-            print(f"File not found: {filename}")
-            continue
-        except Exception as e:
-            print(f"An error occurred while processing file {filename}: {e}")
-            continue
-
-        unique_contexts_list = list(unique_contexts_dict.keys())
-        print(f"There are {len(unique_contexts_list)} unique `context` entries in the file {filename}.")
-
-        try:
-            with open(output_path, 'w', encoding='utf-8') as outfile:
-                json.dump(unique_contexts_list, outfile, ensure_ascii=False, indent=4)
-            print(f"Unique `context` entries have been saved to: {output_filename}")
-        except Exception as e:
-            print(f"An error occurred while saving to the file {output_filename}: {e}")
-
-    print("All files have been processed.")
-
-```
-
-</details>
-
-### Step-1 Insert Contexts
-
-For the extracted contexts, we insert them into the LightRAG system.
-
-<details>
-<summary> Code </summary>
-
-```python
-def insert_text(rag, file_path):
-    with open(file_path, mode='r') as f:
-        unique_contexts = json.load(f)
-
-    retries = 0
-    max_retries = 3
-    while retries < max_retries:
-        try:
-            rag.insert(unique_contexts)
-            break
-        except Exception as e:
-            retries += 1
-            print(f"Insertion failed, retrying ({retries}/{max_retries}), error: {e}")
-            time.sleep(10)
-    if retries == max_retries:
-        print("Insertion failed after exceeding the maximum number of retries")
-```
-
-</details>
-
-### Step-2 Generate Queries
-
-We extract tokens from the first and the second half of each context in the dataset, then combine them as dataset descriptions to generate queries.
-
-<details>
-<summary> Code </summary>
-
-```python
-tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-
-def get_summary(context, tot_tokens=2000):
-    tokens = tokenizer.tokenize(context)
-    half_tokens = tot_tokens // 2
-
-    start_tokens = tokens[1000:1000 + half_tokens]
-    end_tokens = tokens[-(1000 + half_tokens):1000]
-
-    summary_tokens = start_tokens + end_tokens
-    summary = tokenizer.convert_tokens_to_string(summary_tokens)
-
-    return summary
-```
-
-</details>
-
-### Step-3 Query
-
-For the queries generated in Step-2, we will extract them and query LightRAG.
-
-<details>
-<summary> Code </summary>
-
-```python
-def extract_queries(file_path):
-    with open(file_path, 'r') as f:
-        data = f.read()
-
-    data = data.replace('**', '')
-
-    queries = re.findall(r'- Question \d+: (.+)', data)
-
-    return queries
-```
-
-</details>
-
-## Star History
-
-<a href="https://star-history.com/#HKUDS/LightRAG&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=HKUDS/LightRAG&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=HKUDS/LightRAG&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=HKUDS/LightRAG&type=Date" />
- </picture>
-</a>
-
-## Contribution
-
-Thank you to all our contributors!
-
-<a href="https://github.com/HKUDS/LightRAG/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=HKUDS/LightRAG" />
-</a>
-
-## 🌟Citation
-
-```python
-@article{guo2024lightrag,
-title={LightRAG: Simple and Fast Retrieval-Augmented Generation},
-author={Zirui Guo and Lianghao Xia and Yanhua Yu and Tu Ao and Chao Huang},
-year={2024},
-eprint={2410.05779},
-archivePrefix={arXiv},
-primaryClass={cs.IR}
+```json
+{
+  "file": "network_flows.csv",
+  "source_column": "Source IP",
+  "target_column": "Destination IP",
+  "relationship_columns": ["Protocol", "Service"],
+  "working_dir": "./custom_kg"
 }
 ```
+
+**GET** `/api/graph-data`
+Retrieve graph data for visualization.
+
+```json
+{
+  "nodes": [
+    {
+      "id": "192.168.1.100",
+      "label": "192.168.1.100",
+      "type": "IP Address",
+      "properties": {...}
+    }
+  ],
+  "edges": [
+    {
+      "from": "192.168.1.100",
+      "to": "8.8.8.8",
+      "label": "DNS Query",
+      "properties": {...}
+    }
+  ]
+}
+```
+
+#### Chat Interface
+
+**POST** `/api/query/stream`
+Streaming chat interface with RAG-powered responses.
+
+```json
+{
+  "query": "What are the suspicious connections in this network?",
+  "dir_path": "./custom_kg",
+  "conversation_history": []
+}
+```
+
+#### Playbook Management
+
+**POST** `/api/generate-playbooks`
+Generate enriched security playbooks.
+
+```json
+{
+  "year": "2023",
+  "max_samples": 5
+}
+```
+
+### Response Formats
+
+#### Streaming Response
+
+```
+data: {"token": "Based on the network analysis, "}
+data: {"token": "I can identify several suspicious patterns..."}
+data: [DONE]
+```
+
+#### Error Response
+
+```json
+{
+  "detail": "Error message",
+  "status_code": 500
+}
+```
+
+---
+
+## 🎨 Frontend Components
+
+### Core Components
+
+#### KnowledgeGraphContainer
+
+Main container for graph visualization and interaction.
+
+**Features:**
+
+- File upload with drag-and-drop
+- Graph rendering with vis.js
+- Real-time updates
+- Interactive controls
+
+#### ChatContainer
+
+AI-powered chat interface for querying the knowledge graph.
+
+**Features:**
+
+- Streaming responses
+- Message history
+- Context-aware suggestions
+- Markdown rendering
+
+#### GraphControls
+
+Controls for manipulating graph visualization.
+
+**Features:**
+
+- Layout selection
+- Zoom controls
+- Filter options
+- Export functionality
+
+### State Management
+
+The frontend uses React Context for state management:
+
+#### ChatContext
+
+Manages chat messages, loading states, and conversation history.
+
+#### GraphContext
+
+Handles graph data, loading states, and graph operations.
+
+#### ThemeContext
+
+Manages dark/light theme preferences.
+
+### Worker Threads
+
+#### GraphWorker
+
+Web Worker for processing graph data and performing heavy computations.
+
+**Capabilities:**
+
+- Graph data processing
+- Search operations
+- Layout calculations
+- Background tasks
+
+---
+
+## 🔄 Development
+
+### Development Environment Setup
+
+#### 1. **Hot Reload Configuration**
+
+The development environment includes comprehensive hot reload:
+
+**Backend Hot Reload:**
+
+```bash
+# Manual file watching with automatic server restart
+./dev-start.sh
+```
+
+**Frontend Hot Reload:**
+
+```bash
+# Vite development server with proxy configuration
+npm run dev
+```
+
+#### 2. **Docker Development**
+
+**Development Compose:**
+
+```yaml
+# docker-compose.dev.yml
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./api.py:/app/api.py
+      - ./agent.py:/app/agent.py
+      # ... other source files
+    environment:
+      - PYTHONUNBUFFERED=1
+      - WATCHDOG_TIMEOUT=1
+```
+
+#### 3. **Environment Variables**
+
+**Development Configuration:**
+
+```bash
+# env.dev
+LLM_BINDING=ollama
+LLM_MODEL=mistral:latest
+EMBEDDING_MODEL=bge-m3:latest
+LOG_LEVEL=DEBUG
+VERBOSE=True
+```
+
+### Development Workflow
+
+#### 1. **Making Changes**
+
+```bash
+# Start development environment
+./dev-sudo.sh
+
+# Make changes to files
+# Backend: api.py, agent.py
+# Frontend: src/components/*
+
+# Changes are automatically detected and reloaded
+```
+
+#### 2. **Testing Changes**
+
+```bash
+# Test API endpoints
+curl http://localhost:8000/test-hot-reload
+
+# Test frontend
+# Open http://localhost:3000 in browser
+```
+
+#### 3. **Debugging**
+
+```bash
+# View backend logs
+docker-compose -f docker-compose.dev.yml logs backend
+
+# View frontend logs
+docker-compose -f docker-compose.dev.yml logs frontend
+```
+
+### Code Structure
+
+```
+LightRag-ThreatHunting/
+├── api.py                 # FastAPI backend server
+├── agent.py              # RAG agent and LLM integration
+├── dev-start.sh          # Development startup script
+├── docker-compose.dev.yml # Development Docker configuration
+├── Dockerfile.dev        # Development Dockerfile
+├── threadHunterUI/       # React frontend
+│   ├── src/
+│   │   ├── components/   # React components
+│   │   ├── context/      # React context providers
+│   │   ├── hooks/        # Custom React hooks
+│   │   ├── services/     # API services
+│   │   └── workers/      # Web workers
+│   ├── vite.config.ts    # Vite configuration
+│   └── package.json      # Frontend dependencies
+├── AppDbStore/           # Knowledge graph storage
+├── custom_kg/            # Custom knowledge graphs
+└── examples/             # Example data and scripts
+```
+
+---
+
+## 📊 Knowledge Graph Structure
+
+### Entity Types
+
+The system automatically identifies and categorizes entities:
+
+#### Network Entities
+
+- **IP Address**: IPv4/IPv6 addresses (e.g., `192.168.1.100`)
+- **Port**: Network ports (e.g., `443`, `8080`)
+- **Protocol**: Network protocols (e.g., `TCP`, `UDP`, `HTTP`)
+- **Service**: Application services (e.g., `HTTPS`, `SSH`, `DNS`)
+
+#### Behavioral Entities
+
+- **Traffic Class**: Categorized traffic types
+- **Network Entity**: Generic network objects
+- **Threat Indicator**: Suspicious patterns and behaviors
+
+### Relationship Types
+
+#### Network Relationships
+
+- **Connection**: Direct network connections between entities
+- **Service Access**: Service-to-port relationships
+- **Protocol Usage**: Entity-to-protocol associations
+
+#### Behavioral Relationships
+
+- **Data Flow**: Information transfer patterns
+- **Dependency**: Service dependencies
+- **Threat Association**: Links to threat indicators
+
+### Graph Properties
+
+#### Node Properties
+
+```json
+{
+  "id": "192.168.1.100",
+  "label": "192.168.1.100",
+  "type": "IP Address",
+  "properties": {
+    "connection_count": 15,
+    "external_connections": 3,
+    "suspicious_score": 0.7,
+    "last_seen": "2024-01-15T10:30:00Z"
+  }
+}
+```
+
+#### Edge Properties
+
+```json
+{
+  "from": "192.168.1.100",
+  "to": "8.8.8.8",
+  "label": "DNS Query",
+  "properties": {
+    "protocol": "UDP",
+    "port": 53,
+    "frequency": "high",
+    "data_volume": "low"
+  }
+}
+```
+
+---
+
+## 🔐 Security
+
+### Security Features
+
+#### Input Validation
+
+- **File Upload Validation**: Strict validation of uploaded files
+- **API Input Sanitization**: All API inputs are validated and sanitized
+- **CORS Configuration**: Proper CORS settings for cross-origin requests
+
+#### Authentication & Authorization
+
+- **API Key Support**: Optional API key authentication
+- **Rate Limiting**: Built-in rate limiting for API endpoints
+- **Request Validation**: Pydantic models for request validation
+
+#### Data Security
+
+- **Secure Storage**: Knowledge graphs stored in isolated containers
+- **Temporary File Cleanup**: Automatic cleanup of temporary files
+- **Log Sanitization**: Sensitive data removed from logs
+
+### Best Practices
+
+#### Development Security
+
+```bash
+# Use environment variables for sensitive data
+export OPENROUTER_API_KEY="your-api-key"
+
+# Regular security updates
+docker-compose pull
+docker-compose build --no-cache
+```
+
+#### Production Security
+
+```bash
+# Use production Docker configuration
+./prod.sh
+
+# Enable SSL/TLS
+# Configure firewall rules
+# Set up monitoring and alerting
+```
+
+---
+
+## 🤝 Contributing
+
+### Development Guidelines
+
+#### Code Style
+
+- **Python**: Follow PEP 8 guidelines
+- **TypeScript**: Use strict TypeScript configuration
+- **React**: Follow React best practices and hooks
+
+#### Testing
+
+```bash
+# Run backend tests
+python -m pytest tests/
+
+# Run frontend tests
+cd threadHunterUI
+npm test
+```
+
+#### Documentation
+
+- Update README for new features
+- Add API documentation for new endpoints
+- Include code comments for complex logic
+
+### Contribution Process
+
+1. **Fork the repository**
+2. **Create a feature branch**
+3. **Make your changes**
+4. **Add tests and documentation**
+5. **Submit a pull request**
+
+### Development Setup
+
+```bash
+# Clone repository
+git clone <repository-url>
+cd LightRag-ThreatHunting
+
+# Set up development environment
+./dev-sudo.sh
+
+# Make changes and test
+# Submit pull request
+```
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### Acknowledgments
+
+- **LightRAG Team**: For the powerful RAG framework
+- **FastAPI**: For the excellent web framework
+- **React Community**: For the frontend ecosystem
+- **Docker**: For containerization technology
+
+---
+
+## 📞 Support
+
+### Getting Help
+
+- **Documentation**: Check this README and inline code comments
+- **Issues**: Report bugs and feature requests on GitHub
+- **Discussions**: Join community discussions for questions and ideas
+
+### Community
+
+- **GitHub**: [Repository](https://github.com/your-repo)
+- **Discord**: [Community Server](https://discord.gg/your-server)
+- **Email**: [Contact](mailto:your-email@domain.com)
+
+---
+
+<div align="center">
+
+**Built with ❤️ for the cybersecurity community**
+
+_Empowering threat hunters with AI-powered knowledge graphs_
+
+</div>
 
 **Thank you for your interest in our work!**
