@@ -349,30 +349,6 @@ async def stream_response(response: str):
         yield "data: [DONE]\n\n"
 
 
-@app.post("/query-graph")
-async def query_graph(request: GraphQueryRequest):
-    """
-    Query the knowledge graph using natural language with streaming response.
-
-    Args:
-        query: The natural language query about the graph
-        working_dir: Directory containing the knowledge graph data
-    """
-    try:
-        # Initialize RAG
-        rag = await initialize_rag_deepseek(working_dir=request.working_dir)
-
-        # Query using RAG with global mode
-        response = await rag.aquery(request.query, param=QueryParam(mode="global"))
-
-        return StreamingResponse(
-            stream_response(response), media_type="text/event-stream"
-        )
-
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
 @app.post("/query/stream")
 async def query_stream(request: ChatRequest):
     """
@@ -413,6 +389,7 @@ async def query_stream(request: ChatRequest):
             param=QueryParam(
                 mode="hybrid",
                 conversation_history=history_conversation,
+                stream=True,
             ),
         )
 

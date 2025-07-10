@@ -17,6 +17,7 @@ from lightrag.kg.shared_storage import initialize_pipeline_status
 from lightrag.lightrag import LightRAG
 from lightrag.utils import EmbeddingFunc
 from lightrag.llm.ollama import ollama_embed
+from lightrag.llm.open_router import openrouter_model_complete
 import pipmaster as pm
 
 # Configure logging
@@ -100,7 +101,7 @@ def get_rag_instance(
     else:
         return LightRAG(
             working_dir=f"./AppDbStore/{working_dir}",
-            llm_model_func=deepseek_model_complete,
+            llm_model_func=openrouter_model_complete,
             llm_model_name=DEEPSEEK_MODEL,
             llm_model_max_token_size=164000,
             llm_model_kwargs={
@@ -210,46 +211,13 @@ async def ollama_model_complete(prompt: str, system_prompt: str = "", **kwargs) 
 
 
 @retry_on_failure()
-async def deepseek_model_complete(
-    prompt: str, system_prompt: str = "", **kwargs
-) -> str:
-    """Complete text using DeepSeek model with retry logic."""
-    import aiohttp
+async def deepseek_model_complete(prompt: str, system_prompt: str = "", **kwargs):
+    """Complete text using OpenRouter model with streaming support."""
+    from lightrag.llm.open_router import openrouter_model_complete
 
-    # Build messages array with conversation history
-    messages = []
-
-    # Add system prompt if provided
-    if system_prompt:
-        messages.append({"role": "system", "content": system_prompt})
-
-    # Add current prompt
-    messages.append({"role": "user", "content": prompt})
-
-    async with aiohttp.ClientSession() as session:
-        async with session.post(
-            DEEPSEEK_API_BASE,
-            headers={
-                "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
-                "Content-Type": "application/json",
-            },
-            json={
-                "model": DEEPSEEK_MODEL,
-                "messages": messages,
-                "temperature": 0.0,
-            },
-        ) as resp:
-            if resp.status != 200:
-                error_text = await resp.text()
-                logger.error(f"DeepSeek API error: {error_text}")
-                raise Exception(f"DeepSeek API error: {error_text}")
-
-            data = await resp.json()
-            if "choices" not in data:
-                logger.error(f"Invalid DeepSeek response: {data}")
-                raise Exception("Invalid DeepSeek response")
-
-            return data["choices"][0]["message"]["content"]
+    return await openrouter_model_complete(
+        prompt=prompt, system_prompt=system_prompt, **kwargs
+    )
 
 
 # Set the current model completion function

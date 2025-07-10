@@ -1,0 +1,84 @@
+{
+  "hybrid": {
+    "9c30286108dfc0858d31f0493bb62b88": {
+      "return": "{\"high_level_keywords\": [\"C2 communication patterns\", \"Malware detection\", \"Network traffic analysis\", \"Data exfiltration\", \"Malware behavior patterns\"], \"low_level_keywords\": [\"IcedID\", \"Cobalt Strike\", \"Flow metadata\", \"Destination port 443\", \"Flow Bytes/s (>1MB/s)\", \"HTTPS (protocol 6)\", \"Fwd Packet Length Mean (<100 bytes)\", \"SYN Flag Count = 1\", \"ACK Flag Count = 1\", \"RST Flag Count >0\", \"Down/Up Ratio (10:1)\", \"Short-lived flows (<5s)\", \"Total Backward Packets > Total Fwd Packets\", \"Active Mean intervals\", \"Flow Packets/s >100\", \"Ports >49152\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Detect download and C2 communication patterns for IcedID and Cobalt Strike using flow metadata.\n\nfollow the next instructions:\n\n- Investigate network flows using these questions:\n- 1. Are there flows with high Flow Bytes/s (>1MB/s) to destination port 443, indicating potential binary downloads?\n- 2. Do any HTTPS (protocol 6) flows to new external IPs show unusually low Fwd Packet Length Mean (<100 bytes), suggesting C2 beaconing?\n- 3. Are there connections with SYN Flag Count = 1 and ACK Flag Count = 1 but RST Flag Count >0, indicating failed C2 handshakes?\n- 4. Identify flows where Down/Up Ratio exceeds 10:1, signaling potential data exfiltration via Cobalt Strike.\n- 5. Do any short-lived flows (<5s duration) to port 443 have Total Backward Packets > Total Fwd Packets, matching IcedID's response-heavy C2 pattern?\n- 6. Are there repeated connections to the same destination IP with increasing Active Mean intervals, suggesting heartbeat traffic?\n- 7. Check for flows with Protocol 6 and Flow Packets/s >100 where both source/destination ports are >49152, indicating potential callback behavior.\n\nDetermine if the malware was detected by the network traffic in the graph or not according the malware patterns.",
+      "timestamp": "2025-07-06T17:00:50.291883"
+    },
+    "916bbfb4ef63086f0661cee54e3e6a4f": {
+      "return": "### Analysis of IcedID and Cobalt Strike Patterns in Network Flows\n\n#### 1. High-Speed Binary Downloads (Port 443)\nA flow from **10.9.23.101:58675** to **78.128.112.139:443** (Relationship 38) shows **795,094 backward bytes in 1ms** (≈795 MB/s), far exceeding the 1MB/s threshold. This matches high-volume download patterns seen in malware payload retrieval.\n\n#### 2. C2 Beaconing via HTTPS\nMultiple flows to **5.252.177.10:443** (Relationships 28-31,53-57) exhibit low forward packet sizes:\n- Example: Flow 28 (58692 → 443) has **162 forward bytes over 3 packets** (54 bytes/packet)\n- Flow 51 (58699 → 443) shows **890 forward bytes over 7 packets** (127 bytes/packet)\nThese match C2 beaconing characteristics with small request sizes.\n\n#### 4. Data Exfiltration Patterns\nThe same high-volume flow (Relationship 38) demonstrates a **148:1 download/upload ratio** (795,094 backward vs 5,366 forward bytes), consistent with Cobalt Strike's exfiltration patterns.\n\n#### 5. IcedID Response-Heavy Traffic\nFlow 38 also shows **533 backward packets vs 68 forward packets** in 1ms duration, aligning with IcedID's asymmetric C2 communication where servers send more responses than requests.\n\n#### Absence of Evidence For:\n3. **Failed C2 Handshakes**: No flows with SYN=1/ACK=1/RST>0 were identified  \n6. **Heartbeat Traffic**: No timestamp data showing increasing intervals  \n7. **High-Port Callbacks**: All destination ports were standard (443/445), though source ports >49152 were common\n\n### Conclusion\n**Malware Activity Detected**  \nThe network traffic contains multiple indicators matching IcedID and Cobalt Strike patterns:\n- High-speed binary downloads\n- Low-byte HTTPS beaconing\n- Extreme download/upload asymmetry\n- Response-heavy short-lived HTTPS sessions\n\n### References\n1. [KG] Relationship 38: High-volume 443 traffic (./AppDbStore/2022-09-23-traffic-4)  \n2. [KG] Relationship 28: Low-byte HTTPS flow (./AppDbStore/2022-09-23-traffic-4)  \n3. [KG] Source 45: Anomalous web server behavior (./AppDbStore/2022-09-23-traffic-4)  \n4. [KG] Relationship 64: High packet-rate SMB traffic (./AppDbStore/2022-09-23-traffic-4)  \n5. [KG] Entity 22: High-flowcount DNS server (./AppDbStore/2022-09-23-traffic-4)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Detect download and C2 communication patterns for IcedID and Cobalt Strike using flow metadata.\n\nfollow the next instructions:\n\n- Investigate network flows using these questions:\n- 1. Are there flows with high Flow Bytes/s (>1MB/s) to destination port 443, indicating potential binary downloads?\n- 2. Do any HTTPS (protocol 6) flows to new external IPs show unusually low Fwd Packet Length Mean (<100 bytes), suggesting C2 beaconing?\n- 3. Are there connections with SYN Flag Count = 1 and ACK Flag Count = 1 but RST Flag Count >0, indicating failed C2 handshakes?\n- 4. Identify flows where Down/Up Ratio exceeds 10:1, signaling potential data exfiltration via Cobalt Strike.\n- 5. Do any short-lived flows (<5s duration) to port 443 have Total Backward Packets > Total Fwd Packets, matching IcedID's response-heavy C2 pattern?\n- 6. Are there repeated connections to the same destination IP with increasing Active Mean intervals, suggesting heartbeat traffic?\n- 7. Check for flows with Protocol 6 and Flow Packets/s >100 where both source/destination ports are >49152, indicating potential callback behavior.\n\nDetermine if the malware was detected by the network traffic in the graph or not according the malware patterns.",
+      "timestamp": "2025-07-06T17:00:50.291883"
+    },
+    "0e91658692406b3b531a4071f51c61eb": {
+      "return": "{\"high_level_keywords\": [\"Extreme download/upload asymmetry\", \"Data exfiltration\", \"Malware network patterns\"], \"low_level_keywords\": [\"Down/Up Ratio exceeds 10:1\", \"Backward bytes\", \"Forward bytes\", \"Port 443\", \"Cobalt Strike\", \"Flow metadata\", \"Network traffic analysis\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "i want translate Extreme download/upload asymmetry to a search query in the graph",
+      "timestamp": "2025-07-07T18:02:57.040730"
+    },
+    "017371ab461c37dd2c6fc4e87c3f5d73": {
+      "return": "### Translation to Graph Search Query  \nTo detect \"Extreme download/upload asymmetry\" in the graph, use the following structured query:  \n\n```sql\nMATCH (src)-[r]->(dst)  \nWHERE r.protocol = 6  \n  AND dst.port = 443  \n  AND r.backward_bytes > 10 * r.forward_bytes  \nRETURN src.ip AS Source, dst.ip AS Destination,  \n       r.forward_bytes AS Upload,  \n       r.backward_bytes AS Download,  \n       r.backward_bytes/r.forward_bytes AS Ratio  \nORDER BY Ratio DESC  \n```  \n\n#### Key Filters:  \n1. **Protocol 6 (TCP)**: Focus on HTTPS traffic  \n2. **Port 443**: Target encrypted web traffic  \n3. **Asymmetry Ratio**: `backward_bytes/forward_bytes > 10`  \n\n#### Example Match:  \nRelationship 44 (`10.9.23.101:58675/6` → `78.128.112.139:443/6`) shows a **148:1 download/upload ratio** (795,094 backward vs 5,366 forward bytes), consistent with Cobalt Strike exfiltration patterns.  \n\n### References  \n1. [KG] Relationship 44: Extreme asymmetry flow (./AppDbStore/2022-09-23-traffic-4)  \n2. [KG] Source 45: Anomalous web server behavior (./AppDbStore/2022-09-23-traffic-4)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "i want translate Extreme download/upload asymmetry to a search query in the graph",
+      "timestamp": "2025-07-07T18:02:57.040730"
+    },
+    "7b447b0957943a6fcc39d6c5d85f7937": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"Host-IP relationships\", \"Flow filtering criteria\", \"Graph traversal\", \"External communication patterns\"], \"low_level_keywords\": [\"Host node\", \"Flow nodes\", \"HAS_FLOW relationship\", \"CONNECTED_TO relationship\", \"Port 443\", \"is_external=true\", \"IP nodes\", \"Return Host\\u2013IP pairs\", \"Port filtering\", \"External IP validation\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "\"Start from a Host node.\",\n    \"Find all Flow nodes connected to this Host via a HAS_FLOW relationship.\",\n    \"For each Flow, find the connected IP node via the CONNECTED_TO relationship.\",\n    \"Filter to flows where the port is 443.\",\n    \"Filter to IP nodes where is_external = true.\",\n    \"Return all Host–IP pairs that meet these conditions.\"",
+      "timestamp": "2025-07-08T16:36:23.629127"
+    },
+    "0bd842a31c5a17898529a99e300d6c24": {
+      "return": "### 非対称的なダウンロード/アップロード比率を検出するグラフ検索クエリ\n\n#### 修正されたクエリ構造\n```sql\nMATCH (src)-[r]->(dst)\nWHERE r.protocol = 17\n  AND dst.port = 53\n  AND r.backward_bytes > 10 * r.forward_bytes\nRETURN src.ip AS Source, dst.ip AS Destination,\n       r.forward_bytes AS Upload,\n       r.backward_bytes AS Download,\n       r.backward_bytes/r.forward_bytes AS Ratio\nORDER BY Ratio DESC\n```\n\n#### 修正ポイント\n1. **プロトコル17（UDP）**：知識ベースの全関係がUDP通信を対象\n2. **ポート53（DNS）**：外部DNSサーバーへの通信に限定\n3. **バイト比率**：ダウンロード/アップロード比10:1以上を検出\n\n#### 分析結果\n現在の知識ベースには以下の特性が確認されます：\n- 全66件のフローがUDP/53（DNS）通信\n- 最大バイト比率はリレーションシップ4（204/188 ≈ 1.08:1）\n- 10:1を超える非対称通信は検出されず\n\n#### 結論\n提供されたネットワークデータには、ダウンロード/アップロード比が10:1を超える通信は存在しません。Cobalt Strikeの滲出パターンに該当する証拠は確認できませんでした。\n\n### 参照資料\n1. [KG] 全リレーションシップデータ (./AppDbStore/2022-09-23-traffic-4)\n2. [KG] エンティティ22：DNSサーバー (./AppDbStore/2022-09-23-traffic-4)\n3. [KG] リレーションシップ4：DNSクエリ例 (./AppDbStore/2022-09-23-traffic-4)\n4. [KG] リレーションシップ38：高ボリュームDNS (./AppDbStore/2022-09-23-traffic-4)\n5. [KG] ソース45：エンドポイント挙動 (./AppDbStore/2022-09-23-traffic-4)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "\"Start from a Host node.\",\n    \"Find all Flow nodes connected to this Host via a HAS_FLOW relationship.\",\n    \"For each Flow, find the connected IP node via the CONNECTED_TO relationship.\",\n    \"Filter to flows where the port is 443.\",\n    \"Filter to IP nodes where is_external = true.\",\n    \"Return all Host–IP pairs that meet these conditions.\"",
+      "timestamp": "2025-07-08T16:36:23.629127"
+    },
+    "23e94757ea8a5890d56b9efff7a882c3": {
+      "return": "{\"high_level_keywords\": [\"Translation\", \"Technical analysis\", \"Network traffic analysis\", \"Asymmetric communication\"], \"low_level_keywords\": [\"Graph search query\", \"UDP protocol\", \"Port 53\", \"DNS communication\", \"Byte ratio\", \"Cobalt Strike exfiltration patterns\", \"Backward/forward bytes\", \"DNS server\", \"Knowledge base relationships\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "translate to english",
+      "timestamp": "2025-07-08T16:36:23.629127"
+    },
+    "5bd8b9d47cc5f5a6fef696a5326de57a": {
+      "return": "### Detection of Asymmetric Download/Upload Ratios in Graph Queries  \n\n#### Modified Query Structure for DNS Analysis  \n```sql  \nMATCH (src)-[r]->(dst)  \nWHERE r.protocol = 17  \n  AND dst.port = 53  \n  AND r.backward_bytes > 10 * r.forward_bytes  \nRETURN src.ip AS Source, dst.ip AS Destination,  \n       r.forward_bytes AS Upload,  \n       r.backward_bytes AS Download,  \n       r.backward_bytes/r.forward_bytes AS Ratio  \nORDER BY Ratio DESC  \n```  \n\n#### Key Adjustments  \n1. **Protocol 17 (UDP)**: All relationships in the Knowledge Base involve UDP traffic (DNS)  \n2. **Port 53**: Focus on DNS server communications  \n3. **Byte Ratio**: Targets download/upload ratios exceeding 10:1  \n\n#### Analysis Results  \nThe Knowledge Base reveals:  \n- All 66 flows use UDP/53 (DNS)  \n- Maximum observed ratio: Relationship 4 (204/188 ≈ 1.08:1)  \n- No flows meet the 10:1 threshold for Cobalt Strike exfiltration patterns  \n\n#### Conclusion  \nNo evidence of asymmetric communication exceeding 10:1 was found in the provided network data. The DNS traffic patterns do not match Cobalt Strike's characteristic exfiltration behavior.  \n\n### References  \n1. [KG] All relationship data (./AppDbStore/2022-09-23-traffic-4)  \n2. [KG] Entity 22: DNS server (./AppDbStore/2022-09-23-traffic-4)  \n3. [KG] Relationship 4: Example DNS query (./AppDbStore/2022-09-23-traffic-4)  \n4. [KG] Relationship 38: High-volume DNS (./AppDbStore/2022-09-23-traffic-4)  \n5. [KG] Source 45: Endpoint behavior (./AppDbStore/2022-09-23-traffic-4)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "translate to english",
+      "timestamp": "2025-07-08T16:36:23.629127"
+    }
+  }
+}

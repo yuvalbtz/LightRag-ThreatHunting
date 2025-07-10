@@ -1,0 +1,364 @@
+{
+  "hybrid": {
+    "0d06fb4d06f2b7d5c797f940bb78b030": {
+      "return": "{\"high_level_keywords\": [\"Traffic patterns\", \"Traffic analysis\", \"Traffic behavior\"], \"low_level_keywords\": [\"Peak hours\", \"Congestion\", \"Flow rate\", \"Traffic signals\", \"Road types\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "give all the patterns about this traffic",
+      "timestamp": "2025-07-09T11:35:24.635293"
+    },
+    "4cf687d8a4e121d87247bccc7a68e2b2": {
+      "return": "{\"high_level_keywords\": [\"Traffic analysis\", \"Pattern recognition\", \"Data patterns\"], \"low_level_keywords\": [\"Traffic flow\", \"Peak hours\", \"Congestion\", \"Traffic signals\", \"Vehicle types\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find all the patterns in this traffic",
+      "timestamp": "2025-07-09T11:42:11.136708"
+    },
+    "d95ac37a93a97a9c481a510be2c0352d": {
+      "return": "Here's an analysis of the network traffic patterns observed in the provided data:\n\n### DNS Traffic Patterns\n1. **Repetitive DNS Queries**: Multiple endpoints (10.9.21.102:55618/17, 58576/17, 58556/17, etc.) communicate with the DNS server (10.9.21.1:53/17) using UDP (protocol 17). These flows show:\n   - Consistent packet patterns (2 forward, 1 backward packets)\n   - Small data transfers (144-150 bytes forward, 90-105 bytes backward)\n   - All marked as \"normal\" behavior with LOW threat level\n\n2. **DNS Characteristics**:\n   - No TCP flags (SYN/FIN/RST/PSH/ACK all 0)\n   - Extremely short duration (0ms)\n   - High flow rates (up to 3.8M packets/sec)\n\n### Web Traffic Patterns\n1. **HTTPS Connections**:\n   - Multiple endpoints connect to web servers on port 443 (81.177.13.242, 198.105.254.228, 212.116.113.163)\n   - Typical behavior includes:\n     - 3 SYN packets (initiation)\n     - 1-2 FIN packets (termination)\n     - Multiple PSH+ACK packets (data transfer)\n\n2. **Bulk Data Transfers**:\n   - Several flows show high bulk transfers marked with MEDIUM threat:\n     - 10.9.21.102:49289/6 → 185.141.25.46:80/6 (381KB)\n     - 10.9.21.102:49312/6 → 185.36.102.164:80/6 (294KB)\n     - 10.9.21.102:49264/6 → 82.98.134.21:80/6 (68KB)\n   - Common characteristics:\n     - High packet counts (98-529 packets)\n     - Sustained PSH+ACK flags\n     - Marked as \"high_bulk_transfer\"\n\n3. **HTTP Connections**:\n   - Connections to port 80 show:\n     - Similar flag patterns as HTTPS but with more FIN packets\n     - Generally smaller data transfers than HTTPS\n     - Some anomalous web servers (185.141.25.46, 185.36.102.164, 82.98.134.21)\n\n### Anomalous Patterns\n1. **Inconsistent Behavior**:\n   - Some endpoints show both normal and anomalous behavior:\n     - 10.9.21.102:49310/6 (normal to 81.177.13.242 but marked as anomalous in entity description)\n     - 10.9.21.102:49308/6 (normal flow but destination 198.105.254.228 marked as anomalous)\n\n2. **High-Threat Web Servers**:\n   - Several web servers are marked as anomalous:\n     - 185.141.25.46:80\n     - 185.36.102.164:80  \n     - 82.98.134.21:80\n     - 198.105.254.228:443\n\n### Protocol Patterns\n1. **TCP vs UDP Differences**:\n   - UDP (DNS) flows are short with no flags\n   - TCP flows show complete handshakes (SYN-SYNACK-ACK) and terminations (FIN)\n   - TCP has much higher data volumes\n\nReferences:\n[KG] ./AppDbStore/2016-09-21-race (Source 1-19)\n[KG] unknown_source (Entities 1-54)  \n[KG] unknown_source (Relationships 1-38)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find all the patterns in this traffic",
+      "timestamp": "2025-07-09T11:42:11.136708"
+    },
+    "ce5389691c6018e39f8cdee1f0806746": {
+      "return": "{\"high_level_keywords\": [\"Network traffic patterns\", \"Special flows\", \"Anomalous behavior\", \"Traffic analysis\"], \"low_level_keywords\": [\"DNS queries\", \"HTTPS connections\", \"Bulk data transfers\", \"HTTP connections\", \"TCP flags\", \"UDP flows\", \"Anomalous web servers\", \"High-threat servers\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "give all the special flows",
+      "timestamp": "2025-07-09T11:46:02.493450"
+    },
+    "bf64c269ac1816bc778d9670adca03e6": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"Traffic patterns\", \"Anomalous behavior\", \"Threat levels\"], \"low_level_keywords\": [\"DNS queries\", \"HTTPS connections\", \"Bulk data transfers\", \"TCP flags\", \"UDP\", \"IP addresses\", \"Port numbers\", \"Packet counts\", \"Data volumes\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what do you think about this graph ?",
+      "timestamp": "2025-07-09T18:22:01.282523"
+    },
+    "04147e19e1c8c2dde44ac48d9da2d2a6": {
+      "return": "{\"high_level_keywords\": [\"Traffic patterns\", \"Network analysis\", \"Behavioral patterns\", \"Threat levels\"], \"low_level_keywords\": [\"DNS queries\", \"HTTPS connections\", \"Bulk data transfers\", \"TCP flags\", \"UDP flows\", \"Anomalous web servers\", \"Packet counts\", \"Data volumes\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many patterns ?",
+      "timestamp": "2025-07-09T18:22:01.282523"
+    },
+    "5136b262fd5fa0e38f6eacfc75cb9a8a": {
+      "return": "{\"high_level_keywords\": [\"Network traffic patterns\", \"Special flows\", \"Anomalous behavior\", \"Traffic analysis\"], \"low_level_keywords\": [\"DNS queries\", \"HTTPS connections\", \"Bulk data transfers\", \"TCP flags\", \"UDP flows\", \"Anomalous web servers\", \"High-threat servers\", \"Packet patterns\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what are the special flows ?",
+      "timestamp": "2025-07-09T18:22:01.282523"
+    },
+    "f9b8f4d4a798dca75031dd2b7340a8a4": {
+      "return": "{\"high_level_keywords\": [\"Network traffic patterns\", \"Special flows\", \"Anomalous behavior\", \"Traffic analysis\"], \"low_level_keywords\": [\"DNS queries\", \"HTTPS connections\", \"Bulk data transfers\", \"TCP flags\", \"UDP flows\", \"Anomalous web servers\", \"High-threat servers\", \"Packet patterns\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find special flows",
+      "timestamp": "2025-07-09T18:30:21.536400"
+    },
+    "9675841da8d5b9aa59d54e9dfbfd13d4": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"Entities\", \"Graph\"], \"low_level_keywords\": [\"DNS traffic\", \"HTTPS connections\", \"HTTP connections\", \"Anomalous patterns\", \"TCP\", \"UDP\", \"IP addresses\", \"Port numbers\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many entities in the graph ?",
+      "timestamp": "2025-07-09T18:33:40.319346"
+    },
+    "7371a316094d9e763228df165a31354c": {
+      "return": "{\"high_level_keywords\": [\"Network traffic patterns\", \"Anomalous behavior\", \"Traffic analysis\"], \"low_level_keywords\": [\"DNS queries\", \"HTTPS connections\", \"Bulk data transfers\", \"TCP flags\", \"UDP flows\", \"Anomalous web servers\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find special patterns",
+      "timestamp": "2025-07-09T18:35:34.647214"
+    },
+    "18b8f4398a2be3f539198229288ed761": {
+      "return": "{\"high_level_keywords\": [\"Network traffic patterns\", \"DNS traffic\", \"Web traffic\", \"Anomalous behavior\", \"Protocol analysis\"], \"low_level_keywords\": [\"Beacoin\", \"DNS queries\", \"HTTPS connections\", \"Bulk data transfers\", \"TCP flags\", \"UDP\", \"Anomalous web servers\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find beacoin  pattern",
+      "timestamp": "2025-07-09T18:47:45.647151"
+    },
+    "096334423c438bf2cb57997fac9e2f15": {
+      "return": "{\"high_level_keywords\": [\"Network traffic patterns\", \"Anomalous behavior\", \"Threat analysis\"], \"low_level_keywords\": [\"Beacoin\", \"DNS traffic\", \"HTTPS connections\", \"Bulk data transfers\", \"Anomalous web servers\", \"TCP vs UDP\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "is there a beacoin pattern in this graph ?",
+      "timestamp": "2025-07-09T18:51:26.312413"
+    },
+    "99cb016d9d327fbe6265b983446bb29f": {
+      "return": "{\"high_level_keywords\": [\"Network traffic\", \"Traffic patterns\", \"Anomalous behavior\", \"Data transfers\"], \"low_level_keywords\": [\"DNS queries\", \"HTTPS connections\", \"TCP vs UDP\", \"High-threat web servers\", \"Bulk data transfers\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me something interesting about this graph",
+      "timestamp": "2025-07-09T18:58:43.393385"
+    },
+    "33b4ec2778dd7b74aa68de5073f4ff17": {
+      "return": "{\"high_level_keywords\": [\"Network traffic\", \"Suspicious activity\", \"Anomalous behavior\", \"Threat level\"], \"low_level_keywords\": [\"DNS queries\", \"HTTPS connections\", \"Bulk data transfers\", \"High-threat web servers\", \"TCP flags\", \"UDP flows\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "do you see something suspicous ?",
+      "timestamp": "2025-07-09T19:03:59.699479"
+    },
+    "e5cf5fd3b21339237ca9e2d716ac0d11": {
+      "return": "{\"high_level_keywords\": [\"Network traffic patterns\", \"DNS traffic\", \"Web traffic\", \"Anomalous behavior\", \"Protocol differences\"], \"low_level_keywords\": [\"DNS queries\", \"HTTPS connections\", \"Bulk data transfers\", \"HTTP connections\", \"TCP flags\", \"UDP flows\", \"High-threat web servers\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "summerize this answer deeply",
+      "timestamp": "2025-07-09T19:03:59.699479"
+    },
+    "b1b93b830664d78574a8ebc16e68a27d": {
+      "return": "{\"high_level_keywords\": [\"Network traffic patterns\", \"DNS traffic\", \"Web traffic\", \"Anomalous behavior\", \"Protocol analysis\"], \"low_level_keywords\": [\"DNS queries\", \"HTTPS connections\", \"Bulk data transfers\", \"HTTP connections\", \"TCP flags\", \"UDP flows\", \"High-threat web servers\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "test",
+      "timestamp": "2025-07-09T19:10:34.756762"
+    },
+    "42bc90949e30138fcdabcd86d60357f8": {
+      "return": "{\"high_level_keywords\": [\"Network traffic patterns\", \"DNS traffic analysis\", \"Web traffic behavior\", \"Anomalous network activity\", \"Protocol differences\"], \"low_level_keywords\": [\"10.9.21.1:53\", \"PSH+ACK packets\", \"SYN/FIN packets\", \"MEDIUM threat\", \"HIGH_BULK_TRANSFER\", \"185.141.25.46:80\", \"185.36.102.164:80\", \"443 port\", \"TCP vs UDP\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me something important about this graph",
+      "timestamp": "2025-07-09T19:44:58.185826"
+    },
+    "3844030d58d12d773736e55dd778dce5": {
+      "return": "### Key Insights from Network Traffic Analysis\n\n#### 1. **DNS Infrastructure Patterns**  \nThe DNS server at **10.9.21.1:53** (UDP) acts as a central hub, handling **7 distinct flows** from multiple endpoints (e.g., 10.9.21.102:55618/17, 58556/17). These flows exhibit:  \n- **Predictable patterns**: 2 forward packets + 1 backward packet  \n- **Minimal data exchange**: 144-150 bytes sent, 90-105 bytes received  \n- **Zero TCP flags** and **0ms duration** across all DNS transactions  \n- Classified as **LOW threat** with \"normal\" behavior  \n\n#### 2. **High-Risk Web Transactions**  \nThree bulk data transfers to suspicious web servers stand out:  \n- **185.141.25.46:80**: 381KB transfer (529 packets) at 3.6KB/sec  \n- **185.36.102.164:80**: 294KB transfer (463 packets) with 7 FIN flags  \n- **82.98.134.21:80**: 68KB burst transfer at **26.5MB/sec**  \nAll marked **MEDIUM threat** with `high_bulk_transfer` patterns despite being labeled \"normal\" in flow behavior.  \n\n#### 3. **Anomalous Server Communications**  \nFour web servers show conflicting classifications:  \n- **198.105.254.228:443** (HTTPS): 2 flows with MEDIUM threat scores  \n- **81.177.13.242:443** (HTTPS): Mixed behavior - one flow shows 22KB backward data transfer  \nThese servers receive traffic from endpoints marked as anomalous (e.g., 10.9.21.102:49308/6).  \n\n#### 4. **Protocol-Specific Behaviors**  \n- **UDP (DNS)**: Short-lived, high-rate flows (up to 3.8M packets/sec)  \n- **TCP (Web)**: Complex flag patterns (SYN/FIN/PSH/ACK combinations) with 10-500x longer durations than DNS  \n\n#### 5. **Endpoint Inconsistencies**  \nMultiple endpoints exhibit conflicting classifications:  \n- 10.9.21.102:49310/6 shows \"anomalous\" entity behavior but \"normal\" flow characteristics  \n- 10.9.21.102:49289/6 transfers 381KB to an anomalous server while being labeled \"normal\"  \n\n### References  \n[KG] `unknown_source` (Entities 2,23,25,27,52)  \n[KG] `unknown_source` (Relationships 17,18,19,36,38)  \n[KG] `./AppDbStore/2016-09-21-race` (Sources 17-19)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me something important about this graph",
+      "timestamp": "2025-07-09T19:44:58.185826"
+    },
+    "a53195dae201698f5d89b3430fd38f58": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"DNS infrastructure\", \"Web transactions\", \"Anomalous behavior\", \"Protocol patterns\"], \"low_level_keywords\": [\"10.9.21.1:53 (DNS server)\", \"UDP/TCP protocols\", \"Bulk data transfers\", \"SYN/FIN packets\", \"185.141.25.46:80\", \"MEDIUM threat\", \"High-risk servers\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "What is this dataset about?",
+      "timestamp": "2025-07-09T19:51:33.987275"
+    },
+    "fcae7dea95820252a8427ae0fe429adc": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"DNS infrastructure\", \"Web transactions\", \"Data transfer patterns\", \"Threat level classification\"], \"low_level_keywords\": [\"10.9.21.1:53 DNS server\", \"UDP/TCP protocols\", \"Bulk data transfers\", \"SYN/FIN flags\", \"MEDIUM threat\", \"Anomalous web servers\", \"Packet patterns\", \"High-risk transactions\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "on what this dataset is talking about  ?",
+      "timestamp": "2025-07-09T19:51:33.987275"
+    },
+    "b86272d90b559b7ce6392481e05a9633": {
+      "return": "{\"high_level_keywords\": [\"Network traffic\", \"Flow analysis\", \"Traffic patterns\", \"Anomalous behavior\", \"Protocol behavior\"], \"low_level_keywords\": [\"DNS traffic\", \"HTTPS connections\", \"Bulk data transfers\", \"TCP flags\", \"UDP flows\", \"Anomalous servers\", \"10.9.21.1:53\", \"185.141.25.46:80\", \"198.105.254.228:443\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "describe me the flows",
+      "timestamp": "2025-07-09T20:04:52.568452"
+    },
+    "a770443eaff30cb340ac5365e1e4a6fd": {
+      "return": "{\"high_level_keywords\": [\"Malware detection\", \"Network traffic analysis\", \"Threat assessment\"], \"low_level_keywords\": [\"DNS server\", \"Web servers\", \"Bulk data transfers\", \"Anomalous behavior\", \"TCP flags\", \"UDP flows\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "can you see malwares ?",
+      "timestamp": "2025-07-09T20:04:52.568452"
+    },
+    "bdb254c65e8a4e467e9f9376f6facd21": {
+      "return": "{\"high_level_keywords\": [\"Network traffic\", \"Attacker identification\", \"Security analysis\"], \"low_level_keywords\": [\"DNS server\", \"Web servers\", \"Bulk data transfers\", \"Anomalous behavior\", \"High-threat servers\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "who is the attacker in this flows ?",
+      "timestamp": "2025-07-09T20:13:15.126253"
+    },
+    "b8b0730a05c639de33882b1e91e0b81f": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"DNS infrastructure\", \"Web transactions\", \"Anomalous behavior\", \"Protocol-specific behaviors\"], \"low_level_keywords\": [\"10.9.21.1:53\", \"185.141.25.46:80\", \"185.36.102.164:80\", \"82.98.134.21:80\", \"198.105.254.228:443\", \"UDP\", \"TCP\", \"SYN\", \"FIN\", \"PSH\", \"ACK\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me something interestig about this graph",
+      "timestamp": "2025-07-09T20:13:15.126253"
+    },
+    "ecea806fb504219bf17f6cbaa25e3ca6": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"DNS infrastructure\", \"Web transactions\", \"Anomalous behavior\", \"Protocol-specific behaviors\"], \"low_level_keywords\": [\"10.9.21.1:53\", \"185.141.25.46:80\", \"185.36.102.164:80\", \"82.98.134.21:80\", \"198.105.254.228:443\", \"81.177.13.242:443\", \"UDP\", \"TCP\", \"SYN\", \"FIN\", \"PSH\", \"ACK\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me something about this graph",
+      "timestamp": "2025-07-09T20:24:39.448694"
+    },
+    "c693f6a68e101225e8dd3c5345d99c93": {
+      "return": "{\"high_level_keywords\": [\"TCP protocol behaviors\", \"Network communication patterns\", \"Traffic analysis\", \"Connection management\"], \"low_level_keywords\": [\"SYN flags\", \"FIN flags\", \"PSH flags\", \"ACK flags\", \"Connection initiation\", \"Data transfer\", \"Flow termination\", \"Bulk data transfers\", \"Handshake process\", \"Port 443\", \"Port 80\", \"Anomalous servers\", \"MEDIUM threat\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find beahviors of SYN/FIN/PSH/ACK",
+      "timestamp": "2025-07-10T07:41:18.991348"
+    },
+    "aa37bd2c14cfb151d4202685606dfde1": {
+      "return": "### TCP Flag Behavior Analysis\n\n#### 1. **Normal TCP Handshakes**\n- **SYN Patterns**:  \n  Typical web flows show 3-4 SYN packets (e.g., Flow ID `82075c81` to 81.177.13.242:443), consistent with TCP three-way handshakes.  \n  - Example: 4 SYN packets observed in HTTPS connections (Relationship 8)  \n\n- **ACK Dominance**:  \n  All TCP flows show high ACK counts (15-527 ACK flags), confirming reliable data transmission. Highest ACK count: 527 in bulk transfer to 185.141.25.46:80 (Relationship 17).  \n\n#### 2. **Bulk Data Transfers**\n- **PSH+ACK Combinations**:  \n  High-threat MEDIUM flows use sustained PSH+ACK flags for data pushing:  \n  - 20 PSH flags in 381KB transfer to 185.141.25.46:80 (Relationship 17)  \n  - 17 PSH flags in 294KB transfer to 185.36.102.164:80 (Relationship 18)  \n  - Classified as `high_bulk_transfer` despite \"normal\" flow labeling  \n\n#### 3. **Connection Termination**\n- **FIN Flags**:  \n  Most flows show 1-4 FIN packets for graceful closure. Exceptions include:  \n  - 7 FIN flags in transfer to 185.36.102.164:80 (Relationship 18)  \n  - 0 FIN flags in 68KB burst transfer to 82.98.134.21:80 (Relationship 19)  \n\n#### 4. **Anomalous Endpoints**\n- **Conflicting Behaviors**:  \n  - Endpoint 10.9.21.102:49310/6 (Entity 12) marked \"anomalous\" but shows normal SYN(3)/FIN(2)/PSH(7)/ACK(50) patterns in its flow (Relationship 10)  \n  - Web server 198.105.254.228:443 receives flows with inconsistent RST flags (1-2 RSTs) across connections (Relationships 15-16)  \n\n#### 5. **Protocol Comparison**\n- **TCP vs UDP**:  \n  DNS (UDP) shows **0 flags** across all flows (e.g., Flow ID `e7b8c26f`), while TCP web traffic exhibits complex flag combinations (SYN/FIN/PSH/ACK).  \n\n### References\n[KG] `unknown_source` (Relationships 8-10,17-19)  \n[KG] `./AppDbStore/2016-09-21-race` (Sources 8-10,17-19)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find beahviors of SYN/FIN/PSH/ACK",
+      "timestamp": "2025-07-10T07:41:18.991348"
+    },
+    "00d81e22301e338b5e322926ce9b6215": {
+      "return": "{\"high_level_keywords\": [\"TCP flag behavior\", \"Network traffic analysis\", \"Protocol-specific patterns\", \"Anomalous endpoint behavior\"], \"low_level_keywords\": [\"SYN patterns\", \"TCP three-way handshake\", \"Bulk data transfers\", \"185.141.25.46:80\", \"10.9.21.102:49310/6\", \"ACK dominance\", \"High-threat MEDIUM flows\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find beahviors of SYN",
+      "timestamp": "2025-07-10T07:44:29.469500"
+    },
+    "6d31d61a1ee128519c7d74b47db18d15": {
+      "return": "### SYN Flag Behavior Analysis\n\n#### 1. **Normal TCP Handshakes**\n- **3-4 SYN Packets**: Most web flows show expected TCP handshake patterns with 3-4 SYN packets (e.g., Flow ID `10069e7b` to 81.177.13.242:443).  \n- **Consistent Initiations**: Flows to normal web servers (81.177.13.242:443, 212.116.113.163:443) exhibit standard SYN counts for connection setup (Relationships 8,14,15).\n\n#### 2. **Anomalous SYN Patterns**\n- **Elevated SYN Counts**:  \n  - Flow to 198.105.254.228:443 (Relationship 13) shows **4 SYN packets** despite being a single connection, suggesting potential retransmissions.  \n  - Flow ID `82075c81` (Relationship 9) to 81.177.13.242:443 also uses 4 SYN flags with no clear justification.  \n\n#### 3. **Bulk Transfer Context**\n- **SYN in High-Volume Flows**:  \n  - MEDIUM-threat bulk transfers (e.g., 381KB to 185.141.25.46:80) maintain normal SYN=3 counts (Relationship 17), indicating proper handshakes before large data exchanges.  \n  - Flow to 185.36.102.164:80 (Relationship 19) shows SYN=3 followed by 7 FIN flags, suggesting abrupt terminations after transfer.\n\n#### 4. **Protocol-Specific Absence**\n- **No SYN in DNS**: All UDP-based DNS flows (protocol 17) show **SYN=0**, confirming expected stateless behavior (Relationships 1-7,20-26).\n\n#### 5. **Conflicting Classifications**\n- Endpoint 10.9.21.102:49308/6 (Relationship 13) is marked \"anomalous\" despite normal SYN=4/FIN=1 patterns during a MEDIUM-threat HTTPS transfer.\n\n### References  \n[KG] `unknown_source` (Relationships 8,9,13,17,19)  \n[KG] `./AppDbStore/2016-09-21-race` (Sources 8,9,13,17,19)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find beahviors of SYN",
+      "timestamp": "2025-07-10T07:48:14.492594"
+    },
+    "9f8d95b2d8480b053ac8975d62989ff3": {
+      "return": "{\"high_level_keywords\": [\"TCP flag behaviors\", \"Network traffic analysis\", \"Threat classification\", \"Protocol-specific patterns\"], \"low_level_keywords\": [\"SYN/FIN/PSH combinations\", \"Bulk data transfers\", \"ACK dominance\", \"Graceful closure\", \"MEDIUM threat\", \"high_bulk_transfer\", \"185.36.102.164:80\", \"198.105.254.228:443\", \"Anomalous endpoints\", \"TCP vs UDP comparison\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find beahviors of SYN/FIN/PSH",
+      "timestamp": "2025-07-10T07:56:09.756334"
+    },
+    "9e01a871757cf85b8c5e97276f6993fc": {
+      "return": "{\"high_level_keywords\": [\"TCP acknowledgment mechanisms\", \"Data transmission reliability\", \"Protocol behavior analysis\"], \"low_level_keywords\": [\"ACK flags\", \"PSH+ACK combinations\", \"Bulk data transfers\", \"185.141.25.46:80\", \"Relationship 17\", \"527 ACK count\", \"Endpoint 10.9.21.102:49310/6\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find beahviors of ACK",
+      "timestamp": "2025-07-10T07:57:53.624820"
+    },
+    "d18796e67a331396aa4f1eaffd8ca458": {
+      "return": "{\"high_level_keywords\": [\"TCP Flag Behavior\", \"SYN Patterns\", \"Connection Handshakes\", \"Anomalous Endpoints\"], \"low_level_keywords\": [\"SYN packets\", \"TCP handshakes\", \"Flow ID\", \"Bulk transfers\", \"MEDIUM threat\", \"Normal flows\", \"Retransmissions\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find beahviors of PSH",
+      "timestamp": "2025-07-10T08:02:21.502030"
+    },
+    "8d78a6fa8cda8553f4b497bf456c3e83": {
+      "return": "{\"high_level_keywords\": [\"Critical network behaviors\", \"Threat analysis\", \"Anomalous server communications\", \"Conflicting classifications\", \"Protocol-specific patterns\"], \"low_level_keywords\": [\"SYN/FIN/PSH/ACK flags\", \"High-bulk transfers\", \"MEDIUM threat\", \"TCP three-way handshakes\", \"DNS infrastructure\", \"185.141.25.46:80\", \"KG references\", \"high_bulk_transfer\", \"RST flags\", \"UDP/TCP comparison\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find critical beahviors",
+      "timestamp": "2025-07-10T10:07:47.417166"
+    },
+    "c6eba78e7da42adc03a0bcb3898de719": {
+      "return": "{\"high_level_keywords\": [\"TCP behavior\", \"SYN flag analysis\", \"Network traffic patterns\", \"Connection establishment\"], \"low_level_keywords\": [\"SYN packets\", \"TCP handshakes\", \"Bulk data transfers\", \"Anomalous endpoints\", \"Flow ID\", \"Normal flows\", \"Medium threat\", \"FIN flags\", \"ACK counts\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find criticle  beahviors",
+      "timestamp": "2025-07-10T10:11:02.826878"
+    },
+    "6e234345ece844259b0eaf37db74c70d": {
+      "return": "{\"high_level_keywords\": [\"TCP Handshakes\", \"SYN Patterns\", \"Connection Initiation\", \"Anomalous Behavior\", \"Bulk Transfers\"], \"low_level_keywords\": [\"SYN packets\", \"Flow ID\", \"Normal flows\", \"High-volume flows\", \"Medium-threat\", \"Retransmissions\", \"FIN flags\", \"UDP\", \"DNS\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find critical  beahviors of SYN",
+      "timestamp": "2025-07-10T10:13:51.641072"
+    },
+    "610c97917ffff1644f4e776018631b8e": {
+      "return": "{\"high_level_keywords\": [\"Network behavior analysis\", \"TCP flag patterns\", \"Threat classification\", \"Protocol-specific behaviors\"], \"low_level_keywords\": [\"SYN/FIN/PSH/ACK flags\", \"Bulk data transfers\", \"ACK dominance\", \"Anomalous endpoints\", \"MEDIUM threat\", \"high_bulk_transfer\", \"185.141.25.46:80\", \"81.177.13.242:443\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find beahviors",
+      "timestamp": "2025-07-10T10:21:26.869150"
+    }
+  }
+}
