@@ -359,6 +359,116 @@
       "embedding_max": null,
       "original_prompt": "find beahviors",
       "timestamp": "2025-07-10T10:21:26.869150"
+    },
+    "4fc867e319ce58290510b4012c53889e": {
+      "return": "{\"high_level_keywords\": [\"Greeting\", \"Well-being\"], \"low_level_keywords\": [\"Hello\", \"How are you?\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Hello, how are you?",
+      "timestamp": "2025-07-10T10:31:45.789729"
+    },
+    "acf8bb25852e6fcc756be73ffe2864aa": {
+      "return": "{\"high_level_keywords\": [\"Threat hunting\", \"Cybersecurity\", \"Proactive defense\"], \"low_level_keywords\": [\"Threat detection\", \"Incident response\", \"Malware analysis\", \"Anomalous behavior\", \"Security tools\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "What is threat hunting?",
+      "timestamp": "2025-07-10T10:31:45.789729"
+    },
+    "41dc9f5dad527779b0021b38b4e834b5": {
+      "return": "{\"high_level_keywords\": [\"Network Traffic Analysis\", \"TCP Flag Behavior\", \"Threat Classification\", \"Protocol-Specific Patterns\"], \"low_level_keywords\": [\"SYN/FIN/PSH/ACK\", \"10.9.21.102\", \"DNS server 10.9.21.1:53\", \"bulk data transfer\", \"MEDIUM threat\", \"KG references\", \"TCP handshakes\", \"UDP protocols\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Hello",
+      "timestamp": "2025-07-11T11:55:30.925194"
+    },
+    "aab646f188b0727b4b79b924a69baad0": {
+      "return": "{\"high_level_keywords\": [\"Graph structure\", \"Node count\", \"Network analysis\"], \"low_level_keywords\": [\"Entities\", \"Relationships\", \"Knowledge Graph (KG)\", \"IP addresses\", \"Ports\", \"DNS infrastructure\", \"TCP flags\", \"Threat levels\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many nodes there are in the graph ?",
+      "timestamp": "2025-07-11T11:55:30.925194"
+    },
+    "17e92c3013b98e9f350005d05405a4b7": {
+      "return": "{\"high_level_keywords\": [\"Graph structure\", \"Network analysis\"], \"low_level_keywords\": [\"Nodes\", \"Endpoints\", \"Entities\", \"Flows\", \"KG references\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many nodes in the graph ?",
+      "timestamp": "2025-07-11T11:55:30.925194"
+    },
+    "cbc01503fb77d239273ecced4f744cce": {
+      "return": "{\"high_level_keywords\": [\"Network analysis\", \"Knowledge Graph (KG)\", \"Entities and Relationships\"], \"low_level_keywords\": [\"Entities 2,23,25,27,52\", \"Relationships 17,18,19,36,38\", \"unknown_source\", \"./AppDbStore/2016-09-21-race\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many nodes ?",
+      "timestamp": "2025-07-11T12:16:05.592080"
+    },
+    "061f29235d0aa1c6319a9c82101b8eca": {
+      "return": "{\"high_level_keywords\": [\"Graph structure\", \"Node count\"], \"low_level_keywords\": [\"node\", \"graph\", \"Entities\", \"Relationships\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many node in the graph ?",
+      "timestamp": "2025-07-11T12:52:58.114100"
+    },
+    "85211f49b48774ae545f20c11851a9c5": {
+      "return": "{\"high_level_keywords\": [\"Network structure\", \"Node count\", \"Analysis metrics\"], \"low_level_keywords\": [\"DNS server 10.9.21.1:53\", \"Endpoints (e.g., 10.9.21.102)\", \"Web servers (185.141.25.46:80)\", \"KG references (unknown_source, AppDbStore)\", \"UDP/TCP protocols\", \"Threat levels (MEDIUM/LOW)\", \"Data transfers\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many nodes  ?",
+      "timestamp": "2025-07-11T12:55:57.679948"
+    },
+    "1cc6575626beea1a85f1f7e4caf15fb4": {
+      "return": "### Node Count Analysis\n\n#### Total Nodes in Knowledge Base  \nThe provided Knowledge Base contains **54 distinct nodes** documented in the Entities section. This includes:  \n\n- **Network Endpoints**: 43 unique IP:port combinations (e.g., 10.9.21.102:49310/6)  \n- **Servers**: 11 entities (7 DNS/web servers + 4 duplicated servers with conflicting classifications)  \n\n#### Key Observations  \n1. **Duplication Note**:  \n   Some entities appear duplicated (e.g., DNS server `10.9.21.1:53/17` exists as Entity 2 and 54) with identical attributes but different `created_at` timestamps.  \n\n2. **Protocol Distribution**:  \n   - **TCP (6)**: 37 endpoints  \n   - **UDP (17)**: 17 endpoints  \n\n#### Classification Conflicts  \n- 6 nodes show conflicting labels (e.g., `10.9.21.102:49310/6` marked \"anomalous\" despite normal SYN/FIN patterns)  \n- 4 web servers have inconsistent threat/behavior labels across relationships  \n\n### References  \n[KG] `unknown_source` (Entities 1-54)  \n[KG] `./AppDbStore/2016-09-21-race` (Sources 1-19)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many nodes ?",
+      "timestamp": "2025-07-11T13:01:19.663605"
+    },
+    "f9417759988d5511505a7c27bce79a90": {
+      "return": "{\"high_level_keywords\": [\"Graph relationships\", \"Knowledge Base structure\", \"Data connectivity analysis\"], \"low_level_keywords\": [\"Relationship count\", \"Knowledge Base entities\", \"network protocols\", \"Entity relationships\", \"data flow patterns\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me how many relationships in the graph ?",
+      "timestamp": "2025-07-11T13:06:53.396740"
+    },
+    "5f5abdb949dc9544791ab18cb51b538d": {
+      "return": "### Relationship Count Analysis\n\n#### Total Relationships in Knowledge Base  \nThe provided Knowledge Base contains **38 distinct relationships** documented in the Relationships section. This includes:\n\n- **DNS Flows**: 14 relationships (UDP protocol, all showing SYN=0/FIN=0 patterns)  \n- **Web Server Interactions**: 24 relationships (TCP protocol with SYN/FIN/PSH/ACK patterns)  \n\n#### Key Observations  \n1. **Protocol Distribution**:  \n   - **TCP (6)**: 24 relationships (63% of total)  \n   - **UDP (17)**: 14 relationships (37% of total)  \n\n2. **Threat Levels**:  \n   - 15 MEDIUM-threat relationships (e.g., Relationship 17-19 showing bulk transfers)  \n   - 23 LOW-threat relationships  \n\n3. **Duplication Note**:  \n   Some relationships appear duplicated with different timestamps (e.g., Relationship 1 and 21 both describe DNS flows between 10.9.21.102:50283/17 and 10.9.21.1:53/17) but are counted as separate entries.  \n\n### References  \n[KG] `unknown_source` (Relationships 1-38)  \n[KG] `./AppDbStore/2016-09-21-race` (Sources 1-19)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "tell me how many relationships in the graph ?",
+      "timestamp": "2025-07-11T13:06:53.396740"
     }
   }
 }

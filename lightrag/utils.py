@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 from datetime import datetime
 import html
+import inspect
 import io
 import csv
 import json
@@ -13,7 +14,7 @@ import re
 from dataclasses import dataclass
 from functools import wraps
 from hashlib import md5
-from typing import Any, Callable
+from typing import Any, AsyncGenerator, Callable, Union
 import xml.etree.ElementTree as ET
 import numpy as np
 import tiktoken
@@ -1027,3 +1028,71 @@ class TokenTracker:
             f"Completion tokens: {usage['completion_tokens']}, "
             f"Total tokens: {usage['total_tokens']}"
         )
+
+
+async def stream_response(
+    response: Union[str, AsyncGenerator[str, None]],
+) -> AsyncGenerator[str, None]:
+    """Stream the response word by word or token by token with SSE format."""
+    logger.info("Starting stream_response function")
+    logger.info(f"Response type: {type(response)}")
+    logger.info(f"Is async generator: {inspect.isasyncgen(response)}")
+    logger.info(f"Has __aiter__: {hasattr(response, '__aiter__')}")
+
+    try:
+        # If response is a string, stream word by word
+        if isinstance(response, str):
+            logger.info(f"Processing string response of length: {len(response)}")
+            words = response.split()
+            logger.info(f"Split into {len(words)} words")
+            for word in words:
+                chunk = f"data: {json.dumps({'token': word + ' '})}\n\n"
+                logger.info(f"Yielding string chunk: {repr(chunk)}")
+                yield chunk
+                await asyncio.sleep(0.05)
+
+        # If response is an async generator
+        elif inspect.isasyncgen(response):
+            logger.info("Processing async generator response")
+            chunk_count = 0
+            async for chunk in response:
+                chunk_count += 1
+                logger.info(f"Received chunk #{chunk_count}: {repr(chunk)}")
+                if chunk:
+                    data = f"data: {json.dumps({'token': chunk})}\n\n"
+                    logger.info(f"Yielding chunk #{chunk_count}: {repr(data)}")
+                    yield data
+                    await asyncio.sleep(0.05)
+            logger.info(f"Generator completed after {chunk_count} chunks")
+
+        # Fallback for other generator types
+        elif hasattr(response, "__aiter__"):
+            logger.info("Processing async iterable response")
+            chunk_count = 0
+            async for chunk in response:
+                chunk_count += 1
+                logger.info(f"Received chunk #{chunk_count}: {repr(chunk)}")
+                if chunk:
+                    data = f"data: {json.dumps({'token': chunk})}\n\n"
+                    logger.info(f"Yielding chunk #{chunk_count}: {repr(data)}")
+                    yield data
+                    await asyncio.sleep(0.05)
+            logger.info(f"Generator completed after {chunk_count} chunks")
+
+        else:
+            logger.error(f"Unsupported response type: {type(response)}")
+            logger.error(f"Response has __aiter__: {hasattr(response, '__aiter__')}")
+            logger.error(f"Response has __iter__: {hasattr(response, '__iter__')}")
+            logger.error(f"inspect.isasyncgen: {inspect.isasyncgen(response)}")
+            yield f"data: {json.dumps({'token': 'Unsupported response type'})}\n\n"
+
+        # Always send [DONE] at the end
+        done_chunk = "data: [DONE]\n\n"
+        logger.info("Streaming complete. Sending [DONE]")
+        yield done_chunk
+
+    except Exception as e:
+        logger.error(f"Error in stream_response: {str(e)}", exc_info=True)
+        error_chunk = f"data: {json.dumps({'token': f'Error: {str(e)}'})}\n\n"
+        yield error_chunk
+        yield "data: [DONE]\n\n"

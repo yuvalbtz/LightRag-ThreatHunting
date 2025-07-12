@@ -107,6 +107,7 @@ def get_rag_instance(
             llm_model_kwargs={
                 "temperature": 0.0,
                 "num_ctx": 164000,
+                "stream": True,
             },
             embedding_func=EmbeddingFunc(
                 embedding_dim=768,

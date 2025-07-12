@@ -379,6 +379,16 @@
       "embedding_max": null,
       "original_prompt": "What is threat hunting?",
       "timestamp": "2025-07-10T10:31:45.789729"
+    },
+    "41dc9f5dad527779b0021b38b4e834b5": {
+      "return": "{\"high_level_keywords\": [\"Network Traffic Analysis\", \"TCP Flag Behavior\", \"Threat Classification\", \"Protocol-Specific Patterns\"], \"low_level_keywords\": [\"SYN/FIN/PSH/ACK\", \"10.9.21.102\", \"DNS server 10.9.21.1:53\", \"bulk data transfer\", \"MEDIUM threat\", \"KG references\", \"TCP handshakes\", \"UDP protocols\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "Hello",
+      "timestamp": "2025-07-11T11:55:30.925194"
     }
   }
 }

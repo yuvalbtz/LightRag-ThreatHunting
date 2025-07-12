@@ -39,6 +39,46 @@
       "embedding_max": null,
       "original_prompt": "summerize your answer",
       "timestamp": "2025-07-05T21:03:31.885472"
+    },
+    "0145778677083df2bede52146cd08a6d": {
+      "return": "{\"high_level_keywords\": [\"Network analysis\", \"Node count\", \"GootLoader infections\", \"Infrastructure components\"], \"low_level_keywords\": [\"10.12.29.101\", \"185.84.28.15:80\", \"74.208.236.120:443\", \"51350\", \"51390\", \"51376\", \"51387\", \"Flow 18\", \"Flow 20\", \"Flow 23\", \"Flow 24\", \"[KG] unknown_source\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many nodes are there ?",
+      "timestamp": "2025-07-11T16:44:45.064626"
+    },
+    "aea27d68719debbe9ff5b34519380766": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"GootLoader infections\", \"Malicious communication patterns\"], \"low_level_keywords\": [\"Flow metadata\", \"C2 server rotation\", \"Download/Up Ratio\", \"Flow Bytes/s\", \"Ports 80/443\", \"SYN/ACK flags\", \"Data exfiltration\", \"RST Flag Count\", \"TCP protocol 6\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many realtions are there ?",
+      "timestamp": "2025-07-11T17:03:14.053560"
+    },
+    "7a65db0aeefcb9e99cab9f9fb5be306c": {
+      "return": "{\"high_level_keywords\": [\"Network analysis\", \"GootLoader infection patterns\", \"Node count\"], \"low_level_keywords\": [\"10.12.29.101\", \"185.84.28.15\", \"74.208.236.120\", \"Port 80\", \"Port 443\", \"Flow metrics\", \"Connection patterns\", \"Network graph\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many overall nodes are there ?",
+      "timestamp": "2025-07-11T17:03:14.053560"
+    },
+    "7bf3ea54555ef04c53c4b569826ee1f7": {
+      "return": "{\"high_level_keywords\": [\"Non distinct nodes\", \"Network analysis\", \"Node counting\"], \"low_level_keywords\": [\"IP addresses\", \"Ports 80/443\", \"C2 server rotation\", \"TLS connections\", \"Flow metrics\", \"10.12.29.101\", \"185.84.28.15\", \"74.208.236.120\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many non distinct nodes are there ?",
+      "timestamp": "2025-07-11T17:03:14.053560"
     }
   }
 }

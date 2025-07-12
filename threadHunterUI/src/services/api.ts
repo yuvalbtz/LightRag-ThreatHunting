@@ -65,6 +65,7 @@ export const api = {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Accept': 'text/event-stream',
                 },
                 body: JSON.stringify({
                     query: message,
@@ -73,36 +74,68 @@ export const api = {
                 }),
             });
 
+            console.log('Response status:', response.status);
+            console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+            console.log('Response ok:', response.ok);
+
             if (!response.ok) {
                 throw new Error('Failed to send message');
             }
 
-            const reader = response.body?.getReader();
-            const decoder = new TextDecoder();
-            let currentResponse = '';
+            // Check if response is streaming
+            const contentType = response.headers.get('content-type');
+            console.log('Response content-type:', contentType);
 
-            if (!reader) {
-                throw new Error('Failed to get response reader');
+            if (!contentType?.includes('text/event-stream')) {
+                console.warn('Response is not streaming, falling back to regular response');
+                const text = await response.text();
+                return {
+                    id: crypto.randomUUID(),
+                    role: 'assistant',
+                    content: text,
+                    timestamp: new Date(),
+                    graph_dir_path: dir_path
+                };
             }
 
-            try {
-                while (true) {
-                    const { done, value } = await reader.read();
-                    if (done) break;
+            console.log('Response body type:', typeof response.body);
+            console.log('Response body:', response.body);
+            console.log('Response body null check:', response.body === null);
+            console.log('Response body undefined check:', response.body === undefined);
+            console.log('Response body keys:', response.body ? Object.keys(response.body) : 'No keys');
+            console.log('Response body is ReadableStream:', response.body instanceof ReadableStream);
+            console.log('Response body has getReader:', typeof response.body?.getReader === 'function');
+            console.log('Response body constructor:', (response.body as any)?.constructor?.name);
+            console.log('Response body toString:', response.body?.toString());
+            console.log('Response body valueOf:', response.body?.valueOf());
 
-                    const chunk = decoder.decode(value);
-                    const lines = chunk.split('\n');
-                    for (const line of lines) {
-                        if (line.startsWith('data: ')) {
-                            const data = line.slice(6);
+            // Check if response body is actually a readable stream
+            if (!(response.body instanceof ReadableStream)) {
+                console.error('Response body is not a ReadableStream!');
+                console.error('Response body constructor:', (response.body as any)?.constructor?.name);
 
-                            if (data === '[DONE]') {
-                                break;
-                            }
+                // Try to get the full response text
+                console.log('Attempting to get full response text...');
+                const text = await response.text();
+                console.log('Full response text:', text);
 
-                            try {
-                                const { token } = JSON.parse(data);
-                                currentResponse += token;
+                // Try to parse the response as SSE
+                const lines = text.split('\n');
+                console.log('Response lines:', lines);
+
+                let currentResponse = '';
+                for (const line of lines) {
+                    if (line.startsWith('data: ')) {
+                        const data = line.slice(6);
+                        if (data === '[DONE]') {
+                            console.log('Found [DONE] in text response');
+                            continue;
+                        }
+                        try {
+                            const parsedData = JSON.parse(data);
+                            if (parsedData.token) {
+                                console.log('Found token in text response:', parsedData.token);
+                                currentResponse += parsedData.token;
                                 setMessages((prev: Message[]) => {
                                     const newMessages = [...prev];
                                     const lastMessage = newMessages[newMessages.length - 1];
@@ -113,6 +146,113 @@ export const api = {
                                     }
                                     return newMessages;
                                 });
+                            }
+                        } catch (e) {
+                            console.error('Error parsing token from text:', e, 'Data:', data);
+                        }
+                    }
+                }
+
+                if (!currentResponse.trim()) {
+                    currentResponse = 'Sorry, I was unable to generate a response. Please try again.';
+                }
+
+                return {
+                    id: crypto.randomUUID(),
+                    role: 'assistant',
+                    content: currentResponse,
+                    timestamp: new Date(),
+                    graph_dir_path: dir_path
+                };
+            }
+
+            const reader = response.body?.getReader();
+            console.log('Reader created:', !!reader);
+            console.log('Reader type:', typeof reader);
+
+            const decoder = new TextDecoder();
+            let currentResponse = '';
+            let buffer = '';
+
+            if (!reader) {
+                throw new Error('Failed to get response reader');
+            }
+
+            try {
+                let chunkCount = 0;
+                console.log('Starting to read chunks...');
+                while (true) {
+                    console.log(`About to read chunk #${chunkCount + 1}...`);
+                    const { done, value } = await reader.read();
+                    chunkCount++;
+                    console.log(`Chunk #${chunkCount} - done: ${done}, value length: ${value?.length || 0}`);
+                    console.log(`Value type: ${typeof value}, Value:`, value);
+                    console.log(`Value as Uint8Array:`, value instanceof Uint8Array ? Array.from(value) : 'Not Uint8Array');
+
+                    if (done) {
+                        console.log('Stream reader done');
+                        break;
+                    }
+
+                    const chunk = decoder.decode(value, { stream: true });
+                    console.log('Received chunk:', JSON.stringify(chunk));
+                    console.log('Chunk length:', chunk.length);
+                    console.log('Chunk contains [DONE]:', chunk.includes('[DONE]'));
+                    console.log('Chunk contains data: :', chunk.includes('data: '));
+
+                    // Add to buffer and process complete lines
+                    buffer += chunk;
+
+                    while (true) {
+                        const newlineIndex = buffer.indexOf('\n');
+                        if (newlineIndex === -1) {
+                            // No complete line yet, wait for more data
+                            console.log('No complete line found, waiting for more data');
+                            break;
+                        }
+
+                        const line = buffer.substring(0, newlineIndex).trim();
+                        buffer = buffer.substring(newlineIndex + 1);
+
+                        console.log('Processing line:', JSON.stringify(line));
+                        if (line.startsWith('data: ')) {
+                            const data = line.slice(6);
+                            console.log('Processing data line:', data);
+
+                            if (data === '[DONE]') {
+                                console.log('Received [DONE] signal');
+                                // Don't break here, continue processing any remaining tokens
+                                continue;
+                            }
+
+                            try {
+                                const parsedData = JSON.parse(data);
+                                console.log('Parsed data:', parsedData);
+
+                                // Handle error tokens from server
+                                if (parsedData.error) {
+                                    console.error('Received error from server:', parsedData.error);
+                                    throw new Error(parsedData.error);
+                                }
+
+                                // Handle regular tokens
+                                if (parsedData.token) {
+                                    console.log('Adding token to response:', parsedData.token);
+                                    currentResponse += parsedData.token;
+                                    console.log('Current response so far:', currentResponse);
+                                    setMessages((prev: Message[]) => {
+                                        const newMessages = [...prev];
+                                        const lastMessage = newMessages[newMessages.length - 1];
+                                        if (lastMessage && lastMessage.role === 'assistant') {
+                                            lastMessage.content = currentResponse;
+                                        } else {
+                                            newMessages.push(createAssistantMessage(currentResponse, dir_path));
+                                        }
+                                        return newMessages;
+                                    });
+                                } else {
+                                    console.log('No token found in parsed data:', parsedData);
+                                }
                             } catch (e) {
                                 console.error('Error parsing token:', e, 'Data:', data);
                             }
@@ -122,6 +262,12 @@ export const api = {
             } catch (error) {
                 console.error('Streaming error:', error);
                 throw error;
+            }
+
+            // Check if we got any response
+            if (!currentResponse.trim()) {
+                console.warn('No response content received from server');
+                currentResponse = 'Sorry, I was unable to generate a response. Please try again.';
             }
 
             return {
@@ -144,9 +290,8 @@ export const api = {
                 console.error('Error fetching graph LLM conversations:', error);
                 throw error;
             }
-        }
+        },
     },
-
     // Playbook related API calls
     playbooks: {
         getAll: async (state: { type: "link" | "yearAndCount", queryParamsString: string }): Promise<MTAPlayBook[]> => {

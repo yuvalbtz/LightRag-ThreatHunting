@@ -193,6 +193,26 @@
       "embedding_max": null,
       "original_prompt": "what was my first question in the conversation",
       "timestamp": "2025-07-05T12:50:25.846115"
+    },
+    "098ae565b85988925e4c3f115abff3e5": {
+      "return": "{\"high_level_keywords\": [\"Network flow analysis\", \"Knowledge Graph (KG)\", \"Data quantification\"], \"low_level_keywords\": [\"192.168.10.16\", \"199.244.48.55:443\", \"TCP/UDP connections\", \"./AppDbStore/Friday-PortScan\", \"DNS server (192.168.10.3:53)\", \"flow count\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many flows in the graph kg ?",
+      "timestamp": "2025-07-11T13:38:24.566399"
+    },
+    "9f277d5e67b82439254ec1807820d64d": {
+      "return": "### Network Flow Count in Knowledge Graph  \nThe Knowledge Graph (KG) contains **54 distinct network flows** documented in its relationships data. These flows represent communications between various internal endpoints and the DNS server at 192.168.10.3:53, along with other network activities.  \n\nKey characteristics of these flows:  \n- **Protocol distribution**: Majority use UDP (protocol 17)  \n- **Primary destination**: 75 flows involve the DNS server (192.168.10.3:53)  \n- **Behavior**: All marked as \"normal\" with LOW threat level  \n\n---\n\n### References  \n1. [KG] Relationship entries 1-54 (unknown_source)  \n2. [KG] DNS server entity (192.168.10.3:53/17)  \n3. [DC] Network flow analysis: ./AppDbStore/Friday-PortScan (Sources 1-47)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many flows in the graph kg ?",
+      "timestamp": "2025-07-11T13:38:24.566399"
     }
   }
 }

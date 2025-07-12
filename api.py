@@ -1,3 +1,4 @@
+import inspect
 from fastapi import FastAPI, Form, HTTPException, Header, UploadFile, File, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
@@ -28,6 +29,7 @@ from datetime import datetime
 
 from agent import get_conversation_history
 from lightrag import QueryParam
+from lightrag.utils import stream_response
 
 
 # Configure comprehensive logging
@@ -322,33 +324,6 @@ async def build_knowledge_graph(
         raise HTTPException(status_code=500, detail=str(e))
 
 
-async def stream_response(response: str):
-    """Stream the response word by word with a small delay."""
-    logger.info("Starting stream_response function")
-    try:
-        # If response is a string, split it into words
-        if isinstance(response, str):
-            logger.info(f"Processing string response of length: {len(response)}")
-            words = response.split()
-            logger.info(f"Split into {len(words)} words")
-            for word in words:
-                yield f"data: {json.dumps({'token': word + ' '})}\n\n"
-                await asyncio.sleep(0.05)
-        # If response is already a generator, yield its chunks
-        else:
-            logger.info("Processing generator response")
-            async for chunk in response:
-                if chunk:
-                    yield f"data: {json.dumps({'token': chunk})}\n\n"
-                    await asyncio.sleep(0.05)
-    except Exception as e:
-        logger.error(f"Error in stream_response: {str(e)}", exc_info=True)
-        yield f"data: {json.dumps({'token': f'Error: {str(e)}'})}\n\n"
-    finally:
-        logger.info("Streaming completed, sending [DONE]")
-        yield "data: [DONE]\n\n"
-
-
 @app.post("/query/stream")
 async def query_stream(request: ChatRequest):
     """
@@ -399,14 +374,19 @@ async def query_stream(request: ChatRequest):
         )
 
         logger.info("Creating streaming response...")
+
         return StreamingResponse(
             stream_response(response),
             media_type="text/event-stream",
             headers={
-                "Cache-Control": "no-cache",
+                "Cache-Control": "no-cache, no-store, must-revalidate",
                 "Connection": "keep-alive",
                 "Content-Type": "text/event-stream",
                 "X-Accel-Buffering": "no",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Content-Type",
+                "Access-Control-Allow-Methods": "POST, OPTIONS",
+                "Transfer-Encoding": "chunked",
             },
         )
     except Exception as e:

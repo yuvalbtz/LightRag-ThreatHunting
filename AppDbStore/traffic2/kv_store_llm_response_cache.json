@@ -213,6 +213,26 @@
       "embedding_max": null,
       "original_prompt": "tell me what was my first question in this conversation ?",
       "timestamp": "2025-07-05T12:50:25.846115"
+    },
+    "4f2ab1582d9518ce40dec3d3dcdfc6d2": {
+      "return": "{\"high_level_keywords\": [\"Network flow analysis\", \"Malware detection\", \"C2 communication\"], \"low_level_keywords\": [\"SYN/ACK flags\", \"Styx exploit kit\", \"Simda malware\", \"Flow metadata\", \"Download/upload ratios\", \"Short flow durations\", \"Beaconing behavior\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many flows ?",
+      "timestamp": "2025-07-12T12:01:01.907167"
+    },
+    "4204b1f8cb8e18a640747e0b21d20b35": {
+      "return": "{\"high_level_keywords\": [\"Network Analysis\", \"Malware Communication Patterns\", \"Infrastructure Components\"], \"low_level_keywords\": [\"Nodes\", \"Simda Malware\", \"Styx Exploit Kit\", \"C2 Communication\", \"Flow Metadata\", \"Network Traffic Analysis\", \"June 29 2025 Analysis\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "and how many nodes ?",
+      "timestamp": "2025-07-12T12:01:01.907167"
     }
   }
 }

@@ -199,6 +199,56 @@
       "embedding_max": null,
       "original_prompt": "list all the patterns in this traffic",
       "timestamp": "2025-07-09T11:03:43.292588"
+    },
+    "77152298dfc36407df975706e51d1d14": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"Malicious activity detection\", \"Communication patterns\", \"Data transfer anomalies\", \"Cybersecurity threats\"], \"low_level_keywords\": [\"C2 beaconing\", \"Sequential port usage\", \"SYN/ACK patterns\", \"Asymmetric data transfers\", \"192.168.1.138\", \"188.116.34.246\", \"TCP/80\", \"UDP/53\", \"KG Relationships\", \"Ephemeral ports\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find crtical patters on the graph",
+      "timestamp": "2025-07-11T13:46:39.709463"
+    },
+    "dfed9d56439afac4560ce3a43a377f98": {
+      "return": "### Critical Patterns Identified in Network Traffic  \n\n#### 1. **Sequential Ephemeral Port Usage for HTTP**  \n- **Pattern**: Internal host `192.168.1.138` uses **consecutive ephemeral ports (49212–49234)** for 21 TCP/80 connections to external server `188.116.34.246`.  \n- **Criticality**:  \n  - Matches C2 beaconing tactics (e.g., malware like Simda/Styx) to evade detection.  \n  - Port `49234` transferred **1.8MB in 3ms** (503Kb/s), indicating potential data exfiltration (KG Relationship 7).  \n\n#### 2. **Burst SYN/ACK Patterns**  \n- **Pattern**: Repeated **3 SYN + 16–208 ACK sequences** in HTTP flows (e.g., Flow `1e039427`).  \n- **Criticality**:  \n  - Indicates staged command-and-control (C2) handshakes.  \n  - Observed in 14 flows with 65–73ms periodicity (KG Relationship 14).  \n\n#### 3. **Asymmetric Data Transfers**  \n- **Pattern**: Extreme download/upload ratios (e.g., **60:1** in Flow `893bf018`).  \n- **Criticality**:  \n  - Port `49234` received 1.8MB vs. sent 30KB (KG Relationship 7).  \n  - Consistent with malware exfiltrating data or downloading payloads.  \n\n#### 4. **DNS Query Irregularities**  \n- **Pattern**: 17 UDP/53 queries to internal DNS server `192.168.1.2` with:  \n  - Non-sequential source ports (50,950–64,465).  \n  - Low-volume payloads (140–264 bytes/flow).  \n- **Criticality**:  \n  - Potential DNS tunneling or beaconing, though lacking periodicity (KG Relationships 22–33).  \n\n#### 5. **Limited Internal Communications**  \n- **Pattern**: Only **2 NetBIOS broadcasts** to `192.168.1.255:137` and minimal DNS traffic internally.  \n- **Criticality**:  \n  - No lateral movement detected (`internal→internal→internal` chains absent).  \n  - Suggests compromised host focused on external C2 (KG Source 35).  \n\n---\n\n### Conclusion  \nThe critical patterns indicate **malicious outbound activity** from `192.168.1.138`, primarily involving HTTP-based C2 communication with `188.116.34.246`. No evidence of internal propagation exists.  \n\n---\n\n**References**  \n1. [KG] Relationship 7 (1.8MB transfer) - `unknown_source`  \n2. [KG] Source 7 (Port sequence) - `./AppDbStore/2013-12-27-traffic`  \n3. [KG] Relationship 14 (SYN/ACK pattern) - `unknown_source`  \n4. [KG] Relationship 20 (DNS queries) - `unknown_source`  \n5. [KG] Source 35 (NetBIOS) - `./AppDbStore/2013-12-27-traffic`",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find crtical patters on the graph",
+      "timestamp": "2025-07-11T13:46:39.709463"
+    },
+    "7dd47d8119312ea1dad2845ae9bb1f9e": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"Malicious activity detection\", \"Command and control (C2) communication\", \"Data exfiltration\", \"Cybersecurity threats\"], \"low_level_keywords\": [\"192.168.1.138\", \"188.116.34.246\", \"Sequential ephemeral ports\", \"SYN/ACK patterns\", \"Asymmetric data transfers\", \"DNS beaconing\", \"NetBIOS broadcasts\", \"KG Relationship 7\", \"KG Source 7\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "anything else ?",
+      "timestamp": "2025-07-11T13:46:39.709463"
+    },
+    "e89134ea67f5ed1c23c3cd42d0ca4bc5": {
+      "return": "### Critical Patterns in Network Traffic Graph  \n\n#### **1. High-Volume HTTP Data Exfiltration**  \n- **Pattern**: Massive 1.8MB download from `188.116.34.246:80` to `192.168.1.138:49234` in **3ms** (503Kb/s) via TCP/80 (KG Relationship 8).  \n- **Criticality**:  \n  - Extreme asymmetric transfer (60:1 download/upload ratio).  \n  - Matches malware exfiltration or payload delivery patterns.  \n\n#### **2. Sequential Ephemeral Port Usage**  \n- **Pattern**: Consecutive ports (`49212–49234`) used for 21 HTTP connections to the same external server.  \n- **Criticality**:  \n  - Indicates staged C2 communication (e.g., Simda/Styx malware tactics) (KG Source 7).  \n  - Observed in both TCP/80 and UDP/53 flows.  \n\n#### **3. Anomalous TCP Handshakes**  \n- **Pattern**: Repeated **SYN (3) + ACK (16–208)** sequences in HTTP flows (e.g., Flow `1e039427`).  \n- **Criticality**:  \n  - Non-standard handshake patterns suggest command-and-control (C2) activity.  \n  - Observed across multiple ports (KG Relationships 9–21).  \n\n#### **4. Low-Volume DNS Beaconing**  \n- **Pattern**: 17 UDP/53 queries to internal DNS server `192.168.1.2` from non-sequential ports (e.g., `50950`, `64465`).  \n- **Criticality**:  \n  - Irregular timing (1–65ms gaps) and small payloads (140–264 bytes) align with DNS tunneling or beaconing (KG Relationships 22–33).  \n\n#### **5. Limited Internal Activity**  \n- **Pattern**: Only 2 NetBIOS broadcasts to `192.168.1.255:137` and minimal internal DNS traffic.  \n- **Criticality**:  \n  - No lateral movement detected (`internal→internal→internal` chains absent).  \n  - Suggests compromised host focused on external C2 (KG Source 35).  \n\n---\n\n### **Conclusion**  \nThe graph highlights **malicious outbound activity** from `192.168.1.138`, dominated by HTTP-based data exfiltration/C2 communication. Critical indicators include rapid sequential port usage, asymmetric transfers, and anomalous handshakes.  \n\n---\n\n**References**  \n1. [KG] Relationship 8 (1.8MB transfer) - `unknown_source`  \n2. [KG] Source 7 (Port sequence analysis) - `./AppDbStore/2013-12-27-traffic`  \n3. [KG] Relationship 9 (SYN/ACK pattern) - `unknown_source`  \n4. [KG] Relationships 22–33 (DNS queries) - `unknown_source`  \n5. [KG] Source 35 (NetBIOS analysis) - `./AppDbStore/2013-12-27-traffic`",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "anything else ?",
+      "timestamp": "2025-07-11T13:46:39.709463"
+    },
+    "4f2ab1582d9518ce40dec3d3dcdfc6d2": {
+      "return": "{\"high_level_keywords\": [\"Network Traffic Analysis\", \"Flow Patterns\", \"Data Exfiltration\", \"C2 Communication\", \"DNS Beaconing\"], \"low_level_keywords\": [\"HTTP flows\", \"TCP/80\", \"UDP/53\", \"NetBIOS broadcasts\", \"192.168.1.138\", \"188.116.34.246\", \"49234\", \"KG Relationships 22\\u201333\", \"1.8MB transfer\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many flows ?",
+      "timestamp": "2025-07-12T11:12:44.397085"
     }
   }
 }

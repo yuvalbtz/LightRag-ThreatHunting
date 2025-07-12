@@ -1,6 +1,11 @@
 services:
   # Python Backend API with hot reload
   backend:
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    extra_hosts:
+      - "openrouter.ai:104.18.3.115"
     build:
       context: .
       dockerfile: Dockerfile.dev
