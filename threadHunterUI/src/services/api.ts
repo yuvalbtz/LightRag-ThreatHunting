@@ -61,7 +61,7 @@ export const api = {
     chat: {
         sendMessage: async (message: string, setMessages: (updater: (prev: Message[]) => Message[]) => void, dir_path: string): Promise<Message> => {
 
-            const response = await fetch(`${API_BASE_URL}/queryllm/stream`, {
+            const response = await fetch(`${API_BASE_URL}/query/stream`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

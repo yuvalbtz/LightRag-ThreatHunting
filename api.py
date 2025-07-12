@@ -34,7 +34,13 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[logging.StreamHandler(sys.stdout), logging.FileHandler("api.log")],
+    force=True,  # Force reconfiguration
 )
+
+# Configure lightrag logger specifically
+lightrag_logger = logging.getLogger("lightrag")
+lightrag_logger.setLevel(logging.INFO)
+lightrag_logger.propagate = True  # Allow propagation to root logger
 
 # Create logger for this module
 logger = logging.getLogger(__name__)
@@ -49,6 +55,18 @@ app = FastAPI(
     description="API for threat hunting and malware analysis using RAG",
     version="1.0.0",
 )
+
+
+@app.get("/test-logging")
+async def test_logging():
+    """Test endpoint to verify logging is working"""
+    logger.info("Test logging endpoint called")
+    logger.info("Performance monitoring should be visible in logs")
+    return {
+        "message": "Logging test successful",
+        "timestamp": datetime.now().isoformat(),
+    }
+
 
 # Add CORS middleware
 app.add_middleware(
@@ -321,7 +339,7 @@ async def build_knowledge_graph(
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.post("/queryllm/stream")
+@app.post("/query/stream")
 async def query_stream(request: ChatRequest):
     """
     Stream a response to a chat query.
@@ -362,6 +380,11 @@ async def query_stream(request: ChatRequest):
                 mode="hybrid",
                 conversation_history=history_conversation,
                 stream=True,
+                # Optimize for faster performance
+                top_k=30,  # Reduced from default 60
+                max_token_for_text_unit=2000,  # Reduced from default 4000
+                max_token_for_global_context=2000,  # Reduced from default 4000
+                max_token_for_local_context=2000,  # Reduced from default 4000
             ),
         )
 

@@ -1040,16 +1040,20 @@ async def stream_response(
     logger.info(f"Has __aiter__: {hasattr(response, '__aiter__')}")
 
     try:
-        # If response is a string, stream word by word
+        # If response is a string, stream in larger chunks for better performance
         if isinstance(response, str):
             logger.info(f"Processing string response of length: {len(response)}")
-            words = response.split()
-            logger.info(f"Split into {len(words)} words")
-            for word in words:
-                chunk = f"data: {json.dumps({'token': word + ' '})}\n\n"
-                logger.info(f"Yielding string chunk: {repr(chunk)}")
+
+            # Stream in larger chunks instead of word by word
+            chunk_size = 50  # characters per chunk
+            for i in range(0, len(response), chunk_size):
+                chunk_text = response[i : i + chunk_size]
+                chunk = f"data: {json.dumps({'token': chunk_text})}\n\n"
+                # logger.info(
+                #     f"Yielding string chunk #{i//chunk_size + 1}: {len(chunk_text)} chars"
+                # )
                 yield chunk
-                await asyncio.sleep(0.05)
+                await asyncio.sleep(0.01)  # Reduced delay for faster streaming
 
         # If response is an async generator
         elif inspect.isasyncgen(response):
@@ -1057,13 +1061,13 @@ async def stream_response(
             chunk_count = 0
             async for chunk in response:
                 chunk_count += 1
-                logger.info(f"Received chunk #{chunk_count}: {repr(chunk)}")
+                # logger.info(f"Received chunk #{chunk_count}: {repr(chunk)}")
                 if chunk:
                     data = f"data: {json.dumps({'token': chunk})}\n\n"
-                    logger.info(f"Yielding chunk #{chunk_count}: {repr(data)}")
+                    # logger.info(f"Yielding chunk #{chunk_count}: {repr(data)}")
                     yield data
-                    await asyncio.sleep(0.05)
-            logger.info(f"Generator completed after {chunk_count} chunks")
+                    await asyncio.sleep(0.01)  # Reduced delay for faster streaming
+            # logger.info(f"Generator completed after {chunk_count} chunks")
 
         # Fallback for other generator types
         elif hasattr(response, "__aiter__"):
@@ -1071,13 +1075,13 @@ async def stream_response(
             chunk_count = 0
             async for chunk in response:
                 chunk_count += 1
-                logger.info(f"Received chunk #{chunk_count}: {repr(chunk)}")
+                # logger.info(f"Received chunk #{chunk_count}: {repr(chunk)}")
                 if chunk:
                     data = f"data: {json.dumps({'token': chunk})}\n\n"
-                    logger.info(f"Yielding chunk #{chunk_count}: {repr(data)}")
+                    # logger.info(f"Yielding chunk #{chunk_count}: {repr(data)}")
                     yield data
-                    await asyncio.sleep(0.05)
-            logger.info(f"Generator completed after {chunk_count} chunks")
+                    await asyncio.sleep(0.01)  # Reduced delay for faster streaming
+            # logger.info(f"Generator completed after {chunk_count} chunks")
 
         else:
             logger.error(f"Unsupported response type: {type(response)}")

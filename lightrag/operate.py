@@ -706,6 +706,10 @@ async def kg_query(
     hashing_kv: BaseKVStorage | None = None,
     system_prompt: str | None = None,
 ) -> str | AsyncIterator[str]:
+    import time
+
+    total_start_time = time.time()
+
     # Handle cache
     use_model_func = (
         query_param.model_func
@@ -720,9 +724,15 @@ async def kg_query(
         return cached_response
 
     # Extract keywords using extract_keywords_only function which already supports conversation history
+    import time
+
+    start_time = time.time()
     hl_keywords, ll_keywords = await extract_keywords_only(
         query, query_param, global_config, hashing_kv
     )
+    keyword_time = time.time() - start_time
+    logger.info(f"Keyword extraction took {keyword_time:.2f} seconds")
+    print(f"🔍 Keyword extraction took {keyword_time:.2f} seconds")
 
     logger.debug(f"High-level keywords: {hl_keywords}")
     logger.debug(f"Low-level  keywords: {ll_keywords}")
@@ -748,6 +758,7 @@ async def kg_query(
     hl_keywords_str = ", ".join(hl_keywords) if hl_keywords else ""
 
     # Build context
+    start_time = time.time()
     context = await _build_query_context(
         ll_keywords_str,
         hl_keywords_str,
@@ -757,6 +768,9 @@ async def kg_query(
         text_chunks_db,
         query_param,
     )
+    context_time = time.time() - start_time
+    logger.info(f"Context building took {context_time:.2f} seconds")
+    print(f"🏗️ Context building took {context_time:.2f} seconds")
 
     if query_param.only_need_context:
         return context
@@ -783,19 +797,27 @@ async def kg_query(
     len_of_prompts = len(encode_string_by_tiktoken(query + sys_prompt))
     logger.debug(f"[kg_query]Prompt Tokens: {len_of_prompts}")
 
+    start_time = time.time()
     response = await use_model_func(
         query,
         system_prompt=sys_prompt,
         stream=query_param.stream,
     )
+    llm_time = time.time() - start_time
+    logger.info(f"LLM response generation took {llm_time:.2f} seconds")
+    print(f"🤖 LLM response generation took {llm_time:.2f} seconds")
 
-    # Handle streaming response by collecting all tokens
+    # Handle streaming response - return the async generator directly for streaming
     if hasattr(response, "__aiter__"):
-        # Collect all tokens from streaming response
-        full_response = ""
-        async for token in response:
-            full_response += token
-        response = full_response
+        # For streaming, return the async generator directly
+        if query_param.stream:
+            return response
+        else:
+            # Only collect all tokens for non-streaming mode
+            full_response = ""
+            async for token in response:
+                full_response += token
+            response = full_response
 
     if isinstance(response, str) and len(response) > len(sys_prompt):
         response = (
@@ -822,6 +844,11 @@ async def kg_query(
             cache_type="query",
         ),
     )
+
+    total_time = time.time() - total_start_time
+    logger.info(f"Total kg_query execution time: {total_time:.2f} seconds")
+    print(f"⏱️ Total kg_query execution time: {total_time:.2f} seconds")
+
     return response
 
 

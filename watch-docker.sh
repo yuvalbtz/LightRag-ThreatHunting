@@ -16,7 +16,7 @@ SERVER_PID=""
 # Function to start uvicorn server
 start_server() {
     echo "Starting uvicorn server..."
-    uvicorn api:app --host 0.0.0.0 --port 8000 --log-level info &
+    uvicorn api:app --host 0.0.0.0 --port 8000 --log-level info --log-config /dev/null &
     SERVER_PID=$!
     echo "Server started with PID: $SERVER_PID"
 }

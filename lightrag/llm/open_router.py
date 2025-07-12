@@ -139,9 +139,12 @@ async def _make_openrouter_request(
     # print(f"Headers: {headers}")
     # print(f"Payload: {payload}")
 
-    # Create session with custom DNS resolution
+    # Create session with custom DNS resolution and connection pooling
     session = requests.Session()
-    session.mount("https://", requests.adapters.HTTPAdapter(max_retries=3))
+    adapter = requests.adapters.HTTPAdapter(
+        max_retries=3, pool_connections=10, pool_maxsize=20
+    )
+    session.mount("https://", adapter)
 
     if stream:
         # Use requests for streaming like the official example
@@ -157,43 +160,43 @@ async def _make_openrouter_request(
                     json=payload,
                     stream=True,
                     verify=True,
-                    timeout=30,
+                    timeout=60,  # Increased timeout for better reliability
                 ) as r:
                     print(f"Response status: {r.status_code}")
-                    # print(f"Response headers: {dict(r.headers)}")
 
                     if r.status_code != 200:
                         error_text = r.text
                         logger.error(f"OpenRouter API error: {error_text}")
                         raise Exception(f"OpenRouter API error: {error_text}")
 
-                    for chunk in r.iter_content(chunk_size=1024, decode_unicode=True):
-                        buffer += chunk
-                        # print(f"Buffer length: {len(buffer)}")
+                    # Use smaller chunk size for faster processing
+                    for chunk in r.iter_content(chunk_size=512, decode_unicode=True):
+                        if chunk:
+                            buffer += chunk
 
-                        while True:
-                            # Find the next complete SSE line
-                            line_end = buffer.find("\n")
-                            if line_end == -1:
-                                break
+                            while True:
+                                # Find the next complete SSE line
+                                line_end = buffer.find("\n")
+                                if line_end == -1:
+                                    break
 
-                            line = buffer[:line_end].strip()
-                            buffer = buffer[line_end + 1 :]
+                                line = buffer[:line_end].strip()
+                                buffer = buffer[line_end + 1 :]
 
-                            if line.startswith("data: "):
-                                data = line[6:]
-                                if data == "[DONE]":
-                                    return
+                                if line.startswith("data: "):
+                                    data = line[6:]
+                                    if data == "[DONE]":
+                                        return
 
-                                try:
-                                    data_obj = json.loads(data)
-                                    content = data_obj["choices"][0]["delta"].get(
-                                        "content"
-                                    )
-                                    if content:
-                                        yield content
-                                except json.JSONDecodeError:
-                                    pass
+                                    try:
+                                        data_obj = json.loads(data)
+                                        content = data_obj["choices"][0]["delta"].get(
+                                            "content"
+                                        )
+                                        if content:
+                                            yield content
+                                    except json.JSONDecodeError:
+                                        pass
 
             except Exception as e:
                 logger.error(f"Unexpected streaming error: {e}")

@@ -97,25 +97,41 @@ def get_rag_instance(
                     host=OLLAMA_HOST,
                 ),
             ),
+            # Enable caching for better performance
+            enable_llm_cache=True,
+            enable_llm_cache_for_entity_extract=True,
+            embedding_cache_config={
+                "enabled": True,
+                "similarity_threshold": 0.95,
+                "use_llm_check": False,
+            },
         )
     else:
         return LightRAG(
             working_dir=f"./AppDbStore/{working_dir}",
             llm_model_func=openrouter_model_complete,
             llm_model_name=DEEPSEEK_MODEL,
-            llm_model_max_token_size=164000,
+            llm_model_max_token_size=32000,  # Reduced from 164000
             llm_model_kwargs={
                 "temperature": 0.0,
-                "num_ctx": 164000,
+                "num_ctx": 16000,  # Further reduced for faster processing
                 "stream": True,
             },
             embedding_func=EmbeddingFunc(
                 embedding_dim=768,
-                max_token_size=8192,
+                max_token_size=2048,  # Further reduced from 4096
                 func=lambda texts: ollama_embed(
                     texts, embed_model=EMBED_MODEL, host=OLLAMA_HOST
                 ),
             ),
+            # Enable caching for better performance
+            enable_llm_cache=True,
+            enable_llm_cache_for_entity_extract=True,
+            embedding_cache_config={
+                "enabled": True,
+                "similarity_threshold": 0.95,
+                "use_llm_check": False,
+            },
         )
 
 
