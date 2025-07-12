@@ -788,6 +788,15 @@ async def kg_query(
         system_prompt=sys_prompt,
         stream=query_param.stream,
     )
+
+    # Handle streaming response by collecting all tokens
+    if hasattr(response, "__aiter__"):
+        # Collect all tokens from streaming response
+        full_response = ""
+        async for token in response:
+            full_response += token
+        response = full_response
+
     if isinstance(response, str) and len(response) > len(sys_prompt):
         response = (
             response.replace(sys_prompt, "")
@@ -1106,6 +1115,14 @@ async def mix_kg_vector_query(
         system_prompt=sys_prompt,
         stream=query_param.stream,
     )
+
+    # Handle streaming response by collecting all tokens
+    if hasattr(response, "__aiter__"):
+        # Collect all tokens from streaming response
+        full_response = ""
+        async for token in response:
+            full_response += token
+        response = full_response
 
     # Clean up response content
     if isinstance(response, str) and len(response) > len(sys_prompt):
@@ -1982,6 +1999,14 @@ async def kg_query_with_keywords(
         system_prompt=sys_prompt,
         stream=query_param.stream,
     )
+
+    # Handle streaming response by collecting all tokens
+    if hasattr(response, "__aiter__"):
+        # Collect all tokens from streaming response
+        full_response = ""
+        async for token in response:
+            full_response += token
+        response = full_response
 
     # Clean up response content
     if isinstance(response, str) and len(response) > len(sys_prompt):

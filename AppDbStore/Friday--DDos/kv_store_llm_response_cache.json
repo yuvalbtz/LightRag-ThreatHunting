@@ -253,6 +253,126 @@
       "embedding_max": null,
       "original_prompt": "give me important insights from this graph",
       "timestamp": "2025-07-12T12:01:01.907167"
+    },
+    "ee60256a37f6e98cbcb8ac272340ccdc": {
+      "return": "{\"high_level_keywords\": [\"Malware communication patterns\", \"Network traffic analysis\", \"Behavioral patterns\"], \"low_level_keywords\": [\"SYN/ACK flags\", \"Download/Upload ratios\", \"Flow durations\", \"Packet length asymmetry\", \"RST flags\", \"Beaconing behavior\", \"TCP/UDP protocols\", \"Styx exploit kit\"]}",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "give me the patterns of this graph",
+      "timestamp": "2025-07-12T12:36:33.164670"
+    },
+    "0c05409fae05948a65a0b0dcb1b3cf3a": {
+      "return": "{\"high_level_keywords\": [\"Malware detection\", \"Network security threats\", \"Threat quantification\"], \"low_level_keywords\": [\"Simda malware\", \"Styx exploit kit\", \"C2 communication\", \"Flow metadata\", \"SYN/ACK flags\", \"Beaconing behavior\", \"TCP/UDP protocols\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many malwars do you see ?",
+      "timestamp": "2025-07-12T12:55:02.481500"
+    },
+    "a465e7b3d23c604fcf320ac8f0fd1cbd": {
+      "return": "### Malware Detection Analysis  \nThe provided Knowledge Base contains **no explicit malware identifications**. Key observations:  \n\n1. **Suspicious Patterns**:  \n   - 50+ network flows show \"high_packet_size_variance\" and \"anomalous\" behavior (Protocol 6 to 199.244.48.55:443)  \n   - Multiple endpoints (192.168.10.16:* ports) demonstrate repeated connections to external web servers with MEDIUM threat levels  \n\n2. **Notable Exceptions**:  \n   - One flow from 192.168.10.19:40295 to 172.217.10.238:443 shows HIGH threat level and \"irregular_timing\" (Source ID 23)  \n   - DNS server (192.168.10.3:53) interacts with UDP endpoints, but no C2 patterns identified  \n\n3. **Limitations**:  \n   - No malware signatures/hashes detected in flow metadata  \n   - \"Anomalous\" classifications don't equate to confirmed malware activity  \n   - Previous conversation references to Simda malware aren't reflected in this dataset  \n\nFor definitive malware identification, deeper packet inspection or endpoint analysis would be required.  \n\n---  \n**References**  \n1. [KG] unknown_source (Relationship Data: high_packet_size_variance patterns)  \n2. [DC] ./AppDbStore/Friday--DDos (Flow ID 23 with HIGH threat)  \n3. [KG] unknown_source (Network Entities: 192.168.10.16 endpoints)  \n4. [DC] ./AppDbStore/Friday--DDos (DNS server interactions)  \n5. [KG] unknown_source (Behavior classifications)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many malwars do you see ?",
+      "timestamp": "2025-07-12T12:55:02.481500"
+    },
+    "d083fb55f26684879816464cff3e5f2c": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"Malware detection\", \"Threat prioritization\"], \"low_level_keywords\": [\"high_packet_size_variance\", \"Flow ID 23\", \"192.168.10.19:40295\", \"172.217.10.238:443\", \"DNS server interactions\", \"Styx exploit kit\", \"C2 communication\", \"Threat levels (MEDIUM/HIGH)\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find important flows i nthe kg",
+      "timestamp": "2025-07-12T13:17:35.259393"
+    },
+    "add909dc4c9e0854b2f445222f17e598": {
+      "return": "{\"high_level_keywords\": [\"Suspicious patterns\", \"Network threat detection\", \"Anomalous behavior\", \"Malware communication\"], \"low_level_keywords\": [\"High_packet_size_variance\", \"Irregular_timing\", \"Threat levels (HIGH/MEDIUM)\", \"C2 patterns\", \"TCP/UDP protocols\", \"Styx exploit kit\", \"Beaconing behavior\", \"Protocol/port deviations\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "im looking for suspicios patterns",
+      "timestamp": "2025-07-12T13:25:17.645740"
+    },
+    "f418f794b4189478f9269448cec504cf": {
+      "return": "{\"high_level_keywords\": [\"Threat criticality\", \"Security risk assessment\", \"Malware detection patterns\"], \"low_level_keywords\": [\"HIGH threat level\", \"192.168.10.19:40295 to 172.217.10.238:443\", \"irregular_timing\", \"high_packet_size_variance\", \"C2 communication\", \"Threat level classifications\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find the most critical pattern",
+      "timestamp": "2025-07-12T13:27:19.319912"
+    },
+    "131dc392dc567d62b285e0d3a5f72d1b": {
+      "return": "{\"high_level_keywords\": [\"Suspicious network activity\", \"Malware detection\", \"Threat analysis\"], \"low_level_keywords\": [\"high_packet_size_variance\", \"anomalous behavior\", \"192.168.10.16:*\", \"192.168.10.19:40295\", \"MEDIUM/HIGH threat levels\", \"irregular_timing\", \"UDP endpoints\", \"flow metadata\", \"C2 patterns\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "is there more suspicious flows ?",
+      "timestamp": "2025-07-12T13:31:30.442575"
+    },
+    "26a183907c23c6289ce1abdf57fc38b1": {
+      "return": "{\"high_level_keywords\": [\"Network connections\", \"Graph analysis\", \"Connection quantification\"], \"low_level_keywords\": [\"network flows\", \"HIGH threat level\", \"MEDIUM threat level\", \"192.168.10.16:*\", \"192.168.10.19:40295\", \"172.217.10.238:443\", \"TCP/UDP protocols\", \"Flow ID 23\", \"DNS server interactions\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "how many connections in the graph ?",
+      "timestamp": "2025-07-12T13:38:36.934995"
+    },
+    "76a6fa3c85737cf5d0edd6a987c18dcc": {
+      "return": "{\"high_level_keywords\": [\"Malware communication patterns\", \"Network traffic analysis\", \"Threat detection\", \"C2 infrastructure\"], \"low_level_keywords\": [\"High_packet_size_variance\", \"Anomalous behavior\", \"192.168.10.19:40295\", \"172.217.10.238:443\", \"Irregular_timing\", \"TCP/UDP protocols\", \"DNS server interactions\", \"HIGH/MEDIUM threat levels\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "are there more relevant connections ?",
+      "timestamp": "2025-07-12T14:00:21.690223"
+    },
+    "219327bcee4b4b72e99e131bcd929431": {
+      "return": "### Expanded Network Connection Analysis  \n\n#### Primary Connection Hub  \n**199.244.48.55:443** (Web Server) acts as the central hub, receiving **272 anomalous flows** from internal endpoints (primarily `192.168.10.16:*`). Key characteristics:  \n- **50+ flows** exhibit `high_packet_size_variance` with MEDIUM threat levels  \n- Consistent protocol usage (TCP/6) and HTTPS port (443)  \n- Asymmetric data transfer patterns (e.g., 168 bytes sent vs. 57,920 bytes received in Flow ID 1)  \n\n#### Secondary Suspicious Connections  \n1. **External Web Servers**:  \n   - Repeated connections to Google-associated IPs (`172.217.*.*:443`) with MEDIUM threat levels and `irregular_timing` patterns  \n   - Facebook infrastructure (`31.13.71.7:443`, `31.13.66.36:443`) showing short-lived flows (e.g., 872ms duration)  \n\n2. **Internal Anomalies**:  \n   - DNS server (`192.168.10.3:53`) interacting with endpoint `192.168.10.25:53530` via TCP/389 (LDAP protocol)  \n   - Multiple endpoints (`192.168.10.17:*`) connecting to Twitter servers (`199.59.88.242:80/443`) with LOW threat classifications  \n\n#### Threat Distribution  \n| Threat Level | Flow Count | Key Characteristics |  \n|--------------|------------|---------------------|  \n| MEDIUM       | 40+        | High packet variance, HTTPS traffic |  \n| LOW          | 5          | Short durations, minimal data transfer |  \n\nNo HIGH-threat flows are explicitly documented in this dataset, though previous analysis referenced one HIGH-threat flow not present here.  \n\n---  \n**References**  \n1. [KG] unknown_source (199.244.48.55 connection patterns)  \n2. [DC] ./AppDbStore/Friday--DDos (Google/Facebook server interactions)  \n3. [KG] unknown_source (DNS server activity)  \n4. [DC] ./AppDbStore/Friday--DDos (Twitter server communications)  \n5. [KG] unknown_source (Threat level distribution)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "are there more relevant connections ?",
+      "timestamp": "2025-07-12T14:00:21.690223"
+    },
+    "4e1108200a160ef36410d8ade9245cdd": {
+      "return": "{\"high_level_keywords\": [\"Network traffic analysis\", \"Threat level distribution\", \"Anomalous communication patterns\"], \"low_level_keywords\": [\"199.244.48.55:443\", \"192.168.10.16:*\", \"TCP/6\", \"MEDIUM threat\", \"high_packet_size_variance\", \"172.217.*.*:443\", \"DNS server 192.168.10.3:53\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find matters entites",
+      "timestamp": "2025-07-12T14:05:31.246994"
+    },
+    "34e9ce2e2e8f1e3810bfe0c87de4effc": {
+      "return": "### Key Network Entities Analysis  \n\n#### 1. **Central Web Server (199.244.48.55:443/6)**  \n- **Role**: Primary hub for suspicious activity  \n- **Observations**:  \n  - Receives **272 anomalous flows** from internal endpoints (primarily `192.168.10.16:*`)  \n  - Exhibits `high_packet_size_variance` in 50+ flows (MEDIUM threat level)  \n  - Asymmetric data transfers (e.g., 168 bytes sent vs. 57,920 bytes received in Flow ID 13)  \n\n#### 2. **Internal Endpoints (192.168.10.16:*)**  \n- **Role**: Source of most anomalous traffic  \n- **Patterns**:  \n  - 40+ endpoints repeatedly connect to `199.244.48.55:443` via TCP/6  \n  - Consistent MEDIUM threat classifications with HTTPS traffic anomalies  \n\n#### 3. **High-Threat Endpoint (192.168.10.19:40295/6)**  \n- **Critical Finding**:  \n  - Single flow to `172.217.10.238:443` (Google-associated IP) with **HIGH threat level**  \n  - Characteristics: `irregular_timing`, long duration (116,228 seconds), and low data throughput  \n\n#### 4. **DNS Infrastructure**  \n- **Key Servers**:  \n  - `192.168.10.3:53/17`: Handles 63 UDP flows (normal behavior)  \n  - `192.168.10.1:53/17`: Processes 7 DNS queries  \n- **Anomaly**: TCP/389 (LDAP) connection from `192.168.10.25:53530` to DNS server  \n\n#### 5. **External Web Servers**  \n- **Notable Connections**:  \n  - Google infrastructure (`172.217.*.*:443`): Multiple MEDIUM-threat flows with `irregular_timing`  \n  - Facebook servers (`31.13.71.7:443`, `31.13.66.36:443`): Short-lived connections (~872ms)  \n\n---  \n**References**  \n1. [KG] unknown_source (199.244.48.55 connection patterns)  \n2. [DC] ./AppDbStore/Friday--DDos (Flow ID 23: 192.168.10.19 HIGH threat)  \n3. [KG] unknown_source (DNS server activity)  \n4. [DC] ./AppDbStore/Friday--DDos (Google/Facebook server interactions)  \n5. [KG] unknown_source (192.168.10.16 endpoint cluster)",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "find matters entites",
+      "timestamp": "2025-07-12T14:05:31.246994"
     }
   }
 }

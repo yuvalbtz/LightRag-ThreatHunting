@@ -56,7 +56,7 @@ async def _openrouter_model_if_cache(
     print("===== Entering OpenRouter LLM function =====")
     print(f"Model: {model}")
     print(f"Stream: {stream}")
-    print(f"Additional kwargs: {kwargs}")
+    # print(f"Additional kwargs: {kwargs}")
     print(f"Num of history messages: {len(history_messages)}")
     try:
         response = await _make_openrouter_request(
@@ -136,8 +136,8 @@ async def _make_openrouter_request(
     }
 
     print(f"Making request to: {api_base}")
-    print(f"Headers: {headers}")
-    print(f"Payload: {payload}")
+    # print(f"Headers: {headers}")
+    # print(f"Payload: {payload}")
 
     # Create session with custom DNS resolution
     session = requests.Session()
@@ -160,7 +160,7 @@ async def _make_openrouter_request(
                     timeout=30,
                 ) as r:
                     print(f"Response status: {r.status_code}")
-                    print(f"Response headers: {dict(r.headers)}")
+                    # print(f"Response headers: {dict(r.headers)}")
 
                     if r.status_code != 200:
                         error_text = r.text
@@ -169,7 +169,7 @@ async def _make_openrouter_request(
 
                     for chunk in r.iter_content(chunk_size=1024, decode_unicode=True):
                         buffer += chunk
-                        print(f"Buffer length: {len(buffer)}")
+                        # print(f"Buffer length: {len(buffer)}")
 
                         while True:
                             # Find the next complete SSE line

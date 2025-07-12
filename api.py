@@ -4,7 +4,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel
 from typing import Annotated, List, Optional, Dict, Any
-import asyncio
 import tempfile
 import os
 import logging
@@ -14,7 +13,7 @@ from examples.build_kg_helpers import (
     fetch_graph_folders_names_from_os,
 )
 from examples.cicflowmeter_helpers import pcap_to_flows
-from examples.insert_custom_kg import build_kg, csv_to_json_list, pcap_to_json_list
+from examples.insert_custom_kg import build_kg, csv_to_json_list
 from agent import (
     fetch_playbook_content,
     generate_visual_graph,
@@ -23,8 +22,6 @@ from agent import (
     fetch_all_playbooks,
     initialize_rag_ollama,
 )
-import json
-import time
 from datetime import datetime
 
 from agent import get_conversation_history
@@ -324,7 +321,7 @@ async def build_knowledge_graph(
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.post("/query/stream")
+@app.post("/queryllm/stream")
 async def query_stream(request: ChatRequest):
     """
     Stream a response to a chat query.

@@ -61,7 +61,7 @@ export const api = {
     chat: {
         sendMessage: async (message: string, setMessages: (updater: (prev: Message[]) => Message[]) => void, dir_path: string): Promise<Message> => {
 
-            const response = await fetch(`${API_BASE_URL}/query/stream`, {
+            const response = await fetch(`${API_BASE_URL}/queryllm/stream`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,9 +74,6 @@ export const api = {
                 }),
             });
 
-            console.log('Response status:', response.status);
-            console.log('Response headers:', Object.fromEntries(response.headers.entries()));
-            console.log('Response ok:', response.ok);
 
             if (!response.ok) {
                 throw new Error('Failed to send message');
@@ -98,26 +95,14 @@ export const api = {
                 };
             }
 
-            console.log('Response body type:', typeof response.body);
-            console.log('Response body:', response.body);
-            console.log('Response body null check:', response.body === null);
-            console.log('Response body undefined check:', response.body === undefined);
-            console.log('Response body keys:', response.body ? Object.keys(response.body) : 'No keys');
-            console.log('Response body is ReadableStream:', response.body instanceof ReadableStream);
-            console.log('Response body has getReader:', typeof response.body?.getReader === 'function');
-            console.log('Response body constructor:', (response.body as any)?.constructor?.name);
-            console.log('Response body toString:', response.body?.toString());
-            console.log('Response body valueOf:', response.body?.valueOf());
 
             // Check if response body is actually a readable stream
             if (!(response.body instanceof ReadableStream)) {
                 console.error('Response body is not a ReadableStream!');
-                console.error('Response body constructor:', (response.body as any)?.constructor?.name);
 
                 // Try to get the full response text
-                console.log('Attempting to get full response text...');
                 const text = await response.text();
-                console.log('Full response text:', text);
+
 
                 // Try to parse the response as SSE
                 const lines = text.split('\n');
